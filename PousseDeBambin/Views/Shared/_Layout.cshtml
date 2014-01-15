@@ -1,44 +1,87 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Merci La Cigogne !</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
+    @Styles.Render("~/Content/themes/base/css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+   
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/mlc/js")
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+    <header>
+        <div class="header_top">
+            ***REMOVED*** @Html.Partial("_BaseLine") -->
+            <a class="logo" href="@Url.Action("Index", "Home")">Mlle cigogne</a>
+            <div class="logo"></div>
+         </div>
+         @Html.Partial("_MainTabs")
+        <div class="header_bottom2"></div>
+        <div class="header_bottom"></div>
+        
+    </header>
+    ***REMOVED***div class="alert alert-success">
+        <p id="textBeta">
+            Merci La Cigogne vient de naître...et, comme tout être, va se perfectionner petit à petit. Ainsi
+            <a href="mailto:remi@mercilacigogne.com?subject=Retour Merci La Cigogne&cc=charles@mercilacigogne.com&body=Bonjour," target="_blank" class="alert-link">contactez nous</a> pour faire votre retour ! Vous ferez un cigogneau heureux !
+        </p>
+    </div>-->
+    <div class="container">
+
+        <div id="contentAndFooter" class="container">
+            <div id="body">
+                @RenderSection("breadCrumbs", required: false)
+                @RenderSection("featured", required: false)
+                <section id="mainSection">
+                    ***REMOVED*** Messages d'alerte divers-->
+                    @Html.Partial("_AlertMessages")
+                    @RenderBody()
+                </section>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            <footer>
+                @RenderSection("howItWorks", required: false)
+                @Html.Partial("_Footer")
+                @RenderSection("moreFooter", required: false)
+            </footer>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        ga('create', 'UA-40976520-1', 'mercilacigogne.com');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+        var vglnk = {
+            api_url: '//api.viglink.com/api',
+            key: 'b596a1035db9559938df9c389d05fd69'
+        };
+
+        (function (d, t) {
+            var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+            s.src = ('https:' == document.location.protocol ? vglnk.api_url :
+                     '//cdn.viglink.com/api') + '/vglnk.js';
+            var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+        }(document, 'script'));
+    </script>
+    ***REMOVED***<script type="text/javascript" src="http://s.skimresources.com/js/59995X1382328.skimlinks.js"></script>-->
 </body>
 </html>

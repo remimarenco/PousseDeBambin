@@ -1,0 +1,44 @@
+﻿@model PousseDeBambin.Models.List
+
+@{
+    // We are giving the name of the list to the title
+    ViewBag.Title = @Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+
+<div class="display-field">
+    @Html.DisplayFor(model => model.Description)
+</div>
+
+<div>
+    @Html.DisplayNameFor(model => model.BirthDate) : @Html.DisplayFor(model => model.BirthDate)
+</div>
+
+<table>
+    @foreach (var item in Model.Gifts)
+    {
+        <tr>
+            <td>
+                <img id="giftImg" src="@(item.ImageUrl)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a class="btn btn-success" href="@(item.WebSite)">Je te l'offre !</a>
+                <button type="button" class="btn btn-info">Je participe !</button>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ListId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

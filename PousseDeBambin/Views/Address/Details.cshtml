@@ -1,0 +1,43 @@
+﻿@model PousseDeBambin.Models.Address
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Address</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Zipcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zipcode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AddressID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

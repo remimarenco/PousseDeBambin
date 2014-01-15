@@ -1,0 +1,151 @@
+﻿@model PousseDeBambin.Models.List
+
+@{
+    ViewBag.Title = "Liste bientôt terminée \\o/";
+}
+
+<h2>Votre liste est bientôt terminée, encore un petit effort :)</h2>
+<h5>Psst, une petite astuce: Vous pouvez toujours revenir sur la liste, même si vous n'avez pas fini, avec cette url : @Url.Action("CreatePartTwo", "List", new { id = Model.ListId }, Request.Url.Scheme)</h5>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Check if there is a gift to modify or not
+        @{
+            if (ViewBag.GiftId != null)
+            {
+                @:HideCreateAndDisplayEdit();
+            }
+            else
+            {
+                @:HideEditAndDisplayCreate();
+            }
+        }
+    });
+
+
+    function UpdateUnobtrusiveValidation() {
+        $('form').removeData('validator');
+        $('form').removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse('form');
+    }
+
+    function CompleteAskCreate() {
+        UpdateUnobtrusiveValidation()
+        HideEditAndDisplayCreate()
+    }
+    function CompleteCreate() {
+        UpdateUnobtrusiveValidation()
+        // We update the list's display
+        UpdateGiftsList();
+    }
+
+    function CompleteDelete() {
+        // We update the list's display
+        UpdateGiftsList();
+    }
+
+    function HideEditAndDisplayCreate() {
+        $("#createPart").show();
+        $("#editPart").hide();
+    }
+
+    function HideCreateAndDisplayEdit() {
+        $("#editPart").show();
+        $("#createPart").hide();
+    }
+
+    function UpdateGiftsList() {
+        $.ajax({
+            url: '@Url.Action("GiftsList")',
+            dataType: 'html',
+            data: { 'id': '@Model.ListId' },
+            type: 'POST',
+            success: function (data) {
+                $('#divGiftsList').empty()
+                $('#divGiftsList').append(data)
+            }
+        });
+    }
+
+    function SuccessEdit(result) {
+        UpdateUnobtrusiveValidation();
+        if ($(result).find("[data-valmsg-summary=true]").length == 0) {
+            // We hide the create and display the edit
+            HideEditAndDisplayCreate();
+
+            // We update the list's display
+            UpdateGiftsList();
+        }
+        else {
+
+        }
+    }
+
+    function CompleteLoadingEdit() {
+        UpdateUnobtrusiveValidation()
+        HideCreateAndDisplayEdit();
+    }
+
+    // Failure
+
+    function FailEdit(request, error) {
+        //alert("Errors:"+error);
+    }
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 well" id="divGiftsList">
+            @Html.Action("GiftsList", Model)
+        </div>
+        <div class="col-md-9">
+            <div id="editPart">
+                @using (Ajax.BeginForm("EditPartial", "Gift", new AjaxOptions
+                                {
+                                    UpdateTargetId = "divEditGift",
+                                    HttpMethod = "Post",
+                                    InsertionMode = InsertionMode.Replace,
+                                    //OnSuccess = "CompleteEdit",
+                                    OnSuccess = "SuccessEdit",
+                                    OnFailure = "FailEdit"
+                                }))
+                {
+                    <div id="divEditGift">
+                        @if (ViewBag.GiftId != null)
+                        {
+                            @Html.Action("EditPartial", "Gift", new { giftID = ViewBag.GiftId })
+                        }
+                    </div>
+                }
+            </div>
+            <div id="createPart">
+                @using (Ajax.BeginForm("CreatePartial", "Gift", new AjaxOptions
+                                {
+                                    UpdateTargetId = "divCreateGift",
+                                    HttpMethod = "Post",
+                                    InsertionMode = InsertionMode.Replace,
+                                    OnSuccess = "CompleteCreate",
+                                }))
+                {
+                    <div id="divCreateGift">
+                        @Html.Action("CreatePartial", "Gift", new { listID = Model.ListId })
+                    </div>
+                }
+            </div>
+            <div id="createNewObject">
+                @using (Ajax.BeginForm("CreatePartial", "Gift", new { listID = Model.ListId }, new AjaxOptions
+                                {
+                                    UpdateTargetId = "divCreateGift",
+                                    HttpMethod = "Get",
+                                    InsertionMode = InsertionMode.Replace,
+                                    OnSuccess = "CompleteAskCreate"
+                                }))
+                {
+                    <div style="margin-top: 2%;">
+                        <input type="submit" class="btn btn-primary" value="Je veux rajouter un nouvel objet !" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

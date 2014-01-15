@@ -1,0 +1,33 @@
+﻿<div class="indexMessages">
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <a href="#" class="alert-link">@ViewBag.Success</a>
+        </div>
+    }
+
+    @if (ViewBag.Info != null)
+    {
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <a href="#" class="alert-link">@ViewBag.Info</a>
+        </div>
+    }
+
+    @if (ViewBag.Warning != null)
+    {
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <a href="#" class="alert-link">@ViewBag.Warning</a>
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <a href="#" class="alert-link">@ViewBag.Error</a>
+        </div>
+    }
+</div>

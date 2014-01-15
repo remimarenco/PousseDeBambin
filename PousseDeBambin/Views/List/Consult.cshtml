@@ -1,0 +1,30 @@
+﻿@model PousseDeBambin.Models.List
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div>
+    Bienvenue dans @Model.Name
+    , l'enfant de @Model.UserProfile.FirstName
+    @if (Model.BirthDate > DateTime.Now)
+    {
+        <span>va naître</span>
+    }
+    else
+    {
+        <span>est né</span>                                   
+    }
+    le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
+    @if (Model.BirthDate > DateTime.Now)
+    {
+        TimeSpan span=Model.BirthDate - DateTime.Now;
+        TimeSpan PartialDaysSpan = span.Add(new TimeSpan(1, 0, 0, 0));
+        <span> : J-@PartialDaysSpan.Days avant que la cigogne ne l'apporte !</span>
+    }
+</div>
+
+<h3>@Model.Description</h3>
+
+@Html.Action("DisplayListsGifts", Model.ListId)
+

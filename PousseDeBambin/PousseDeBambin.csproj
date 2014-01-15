@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Postal">
+      <HintPath>..\packages\postal.0.9.1\lib\net40\Postal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -172,14 +175,35 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\GiftAPIController.cs" />
+    <Compile Include="Controllers\ComingSoonController.cs" />
+    <Compile Include="Controllers\GiftController.cs" />
+    <Compile Include="Controllers\GiftStateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListAndGiftsController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Controllers\MiscellanousController.cs" />
+    <Compile Include="Controllers\OldHomeController.cs" />
+    <Compile Include="Controllers\ProspectController.cs" />
+    <Compile Include="Controllers\UsersListsController.cs" />
+    <Compile Include="DAL\PdbDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Diffbot\Media.cs" />
+    <Compile Include="Models\Diffbot\OfferPriceDetails.cs" />
+    <Compile Include="Models\Diffbot\Product.cs" />
+    <Compile Include="Models\Diffbot\Result.cs" />
+    <Compile Include="Models\Gift.cs" />
+    <Compile Include="Models\GiftState.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\List.cs" />
+    <Compile Include="Models\Prospect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -190,6 +214,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -227,6 +252,68 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\ThanksConfirmation.cshtml" />
+    <Content Include="Views\Account\ThanksRegister.cshtml" />
+    <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Address\Delete.cshtml" />
+    <Content Include="Views\Address\Details.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\ComingSoon\Index.cshtml" />
+    <Content Include="Views\Emails\GiftBought.cshtml" />
+    <Content Include="Views\Emails\NotfifEmail.cshtml" />
+    <Content Include="Views\Emails\RegisterEmail.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
+    <Content Include="Views\Gift\Create.cshtml" />
+    <Content Include="Views\Gift\Delete.cshtml" />
+    <Content Include="Views\Gift\Details.cshtml" />
+    <Content Include="Views\Gift\Edit.cshtml" />
+    <Content Include="Views\Gift\Index.cshtml" />
+    <Content Include="Views\Gift\_CreateGift.cshtml" />
+    <Content Include="Views\Gift\_EditPartial.cshtml" />
+    <Content Include="Views\GiftState\Create.cshtml" />
+    <Content Include="Views\GiftState\Delete.cshtml" />
+    <Content Include="Views\GiftState\Details.cshtml" />
+    <Content Include="Views\GiftState\Edit.cshtml" />
+    <Content Include="Views\GiftState\Index.cshtml" />
+    <Content Include="Views\GiftState\_DisplayGiftState.cshtml" />
+    <Content Include="Views\Home\Offline.cshtml" />
+    <Content Include="Views\Home\_Carousel.cshtml" />
+    <Content Include="Views\Home\_Links.cshtml" />
+    <Content Include="Views\List\Consult.cshtml" />
+    <Content Include="Views\List\Create.cshtml" />
+    <Content Include="Views\List\CreatePartTwo.cshtml" />
+    <Content Include="Views\List\Delete.cshtml" />
+    <Content Include="Views\List\Details.cshtml" />
+    <Content Include="Views\List\Edit.cshtml" />
+    <Content Include="Views\List\Index.cshtml" />
+    <Content Include="Views\List\Search.cshtml" />
+    <Content Include="Views\List\Share.cshtml" />
+    <Content Include="Views\List\_Create.cshtml" />
+    <Content Include="Views\List\_DisplayListsGifts.cshtml" />
+    <Content Include="Views\List\_GiftsList.cshtml" />
+    <Content Include="Views\ListAndGifts\Create.cshtml" />
+    <Content Include="Views\ListAndGifts\Delete.cshtml" />
+    <Content Include="Views\ListAndGifts\Details.cshtml" />
+    <Content Include="Views\ListAndGifts\Edit.cshtml" />
+    <Content Include="Views\ListAndGifts\Index.cshtml" />
+    <Content Include="Views\Miscellaneous\CGU.cshtml" />
+    <Content Include="Views\Miscellaneous\Help.cshtml" />
+    <Content Include="Views\Miscellaneous\LegalMentions.cshtml" />
+    <Content Include="Views\Miscellaneous\WebSitePlan.cshtml" />
+    <Content Include="Views\Prospect\Create.cshtml" />
+    <Content Include="Views\Prospect\Delete.cshtml" />
+    <Content Include="Views\Prospect\Details.cshtml" />
+    <Content Include="Views\Prospect\Edit.cshtml" />
+    <Content Include="Views\Prospect\Index.cshtml" />
+    <Content Include="Views\Shared\_AlertMessages.cshtml" />
+    <Content Include="Views\Shared\_BaseLine.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_HowItWorks.cshtml" />
+    <Content Include="Views\Shared\_MainTabs.cshtml" />
+    <Content Include="Views\Shared\_MoreFooter.cshtml" />
+    <Content Include="Views\UsersLists\_UsersLists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

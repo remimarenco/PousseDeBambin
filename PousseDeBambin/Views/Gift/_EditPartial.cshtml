@@ -1,0 +1,101 @@
+﻿@model PousseDeBambin.Models.Gift
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<fieldset>
+    <legend>Edition de cadeau</legend>
+
+    @Html.HiddenFor(model => model.ListID)
+    @Html.HiddenFor(model => model.GiftId)
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.WebSite)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.WebSite)
+        <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
+            <img id="editAjaxLoading" class="ajaxLoadingGift" src="~/Content/themes/base/images/loading/ajax-loader.gif" alt="Loading" />
+            Chercher automatiquement les informations de l'objet
+        </a>
+        @Html.ValidationMessageFor(model => model.WebSite)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ImageUrl)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.ImageUrl)
+        @Html.ValidationMessageFor(model => model.ImageUrl)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Price)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="spaceTop">
+        <input type="submit" class="btn btn-warning" value="J'ai terminé de modifier mon objet !" />
+    </div>
+</fieldset>
+
+
+<script>
+    $(function () {
+        $('#editAjaxLoading').hide();
+        $("#btnEditSearchObject").click(function () {
+            // We get the website
+            var website = $('#editPart #WebSite').val();
+
+            // Loading
+            $('#editAjaxLoading').show();
+
+            $.ajax({
+                url: 'http://api.diffbot.com/v2/product',
+                crossDomain: true,
+                data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
+                dataType: 'json',
+                type: 'GET',
+                success: function (data) {
+                    // Fill all divs with the return of the data
+
+                    // ImageUrl
+                    $("#editPart #ImageUrl").val(data.products[0].media[0].link);
+                    // Price
+                    $("#editPart #Price").val(data.products[0].offerPriceDetails.amount);
+                    // Title / Name of the product
+                    $("#editPart #Name").val(data.products[0].title);
+                    // Description
+                    $("#editPart #Description").val(data.products[0].description);
+
+                    $('#editAjaxLoading').hide();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                    $('#editAjaxLoading').hide();
+                }
+            });
+
+            return false;
+        });
+    });
+</script>

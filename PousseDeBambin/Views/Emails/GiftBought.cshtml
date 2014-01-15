@@ -1,0 +1,18 @@
+﻿To: @ViewBag.To
+From: Remi - Pousse De Bambin <remi@mercilacigogne.com>
+Subject: @Html.Raw(ViewBag.Subject)
+
+<p>Bonjour @ViewBag.FirstName !</p>
+<p>Bonne nouvelle, <strong>@ViewBag.BuyerName</strong> vient d'acheter votre cadeau <strong>@ViewBag.GiftName</strong> sur la liste <strong>@ViewBag.ListName</strong> ;).</p>
+
+@if(ViewBag.Message != String.Empty)
+{
+    <p>Il vous a également laissé un message :</p>
+    <blockquote>
+        <i>
+            @ViewBag.Message
+        </i>
+    </blockquote>
+}
+
+<p>Pour voir votre liste, suivez ce lien : <a href='@ViewBag.UrlList'>Ma Liste @ViewBag.ListName</a></p>

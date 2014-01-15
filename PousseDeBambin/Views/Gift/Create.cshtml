@@ -1,0 +1,19 @@
+﻿@model PousseDeBambin.Models.Gift
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@Html.BeginForm(){
+    @Html.Partial("_CreateGift", Model);
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
