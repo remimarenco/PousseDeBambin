@@ -16,7 +16,7 @@ namespace MerciLaCigogne.Controllers
 
         public ActionResult GetUsersLists(string username)
         {
-            UserProfile userProfile = db.UserProfiles.FirstOrDefault(u => u.UserName == username);
+            ApplicationUser userProfile = db.UserProfiles.FirstOrDefault(u => u.UserName == username);
             
             return PartialView("_UsersLists", userProfile);
         }

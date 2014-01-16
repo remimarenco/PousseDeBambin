@@ -9,6 +9,7 @@ using PousseDeBambin.Models;
 using PousseDeBambin.DAL;
 using PousseDeBambin.ViewModels;
 using System.Web.Security;
+using System.Net;
 
 namespace PousseDeBambin.Controllers
 {
@@ -208,13 +209,13 @@ namespace PousseDeBambin.Controllers
         {
             List list = db.Lists.Find(id);
             // On vérifie que cette liste n'appartient pas déjà à quelqu'un
-            if (list.UserId != db.UserProfiles.FirstOrDefault(u => u.UserName.Equals("Anonyme")).UserId
-                && list.UserId != (int)Membership.GetUser().ProviderUserKey)
+            if (list.UserProfile.Id != db.UserProfiles.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
+                && !list.UserProfile.Id.Equals(Membership.GetUser().ProviderUserKey.ToString()))
             {
                 return HttpNotFound("La liste ne vous appartient pas");
             }
             // On associe l'utilisateur authentifié à la liste
-            list.UserId = (int)Membership.GetUser().ProviderUserKey;
+            list.UserProfile.Id = Membership.GetUser().ProviderUserKey.ToString();
             db.SaveChanges();
             return RedirectToAction("Share", new { id = list.ListId });
         }
@@ -291,7 +292,7 @@ namespace PousseDeBambin.Controllers
             {
                 // If the user connected is not the same as the list's user
                 MembershipUser user = Membership.GetUser(User.Identity.Name);
-                if (user == null || (int)user.ProviderUserKey != (int)list.UserId)
+                if (user == null || user.ProviderUserKey.ToString().Equals(list.UserProfile.Id))
                 {
                     return false;
                 }

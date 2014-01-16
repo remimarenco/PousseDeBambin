@@ -30,9 +30,7 @@ namespace PousseDeBambin.Models
         public DateTime BirthDate { get; set; }
         
         /* TODO: La liste appartiendra à un ou l'utilisateur anonyme */
-        [ForeignKey("UserProfile")]
-        public int UserId { get; set; }
-        public virtual UserProfile UserProfile {get; set;}
+        public virtual ApplicationUser UserProfile {get; set;}
 
         public virtual ICollection<Gift> Gifts {get; set;}
     }

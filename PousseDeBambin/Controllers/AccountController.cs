@@ -265,7 +265,18 @@ namespace PousseDeBambin.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { 
+                    UserName = model.UserName,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    EmailAddress = model.EmailAddress,
+                    PhoneNumber = model.PhoneNumber,
+                    Street = model.Street,
+                    Zipcode = model.Zipcode,
+                    City = model.City,
+                    Country = model.Country,
+                    Lists = model.Lists
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
