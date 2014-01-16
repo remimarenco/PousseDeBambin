@@ -5,8 +5,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MerciLaCigogne.Models;
-using MerciLaCigogne.DAL;
+using PousseDeBambin.Models;
+using PousseDeBambin.DAL;
 using Postal;
 using System.Threading.Tasks;
 
@@ -14,7 +14,7 @@ namespace MerciLaCigogne.Controllers
 {
     public class GiftStateController : AsyncController
     {
-        private MlcDBContext db = new MlcDBContext();
+        private PdbDbContext db = new PdbDbContext();
 
         public ActionResult DisplayGiftState(int id = 0)
         {

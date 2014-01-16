@@ -5,17 +5,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MerciLaCigogne.Models;
-using MerciLaCigogne.DAL;
-using MerciLaCigogne.ViewModels;
+using PousseDeBambin.Models;
+using PousseDeBambin.DAL;
+using PousseDeBambin.ViewModels;
 using System.Web.Security;
-using MerciLaCigogne.Filters;
 
-namespace MerciLaCigogne.Controllers
+namespace PousseDeBambin.Controllers
 {
     public class ListController : Controller
     {
-        private MlcDBContext db = new MlcDBContext();
+        private PdbDbContext db = new PdbDbContext();
 
         //
         // GET: /List/
@@ -86,7 +85,6 @@ namespace MerciLaCigogne.Controllers
 
         // Get after the creation of the list
         // TODO: Finir cette fonction => Probleme avec le nom...
-        [AllowCrossSiteJson]
         public ActionResult CreatePartTwo(int id = 0, int giftID = 0)
         {
             List list = db.Lists.Find(id);
@@ -281,7 +279,7 @@ namespace MerciLaCigogne.Controllers
             ViewBag.FirstName = firstName;
             ViewBag.LastName = lastName;
 
-            List<MerciLaCigogne.Models.List> foundedLists = db.Lists.Where(l =>
+            List<PousseDeBambin.Models.List> foundedLists = db.Lists.Where(l =>
                 l.UserProfile.FirstName.ToUpper().Equals(firstName.ToUpper())).ToList();
 
             return View(foundedLists);

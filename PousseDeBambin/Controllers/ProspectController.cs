@@ -5,8 +5,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MerciLaCigogne.Models;
-using MerciLaCigogne.DAL;
+using PousseDeBambin.Models;
+using PousseDeBambin.DAL;
 using System.Data.Entity.Validation;
 
 namespace MerciLaCigogne.Controllers
@@ -14,7 +14,7 @@ namespace MerciLaCigogne.Controllers
     [Authorize(Roles="Admin")]
     public class ProspectController : Controller
     {
-        private MlcDBContext db = new MlcDBContext();
+        private PdbDbContext db = new PdbDbContext();
 
         //
         // GET: /Prospect/
