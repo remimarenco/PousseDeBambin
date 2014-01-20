@@ -69,5 +69,39 @@ namespace PousseDeBambin.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Votre prénom est obligatoire")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Prénom")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Votre nom est obligatoire")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Nom")]
+        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "L'adresse mail est obligatoire")]
+        [EmailAddress]
+        [Display(Name = "Votre Adresse Mail")]
+        public string EmailAddress { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Le numéro et le nom de la rue est obligatoire")]
+        [Display(Name = "Numéro et nom de la rue")]
+        public string Street { get; set; }
+
+        [Required(ErrorMessage = "Le code postal est obligatoire")]
+        [DataType(DataType.PostalCode)]
+        public int Zipcode { get; set; }
+
+        [Required(ErrorMessage = "La ville est obligatoire")]
+        public string City { get; set; }
+
+        [Required(ErrorMessage = "Le pays est obligatoire")]
+        public string Country { get; set; }
+
+        public virtual ICollection<List> Lists { get; set; }
     }
 }

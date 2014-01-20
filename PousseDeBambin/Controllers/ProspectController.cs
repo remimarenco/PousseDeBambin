@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
-using PousseDeBambin.DAL;
 using System.Data.Entity.Validation;
 
 namespace MerciLaCigogne.Controllers
@@ -14,7 +13,7 @@ namespace MerciLaCigogne.Controllers
     [Authorize(Roles="Admin")]
     public class ProspectController : Controller
     {
-        private PdbDbContext db = new PdbDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         //
         // GET: /Prospect/

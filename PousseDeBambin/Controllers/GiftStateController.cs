@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
-using PousseDeBambin.DAL;
 using Postal;
 using System.Threading.Tasks;
 
@@ -14,7 +13,7 @@ namespace MerciLaCigogne.Controllers
 {
     public class GiftStateController : AsyncController
     {
-        private PdbDbContext db = new PdbDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult DisplayGiftState(int id = 0)
         {

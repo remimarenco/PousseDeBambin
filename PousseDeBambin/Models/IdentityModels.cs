@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
 
 namespace PousseDeBambin.Models
 {
@@ -22,6 +26,13 @@ namespace PousseDeBambin.Models
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
+
+        public DbSet<Prospect> Prospects { get; set; }
+        public DbSet<Gift> Gifts { get; set; }
+        public DbSet<GiftState> GiftsStates { get; set; }
+        public DbSet<List> Lists { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }

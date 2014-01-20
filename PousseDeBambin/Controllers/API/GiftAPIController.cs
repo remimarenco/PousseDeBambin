@@ -1,5 +1,4 @@
-﻿using PousseDeBambin.DAL;
-using PousseDeBambin.Models;
+﻿using PousseDeBambin.Models;
 using PousseDeBambin.Models.Diffbot;
 using Postal;
 using System;
@@ -16,7 +15,7 @@ namespace PousseDeBambin.Controllers.API
 {
     public class GiftAPIController : ApiController
     {
-        private PdbDbContext db = new PdbDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         private string urlDiffBot = "http://api.diffbot.com/v2/product";
         private string tokenDiffBot = "2d5a54f7471c7958ae0c4d3dcdcd5592";
 

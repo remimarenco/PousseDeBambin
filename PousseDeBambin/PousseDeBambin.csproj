@@ -186,10 +186,14 @@
     <Compile Include="Controllers\OldHomeController.cs" />
     <Compile Include="Controllers\ProspectController.cs" />
     <Compile Include="Controllers\UsersListsController.cs" />
-    <Compile Include="DAL\PdbDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401161513521_InitialCreate.cs" />
+    <Compile Include="Migrations\201401161513521_InitialCreate.Designer.cs">
+      <DependentUpon>201401161513521_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Diffbot\Media.cs" />
@@ -317,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -324,6 +329,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401161513521_InitialCreate.resx">
+      <DependentUpon>201401161513521_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

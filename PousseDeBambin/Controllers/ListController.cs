@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
-using PousseDeBambin.DAL;
 using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
@@ -15,7 +14,7 @@ namespace PousseDeBambin.Controllers
 {
     public class ListController : Controller
     {
-        private PdbDbContext db = new PdbDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         //
         // GET: /List/
@@ -61,7 +60,7 @@ namespace PousseDeBambin.Controllers
         {
             try
             {
-                list.UserProfile = db.UserProfiles.FirstOrDefault(u => u.UserName == "Anonyme");
+                list.UserProfile = db.Users.FirstOrDefault(u => u.UserName == "Anonyme");
             }
             catch (DataException dex)
             {
@@ -209,7 +208,7 @@ namespace PousseDeBambin.Controllers
         {
             List list = db.Lists.Find(id);
             // On vérifie que cette liste n'appartient pas déjà à quelqu'un
-            if (list.UserProfile.Id != db.UserProfiles.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
+            if (list.UserProfile.Id != db.Users.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
                 && !list.UserProfile.Id.Equals(Membership.GetUser().ProviderUserKey.ToString()))
             {
                 return HttpNotFound("La liste ne vous appartient pas");
