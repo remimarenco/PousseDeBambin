@@ -26,7 +26,7 @@ namespace PousseDeBambin.Models
         
         [Required (ErrorMessage = "La date de naissance de l'enfant est obligatoire")]
         [Display(Name = "Livraison du futur bébé par une cigogne (date de naissance)")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd.MM.yy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
         
         /* TODO: La liste appartiendra à un ou l'utilisateur anonyme */

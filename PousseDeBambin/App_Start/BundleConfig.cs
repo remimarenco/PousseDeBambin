@@ -11,8 +11,14 @@ namespace PousseDeBambin
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            "~/Scripts/jquery-ui-{version}.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/localization/messages_fr.js",
+                        "~/Scripts/localization/methods_fr.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -23,9 +29,23 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                        "~/Content/css/jquery.ui.core.css",
+                        "~/Content/css/jquery.ui.resizable.css",
+                        "~/Content/css/jquery.ui.selectable.css",
+                        "~/Content/css/jquery.ui.accordion.css",
+                        "~/Content/css/jquery.ui.autocomplete.css",
+                        "~/Content/css/jquery.ui.button.css",
+                        "~/Content/css/jquery.ui.dialog.css",
+                        "~/Content/css/jquery.ui.slider.css",
+                        "~/Content/css/jquery.ui.tabs.css",
+                        "~/Content/css/jquery.ui.datepicker.css",
+                        "~/Content/css/jquery.ui.progressbar.css",
+                        "~/Content/css/jquery.ui.theme.css"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/main.css"));
         }
     }
 }

@@ -9,6 +9,7 @@ using PousseDeBambin.Models;
 using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
+using Microsoft.AspNet.Identity;
 
 namespace PousseDeBambin.Controllers
 {
@@ -113,9 +114,6 @@ namespace PousseDeBambin.Controllers
             }
 
             return View(list);
-
-            
-
         }
 
         // TODO: CreatePartTwo POST is only accessed on submit
@@ -150,7 +148,6 @@ namespace PousseDeBambin.Controllers
 
         //
         // GET: /List/Edit/5
-
         public ActionResult Edit(int id = 0)
         {
             List list = db.Lists.Find(id);
@@ -163,7 +160,6 @@ namespace PousseDeBambin.Controllers
 
         //
         // POST: /List/Edit/5
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(List list)
@@ -179,7 +175,6 @@ namespace PousseDeBambin.Controllers
 
         //
         // GET: /List/Delete/5
-
         public ActionResult Delete(int id = 0)
         {
             List list = db.Lists.Find(id);
@@ -192,7 +187,6 @@ namespace PousseDeBambin.Controllers
 
         //
         // POST: /List/Delete/5
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -209,12 +203,14 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             // On vérifie que cette liste n'appartient pas déjà à quelqu'un
             if (list.UserProfile.Id != db.Users.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
-                && !list.UserProfile.Id.Equals(Membership.GetUser().ProviderUserKey.ToString()))
+                && !list.UserProfile.Id.Equals(User.Identity.GetUserId()))
             {
                 return HttpNotFound("La liste ne vous appartient pas");
             }
             // On associe l'utilisateur authentifié à la liste
-            list.UserProfile.Id = Membership.GetUser().ProviderUserKey.ToString();
+            string UserName = User.Identity.GetUserName();
+            list.UserProfile = db.Users.FirstOrDefault(u => u.UserName.Equals(UserName));
+            //list.UserProfile.Id = User.Identity.GetUserId();
             db.SaveChanges();
             return RedirectToAction("Share", new { id = list.ListId });
         }
@@ -290,14 +286,13 @@ namespace PousseDeBambin.Controllers
             if (!list.UserProfile.UserName.Equals("Anonyme"))
             {
                 // If the user connected is not the same as the list's user
-                MembershipUser user = Membership.GetUser(User.Identity.Name);
-                if (user == null || user.ProviderUserKey.ToString().Equals(list.UserProfile.Id))
+                if (list.UserProfile.Id.Equals(User.Identity.GetUserId()))
                 {
-                    return false;
+                    return true;
                 }
                 else
                 {
-                    return true;
+                    return false;
                 }
             }
             return false;

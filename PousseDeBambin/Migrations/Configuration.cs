@@ -45,6 +45,8 @@ namespace PousseDeBambin.Migrations
                     Country = "France"
                 }
             );
+
+            context.SaveChanges();
         }
     }
 }
