@@ -73,7 +73,7 @@ namespace PousseDeBambin.Controllers.API
             email.NewPrice = newPrice;
             email.ListName = gift.List.Name;
             email.GiftName = gift.Name;
-            email.Subject = "[MerciLaCigogne] Un prix a changé dans votre liste "+gift.List.Name+" !";
+            email.Subject = "[Pousse De Bambin] Un prix a changé dans votre liste "+gift.List.Name+" !";
             //email.UrlHost = urlHost;
             email.Send();
         }

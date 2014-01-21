@@ -9,7 +9,7 @@ using PousseDeBambin.Models;
 using Postal;
 using System.Threading.Tasks;
 
-namespace MerciLaCigogne.Controllers
+namespace PousseDeBambin.Controllers
 {
     public class GiftStateController : AsyncController
     {
@@ -95,7 +95,7 @@ namespace MerciLaCigogne.Controllers
             // Then we send him the email
             dynamic email = new Email("GiftBought");
             email.To = emailAddress;
-            email.Subject = "[MerciLaCigogne] " + buyerName + " vient d'acheter un objet !";
+            email.Subject = "[Pousse De Bambin] " + buyerName + " vient d'acheter un objet !";
             email.BuyerName = buyerName;
             email.FirstName = firstName;
             email.GiftName = giftName;

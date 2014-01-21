@@ -37,7 +37,7 @@ namespace PousseDeBambin.Migrations
                     UserName = "Anonyme",
                     FirstName = "Ano",
                     LastName = "Nyme",
-                    EmailAddress = "remi@mercilacigogne.com",
+                    EmailAddress = "remi@poussedebambin.com",
                     PhoneNumber = "0614914252",
                     Street = "40 avenue guy de collongue",
                     Zipcode = 69130,

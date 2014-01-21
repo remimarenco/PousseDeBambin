@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using PousseDeBambin.Models;
 using System.Data.Entity.Validation;
 
-namespace MerciLaCigogne.Controllers
+namespace PousseDeBambin.Controllers
 {
     [Authorize(Roles="Admin")]
     public class ProspectController : Controller

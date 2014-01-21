@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
 
-namespace MerciLaCigogne.Controllers
+namespace PousseDeBambin.Controllers
 {
     public class ListAndGiftsController : Controller
     {
