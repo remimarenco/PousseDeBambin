@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using PousseDeBambin.Models;
+using Postal;
 
 namespace PousseDeBambin.Controllers
 {
@@ -53,7 +54,7 @@ namespace PousseDeBambin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Le nom d'utilisateur ou mot de passe fourni est incorrect.");
                 }
             }
 
@@ -93,7 +94,17 @@ namespace PousseDeBambin.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+
+                    // We send the email
+                    string urlHost = Request.Url.Host;
+
+                    dynamic email = new Email("RegisterEmail");
+                    email.To = model.EmailAddress;
+                    email.Subject = "[Pousse De Bambin] Validation de votre inscription !";
+                    email.UrlHost = urlHost;
+                    email.Send();
+
+                    return Redirect(Url.Action("ThanksRegister", "Account"));
                 }
                 else
                 {

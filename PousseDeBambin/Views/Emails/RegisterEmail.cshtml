@@ -4,9 +4,7 @@ Subject: @ViewBag.Subject
 
 <h1>Inscription réussie !</h1>
 <p>Félicitations @ViewBag.FirstName, vous venez de vous inscrire sur notre site de listes de naissance !</p>
-<p>
-    Voici le lien pour confirmer votre inscription :
-    <a href='@Url.Action("RegisterConfirmation", "Account", new { Id = ViewBag.ConfirmationToken }, Request.Url.Scheme)'>Confirmation d'inscription</a>
-</p>
-<p>A très bientôt sur notre site !</p>
+<p>Cliquez sur <a href="@ViewBag.UrlHost">ce lien</a> pour accéder directement à "Pousse De Bambin" !</p>
+
+<p>A très bientôt !</p>
 <p>Rémi et Marion</p>
