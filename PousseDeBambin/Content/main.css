@@ -97,9 +97,8 @@ header:after {
     text-decoration: none;
     line-height: 50px;
     font-family: arial;
-    font-family: 'amatic_scregular';
-    font-weight: bolder;
-    font-size: 24px;
+    font-family: 'amaticbold';
+    font-size: 28px;
     color: #000000;
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
@@ -139,12 +138,18 @@ header:after {
 .img-responsive {
     width: 100%;
     margin: 0;
+    position: relative;
+    z-index: 40;
 }
 
 .container_categories {
-    background: #e3eda0;
+    background: #fff;
     height: 431px;
     text-align: center;
+}
+
+.container_categories a {
+    margin-bottom: 20px;
 }
 
 .container_categories .cat:hover:after {
@@ -153,22 +158,26 @@ header:after {
 
 .container_categories .cat {
     background: url(img/home/fond_illus.png) no-repeat;
-    height: 391px;
-    width: 330px;
+    height: 383px;
+    width: 500px;
     font-family: 'bebas_neueregular';
     color: #808080;
     font-size: 30px;
-    padding-top: 40px;
-    position: relative;
+    padding-top: 106px;
     font-weight: normal;
+    position: relative;
+    z-index: 50;
+    margin-top: -125px;
 }
 
 .container_categories .cat1 {
     color: #296a52;
+    padding-bottom: 50px;
 }
 
 .container_categories .cat2 {
     color: #ea744e;
+    padding-bottom: 50px;
 }
 
 .container_categories .cat3 {
@@ -176,18 +185,18 @@ header:after {
 }
 
 .container_categories .cat1:after {
-    content: url(img/home/illu_creer.png);
+    content: url(img/home/illu_creer.jpg);
     position: absolute;
-    bottom: 5px;
-    left: 46px;
+    bottom: 55px;
+    left: 116px;
     transition: 0.5s;
 }
 
 .container_categories .cat2:after {
-    content: url(img/home/illu_offrir.png);
+    content: url(img/home/illu_offrir.jpg);
     position: absolute;
-    bottom: 5px;
-    left: 46px;
+    bottom: 55px;
+    left: 116px;
     transition: 0.5s;
 }
 
@@ -196,15 +205,6 @@ header:after {
     display: inline-block;
     text-align: center;
     vertical-align: top;
-}
-
-.container_categories:after {
-    background: #8ee3c9;
-    border-bottom: 20px solid #e5785a;
-    content: "";
-    display: block;
-    height: 10px;
-    width: 100%;
 }
 
 .marche {
