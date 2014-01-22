@@ -36,13 +36,24 @@ body {
 }
 
 .barre_connexion {
-    height: 50px;
+    height: 33px;
     background-color: #382a21;
+    padding-left: 800px;
+}
+
+.form-group {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.form-group .form-control {
+    border-radius: 1px;
+    border: #fff;
 }
 
 header {
     background: linear-gradient(#f4e98e, #aec383);
-    height: 220px;
+    height: 183px;
     position: relative;
 }
 
@@ -57,10 +68,10 @@ header .logo {
 
 header .header_bottom {
     background: url(img/home/herbe_header.png) repeat-x;
-    height: 68px;
+    height: 54px;
     position: relative;
     z-index: 10;
-    margin-top: 121px;
+    margin-top: 95px;
     border-bottom: solid 4px #382a21;
 }
 
@@ -69,8 +80,17 @@ header:before {
     content: url(img/home/champignons_header.png);
     left: 200px;
     position: absolute;
-    left: 1000px;
-    top: 30px;
+    left: 1030px;
+    top: 3px;
+}
+
+header:after {
+    height: 177px;
+    content: url(img/home/fleur_header.png);
+    left: 200px;
+    position: absolute;
+    right: 1000px;
+    top: -15px;
 }
 
 .menu a {
@@ -86,13 +106,13 @@ header:before {
     -moz-transition: all 0.3s ease-out;
     position: relative;
     z-index: 30;
-    margin-top: -15px;
+    margin-top: -20px;
 }
 
 .menu a:hover,
 #menu a:focus,
 #menu a.current {
-    color: #51a13a;
+    color: #af8c76;
 }
 
 .menu ul {
@@ -113,7 +133,7 @@ header:before {
 }
 
 .menu ul a {
-    line-height: 28px;
+    line-height: 0px;
 }
 
 .img-responsive {

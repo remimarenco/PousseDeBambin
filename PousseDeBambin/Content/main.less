@@ -40,14 +40,25 @@ body {
 }
 
 .barre_connexion {
-    height: 50px;
+    height: 33px;
     background-color: #382a21;
+    padding-left: 800px;
+}
+
+.form-group {
+    display: inline-block;
+    margin-top: 3px;
+
+    .form-control {
+        border-radius: 1px;
+        border: #fff;
+    }
 }
 
 header {
     background: linear-gradient(#f4e98e, #aec383);
-    height: 220px;
-    position:relative;
+    height: 183px;
+    position: relative;
 
 
 
@@ -56,17 +67,17 @@ header {
         height: 225px;
         width: 216px;
         display: inline-block;
-        z-index:20;
-        position:relative;
+        z-index: 20;
+        position: relative;
     }
 
 
     .header_bottom {
         background: url(img/home/herbe_header.png) repeat-x;
-        height: 68px;
+        height: 54px;
         position: relative;
         z-index: 10;
-        margin-top: 121px;
+        margin-top: 95px;
         border-bottom: solid 4px #382a21;
     }
 }
@@ -74,15 +85,24 @@ header {
     header:before {
         height: 177px;
         content: url(img/home/champignons_header.png);
-        left:200px;
-        position:absolute;
-        left:1000px;
-        top:30px;
-}
+        left: 200px;
+        position: absolute;
+        left: 1030px;
+        top: 3px;
+    }
+
+    header:after {
+        height: 177px;
+        content: url(img/home/fleur_header.png);
+        left: 200px;
+        position: absolute;
+        right: 1000px;
+        top: -15px;
+    }
 
 .menu a {
     text-decoration: none;
-    line-height:50px;
+    line-height: 50px;
     font-family: arial;
     font-family: 'amatic_scregular';
     font-weight: bolder;
@@ -91,14 +111,13 @@ header {
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
-    position:relative;
-    z-index:30;
-    margin-top: -15px;
-
+    position: relative;
+    z-index: 30;
+    margin-top: -20px;
 }
 
     .menu a:hover, #menu a:focus, #menu a.current {
-        color: darken(@menu_color, 40%);
+        color: lighten(#382a21, 40%);
     }
 
 .menu ul {
@@ -118,7 +137,7 @@ header {
     }
 
     a {
-        line-height: 28px;
+        line-height: 0px;
     }
 }
 
@@ -176,7 +195,7 @@ header {
         transition: 0.5s;
     }
 
- 
+
     a {
         text-decoration: none;
         display: inline-block;
