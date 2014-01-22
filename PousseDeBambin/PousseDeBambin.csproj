@@ -236,19 +236,21 @@
     <Content Include="Content\fonts\bebasneue-webfont.svg" />
     <Content Include="Content\fonts\generator_config.txt" />
     <Content Include="Content\fonts\marketingscript-webfont.svg" />
-    <Content Include="Content\img\home\bulle_06.png" />
-    <Content Include="Content\img\home\demi_cercle.png" />
-    <Content Include="Content\img\home\fond_categorie.png" />
-    <Content Include="Content\img\home\header_gifts.png" />
-    <Content Include="Content\img\home\illu_creer.png" />
-    <Content Include="Content\img\home\illu_identifier.png" />
-    <Content Include="Content\img\home\illu_offrir.png" />
-    <Content Include="Content\img\home\img_etape1.png" />
-    <Content Include="Content\img\home\img_etape2.png" />
-    <Content Include="Content\img\home\img_etape3.png" />
-    <Content Include="Content\img\home\menu_stars.png" />
-    <Content Include="Content\img\home\noeud.png" />
-    <Content Include="Content\img\home\photo_bebe.jpg" />
+    <Content Include="Content\img\home\baby.jpg" />
+    <Content Include="Content\img\home\banderole.png" />
+    <Content Include="Content\img\home\biberoncadeaux_footer.png" />
+    <Content Include="Content\img\home\champignons_header.png" />
+    <Content Include="Content\img\home\fleur_footer.jpg" />
+    <Content Include="Content\img\home\fleur_header.png" />
+    <Content Include="Content\img\home\fond_illus.png" />
+    <Content Include="Content\img\home\herbe_footer.png" />
+    <Content Include="Content\img\home\herbe_header.png" />
+    <Content Include="Content\img\home\illu_creer.jpg" />
+    <Content Include="Content\img\home\illu_offrir.jpg" />
+    <Content Include="Content\img\home\img_etape1.jpg" />
+    <Content Include="Content\img\home\img_etape2.jpg" />
+    <Content Include="Content\img\home\img_etape3.jpg" />
+    <Content Include="Content\img\home\logo.png" />
     <Content Include="Content\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
@@ -380,6 +382,7 @@
     <Content Include="Views\Shared\_MainTabs.cshtml" />
     <Content Include="Views\Shared\_MoreFooter.cshtml" />
     <Content Include="Views\UsersLists\_UsersLists.cshtml" />
+    <Content Include="Views\Shared\_ConnexionBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

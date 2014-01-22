@@ -21,14 +21,11 @@
     <meta name="description" content="The description of my page" />
 </head>
 <body>
+    @Html.Partial("_ConnexionBar")
     <header>
-        <div class="header_top">
             ***REMOVED*** @Html.Partial("_BaseLine") -->
-            <a class="logo" href="@Url.Action("Index", "Home")">Mlle cigogne</a>
-            <div class="logo"></div>
-         </div>
+                               
          @Html.Partial("_MainTabs")
-        <div class="header_bottom2"></div>
         <div class="header_bottom"></div>
         
     </header>
@@ -38,9 +35,9 @@
             <a href="mailto:remi@poussedebambin.com?subject=Retour Pousse De Bambin&cc=marion@poussedebambin.com&body=Bonjour," target="_blank" class="alert-link">contactez nous</a> pour faire votre retour ! Vous ferez une pousse heureux !
         </p>
     </div>-->
-    <div class="container">
+    <div class="">
 
-        <div id="contentAndFooter" class="container">
+        <div id="contentAndFooter" class="">
             <div id="body">
                 @RenderSection("breadCrumbs", required: false)
                 @RenderSection("featured", required: false)

@@ -19,11 +19,13 @@
                 }
                 
             </li>
+            <a class="logo" href="@Url.Action("Index", "Home")"></a>
+
             <li class="@(("List".Equals(controller) && !"Search".Equals(action) && !"Consult".Equals(action)) ? "active" : "")">
                 <a href="@Url.Action("Create", "List")">J'offre un cadeau</a>
             </li>
             <li class="@(("List".Equals(controller) && ("Search".Equals(action) || "Consult".Equals(action)))? "active" : "" )">
-                <a href="@Url.Action("Search", "List")">Qui sommes nous ?</a>
+                <a href="@Url.Action("Search", "List")">Qui sommes-nous ?</a>
             </li>
         </ul>
   

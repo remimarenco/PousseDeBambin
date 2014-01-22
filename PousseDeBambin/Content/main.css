@@ -35,41 +35,58 @@ body {
     padding: 0;
 }
 
-header {
-    background: linear-gradient(#4ab594, #8ee3c9);
+.barre_connexion {
+    height: 50px;
+    background-color: #382a21;
 }
 
-header .header_top {
-    height: 130px;
-    background: url(img/home/header_gifts.png) no-repeat;
-    background-position: 80% 0px;
+header {
+    background: linear-gradient(#f4e98e, #aec383);
+    height: 220px;
+    position: relative;
+}
+
+header .logo {
+    background: url(img/home/logo.png) no-repeat;
+    height: 225px;
+    width: 216px;
+    display: inline-block;
+    z-index: 20;
+    position: relative;
 }
 
 header .header_bottom {
-    background-color: #e5785a;
-    height: 16px;
+    background: url(img/home/herbe_header.png) repeat-x;
+    height: 68px;
     position: relative;
     z-index: 10;
-    margin-top: -20px;
+    margin-top: 121px;
+    border-bottom: solid 4px #382a21;
 }
 
-header .header_bottom2 {
-    background: url(img/home/demi_cercle.png) repeat-x;
-    height: 22px;
-    position: relative;
-    z-index: 20;
+header:before {
+    height: 177px;
+    content: url(img/home/champignons_header.png);
+    left: 200px;
+    position: absolute;
+    left: 1000px;
+    top: 30px;
 }
 
 .menu a {
     text-decoration: none;
+    line-height: 50px;
     font-family: arial;
-    font-family: 'amaticbold';
+    font-family: 'amatic_scregular';
     font-weight: bolder;
     font-size: 24px;
     color: #000000;
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
+    position: relative;
+    z-index: 30;
+    margin-top: -15px;
 }
 
 .menu a:hover,
@@ -80,20 +97,19 @@ header .header_bottom2 {
 
 .menu ul {
     height: 32px;
-    background-color: #c8e8bf;
     width: 100%;
     text-align: center;
     margin: 0;
-    border-bottom: 1px dashed #808080;
 }
 
 .menu ul li {
-    background-image: url(img/home/menu_stars.png);
     display: inline-block;
     margin-right: 30px;
-    padding-left: 48px;
+    padding-left: 20px;
     background-repeat: no-repeat;
     background-position: 0% 10px;
+    margin-top: 90px;
+    vertical-align: top;
 }
 
 .menu ul a {
@@ -116,7 +132,7 @@ header .header_bottom2 {
 }
 
 .container_categories .cat {
-    background: url(img/home/fond_categorie.png) no-repeat;
+    background: url(img/home/fond_illus.png) no-repeat;
     height: 391px;
     width: 330px;
     font-family: 'bebas_neueregular';
@@ -149,14 +165,6 @@ header .header_bottom2 {
 
 .container_categories .cat2:after {
     content: url(img/home/illu_offrir.png);
-    position: absolute;
-    bottom: 5px;
-    left: 46px;
-    transition: 0.5s;
-}
-
-.container_categories .cat3:after {
-    content: url(img/home/illu_identifier.png);
     position: absolute;
     bottom: 5px;
     left: 46px;

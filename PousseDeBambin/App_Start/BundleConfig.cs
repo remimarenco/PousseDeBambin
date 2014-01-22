@@ -44,7 +44,6 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.theme.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
                       "~/Content/main.css"));
         }
     }
