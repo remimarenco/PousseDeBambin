@@ -78,7 +78,6 @@ header .header_bottom {
 header:before {
     height: 177px;
     content: url(img/home/champignons_header.png);
-    left: 200px;
     position: absolute;
     left: 1030px;
     top: 3px;
@@ -205,20 +204,13 @@ header:after {
     vertical-align: top;
 }
 
-footer .row {
-    background: #f0e79c;
-    height: 400px;
-    display: block;
-    padding-top: 40px;
-}
-
 footer .marche {
     background: url(img/home/banderole.png) no-repeat;
     height: 80px;
     width: 424px;
     display: block;
     margin: 0 auto;
-    padding-left: 50px;
+    padding-left: 60px;
     padding-top: 10px;
 }
 
@@ -226,15 +218,95 @@ footer .marche p {
     color: #fff;
     font-family: 'Marketing Script';
     font-size: 30px;
+    position: absolute;
+    margin: 0px;
 }
 
-.howItWorksText {
-    font-family: 'marketing_scriptregular';
+.howItWorks_main {
+    background: url(img/home/herbe_footer.png) 0 100% repeat-x #f0e79c;
     text-align: center;
+    padding-top: 20px;
+    height: 400px;
+}
+
+.step {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+    color: #fff;
+}
+
+.step .howItWorksTextBig {
+    font-family: 'Marketing Script';
+    text-align: justify;
+    font-size: 20px;
+}
+
+.step .divNumberHowItWorks {
+    font-family: 'bebas_neueregular';
+    font-size: 30px;
+}
+
+.step1 {
+    background: url(img/home/img_etape1.jpg) no-repeat;
+    width: 281px;
+    height: 205px;
+}
+
+.step2 {
+    background: url(img/home/img_etape2.jpg) no-repeat;
+    width: 281px;
+    height: 201px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.step3 {
+    background: url(img/home/img_etape3.jpg) no-repeat;
+    width: 280px;
+    height: 216px;
 }
 
 .panel-body {
     position: relative;
     display: inline-block;
     vertical-align: top;
+}
+
+.howItWorks_main:after {
+    height: 364px;
+    width: 131px;
+    content: url(img/home/fleur_footer.png);
+    top: -270px;
+    left: 30px;
+    position: relative;
+    display: block;
+}
+
+#liensFooter .element {
+    display: inline;
+    margin: 40px;
+}
+
+#liensFooter a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'amatic_scregular';
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+
+#liensFooter a:hover,
+#liensFooter a:focus,
+#liensFooter a.current {
+    color: #af8c76;
+}
+
+#liensFooter .row {
+    background: #382a21;
+    height: 30px;
+    padding-top: 5px;
+    text-align: center;
 }
