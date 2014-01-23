@@ -1,6 +1,6 @@
 ﻿@import url("./mixin/mixins.less");
-@menu_color: #c8e8bf;
-@vert_cat: #e3eda0;
+@menu_color: #aec383;
+@vert_cat: #f4e98e;
 
 @font-face {
     font-family: 'amatic_scregular';
@@ -64,8 +64,8 @@ header {
 
     .logo {
         background: url(img/home/logo.png) no-repeat;
-        height: 225px;
-        width: 216px;
+        height: 210px;
+        width: 210px;
         display: inline-block;
         z-index: 20;
         position: relative;
@@ -77,8 +77,8 @@ header {
         height: 54px;
         position: relative;
         z-index: 10;
-        margin-top: 95px;
-        border-bottom: solid 4px #382a21;
+        margin-top: 92px;
+        border-bottom: solid 10px #382a21;
     }
 }
 
@@ -112,7 +112,7 @@ header {
     -moz-transition: all 0.3s ease-out;
     position: relative;
     z-index: 30;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
     .menu a:hover, #menu a:focus, #menu a.current {
@@ -149,7 +149,7 @@ header {
 
 .container_categories {
     background: #fff;
-    height: 431px;
+    height: 364px;
     text-align: center;
 
     a {
@@ -177,12 +177,10 @@ header {
 
     .cat1 {
         color: #296a52;
-        padding-bottom: 50px;
     }
 
     .cat2 {
         color: #ea744e;
-        padding-bottom: 50px;
     }
 
     .cat3 {
@@ -192,7 +190,7 @@ header {
     .cat1:after {
         content: url('img/home/illu_creer.jpg');
         position: absolute;
-        bottom: 55px;
+        bottom: 10px;
         left: 116px;
         transition: 0.5s;
     }
@@ -200,7 +198,7 @@ header {
     .cat2:after {
         content: url('img/home/illu_offrir.jpg');
         position: absolute;
-        bottom: 55px;
+        bottom: 8px;
         left: 116px;
         transition: 0.5s;
     }
@@ -214,14 +212,38 @@ header {
     }
 }
 
+footer {
+    .row {
+        background: #f0e79c;
+        height: 400px;
+        display: block;
+        padding-top: 40px;
+    }
 
+    .marche {
+        background: url('img/home/banderole.png') no-repeat;
+        height: 80px;
+        width: 424px;
+        display: block;
+        margin: 0 auto;
+        padding-left: 50px;
+        padding-top: 10px;
 
-.marche {
-    background: url('img/home/bulle_06.png') no-repeat;
-    width: 230px;
-    height: 131px;
+        p {
+            color: #fff;
+            font-family: 'Marketing Script';
+            font-size: 30px;
+        }
+    }
 }
+
 
 .howItWorksText {
     font-family: 'marketing_scriptregular';
+    text-align: center;
+}
+.panel-body{
+  position:relative;
+  display:inline-block;
+  vertical-align:top;
 }

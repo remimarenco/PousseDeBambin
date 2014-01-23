@@ -59,8 +59,8 @@ header {
 
 header .logo {
     background: url(img/home/logo.png) no-repeat;
-    height: 225px;
-    width: 216px;
+    height: 210px;
+    width: 210px;
     display: inline-block;
     z-index: 20;
     position: relative;
@@ -71,8 +71,8 @@ header .header_bottom {
     height: 54px;
     position: relative;
     z-index: 10;
-    margin-top: 95px;
-    border-bottom: solid 4px #382a21;
+    margin-top: 92px;
+    border-bottom: solid 10px #382a21;
 }
 
 header:before {
@@ -105,7 +105,7 @@ header:after {
     -moz-transition: all 0.3s ease-out;
     position: relative;
     z-index: 30;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
 .menu a:hover,
@@ -144,7 +144,7 @@ header:after {
 
 .container_categories {
     background: #fff;
-    height: 431px;
+    height: 364px;
     text-align: center;
 }
 
@@ -172,12 +172,10 @@ header:after {
 
 .container_categories .cat1 {
     color: #296a52;
-    padding-bottom: 50px;
 }
 
 .container_categories .cat2 {
     color: #ea744e;
-    padding-bottom: 50px;
 }
 
 .container_categories .cat3 {
@@ -187,7 +185,7 @@ header:after {
 .container_categories .cat1:after {
     content: url(img/home/illu_creer.jpg);
     position: absolute;
-    bottom: 55px;
+    bottom: 10px;
     left: 116px;
     transition: 0.5s;
 }
@@ -195,7 +193,7 @@ header:after {
 .container_categories .cat2:after {
     content: url(img/home/illu_offrir.jpg);
     position: absolute;
-    bottom: 55px;
+    bottom: 8px;
     left: 116px;
     transition: 0.5s;
 }
@@ -207,12 +205,36 @@ header:after {
     vertical-align: top;
 }
 
-.marche {
-    background: url(img/home/bulle_06.png) no-repeat;
-    width: 230px;
-    height: 131px;
+footer .row {
+    background: #f0e79c;
+    height: 400px;
+    display: block;
+    padding-top: 40px;
+}
+
+footer .marche {
+    background: url(img/home/banderole.png) no-repeat;
+    height: 80px;
+    width: 424px;
+    display: block;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+footer .marche p {
+    color: #fff;
+    font-family: 'Marketing Script';
+    font-size: 30px;
 }
 
 .howItWorksText {
     font-family: 'marketing_scriptregular';
+    text-align: center;
+}
+
+.panel-body {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
 }
