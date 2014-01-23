@@ -276,6 +276,7 @@
     <Content Include="Content\fonts\marketingscript-webfont.woff" />
     <Content Include="Content\fonts\specimen_files" />
     <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
+    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
