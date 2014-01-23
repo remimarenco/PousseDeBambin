@@ -21,9 +21,10 @@
     <meta name="description" content="The description of my page" />
 </head>
 <body>
-    @Html.Partial("_ConnexionBar")
+    
     <header>
-            ***REMOVED*** @Html.Partial("_BaseLine") -->
+        @Html.Partial("_ConnexionBar", null, new ViewDataDictionary<PousseDeBambin.Models.LoginViewModel>()))
+        ***REMOVED*** @Html.Partial("_BaseLine") -->
                                
          @Html.Partial("_MainTabs")
         <div class="header_bottom"></div>

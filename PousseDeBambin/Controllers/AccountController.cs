@@ -325,6 +325,12 @@ namespace PousseDeBambin.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult LogOffGet()
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
@@ -339,6 +345,13 @@ namespace PousseDeBambin.Controllers
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ConnectedMenu()
+        {
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            return PartialView("_ConnectedMenu", user);
         }
 
         protected override void Dispose(bool disposing)
