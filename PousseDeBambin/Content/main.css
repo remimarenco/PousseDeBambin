@@ -78,6 +78,7 @@ header .header_bottom {
 header:before {
     height: 177px;
     content: url(img/home/champignons_header.png);
+    left: 200px;
     position: absolute;
     left: 1030px;
     top: 3px;
@@ -204,13 +205,20 @@ header:after {
     vertical-align: top;
 }
 
+footer .row {
+    background: #f0e79c;
+    height: 400px;
+    display: block;
+    padding-top: 40px;
+}
+
 footer .marche {
     background: url(img/home/banderole.png) no-repeat;
     height: 80px;
     width: 424px;
     display: block;
     margin: 0 auto;
-    padding-left: 60px;
+    padding-left: 50px;
     padding-top: 10px;
 }
 
@@ -218,54 +226,11 @@ footer .marche p {
     color: #fff;
     font-family: 'Marketing Script';
     font-size: 30px;
-    position: absolute;
-    margin: 0px;
 }
 
-.howItWorks_main {
-    background: url(img/home/herbe_footer.png) 0 100% repeat-x #f0e79c;
+.howItWorksText {
+    font-family: 'marketing_scriptregular';
     text-align: center;
-    padding-top: 20px;
-    height: 400px;
-}
-
-.step {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    vertical-align: bottom;
-    color: #fff;
-}
-
-.step .howItWorksTextBig {
-    font-family: 'Marketing Script';
-    text-align: justify;
-    font-size: 20px;
-}
-
-.step .divNumberHowItWorks {
-    font-family: 'bebas_neueregular';
-    font-size: 30px;
-}
-
-.step1 {
-    background: url(img/home/img_etape1.jpg) no-repeat;
-    width: 281px;
-    height: 205px;
-}
-
-.step2 {
-    background: url(img/home/img_etape2.jpg) no-repeat;
-    width: 281px;
-    height: 201px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.step3 {
-    background: url(img/home/img_etape3.jpg) no-repeat;
-    width: 280px;
-    height: 216px;
 }
 
 .panel-body {
@@ -274,39 +239,53 @@ footer .marche p {
     vertical-align: top;
 }
 
-.howItWorks_main:after {
-    height: 364px;
-    width: 131px;
-    content: url(img/home/fleur_footer.png);
-    top: -270px;
-    left: 30px;
+/* Dropdown-SubMenu */
+.dropdown-submenu {
     position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
     display: block;
 }
 
-#liensFooter .element {
-    display: inline;
-    margin: 40px;
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #cccccc;
+    margin-top: 5px;
+    margin-right: -10px;
 }
 
-#liensFooter a {
-    text-decoration: none;
-    color: #fff;
-    font-family: 'amatic_scregular';
-    -webkit-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
+.dropdown-submenu:hover > a:after {
+    border-left-color: #ffffff;
 }
 
-#liensFooter a:hover,
-#liensFooter a:focus,
-#liensFooter a.current {
-    color: #af8c76;
+.dropdown-submenu .pull-left {
+    float: none;
 }
 
-#liensFooter .row {
-    background: #382a21;
-    height: 30px;
-    padding-top: 5px;
-    text-align: center;
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
 }
+
+/* End Dropdown-SubMenu */

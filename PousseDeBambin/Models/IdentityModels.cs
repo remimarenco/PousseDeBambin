@@ -34,9 +34,5 @@ namespace PousseDeBambin.Models
         public DbSet<GiftState> GiftsStates { get; set; }
         public DbSet<List> Lists { get; set; }
         public DbSet<Address> Addresses { get; set; }
-
-        public System.Data.Entity.DbSet<PousseDeBambin.Models.ApplicationUser> ApplicationUsers { get; set; }
-
-        public System.Data.Entity.DbSet<PousseDeBambin.Models.LoginViewModel> LoginViewModels { get; set; }
     }
 }

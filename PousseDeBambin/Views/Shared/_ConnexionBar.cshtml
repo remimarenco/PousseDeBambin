@@ -1,26 +1,37 @@
 ﻿@model PousseDeBambin.Models.LoginViewModel
 
-@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    <div class="barre_connexion">
-        <div class="form-group">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = " Nom d'utilisateur" })
-            @Html.ValidationMessageFor(m => m.UserName)
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
 
-        </div>
-    <div class="form-group">
+<div class="barre_connexion">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = " Mot de passe" })
-            @Html.ValidationMessageFor(m => m.Password)
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = " Nom d'utilisateur" })
+                @Html.ValidationMessageFor(m => m.UserName)
 
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Log in" class="btn btn-default" />
-        </div>
-    </div>
-    
-    </div>
-}
+            </div>
+            <div class="form-group">
+
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = " Mot de passe" })
+                @Html.ValidationMessageFor(m => m.Password)
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Log in" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        Html.RenderAction("ConnectedMenu", "Account");
+    }
+</div>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
