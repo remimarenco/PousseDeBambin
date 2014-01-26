@@ -3,6 +3,7 @@
 <link href="~/Content/css/bootstrap.css" rel="stylesheet">
 
 <div class="barre_connexion">
+    ***REMOVED*** Si l'utilisateur n'est pas identifié, on affiche un formulaire de login + register -->
     @if (!User.Identity.IsAuthenticated)
     {
         using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -28,6 +29,7 @@
             </div>
         }
     }
+    ***REMOVED*** Sinon on affiche le menu utilisateur -->
     else
     {
         Html.RenderAction("ConnectedMenu", "Account");
