@@ -18,5 +18,10 @@ namespace PousseDeBambin.Controllers
         {
             return View();
         }
+
+        public ActionResult WhoAreWe()
+        {
+            return View();
+        }
     }
 }
