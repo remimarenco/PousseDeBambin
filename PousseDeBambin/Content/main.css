@@ -52,9 +52,13 @@ body {
 }
 
 header {
-    background: linear-gradient(#f4e98e, #aec383);
+    background-image: -webkit-linear-gradient(#f4e98e, #f4e98e 50%, #aec383);
+    background-image: linear-gradient(#f4e98e, #f4e98e 50%, #aec383);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4e98e', endColorstr='#ffaec383', GradientType=0);
     height: 183px;
     position: relative;
+    z-index: 5;
 }
 
 header .logo {
@@ -75,21 +79,22 @@ header .header_bottom {
     border-bottom: solid 10px #382a21;
 }
 
-header:before {
+header:after {
     height: 177px;
     content: url(img/home/champignons_header.png);
     position: absolute;
-    left: 1030px;
+    left: 50%;
     top: 3px;
+    margin-left: 350px;
 }
 
-header:after {
+header:before {
     height: 177px;
     content: url(img/home/fleur_header.png);
-    left: 200px;
+    left: 50%;
     position: absolute;
-    right: 1000px;
     top: -15px;
+    margin-left: -480px;
 }
 
 .menu a {
@@ -206,9 +211,7 @@ header:after {
 
 footer .row {
     background: #f0e79c;
-    height: 400px;
     display: block;
-    padding-top: 40px;
 }
 
 footer .marche {
@@ -217,23 +220,37 @@ footer .marche {
     width: 424px;
     display: block;
     margin: 0 auto;
-    padding-left: 60px;
     padding-top: 10px;
-}
-
-footer .marche p {
+    text-align: center;
     color: #fff;
     font-family: 'Marketing Script';
     font-size: 30px;
-    position: absolute;
-    margin: 0px;
+    text-indent: -20px;
 }
 
 .howItWorks_main {
     background: url(img/home/herbe_footer.png) 0 100% repeat-x #f0e79c;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 30px;
     height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.howItWorks_main:before {
+    content: url(img/home/fleur_footer.png);
+    bottom: -15px;
+    left: 50%;
+    margin-left: -640px;
+    position: absolute;
+}
+
+.howItWorks_main:after {
+    content: url(img/home/biberoncadeaux_footer.png);
+    bottom: -20px;
+    left: 50%;
+    margin-left: 440px;
+    position: absolute;
 }
 
 .step {
@@ -242,53 +259,42 @@ footer .marche p {
     text-align: center;
     vertical-align: bottom;
     color: #fff;
+    width: 280px;
+    height: 215px;
 }
 
-.step .howItWorksTextBig {
+.step + .step {
+    margin-left: 20px;
+}
+
+.step.step1 {
+    background: url(img/home/img_etape1.jpg) no-repeat 0 100%;
+}
+
+.step.step2 {
+    background: url(img/home/img_etape2.jpg) no-repeat 0 100%;
+}
+
+.step.step3 {
+    background: url(img/home/img_etape3.jpg) no-repeat 0 100%;
+}
+
+.step .howItWorksText {
     font-family: 'Marketing Script';
-    text-align: justify;
+    text-align: center;
     font-size: 20px;
 }
 
-.step .divNumberHowItWorks {
+.step .numberHowItWorks {
     font-family: 'bebas_neueregular';
     font-size: 30px;
-}
-
-.step1 {
-    background: url(img/home/img_etape1.jpg) no-repeat;
-    width: 281px;
-    height: 205px;
-}
-
-.step2 {
-    background: url(img/home/img_etape2.jpg) no-repeat;
-    width: 281px;
-    height: 201px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.step3 {
-    background: url(img/home/img_etape3.jpg) no-repeat;
-    width: 280px;
-    height: 216px;
+    color: #382a21;
 }
 
 .panel-body {
     position: relative;
     display: inline-block;
     vertical-align: top;
-}
-
-.howItWorks_main:after {
-    height: 364px;
-    width: 131px;
-    content: url(img/home/fleur_footer.png);
-    top: -270px;
-    left: 30px;
-    position: relative;
-    display: block;
 }
 
 #liensFooter .row {
@@ -318,53 +324,66 @@ footer .marche p {
     color: #af8c76;
 }
 
-/* Dropdown-SubMenu */
-.dropdown-submenu {
+.dropdown-menu {
+    display: inline-block;
     position: relative;
+    z-index: 10;
 }
 
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
+* + html .dropdown-menu {
+    display: inline;
+    /* pour IE7 */
+}
+
+.dropdown-menu p {
+    margin: 0;
+}
+
+.dropdown-menu ul {
+    margin: 0;
+    overflow: hidden;
+    padding: 0 5px;
+    /* a changer */
+    background: #fff;
+}
+
+.dropdown-menu ul li {
+    padding: 0 5px 5px;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.dropdown-menu ul li.divider {
+    border-top: 1px solid #000;
+    padding-top: 5px;
+}
+
+.dropdown-menu > ul {
+    max-height: 0;
+    -webkit-transition: 0.5s max-height;
+    transition: 0.5s max-height;
+    /* a changer */
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-menu:hover > ul,
+.dropdown-menu.dm-focus > ul {
+    max-height: 500px;
+    overflow: visible;
+}
+
+.dropdown-menu .dropdown-menu ul {
+    position: absolute;
+    max-width: 0;
     left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px 6px;
-    border-radius: 0 6px 6px 6px;
+    top: 0;
+    -webkit-transition: 0.5s max-width;
+    transition: 0.5s max-width;
+    /* a changer */
+    border-radius: 0 5px 5px 0;
 }
 
-.dropdown-submenu:hover > .dropdown-menu {
-    display: block;
+.dropdown-menu .dropdown-menu:hover > ul,
+.dropdown-menu .dropdown-menu.dm-focus > ul {
+    max-width: 200px;
 }
-
-.dropdown-submenu > a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: #cccccc;
-    margin-top: 5px;
-    margin-right: -10px;
-}
-
-.dropdown-submenu:hover > a:after {
-    border-left-color: #ffffff;
-}
-
-.dropdown-submenu .pull-left {
-    float: none;
-}
-
-.dropdown-submenu.pull-left > .dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
-    border-radius: 6px 0 6px 6px;
-}
-
-/* End Dropdown-SubMenu */

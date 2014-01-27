@@ -1,7 +1,5 @@
 ﻿@model PousseDeBambin.Models.LoginViewModel
 
-<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
-
 <div class="barre_connexion">
     @if (!User.Identity.IsAuthenticated)
     {
@@ -34,4 +32,13 @@
     }
 </div>
 
-<script src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dropdown-menu').each(function () {
+            var menu = $(this);
+            $(this).children(':first-child').click(function () {
+                menu.toggleClass('dm-focus');
+            })
+        })
+    })
+</script>
