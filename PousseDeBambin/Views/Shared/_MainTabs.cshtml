@@ -1,33 +1,35 @@
 ﻿<div class="menu">
-           <ul>
-            @{ string controller = ViewContext.Controller.ValueProvider
+    <ul>
+        @{ string controller = ViewContext.Controller.ValueProvider
            .GetValue("controller").RawValue.ToString(); }
-            @{ string action = ViewContext.Controller.ValueProvider
+        @{ string action = ViewContext.Controller.ValueProvider
            .GetValue("action").RawValue.ToString(); }
 
-            <li class="@("Home".Equals(controller) ? "active" : "" )">
-                <a href="@Url.Action("Index", "Home")">Accueil</a>
-            </li>
-            <li class="@("Account".Equals(controller) ? "active" : "" )">
-                @{
-                    if(HttpContext.Current.User.Identity.IsAuthenticated){
-                        <a href="@Url.Action("Manage", "Account")">Je crée ma liste</a>
-                    }
-                    else{
-                        <a href="@Url.Action("Login", "Account")">Je crée ma liste</a>
-                    }
+        <li class="@("Home".Equals(controller) ? "active" : "" )">
+            <a href="@Url.Action("Index", "Home")">Accueil</a>
+        </li>
+        <li class="@("Account".Equals(controller) ? "active" : "" )">
+            @{
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
                 }
-                
-            </li>
-            <a class="logo" href="@Url.Action("Index", "Home")"></a>
+                else
+                {
+                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
+                }
+            }
 
-            <li class="@(("List".Equals(controller) && !"Search".Equals(action) && !"Consult".Equals(action)) ? "active" : "")">
-                <a href="@Url.Action("Create", "List")">J'offre un cadeau</a>
-            </li>
-            <li class="@(("List".Equals(controller) && ("Search".Equals(action) || "Consult".Equals(action)))? "active" : "" )">
-                <a href="@Url.Action("Search", "List")">Qui sommes-nous ?</a>
-            </li>
-        </ul>
-  
+        </li>
+        <a class="logo" href="@Url.Action("Index", "Home")"></a>
+
+        <li class="@(("List".Equals(controller) && !"Search".Equals(action) && !"Consult".Equals(action)) ? "active" : "")">
+            <a href="@Url.Action("Search", "List")">J'offre un cadeau</a>
+        </li>
+        <li class="@(("List".Equals(controller) && ("Search".Equals(action) || "Consult".Equals(action)))? "active" : "" )">
+            <a href="@Url.Action("WhoAreWe", "Home")">Qui sommes-nous ?</a>
+        </li>
+    </ul>
+
 
 </div>

@@ -211,7 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.ui.accordion.css" />
     <Content Include="Content\css\jquery.ui.all.css" />
@@ -305,7 +304,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -385,6 +384,7 @@
     <Content Include="Views\UsersLists\_UsersLists.cshtml" />
     <Content Include="Views\Shared\_ConnexionBar.cshtml" />
     <Content Include="Views\Shared\_ConnectedMenu.cshtml" />
+    <Content Include="Views\Shared\WhoAreWe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
