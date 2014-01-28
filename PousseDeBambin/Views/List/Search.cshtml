@@ -3,39 +3,36 @@
 @{
     ViewBag.Title = "Recherche de liste !";
 }
+<div class="search_list_block">
+    <h2 class="list_search_title">Recherche</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-<h2>Recherche</h2>
+        <fieldset>
+            <legend class="name_surname_search">Nom et prénom de la personne qui a créé la liste</legend>
+            <input type="text" id="firstName" name="firstName" placeholder="Prénom" />
+            <input type="text" id="lastName" name="lastName" placeholder="Nom (non obligatoire)" />
+            <input class="search_list_btn" type="submit" value="RECHERCHER !" />
+        </fieldset>
+    }
+    @if (Model == null)
+    {
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Nom et prénom de la personne qui a créé la liste</legend>
-        <input type="text" id="firstName" name="firstName" placeholder="Prénom" />
-        <input type="text" id="lastName" name="lastName" placeholder="Nom (non obligatoire)" />
-
-        <p class="spaceTop">
-            <input class="btn btn-primary" type="submit" value="Rechercher !" />
-        </p>
-    </fieldset>
-}
-
-@if (Model == null)
-{
-
-}
-else if (Model.Count() == 0)
-{
-    <p>Aucune liste n'a été trouvée :(. Vérifiez le nom et prénom de la personne ou contactez la directement pour avoir le lien de sa liste ;).</p>
-}
-else
-{
-    <h3>Voici les listes de @ViewBag.FirstName @ViewBag.LastName :</h3>
-    <ul>
-        @foreach (var list in Model)
-        {
-            <li>@Html.ActionLink(list.Name, "Consult", "List", new { id = list.ListId }, null)</li>   
-        }
-    </ul>
-}
+    }
+    else if (Model.Count() == 0)
+    {
+        <p>Aucune liste n'a été trouvée :(. Vérifiez le nom et prénom de la personne ou contactez la directement pour avoir le lien de sa liste ;).</p>
+    }
+    else
+    {
+        <h3>Voici les listes de @ViewBag.FirstName @ViewBag.LastName :</h3>
+        <ul>
+            @foreach (var list in Model)
+            {
+                <li>@Html.ActionLink(list.Name, "Consult", "List", new { id = list.ListId }, null)</li>
+            }
+        </ul>
+    }
+</div>
