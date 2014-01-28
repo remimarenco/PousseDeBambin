@@ -15,8 +15,11 @@
     <div class="editor-field">
         @Html.EditorFor(model => model.WebSite)
         <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
-            <img id="editAjaxLoading" class="ajaxLoadingGift" src="~/Content/themes/base/images/loading/ajax-loader.gif" alt="Loading" />
             Chercher automatiquement les informations de l'objet
+        </a>
+        <a href="#" id="btnStopEditSearchObject">
+            <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
+            Arrêter la recherche
         </a>
         @Html.ValidationMessageFor(model => model.WebSite)
     </div>
@@ -61,13 +64,28 @@
 
 <script>
     $(function () {
-        $('#editAjaxLoading').hide();
+        var searchAjax = null;
+        // On init les boutons de recherche
+        SearchTerminate();
+        
+        // Lorsque l'on clique sur le bouton d'arret de la recherche
+        $("#btnStopEditSearchObject").click(function () {
+            if (searchAjax) {
+                // On annule la requete de recherche
+                searchAjax.abort();
+                searchAjax = null;
+
+                // On réaffiche le bouton de recherches
+                SearchTerminate();
+            }
+        });
+
         $("#btnEditSearchObject").click(function () {
+            // On affiche le bouton pour stopper la recherche
+            Search();
+
             // We get the website
             var website = $('#editPart #WebSite').val();
-
-            // Loading
-            $('#editAjaxLoading').show();
 
             $.ajax({
                 url: 'http://api.diffbot.com/v2/product',
@@ -88,14 +106,30 @@
                     $("#editPart #Description").val(data.products[0].description);
 
                     $('#editAjaxLoading').hide();
+
+                    SearchTerminate();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
-                    $('#editAjaxLoading').hide();
+                    SearchTerminate();
                 }
             });
 
             return false;
         });
+
+        function Search() {
+            // On cache le bouton de recherche
+            $('#btnEditSearchObject').hide();
+            // On affiche le bouton d'arret de recherche
+            $('#btnStopEditSearchObject').show();
+        }
+
+        function SearchTerminate() {
+            // On affiche le bouton de recherche
+            $('#btnEditSearchObject').show();
+            // On cache le bouton d'arret de recherche
+            $('#btnStopEditSearchObject').hide();
+        }
     });
 </script>

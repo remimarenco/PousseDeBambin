@@ -253,6 +253,7 @@
     <Content Include="Content\img\home\img_etape2.jpg" />
     <Content Include="Content\img\home\img_etape3.jpg" />
     <Content Include="Content\img\home\logo.png" />
+    <Content Include="Content\img\loading\ajax-loader.gif" />
     <Content Include="Content\img\search\bouton_rechercher.png" />
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\main.css">

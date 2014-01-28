@@ -12,9 +12,12 @@
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.WebSite)
-        <a href="#" id="btnCreateSearchObject" class="btn btn-primary btn-sm" role="button">
-            <img id="createAjaxLoading" class="ajaxLoadingGift" src="~/Content/themes/base/images/loading/ajax-loader.gif" alt="Loading" />
+        <a href="#" id="btnCreateSearchObject" class="btn btn-primary btn-sm" role="button">            
             Chercher automatiquement les informations de l'objet
+        </a>
+        <a href="#" id="btnStopCreateSearchObject">
+            <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
+            Arrêter la recherche
         </a>
         @Html.ValidationMessageFor(model => model.WebSite)
     </div>
@@ -58,15 +61,32 @@
 
 <script>
     $(function () {
-        $('#createAjaxLoading').hide();
+        var searchAjax = null;
+        // On init les boutons de recherche
+        SearchTerminate();
+
+        // Lorsque l'on clique sur le bouton d'arret de la recherche
+        $("#btnStopCreateSearchObject").click(function () {
+            if (searchAjax) {
+                // On annule la requete de recherche
+                searchAjax.abort();
+                searchAjax = null;
+
+                // On réaffiche le bouton de recherches
+                SearchTerminate();
+            }
+        });
+
+        // Lorsque l'on clique sur le bouton de recherche de l'objet en création
         $("#btnCreateSearchObject").click(function () {
+            // On affiche le bouton pour stopper la recherche
+            Search();
+
             // We get the website
             var website = $('#createPart #WebSite').val();
 
             // Loading
-            $('#createAjaxLoading').show();
-
-            $.ajax({
+            searchAjax = $.ajax({
                 url: 'http://api.diffbot.com/v2/product',
                 crossDomain: true,
                 data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
@@ -84,16 +104,31 @@
                     // Description
                     $("#createPart #Description").val(data.products[0].description);
 
-                    $('#createAjaxLoading').hide();
+                    SearchTerminate();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
                     alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
-                    $('#createAjaxLoading').hide();
+                    
+                    SearchTerminate();
                 }
             });
 
             return false;
         });
+
+        function Search(){
+            // On cache le bouton de recherche
+            $('#btnCreateSearchObject').hide();
+            // On affiche le bouton d'arret de recherche
+            $('#btnStopCreateSearchObject').show();
+        }
+
+        function SearchTerminate(){
+            // On affiche le bouton de recherche
+            $('#btnCreateSearchObject').show();
+            // On cache le bouton d'arret de recherche
+            $('#btnStopCreateSearchObject').hide();
+        }
     });
 </script>
