@@ -496,3 +496,16 @@ textarea {
     color: #ea744e;
     font-family: Arial;
 }
+
+.validationConnexionBar {
+    display: inline;
+    color: red;
+}
+
+.validationConnexionBar ul {
+    display: inline-block;
+}
+
+.validationConnexionBar li {
+    display: compact;
+}

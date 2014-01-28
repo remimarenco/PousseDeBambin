@@ -253,6 +253,7 @@
     <Content Include="Content\img\home\img_etape2.jpg" />
     <Content Include="Content\img\home\img_etape3.jpg" />
     <Content Include="Content\img\home\logo.png" />
+    <Content Include="Content\img\loading\ajax-loader.gif" />
     <Content Include="Content\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
