@@ -38,7 +38,12 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 30px;
-    background:#F1EFCC;
+    background: #F1EFCC;
+}
+
+input {
+    border-radius: 3px;
+    padding-left: 5px;
 }
 /*--------------------------CONNEXION BAR------------------*/
 .barre_connexion {
@@ -54,7 +59,7 @@ body {
     .form-control {
         border-radius: 2px;
         border: #fff;
-        width:150px;
+        width: 150px;
     }
 }
 /*------------------dropdown menu connexion_bar------------*/
@@ -145,7 +150,7 @@ body {
 
 /*-----------------------HEADER------------------------*/
 header {
-    #gradient > .vertical-three-colors(#f4e98e, #f4e98e, 50%, #aec383);
+    #gradient > .vertical-three-colors(#f4e98e, #f4e98e, 60%, #81aa8e);
     height: 183px;
     position: relative;
     z-index: 5;
@@ -185,7 +190,7 @@ header {
         content: url(img/home/fleur_header.png);
         left: 50%;
         position: absolute;
-        top: -15px;
+        top: 0px;
         margin-left: -480px;
     }
 
@@ -210,7 +215,6 @@ header {
 
 .menu ul {
     height: 32px;
-    width: 100%;
     text-align: center;
     margin: 0;
 
@@ -223,7 +227,10 @@ header {
         margin-top: 90px;
         vertical-align: top;
     }
-
+      li:last-child {
+        padding-right: 0px;
+        margin-right:0;
+    }
     a {
         line-height: 0px;
     }
@@ -438,7 +445,7 @@ footer {
     width: 457px;
     margin: 0 auto;
     margin-top: -20px;
-    position:relative;
+    position: relative;
     z-index: 30;
 }
 
@@ -451,7 +458,7 @@ fieldset {
     display: inline-block;
     vertical-align: middle;
     width: 500px;
-    margin-left:200px;
+    margin-left: 200px;
 }
 
 .img_create {
@@ -463,16 +470,18 @@ fieldset {
     vertical-align: middle;
     border: solid 3px #ea744e;
 }
-legend{
+
+legend {
     font-family: 'amaticbold';
-    font-size:30px;
-    color:#382a21;
-    margin-bottom:20px;
+    font-size: 30px;
+    color: #382a21;
+    margin-bottom: 20px;
 }
+
 .editor-label {
     font-family: 'bebas_neueregular';
-    color:#829516;
-    margin-bottom:5px;
+    color: #829516;
+    margin-bottom: 5px;
 }
 
 .editor-field {
@@ -487,29 +496,69 @@ legend{
 textarea {
     width: 350px;
     height: 100px;
-    border-radius:3px;
-    border-color:#aec383;
-}
-.btn-success{
-     background: url('img/create/bouton_creer_liste.png') no-repeat;
-     height:109px;
-     width:277px;
-     border:none;
-}
-.error_message{
-    color:#ea744e;
-    font-family:Arial;
+    border-radius: 3px;
+    border-color: #aec383;
 }
 
-.validationConnexionBar{
-    display:inline;
-    color: red;
-    
-    ul{
+.text-box {
+    border-radius: 3px;
+}
+
+.btn-success {
+    background: url('img/create/bouton_creer_liste.png') no-repeat;
+    height: 109px;
+    width: 277px;
+    border: none;
+}
+
+.error_message {
+    color: #ea744e;
+    font-family: Arial;
+}
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+    display: inline;
+    color: #ea744e;
+
+    ul {
         display: inline-block;
     }
-    
-    li{
-        display: compact;
-    } 
+
+}
+/*-------------------fin message erreur connexion bar------------------*/
+
+/*------------------- PAGE RECHERCHE LISTE - NOM/PRENOM ------------------*/
+.search_list_block {
+    text-align: center;
+
+    .list_search_title {
+        font-family: 'amatic_scregular';
+        font-size: 40px;
+        color: #382a21;
+        text-align: center;
+    }
+
+    .name_surname_search {
+        font-family: 'bebas_neueregular';
+        font-size: 20px;
+        color: #829516;
+    }
+
+    .search_list_btn{
+        background: url('img/search/bouton_rechercher.png') no-repeat;
+        height: 63px;
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 21px;
+        font-family: 'bebas_neueregular';
+        font-size: 17px;
+        color: #fff;
+        border: none;
+        padding-top: 23px;
+    }
+     .search_list_btn:hover{
+         background-image : url('img/search/bouton_rechercher_hover.png');
+         color:#f0e79c;
+     }
 }

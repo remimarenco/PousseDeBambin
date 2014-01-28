@@ -37,6 +37,11 @@ body {
     background: #F1EFCC;
 }
 
+input {
+    border-radius: 3px;
+    padding-left: 5px;
+}
+
 /*--------------------------CONNEXION BAR------------------*/
 .barre_connexion {
     height: 33px;
@@ -143,10 +148,10 @@ body {
 /*--------------------------CONNEXION BAR------------------*/
 /*-----------------------HEADER------------------------*/
 header {
-    background-image: -webkit-linear-gradient(#f4e98e, #f4e98e 50%, #aec383);
-    background-image: linear-gradient(#f4e98e, #f4e98e 50%, #aec383);
+    background-image: -webkit-linear-gradient(#f4e98e, #f4e98e 60%, #81aa8e);
+    background-image: linear-gradient(#f4e98e, #f4e98e 60%, #81aa8e);
     background-repeat: no-repeat;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4e98e', endColorstr='#ffaec383', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4e98e', endColorstr='#ff81aa8e', GradientType=0);
     height: 183px;
     position: relative;
     z-index: 5;
@@ -184,7 +189,7 @@ header:before {
     content: url(img/home/fleur_header.png);
     left: 50%;
     position: absolute;
-    top: -15px;
+    top: 0px;
     margin-left: -480px;
 }
 
@@ -211,7 +216,6 @@ header:before {
 
 .menu ul {
     height: 32px;
-    width: 100%;
     text-align: center;
     margin: 0;
 }
@@ -224,6 +228,11 @@ header:before {
     background-position: 0% 10px;
     margin-top: 90px;
     vertical-align: top;
+}
+
+.menu ul li:last-child {
+    padding-right: 0px;
+    margin-right: 0;
 }
 
 .menu ul a {
@@ -487,6 +496,10 @@ textarea {
     border-color: #aec383;
 }
 
+.text-box {
+    border-radius: 3px;
+}
+
 .btn-success {
     background: url(img/create/bouton_creer_liste.png) no-repeat;
     height: 109px;
@@ -497,4 +510,52 @@ textarea {
 .error_message {
     color: #ea744e;
     font-family: Arial;
+}
+
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+    display: inline;
+    color: #ea744e;
+}
+
+.validationConnexionBar ul {
+    display: inline-block;
+}
+
+/*-------------------fin message erreur connexion bar------------------*/
+/*------------------- PAGE RECHERCHE LISTE - NOM/PRENOM ------------------*/
+.search_list_block {
+    text-align: center;
+}
+
+.search_list_block .list_search_title {
+    font-family: 'amatic_scregular';
+    font-size: 40px;
+    color: #382a21;
+    text-align: center;
+}
+
+.search_list_block .name_surname_search {
+    font-family: 'bebas_neueregular';
+    font-size: 20px;
+    color: #829516;
+}
+
+.search_list_block .search_list_btn {
+    background: url(img/search/bouton_rechercher.png) no-repeat;
+    height: 63px;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 21px;
+    font-family: 'bebas_neueregular';
+    font-size: 17px;
+    color: #fff;
+    border: none;
+    padding-top: 23px;
+}
+
+.search_list_block .search_list_btn:hover {
+    background-image: url(img/search/bouton_rechercher_hover.png);
+    color: #f0e79c;
 }
