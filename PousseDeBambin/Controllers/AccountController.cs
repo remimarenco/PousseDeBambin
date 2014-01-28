@@ -62,6 +62,35 @@ namespace PousseDeBambin.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult LoginBar(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return PartialView("_ConnexionBar");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> LoginBar(LoginViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                if (user != null)
+                {
+                    await SignInAsync(user, model.RememberMe);
+                    return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Le nom d'utilisateur ou mot de passe fourni est incorrect.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return PartialView("_ConnexionBar", model);
+        }
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -352,6 +381,11 @@ namespace PousseDeBambin.Controllers
         {
             ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
             return PartialView("_ConnectedMenu", user);
+        }
+
+        public ActionResult ThanksRegister()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

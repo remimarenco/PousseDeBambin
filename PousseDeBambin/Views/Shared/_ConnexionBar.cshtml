@@ -1,36 +1,41 @@
 ﻿@model PousseDeBambin.Models.LoginViewModel
 
-<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+@{
+    Layout = null;
+}
 
 <div class="barre_connexion">
     ***REMOVED*** Si l'utilisateur n'est pas identifié, on affiche un formulaire de login + register -->
     @if (!User.Identity.IsAuthenticated)
     {
-        using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        using (Ajax.BeginForm("LoginBar", "Account", new AjaxOptions
+            {
+                UpdateTargetId = "connexionBar",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "POST"
+            }))
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
+            @Html.ValidationSummary("", new { @class = "validationConnexionBar" })
 
             <div class="form-group">
                 @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = " Nom d'utilisateur" })
                 @Html.ValidationMessageFor(m => m.UserName)
-
             </div>
             <div class="form-group">
-
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = " Mot de passe" })
                 @Html.ValidationMessageFor(m => m.Password)
-
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Log in" class="btn btn-default" />
+                    <input type="submit" value="Se connecter" class="btn btn-default" />
                 </div>
             </div>
         }
     }
     else
     {
+                ***REMOVED*** Sinon on affiche le menu utilisateur -->
         Html.RenderAction("ConnectedMenu", "Account");
     }
 </div>
