@@ -59,9 +59,31 @@ namespace PousseDeBambin.Migrations
                 },
                 new ApplicationUser
                 {
-
+                    UserName = "remimarenco",
+                    FirstName = "Rémi",
+                    LastName = "Marenco",
+                    EmailAddress = "remi@poussedebambin.com",
+                    PhoneNumber = "0614914252",
+                    Street = "141 rue antoine charial",
+                    Zipcode = 69003,
+                    City = "Lyon",
+                    Country = "France"
+                },
+                new ApplicationUser
+                {
+                    UserName = "Bertrand",
+                    FirstName = "Bertrand",
+                    LastName = "Deher",
+                    EmailAddress = "deher.bertrand@gmail.com",
+                    PhoneNumber = "0614914252",
+                    Street = "141 rue antoine charial",
+                    Zipcode = 69003,
+                    City = "Lyon",
+                    Country = "France"
                 }
             );
+
+            // Ajout des listes
 
             context.SaveChanges();
         }
