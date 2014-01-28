@@ -17,11 +17,12 @@
 
    
     @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/mlc/js")
     <meta name="description" content="The description of my page" />
 </head>
 <body>
-     @Html.Partial("_ConnexionBar", null, new ViewDataDictionary<PousseDeBambin.Models.LoginViewModel>())
+    <span id="connexionBar">
+        @Html.Partial("_ConnexionBar")
+    </span>
     <header>
         
         ***REMOVED*** @Html.Partial("_BaseLine") -->
