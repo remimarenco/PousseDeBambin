@@ -210,7 +210,6 @@
     <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.ui.accordion.css" />
     <Content Include="Content\css\jquery.ui.all.css" />

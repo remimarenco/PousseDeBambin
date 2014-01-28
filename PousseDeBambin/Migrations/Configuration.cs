@@ -30,6 +30,7 @@ namespace PousseDeBambin.Migrations
             //    );
             //
             
+            /* Création des utilisateurs de base */
             context.Users.AddOrUpdate(
                 p => p.UserName,
                 new ApplicationUser
@@ -43,6 +44,22 @@ namespace PousseDeBambin.Migrations
                     Zipcode = 69130,
                     City = "Ecully",
                     Country = "France"
+                },
+                new ApplicationUser
+                {
+                    UserName = "Maioune",
+                    FirstName = "Marion",
+                    LastName = "Wang",
+                    EmailAddress = "marion@poussedebambin.com",
+                    PhoneNumber = "0630799036",
+                    Street = "15 rue Jules Verne",
+                    Zipcode = 69003,
+                    City = "Lyon",
+                    Country = "France"
+                },
+                new ApplicationUser
+                {
+
                 }
             );
 
