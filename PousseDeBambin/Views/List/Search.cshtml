@@ -5,15 +5,26 @@
 }
 <div class="search_list_block">
     <h2 class="list_search_title">Recherche</h2>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
+        
         <fieldset>
             <legend class="name_surname_search">Nom et prénom de la personne qui a créé la liste</legend>
-            <input type="text" id="firstName" name="firstName" placeholder="Prénom" required/>
-            <input type="text" id="lastName" name="lastName" placeholder="Nom" required />
+            <span class="field-validation-valid" data-valmsg-for="firstName" data-valmsg-replace="true"></span>
+            <span class="field-validation-valid" data-valmsg-for="lastName" data-valmsg-replace="true"></span>
+            
+            
+            <input data-val="true"
+                   data-val-required="Le prénom est requis :)"
+                   type="text" id="firstName" name="firstName" placeholder="Prénom"/>
+            
+            <input data-val="true"
+                   data-val-required="Le nom est requis :)"
+                   type="text" id="lastName" name="lastName" placeholder="Nom"/>
+            
             <input class="search_list_btn" type="submit" value="RECHERCHER !" />
         </fieldset>
     }
