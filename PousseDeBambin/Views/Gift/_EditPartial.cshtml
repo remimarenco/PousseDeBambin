@@ -33,6 +33,8 @@
         @Html.ValidationMessageFor(model => model.ImageUrl)
     </div>
 
+    <img id="displayImage">
+
     <div class="editor-label">
         @Html.LabelFor(model => model.Price)
     </div>
@@ -105,6 +107,8 @@
                     $("#editPart #Name").val(data.products[0].title);
                     // Description
                     $("#editPart #Description").val(data.products[0].description);
+                    // Ajout de l'image
+                    $("#displayImage").attr("src", data.products[0].media[0].link);
 
                     $('#editAjaxLoading').hide();
 
