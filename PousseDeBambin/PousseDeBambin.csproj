@@ -253,16 +253,9 @@
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
-    <Content Include="Content\main.css">
-      <DependentUpon>main.less</DependentUpon>
-    </Content>
-    <Content Include="Content\main.min.css">
-      <DependentUpon>main.less</DependentUpon>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\main.less" />
     <Content Include="Content\mixin\mixins.less" />
     <Content Include="Content\fonts\amatic-bold-webfont.eot" />
     <Content Include="Content\fonts\amatic-bold-webfont.ttf" />
@@ -277,6 +270,7 @@
     <Content Include="Content\fonts\marketingscript-webfont.ttf" />
     <Content Include="Content\fonts\marketingscript-webfont.woff" />
     <Content Include="Content\fonts\specimen_files" />
+    <Content Include="Content\css\main.less" />
     <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
