@@ -7,26 +7,27 @@
 {
     <div class="listBox">
         <div class="giftList">
-            @foreach (var item in Model.Gifts)
-            {
-                <div class="row">
-                    <div class="col-md-1">
-                        @using (Ajax.BeginForm("DeletePartial", "Gift", new { id = item.GiftId },
+        @foreach (var item in Model.Gifts)
+        {
+            <div class="row">
+                <img id="miniImg" src="@item.ImageUrl" width="30" height="30"/>
+                <div class="col-md-1">
+                    @using (Ajax.BeginForm("DeletePartial", "Gift", new { id = item.GiftId },
                         new AjaxOptions
                         {
                             HttpMethod = "Post",
                             OnComplete = "CompleteDelete",
                             Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
                         }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-default btn-xs">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        }
-                    </div>
-                    <div class="col-md-10">
-                        @Ajax.ActionLink(
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    }
+                </div>
+                <div class="col-md-10">
+                    @Ajax.ActionLink(
                                 item.Name,
                                 "EditPartial",
                                 "Gift",
@@ -39,10 +40,10 @@
                                     OnSuccess = "CompleteLoadingEdit"
                                 }
                             )
-                    </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
+    </div>
     </div>
     <div id="divBtnSummaryGifts" class="spaceTop">
         @if (ViewBag.AdminConnected != null && ViewBag.AdminConnected)

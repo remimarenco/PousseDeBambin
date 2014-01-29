@@ -101,16 +101,16 @@ namespace PousseDeBambin.Controllers
                     return HttpNotFound("La liste ne vous appartient pas");
                 }
             }
-            
+
 
             // Manage a gift passes in parameter
             if (giftID != 0)
             {
                 Gift gift = db.Gifts.Find(giftID);
-                if(gift.ListID == list.ListId)
+                if (gift.ListID == list.ListId)
                 {
                     ViewBag.GiftId = gift.GiftId;
-                } 
+                }
             }
 
             return View(list);
@@ -223,7 +223,7 @@ namespace PousseDeBambin.Controllers
                 return HttpNotFound();
             }
 
-            if(UserIsAdminOfTheList(list))
+            if (UserIsAdminOfTheList(list))
             {
                 ViewBag.AdminConnected = true;
             }
@@ -272,11 +272,31 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         public ActionResult Search(string firstName, string lastName)
         {
-            ViewBag.FirstName = firstName;
-            ViewBag.LastName = lastName;
+            List<PousseDeBambin.Models.List> foundedLists = null;
 
-            List<PousseDeBambin.Models.List> foundedLists = db.Lists.Where(l =>
-                l.UserProfile.FirstName.ToUpper().Equals(firstName.ToUpper())).ToList();
+            if (String.IsNullOrWhiteSpace(firstName))
+            {
+                ModelState.AddModelError("prenom", "Le prénom est obligatoire :)");
+            }
+            else if(String.IsNullOrWhiteSpace(lastName))
+            {
+                ModelState.AddModelError("nom", "Le nom est obligatoire :)");
+            }
+            else
+            {
+                ViewBag.FirstName = firstName;
+                ViewBag.LastName = lastName;
+
+                String firstNameUpInvariant = firstName.ToUpperInvariant();
+                String lastNameUpInvariant = lastName.ToUpperInvariant();
+
+                foundedLists = db.Lists.Where(l =>
+                    l.UserProfile.FirstName.ToUpper().Equals(firstNameUpInvariant)).Where(l =>
+                    l.UserProfile.LastName.ToUpper().Equals(lastNameUpInvariant)).ToList();
+
+                return View(foundedLists);
+
+            }
 
             return View(foundedLists);
         }
