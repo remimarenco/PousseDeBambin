@@ -5,10 +5,7 @@
 @font-face {
     font-family: 'amatic_scregular';
     src: url('/Content/fonts/amaticsc-regular-webfont.eot');
-    src: url('/Content/fonts/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'), 
-         url('/Content/fonts/amaticsc-regular-webfont.woff') format('woff'), 
-         url('/Content/fonts/amaticsc-regular-webfont.ttf') format('truetype'), 
-         url('/Content/fonts/amaticsc-regular-webfont.svg#amatic_scregular') format('svg');
+    src: url('/Content/fonts/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/amaticsc-regular-webfont.woff') format('woff'), url('/Content/fonts/amaticsc-regular-webfont.ttf') format('truetype'), url('/Content/fonts/amaticsc-regular-webfont.svg#amatic_scregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,10 +13,7 @@
 @font-face {
     font-family: 'amaticbold';
     src: url('/Content/fonts/amatic-bold-webfont.eot');
-    src: url('/Content/fonts/amatic-bold-webfont.eot?#iefix') format('embedded-opentype'), 
-        url('/Content/fonts/amatic-bold-webfont.woff') format('woff'), 
-        url('/Content/fonts/amatic-bold-webfont.ttf') format('truetype'), 
-        url('/Content/fonts/amatic-bold-webfont.svg#amaticbold') format('svg');
+    src: url('/Content/fonts/amatic-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/amatic-bold-webfont.woff') format('woff'), url('/Content/fonts/amatic-bold-webfont.ttf') format('truetype'), url('/Content/fonts/amatic-bold-webfont.svg#amaticbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,10 +21,7 @@
 @font-face {
     font-family: 'bebas_neueregular';
     src: url('/Content/fonts/bebasneue-webfont.eot');
-    src: url('/Content/fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), 
-         url('/Content/fonts/bebasneue-webfont.woff') format('woff'), 
-         url('/Content/fonts/bebasneue-webfont.ttf') format('truetype'), 
-         url('/Content/fonts/bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    src: url('/Content/fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/bebasneue-webfont.woff') format('woff'), url('/Content/fonts/bebasneue-webfont.ttf') format('truetype'), url('/Content/fonts/bebasneue-webfont.svg#bebas_neueregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,10 +29,7 @@
 @font-face {
     font-family: 'marketing_scriptregular';
     src: url('/Content/fonts/marketingscript-webfont.eot');
-    src: url('/Content/fonts/marketingscript-webfont.eot?#iefix') format('embedded-opentype'), 
-        url('/Content/fonts/marketingscript-webfont.woff') format('woff'),
-         url('/Content/fonts/marketingscript-webfont.ttf') format('truetype'),
-         url('/Content/fonts/marketingscript-webfont.svg#marketing_scriptregular') format('svg');
+    src: url('/Content/fonts/marketingscript-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/marketingscript-webfont.woff') format('woff'), url('/Content/fonts/marketingscript-webfont.ttf') format('truetype'), url('/Content/fonts/marketingscript-webfont.svg#marketing_scriptregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -73,6 +61,11 @@ input {
         border: #fff;
         width: 150px;
     }
+}
+
+h2 {
+    font-family: 'bebas_neueregular';
+    color:#AF5C63;
 }
 /*------------------dropdown menu connexion_bar------------*/
 .dropdown-menu {
@@ -263,8 +256,8 @@ header {
     background: #fff;
     height: 364px;
     text-align: center;
-    position:relative;
-    z-index:80;
+    position: relative;
+    z-index: 80;
 
     a {
         margin-bottom: 20px;
@@ -465,6 +458,17 @@ footer {
     z-index: 30;
 }
 
+#createPart {
+    width: 800px;
+    margin-left: 150px;
+}
+
+.create_list_com {
+    font-family: 'arial';
+    font-weight: normal;
+    text-align: center;
+}
+
 fieldset {
     border: none;
 }
@@ -578,6 +582,7 @@ textarea {
             color: #f0e79c;
         }
 }
+
 /*-----------------------------------WHO WE ARE-------------------------------*/
 .who_we_are {
     text-align: center;
@@ -593,11 +598,11 @@ textarea {
     width: 400px;
     display: inline-block;
 
-        a{
-            text-decoration:none;
-            color:#aec383;
-            font-weight:bold;
-        }
+    a {
+        text-decoration: none;
+        color: #aec383;
+        font-weight: bold;
+    }
 }
 
 .who_we_are_title {
@@ -624,4 +629,146 @@ textarea {
         height: 240px;
         width: 220px;
     }
+}
+/*-----------------------------------fin WHO WE ARE-------------------------------*/
+
+/*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#createNewObject {
+    margin-left: 150px;
+    margin-bottom: 50px;
+
+    .btn-primary_add {
+        background: url('/Content/img/giftsList/bouton_ajouter.png');
+        height: 63px;
+        width: 150px;
+        font-family: 'arial';
+        font-weight: normal;
+        font-size: 13px;
+        color: #fff;
+        border: none;
+        text-align: center;
+        padding: 20px 0px 0 30px;
+        position: relative;
+        vertical-align: bottom;
+        display: inline-block;
+    }
+
+        .btn-primary_add:hover {
+            background-image: url('/Content/img/giftsList/bouton_ajouter_hover.png');
+            color: #f0e79c;
+        }
+}
+
+#btnCreateSearchObject {
+    text-decoration: none;
+    background: url('/Content/img/giftsList/bouton_rechercher.png') no-repeat;
+    height: 63px;
+    width: 115px;
+    color: #f0e79c;
+    font-family: 'bebas_neueregular';
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    line-height: 86px;
+    padding-left: 44px;
+    margin-left: 20px;
+}
+
+    #btnCreateSearchObject:hover {
+        background-image: url('/Content/img/giftsList/bouton_rechercher_hover.png');
+        color: #f0e79c;
+    }
+
+.texte_fonction_recherche {
+    width: 170px;
+    text-align: justify;
+    font-family: 'arial';
+    font-size: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+
+.btn-success_validate {
+    background: url('/Content/img/giftsList/bouton_valider.png');
+    height: 63px;
+    width: 150px;
+    font-family: 'arial';
+    font-weight: normal;
+    font-size: 13px;
+    color: #fff;
+    border: none;
+    text-align: center;
+    padding: 20px 0px 0 30px;
+    position: relative;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+    .btn-success_validate:hover {
+        background-image: url('/Content/img/giftsList/bouton_valider_hover.png');
+        color: #f0e79c;
+    }
+
+.listBox {
+    background: #fff;
+    width: 400px;
+    height: 450px;
+    position: relative;
+    border-radius: 3px;
+    float: right;
+    margin-right: 150px;
+    padding: 20px;
+    margin-top: 110px;
+    box-shadow: 0px 2px 30px #aec383;
+}
+
+    .listBox:before {
+        content: url('/Content/img/giftsList/noeud_liste.png');
+        height: 64px;
+        width: 211px;
+        top: -60px;
+        position: absolute;
+        left: 110px;
+    }
+
+.col-md-10 {
+    height: 50px;
+
+    a {
+        font-family: 'arial';
+        text-decoration: none;
+        color: #382a21;
+        font-size: 12px;
+    }
+}
+
+.btn-xs {
+    background: url('/Content/img/giftsList/suppr.jpg')no-repeat;
+    height: 20px;
+    width: 20px;
+    border: none;
+    box-shadow: 0px 2px 5px #aaa;
+}
+/*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
+
+/*-----------------------------------LOGIN (SET PASSWORD PARTIAL)-------------------------------*/
+.text-info {
+    font-family: 'arial';
+}
+
+.control-label {
+    font-family: 'arial';
+}
+
+.col-md-8 {
+    text-align: center;
+}
+/*-----------------------------------FIN LOGIN (SET PASSWORD PARTIAL).-------------------------*/
+.btnStopCreateSearchObject a{
+    background-color:#ea744e;
+    border-radius:3px;
+    text-decoration:none;
+    font-family:'arial';
 }

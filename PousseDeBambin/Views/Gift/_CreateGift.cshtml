@@ -13,12 +13,13 @@
     <div class="editor-field">
         @Html.EditorFor(model => model.WebSite)
         <a href="#" id="btnCreateSearchObject" class="btn btn-primary btn-sm" role="button">            
-            Chercher automatiquement les informations de l'objet
+            Rechercher
         </a>
         <a href="#" id="btnStopCreateSearchObject">
             <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
             Arrêter la recherche
         </a>
+        <p class="texte_fonction_recherche">Ce bouton vous permet de rechercher automatiquement les informations liées à l'objet.</p>
         @Html.ValidationMessageFor(model => model.WebSite)
     </div>
 
@@ -56,7 +57,7 @@
         @Html.ValidationMessageFor(model => model.Description)
     </div>
     <div class="spaceTop">
-        <input type="submit" class="btn btn-success" value="J'ajoute mon cadeau !" />
+        <input type="submit" class="btn btn-success_validate" value="J'ajoute ce cadeau" />
     </div>
 </fieldset>
 

@@ -15,8 +15,9 @@
     <div class="editor-field">
         @Html.EditorFor(model => model.WebSite)
         <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
-            Chercher automatiquement les informations de l'objet
+            Rechercher
         </a>
+       
         <a href="#" id="btnStopEditSearchObject">
             <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
             Arrêter la recherche
@@ -69,7 +70,7 @@
         var searchAjax = null;
         // On init les boutons de recherche
         SearchTerminate();
-        
+
         // Lorsque l'on clique sur le bouton d'arret de la recherche
         $("#btnStopEditSearchObject").click(function () {
             if (searchAjax) {
