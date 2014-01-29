@@ -224,6 +224,12 @@
     <Content Include="Content\css\jquery.ui.tabs.css" />
     <Content Include="Content\css\jquery.ui.theme.css" />
     <Content Include="Content\css\jquery.ui.tooltip.css" />
+    <Content Include="Content\css\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\main.min.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
@@ -253,6 +259,12 @@
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
+    <Content Include="Content\mixin\mixins.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Content\mixin\mixins.min.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
