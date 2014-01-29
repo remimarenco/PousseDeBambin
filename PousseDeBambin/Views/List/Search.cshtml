@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PousseDeBambin.Models.List>
+﻿@model List<PousseDeBambin.Models.List>
 
 @{
     ViewBag.Title = "Recherche de liste !";
@@ -12,8 +12,8 @@
 
         <fieldset>
             <legend class="name_surname_search">Nom et prénom de la personne qui a créé la liste</legend>
-            <input type="text" id="firstName" name="firstName" placeholder="Prénom" />
-            <input type="text" id="lastName" name="lastName" placeholder="Nom (non obligatoire)" />
+            <input type="text" id="firstName" name="firstName" placeholder="Prénom" required/>
+            <input type="text" id="lastName" name="lastName" placeholder="Nom" required />
             <input class="search_list_btn" type="submit" value="RECHERCHER !" />
         </fieldset>
     }
