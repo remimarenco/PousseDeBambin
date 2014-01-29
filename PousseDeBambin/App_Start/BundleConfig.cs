@@ -12,7 +12,8 @@ namespace PousseDeBambin
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-            "~/Scripts/jquery-ui-{version}.js"));
+            "~/Scripts/jquery-ui-{version}.js",
+            "~/Scripts/jquery.ui.datepicker-fr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -29,7 +30,8 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/css/main.css",
                         "~/Content/css/jquery.ui.core.css",
                         "~/Content/css/jquery.ui.resizable.css",
                         "~/Content/css/jquery.ui.selectable.css",
@@ -42,9 +44,6 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.datepicker.css",
                         "~/Content/css/jquery.ui.progressbar.css",
                         "~/Content/css/jquery.ui.theme.css"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/main.css"));
         }
     }
 }

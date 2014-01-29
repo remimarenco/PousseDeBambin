@@ -54,14 +54,16 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
         <script type="text/javascript">
-
             $(document).ready(function () {
-                $('.picker').datepicker({
+                $("#datepicker").datepicker($.datepicker.regional["fr"]);
+                $('.picker').datepicker(
+                    {
                     dateFormat: 'dd.mm.yy',
                     changeMonth: true,
                     changeYear: true,
                     selectOtherMonths: true
-                });
+                    }
+                );
             });
         </script>
     }

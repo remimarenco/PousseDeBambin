@@ -1,7 +1,6 @@
-using PousseDeBambin.Models;
-
 namespace PousseDeBambin.Migrations
 {
+    using PousseDeBambin.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,7 +11,6 @@ namespace PousseDeBambin.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "PousseDeBambin.Models.ApplicationDbContext";
         }
 
         protected override void Seed(PousseDeBambin.Models.ApplicationDbContext context)
@@ -29,8 +27,7 @@ namespace PousseDeBambin.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
-            /* Création des utilisateurs de base */
+
             context.Users.AddOrUpdate(
                 p => p.UserName,
                 new ApplicationUser
@@ -43,7 +40,26 @@ namespace PousseDeBambin.Migrations
                     Street = "40 avenue guy de collongue",
                     Zipcode = 69130,
                     City = "Ecully",
-                    Country = "France"
+                    Country = "France",
+                    PasswordHash = "5f4dcc3b5aa765d61d8327deb882cf99"
+                }
+            );
+
+            /* Création des utilisateurs de base 
+            context.Users.AddOrUpdate(
+                p => p.UserName,
+                new ApplicationUser
+                {
+                    UserName = "Anonyme",
+                    FirstName = "Ano",
+                    LastName = "Nyme",
+                    EmailAddress = "remi@poussedebambin.com",
+                    PhoneNumber = "0614914252",
+                    Street = "40 avenue guy de collongue",
+                    Zipcode = 69130,
+                    City = "Ecully",
+                    Country = "France",
+                    PasswordHash = "5f4dcc3b5aa765d61d8327deb882cf99"
                 },
                 new ApplicationUser
                 {
@@ -55,13 +71,39 @@ namespace PousseDeBambin.Migrations
                     Street = "15 rue Jules Verne",
                     Zipcode = 69003,
                     City = "Lyon",
-                    Country = "France"
+                    Country = "France",
+                    PasswordHash = "5f4dcc3b5aa765d61d8327deb882cf99"
                 },
                 new ApplicationUser
                 {
-
+                    UserName = "remimarenco",
+                    FirstName = "Rémi",
+                    LastName = "Marenco",
+                    EmailAddress = "remi@poussedebambin.com",
+                    PhoneNumber = "0614914252",
+                    Street = "141 rue antoine charial",
+                    Zipcode = 69003,
+                    City = "Lyon",
+                    Country = "France",
+                    PasswordHash = "5f4dcc3b5aa765d61d8327deb882cf99"
+                },
+                new ApplicationUser
+                {
+                    UserName = "Bertrand",
+                    FirstName = "Bertrand",
+                    LastName = "Deher",
+                    EmailAddress = "deher.bertrand@gmail.com",
+                    PhoneNumber = "0614914252",
+                    Street = "141 rue antoine charial",
+                    Zipcode = 69003,
+                    City = "Lyon",
+                    Country = "France",
+                    PasswordHash = "5f4dcc3b5aa765d61d8327deb882cf99"
                 }
             );
+             * */
+
+            // Ajout des listes
 
             context.SaveChanges();
         }
