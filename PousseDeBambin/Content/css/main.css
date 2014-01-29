@@ -1,31 +1,31 @@
 ﻿@font-face {
     font-family: 'amatic_scregular';
-    src: url(fonts/amaticsc-regular-webfont.eot);
-    src: url(fonts/amaticsc-regular-webfont.eot?#iefix) format('embedded-opentype'), url(fonts/amaticsc-regular-webfont.woff) format('woff'), url(fonts/amaticsc-regular-webfont.ttf) format('truetype'), url(fonts/amaticsc-regular-webfont.svg#amatic_scregular) format('svg');
+    src: url('/Content/fonts/amaticsc-regular-webfont.eot');
+    src: url('/Content/fonts/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'), url(fonts/amaticsc-regular-webfont.woff) format('woff'), url(fonts/amaticsc-regular-webfont.ttf) format('truetype'), url(fonts/amaticsc-regular-webfont.svg#amatic_scregular) format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'amaticbold';
-    src: url(fonts/amatic-bold-webfont.eot);
-    src: url(fonts/amatic-bold-webfont.eot?#iefix) format('embedded-opentype'), url(fonts/amatic-bold-webfont.woff) format('woff'), url(fonts/amatic-bold-webfont.ttf) format('truetype'), url(fonts/amatic-bold-webfont.svg#amaticbold) format('svg');
+    src: url('/Content/fonts/amatic-bold-webfont.eot');
+    src: url('/Content/fonts/amatic-bold-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/amatic-bold-webfont.woff') format('woff'), url('/Content/fonts/amatic-bold-webfont.ttf') format('truetype'), url('/Content/fonts/amatic-bold-webfont.svg#amaticbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'bebas_neueregular';
-    src: url(fonts/bebasneue-webfont.eot);
-    src: url(fonts/bebasneue-webfont.eot?#iefix) format('embedded-opentype'), url(fonts/bebasneue-webfont.woff) format('woff'), url(fonts/bebasneue-webfont.ttf) format('truetype'), url(fonts/bebasneue-webfont.svg#bebas_neueregular) format('svg');
+    src: url('/Content/fonts/bebasneue-webfont.eot');
+    src: url('/Content/fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/bebasneue-webfont.woff') format('woff'), url('/Content/fonts/bebasneue-webfont.ttf') format('truetype'), url('/Content/fonts/bebasneue-webfont.svg#bebas_neueregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'marketing_scriptregular';
-    src: url(fonts/marketingscript-webfont.eot);
-    src: url(fonts/marketingscript-webfont.eot?#iefix) format('embedded-opentype'), url(fonts/marketingscript-webfont.woff) format('woff'), url(fonts/marketingscript-webfont.ttf) format('truetype'), url(fonts/marketingscript-webfont.svg#marketing_scriptregular) format('svg');
+    src: url('/Content/fonts/marketingscript-webfont.eot');
+    src: url('/Content/fonts/marketingscript-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/marketingscript-webfont.woff') format('woff'), url('/Content/fonts/marketingscript-webfont.ttf') format('truetype'), url('/Content/fonts/marketingscript-webfont.svg#marketing_scriptregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -158,7 +158,7 @@ header {
 }
 
 header .logo {
-    background: url(img/home/logo.png) no-repeat;
+    background: url(/Content/img/home/logo.png) no-repeat;
     height: 210px;
     width: 210px;
     display: inline-block;
@@ -167,7 +167,7 @@ header .logo {
 }
 
 header .header_bottom {
-    background: url(img/home/herbe_header.png) repeat-x;
+    background: url(/Content/img/home/herbe_header.png) repeat-x;
     height: 54px;
     position: relative;
     z-index: 10;
@@ -177,7 +177,7 @@ header .header_bottom {
 
 header:after {
     height: 177px;
-    content: url(img/home/champignons_header.png);
+    content: url(/Content/img/home/champignons_header.png);
     position: absolute;
     left: 50%;
     top: 3px;
@@ -186,7 +186,7 @@ header:after {
 
 header:before {
     height: 177px;
-    content: url(img/home/fleur_header.png);
+    content: url(/Content/img/home/fleur_header.png);
     left: 50%;
     position: absolute;
     top: 0px;
@@ -252,6 +252,8 @@ header:before {
     background: #fff;
     height: 364px;
     text-align: center;
+    position: relative;
+    z-index: 80;
 }
 
 .container_categories a {
@@ -263,7 +265,7 @@ header:before {
 }
 
 .container_categories .cat {
-    background: url(img/home/fond_illus.png) no-repeat;
+    background: url('/Content/img/home/fond_illus.png') no-repeat;
     height: 383px;
     width: 500px;
     font-family: 'bebas_neueregular';
@@ -289,7 +291,7 @@ header:before {
 }
 
 .container_categories .cat1:after {
-    content: url(img/home/illu_creer.jpg);
+    content: url('/Content/img/home/illu_creer.jpg');
     position: absolute;
     bottom: 10px;
     left: 116px;
@@ -297,7 +299,7 @@ header:before {
 }
 
 .container_categories .cat2:after {
-    content: url(img/home/illu_offrir.jpg);
+    content: url('/Content/img/home/illu_offrir.jpg');
     position: absolute;
     bottom: 8px;
     left: 116px;
@@ -322,7 +324,7 @@ footer .row {
 }
 
 footer .marche {
-    background: url(img/home/banderole.png) no-repeat;
+    background: url('/Content/img/home/banderole.png') no-repeat;
     height: 80px;
     width: 424px;
     display: block;
@@ -336,7 +338,7 @@ footer .marche {
 }
 
 .howItWorks_main {
-    background: url(img/home/herbe_footer.png) 0 100% repeat-x #f0e79c;
+    background: url('/Content/img/home/herbe_footer.png') 0 100% repeat-x #f0e79c;
     text-align: center;
     padding-top: 30px;
     height: 400px;
@@ -345,7 +347,7 @@ footer .marche {
 }
 
 .howItWorks_main:before {
-    content: url(img/home/fleur_footer.png);
+    content: url(/Content/img/home/fleur_footer.png);
     bottom: -15px;
     left: 50%;
     margin-left: -640px;
@@ -353,7 +355,7 @@ footer .marche {
 }
 
 .howItWorks_main:after {
-    content: url(img/home/biberoncadeaux_footer.png);
+    content: url(/Content/img/home/biberoncadeaux_footer.png);
     bottom: -20px;
     left: 50%;
     margin-left: 440px;
@@ -375,15 +377,15 @@ footer .marche {
 }
 
 .step.step1 {
-    background: url(img/home/img_etape1.jpg) no-repeat 0 100%;
+    background: url('/Content/img/home/img_etape1.jpg') no-repeat 0 100%;
 }
 
 .step.step2 {
-    background: url(img/home/img_etape2.jpg) no-repeat 0 100%;
+    background: url('/Content/img/home/img_etape2.jpg') no-repeat 0 100%;
 }
 
 .step.step3 {
-    background: url(img/home/img_etape3.jpg) no-repeat 0 100%;
+    background: url('/Content/img/home/img_etape3.jpg') no-repeat 0 100%;
 }
 
 .step .howItWorksText {
@@ -436,7 +438,7 @@ footer .marche {
 /*-----------------------FIN FOOTER------------------------*/
 /*-----------------------page création de liste------------------------*/
 .create_list_title {
-    background: url(img/create/pancarte.png) no-repeat;
+    background: url('/Content/img/create/pancarte.png') no-repeat;
     height: 170px;
     width: 457px;
     margin: 0 auto;
@@ -458,7 +460,7 @@ fieldset {
 }
 
 .img_create {
-    background: url(img/create/img_create.jpg) no-repeat;
+    background: url('/Content/img/create/img_create.jpg') no-repeat;
     height: 301px;
     width: 450px;
     position: relative;
@@ -500,8 +502,8 @@ textarea {
     border-radius: 3px;
 }
 
-.btn-success {
-    background: url(img/create/bouton_creer_liste.png) no-repeat;
+.btn-success1 {
+    background: url('/Content/img/create/bouton_creer_liste.png') no-repeat;
     height: 109px;
     width: 277px;
     border: none;
@@ -542,7 +544,7 @@ textarea {
 }
 
 .search_list_block .search_list_btn {
-    background: url(img/search/bouton_rechercher.png) no-repeat;
+    background: url('/Content/img/search/bouton_rechercher.png') no-repeat;
     height: 63px;
     width: 150px;
     display: block;
@@ -556,7 +558,7 @@ textarea {
 }
 
 .search_list_block .search_list_btn:hover {
-    background-image: url(img/search/bouton_rechercher_hover.png);
+    background-image: url('/Content/img/search/bouton_rechercher_hover.png');
     color: #f0e79c;
 }
 
@@ -597,13 +599,13 @@ textarea {
 }
 
 .photos .photoremi {
-    background-image: url(img/whoweare/cadres_remi.png);
+    background-image: url('/Content/img/whoweare/cadres_remi.png');
     height: 240px;
     width: 220px;
 }
 
 .photos .photomarion {
-    background-image: url(img/whoweare/cadre_marion.png);
+    background-image: url('/Content/img/whoweare/cadre_marion.png');
     height: 240px;
     width: 220px;
 }
