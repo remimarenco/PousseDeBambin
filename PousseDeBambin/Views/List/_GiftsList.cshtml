@@ -6,6 +6,7 @@
 @if (Model.Gifts != null && Model.Gifts.Count() != 0)
 {
     <div class="listBox">
+        <div class="giftList">
         @foreach (var item in Model.Gifts)
         {
             <div class="row">
@@ -43,6 +44,7 @@
             </div>
         }
     </div>
+    </div>
     <div id="divBtnSummaryGifts" class="spaceTop">
         @if (ViewBag.AdminConnected != null && ViewBag.AdminConnected)
         {
@@ -56,7 +58,7 @@
                 @Html.ValidationSummary(true)
 
                 @Html.HiddenFor(x => Model.ListId)
-                <div style="margin-top: 2%;">
+                <div class="validate_list">
                     <p>
                         <input type="submit" class="btn btn-primary" value="Je valide ma liste !" />
                     </p>

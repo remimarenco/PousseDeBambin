@@ -54,7 +54,7 @@ input {
 
 .form-group {
     display: inline-block;
-    margin-top: 3px;
+    vertical-align:middle;
 
     .form-control {
         border-radius: 2px;
@@ -67,6 +67,21 @@ h2 {
     font-family: 'bebas_neueregular';
     color:#AF5C63;
 }
+
+
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+    display: inline-block;
+    vertical-align:middle;
+    height: 33px;
+
+    ul {
+        display: inline-block;
+    }
+}
+/*-------------------fin message erreur connexion bar------------------*/
+
+
 /*------------------dropdown menu connexion_bar------------*/
 .dropdown-menu {
     display: inline-block;
@@ -161,16 +176,6 @@ header {
     z-index: 5;
 
 
-    .logo {
-        background: url(/Content/img/home/logo.png) no-repeat;
-        height: 210px;
-        width: 210px;
-        display: inline-block;
-        z-index: 20;
-        position: relative;
-    }
-
-
     .header_bottom {
         background: url(/Content/img/home/herbe_header.png) repeat-x;
         height: 54px;
@@ -179,9 +184,8 @@ header {
         margin-top: 92px;
         border-bottom: solid 10px #382a21;
     }
-}
 
-    header:after {
+    &:after {
         height: 177px;
         content: url(/Content/img/home/champignons_header.png);
         position: absolute;
@@ -190,7 +194,7 @@ header {
         margin-left: 350px;
     }
 
-    header:before {
+    &:before {
         height: 177px;
         content: url(/Content/img/home/fleur_header.png);
         left: 50%;
@@ -199,47 +203,63 @@ header {
         margin-left: -480px;
     }
 
-.menu a {
-    text-decoration: none;
-    line-height: 50px;
-    font-family: arial;
-    font-family: 'amaticbold';
-    font-size: 28px;
-    color: #000000;
-    -webkit-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    position: relative;
-    z-index: 30;
-    margin-top: -30px;
-}
+    .menu {
 
-    .menu a:hover, #menu a:focus, #menu a.current {
-        color: lighten(#382a21, 40%);
-    }
+        ul {
+            height: 32px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
 
-.menu ul {
-    height: 32px;
-    text-align: center;
-    margin: 0;
+            li {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-position: 0% 10px;
+                margin-top: 90px;
+                vertical-align: top;
+                width: 150px;
 
-    li {
-        display: inline-block;
-        margin-right: 30px;
-        padding-left: 20px;
-        background-repeat: no-repeat;
-        background-position: 0% 10px;
-        margin-top: 90px;
-        vertical-align: top;
-    }
+                /*
+                &:first-child {
+                    text-align: right;
+                }
+                */
 
-        li:last-child {
-            padding-right: 0px;
-            margin-right: 0;
+                &:last-child {
+                    padding-right: 0px;
+                    margin-right: 0;
+                }
+            }
+
         }
 
-    a {
-        line-height: 0px;
+        a {
+            text-decoration: none;
+            line-height: 0;
+            font-family: arial;
+            font-family: 'amaticbold';
+            font-size: 28px;
+            color: #000000;
+            -webkit-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            position: relative;
+            z-index: 30;
+            margin-top: -30px;
+
+            &:hover, &:focus, &.current {
+                color: lighten(#382a21, 40%);
+            }
+
+            &.logo {
+                background: url(/Content/img/home/logo.png) no-repeat;
+                height: 210px;
+                width: 210px;
+                display: inline-block;
+                z-index: 20;
+                position: relative;
+            }
+        }
     }
 }
 /*-----------------------FIN HEADER------------------------*/
@@ -529,22 +549,14 @@ textarea {
     height: 109px;
     width: 277px;
     border: none;
+    outline:none;
+    cursor:pointer;
 }
 
 .error_message {
     color: #ea744e;
     font-family: Arial;
 }
-/*-------------------message erreur connexion bar------------------*/
-.validationConnexionBar {
-    display: inline;
-    color: #ea744e;
-
-    ul {
-        display: inline-block;
-    }
-}
-/*-------------------fin message erreur connexion bar------------------*/
 
 /*------------------- PAGE RECHERCHE LISTE - NOM/PRENOM ------------------*/
 .search_list_block {
@@ -711,27 +723,38 @@ textarea {
         color: #f0e79c;
     }
 
-.listBox {
-    background: #fff;
-    width: 400px;
-    height: 450px;
-    position: relative;
-    border-radius: 3px;
-    float: right;
+#divGiftsList{
+    float:right;
     margin-right: 150px;
-    padding: 20px;
-    margin-top: 110px;
-    box-shadow: 0px 2px 30px #aec383;
-}
+        
+    .listBox {
+        background: #fff;
+        width: 400px;
+        height: 450px;
+        position: relative;
+        border-radius: 3px;
+        padding: 20px;
+        margin-top: 110px;
+        box-shadow: 0px 2px 30px #aec383;
 
-    .listBox:before {
-        content: url('/Content/img/giftsList/noeud_liste.png');
-        height: 64px;
-        width: 211px;
-        top: -60px;
-        position: absolute;
-        left: 110px;
+        &:before {
+              content: url('/Content/img/giftsList/noeud_liste.png');
+            height: 64px;
+            width: 211px;
+            top: -60px;
+            position: absolute;
+            left: 110px;
+        }
+        
+        .giftList {
+            overflow: auto;
+            width: 400px;
+            height: 450px;
+
+        }
     }
+}
+    
 
 .col-md-10 {
     height: 50px;

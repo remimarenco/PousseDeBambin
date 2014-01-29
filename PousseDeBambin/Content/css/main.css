@@ -51,7 +51,7 @@ input {
 
 .form-group {
     display: inline-block;
-    margin-top: 3px;
+    vertical-align: middle;
 }
 
 .form-group .form-control {
@@ -65,6 +65,18 @@ h2 {
     color: #AF5C63;
 }
 
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+    display: inline-block;
+    vertical-align: middle;
+    height: 33px;
+}
+
+.validationConnexionBar ul {
+    display: inline-block;
+}
+
+/*-------------------fin message erreur connexion bar------------------*/
 /*------------------dropdown menu connexion_bar------------*/
 .dropdown-menu {
     display: inline-block;
@@ -162,15 +174,6 @@ header {
     z-index: 5;
 }
 
-header .logo {
-    background: url(/Content/img/home/logo.png) no-repeat;
-    height: 210px;
-    width: 210px;
-    display: inline-block;
-    z-index: 20;
-    position: relative;
-}
-
 header .header_bottom {
     background: url(/Content/img/home/herbe_header.png) repeat-x;
     height: 54px;
@@ -198,9 +201,35 @@ header:before {
     margin-left: -480px;
 }
 
-.menu a {
+header .menu ul {
+    height: 32px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu ul li {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 0% 10px;
+    margin-top: 90px;
+    vertical-align: top;
+    width: 150px;
+    /*
+                                &:first-child {
+                                        text-align: right;
+                                }
+                                */
+}
+
+header .menu ul li:last-child {
+    padding-right: 0px;
+    margin-right: 0;
+}
+
+header .menu a {
     text-decoration: none;
-    line-height: 50px;
+    line-height: 0;
     font-family: arial;
     font-family: 'amaticbold';
     font-size: 28px;
@@ -213,35 +242,19 @@ header:before {
     margin-top: -30px;
 }
 
-.menu a:hover,
-#menu a:focus,
-#menu a.current {
+header .menu a:hover,
+header .menu a:focus,
+header .menu a.current {
     color: #af8c76;
 }
 
-.menu ul {
-    height: 32px;
-    text-align: center;
-    margin: 0;
-}
-
-.menu ul li {
+header .menu a.logo {
+    background: url(/Content/img/home/logo.png) no-repeat;
+    height: 210px;
+    width: 210px;
     display: inline-block;
-    margin-right: 30px;
-    padding-left: 20px;
-    background-repeat: no-repeat;
-    background-position: 0% 10px;
-    margin-top: 90px;
-    vertical-align: top;
-}
-
-.menu ul li:last-child {
-    padding-right: 0px;
-    margin-right: 0;
-}
-
-.menu ul a {
-    line-height: 0px;
+    z-index: 20;
+    position: relative;
 }
 
 /*-----------------------FIN HEADER------------------------*/
@@ -523,6 +536,8 @@ textarea {
     height: 109px;
     width: 277px;
     border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .error_message {
@@ -530,17 +545,6 @@ textarea {
     font-family: Arial;
 }
 
-/*-------------------message erreur connexion bar------------------*/
-.validationConnexionBar {
-    display: inline;
-    color: #ea744e;
-}
-
-.validationConnexionBar ul {
-    display: inline-block;
-}
-
-/*-------------------fin message erreur connexion bar------------------*/
 /*------------------- PAGE RECHERCHE LISTE - NOM/PRENOM ------------------*/
 .search_list_block {
     text-align: center;
@@ -706,26 +710,35 @@ textarea {
     color: #f0e79c;
 }
 
-.listBox {
+#divGiftsList {
+    float: right;
+    margin-right: 150px;
+}
+
+#divGiftsList .listBox {
     background: #fff;
     width: 400px;
     height: 450px;
     position: relative;
     border-radius: 3px;
-    float: right;
-    margin-right: 150px;
     padding: 20px;
     margin-top: 110px;
     box-shadow: 0px 2px 30px #aec383;
 }
 
-.listBox:before {
+#divGiftsList .listBox:before {
     content: url('/Content/img/giftsList/noeud_liste.png');
     height: 64px;
     width: 211px;
     top: -60px;
     position: absolute;
     left: 110px;
+}
+
+#divGiftsList .listBox .giftList {
+    overflow: auto;
+    width: 400px;
+    height: 450px;
 }
 
 .col-md-10 {
