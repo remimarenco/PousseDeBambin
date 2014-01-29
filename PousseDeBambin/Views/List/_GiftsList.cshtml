@@ -9,6 +9,7 @@
         @foreach (var item in Model.Gifts)
         {
             <div class="row">
+                <img id="miniImg" src="@item.ImageUrl" width="30" height="30"/>
                 <div class="col-md-1">
                     @using (Ajax.BeginForm("DeletePartial", "Gift", new { id = item.GiftId },
                         new AjaxOptions
