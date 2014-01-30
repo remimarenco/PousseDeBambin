@@ -73,6 +73,11 @@ h2 {
     color: #AF5C63;
 }
 
+h3 {
+    font-family: 'arial';
+    text-align: center;
+}
+
 /*-------------------message erreur connexion bar------------------*/
 .validationConnexionBar {
     display: inline-block;
@@ -860,4 +865,99 @@ textarea {
 .share_list {
     text-align: center;
     font-family: 'arial';
+}
+
+/*-----------------------------------fin SHARE LIST-------------------------*/
+/*-----------------------------------GIFT LIST (PROCHES)-------------------------*/
+.mess_bienvenue_list {
+    font-family: 'arial';
+    text-align: center;
+    margin-top: 20px;
+}
+
+#ListsGifts {
+    margin: 0 auto;
+}
+
+.fond_cadeaux {
+    background-color: #fff;
+}
+
+.cat_list_cadeau {
+    font-family: 'marketing_scriptregular';
+    font-size: 22px;
+    color: #AF5C63;
+    font-weight: normal;
+}
+
+.divObjectImage img {
+    width: 150px;
+    height: 150px;
+    border-radius: 2px;
+    border: solid 2px #829516;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.divObjectDescription {
+    font-family: 'arial';
+    width: 500px;
+    margin-left: 50px;
+    color: #382a21;
+    margin-bottom: 20px;
+}
+
+.divObjectName {
+    font-family: amaticbold;
+    border-bottom: dashed 1px #aec383;
+    font-size: 30px;
+    color: #ea744e;
+    margin-left: 50px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.divObjectPrice {
+    width: 90px;
+    text-align: center;
+}
+
+.textWithoutWrap {
+    font-family: 'arial';
+    font-weight: bold;
+    color: #829516;
+}
+
+#btnEditGift {
+    font-family: 'bebas_neueregular';
+    width: 150px;
+    height: 63px;
+    text-decoration: none;
+    margin: 20px;
+    color: #ea744e;
+    border-bottom: dashed 1px #AF5C63;
+}
+
+#btnEditGift:hover {
+    color: #AF5C63;
+}
+
+.buyButton {
+    background: url('/Content/img/giftsList/bouton_offrir.png') no-repeat;
+    width: 180px;
+    height: 55px;
+    border: none;
+    display: inline-block;
+    padding-top: 25px;
+    font-family: bebas_neueregular;
+    font-size: 15px;
+    color: #F1EFCC;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.buyButton:hover {
+    color: #fff;
 }

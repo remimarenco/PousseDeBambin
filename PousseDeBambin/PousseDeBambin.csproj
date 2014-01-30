@@ -241,6 +241,8 @@
     <Content Include="Content\img\create\pancarte.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter_hover.png" />
+    <Content Include="Content\img\giftsList\bouton_modifier.png" />
+    <Content Include="Content\img\giftsList\bouton_offrir.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />

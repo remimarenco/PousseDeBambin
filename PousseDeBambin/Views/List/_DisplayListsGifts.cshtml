@@ -2,14 +2,14 @@
 
 <table id="ListsGifts" class="table">
     <tr>
-        <th>Image</th>
-        <th>Objet</th>
-        <th>Prix</th>
-        <th>Achat</th>
+        <th class="cat_list_cadeau">Image</th>
+        <th class ="cat_list_cadeau">Objet</thclass>
+        <th class="cat_list_cadeau">Prix</th>
+        <th class="cat_list_cadeau">Achat</th>
     </tr>
     @foreach (var gift in Model.Gifts)
     {
-        <tr id="gift@(gift.GiftId)">
+        <tr class="fond_cadeaux" id="gift@(gift.GiftId)">
             @Html.Action("DisplayGiftState", "GiftState", new { id = gift.GiftId })
         </tr>
     }
