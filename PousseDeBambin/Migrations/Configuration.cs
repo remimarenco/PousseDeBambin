@@ -30,22 +30,6 @@ namespace PousseDeBambin.Migrations
             //    );
             //
 
-            context.Users.AddOrUpdate(
-                p => p.UserName,
-                new ApplicationUser
-                {
-                    UserName = "Anonyme",
-                    FirstName = "Ano",
-                    LastName = "Nyme",
-                    EmailAddress = "remi@poussedebambin.com",
-                    PhoneNumber = "0614914252",
-                    Street = "40 avenue guy de collongue",
-                    Zipcode = 69130,
-                    City = "Ecully",
-                    Country = "France"
-                }
-            );
-
             var manager = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(
                     new ApplicationDbContext()));

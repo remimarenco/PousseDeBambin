@@ -42,6 +42,14 @@ input {
     padding-left: 5px;
 }
 
+h2 {
+    text-align: center;
+}
+
+h4 {
+    font-family: 'arial';
+}
+
 /*--------------------------CONNEXION BAR------------------*/
 .barre_connexion {
     height: 33px;
@@ -466,7 +474,7 @@ footer .marche {
 }
 
 #createPart {
-    width: 800px;
+    width: 430px;
     margin-left: 150px;
 }
 
@@ -575,6 +583,8 @@ textarea {
     color: #fff;
     border: none;
     padding-top: 23px;
+    cursor: pointer;
+    outline: none;
 }
 
 .search_list_block .search_list_btn:hover {
@@ -637,6 +647,12 @@ textarea {
     margin-bottom: 50px;
 }
 
+#createNewObject .newCadeau {
+    position: relative;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
 #createNewObject .btn-primary_add {
     background: url('/Content/img/giftsList/bouton_ajouter.png');
     height: 63px;
@@ -646,16 +662,15 @@ textarea {
     font-size: 13px;
     color: #fff;
     border: none;
-    text-align: center;
     padding: 20px 0px 0 30px;
-    position: relative;
-    vertical-align: bottom;
-    display: inline-block;
+    outline: none;
+    margin-left: 13px;
 }
 
 #createNewObject .btn-primary_add:hover {
     background-image: url('/Content/img/giftsList/bouton_ajouter_hover.png');
     color: #f0e79c;
+    outline: none;
 }
 
 #btnCreateSearchObject {
@@ -663,19 +678,23 @@ textarea {
     background: url('/Content/img/giftsList/bouton_rechercher.png') no-repeat;
     height: 63px;
     width: 115px;
-    color: #f0e79c;
+    color: #fff;
     font-family: 'bebas_neueregular';
     display: inline-block;
     position: relative;
-    vertical-align: middle;
     line-height: 86px;
     padding-left: 44px;
-    margin-left: 20px;
+    outline: none;
 }
 
 #btnCreateSearchObject:hover {
     background-image: url('/Content/img/giftsList/bouton_rechercher_hover.png');
     color: #f0e79c;
+    outline: none;
+}
+
+.single-line {
+    width: 350px;
 }
 
 .texte_fonction_recherche {
@@ -686,7 +705,6 @@ textarea {
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    padding-top: 20px;
 }
 
 .btn-success_validate {
@@ -703,6 +721,7 @@ textarea {
     position: relative;
     vertical-align: bottom;
     display: inline-block;
+    outline: none;
 }
 
 .btn-success_validate:hover {
@@ -718,12 +737,14 @@ textarea {
 #divGiftsList .listBox {
     background: #fff;
     width: 400px;
-    height: 450px;
+    height: 360px;
     position: relative;
     border-radius: 3px;
-    padding: 20px;
-    margin-top: 110px;
+    padding: 30px;
+    padding-right: 15px;
+    margin-top: 85px;
     box-shadow: 0px 2px 30px #aec383;
+    overflow: auto;
 }
 
 #divGiftsList .listBox:before {
@@ -741,23 +762,64 @@ textarea {
     height: 450px;
 }
 
-.col-md-10 {
-    height: 50px;
+.row_items {
+    border-bottom: dashed 1px #aec383;
 }
 
-.col-md-10 a {
-    font-family: 'arial';
+.col-md-10_gift {
+    height: 50px;
+    width: 250px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.col-md-10_gift a {
     text-decoration: none;
-    color: #382a21;
-    font-size: 12px;
+    color: #808080;
+    font-size: 14px;
+    font-family: 'arial';
+    text-transform: uppercase;
 }
 
 .btn-xs {
     background: url('/Content/img/giftsList/suppr.jpg') no-repeat;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     border: none;
     box-shadow: 0px 2px 5px #aaa;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#miniImg {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.btn-primary_validate_img {
+    background: url('/Content/img/giftsList/picto_valider.png') no-repeat;
+    width: 320px;
+    height: 140px;
+    border: none;
+    outline: none;
+    padding-left: 100px;
+    cursor: pointer;
+    font-family: 'marketing_scriptregular';
+    font-size: 25px;
+    color: #382a21;
+    text-align: center;
+}
+
+.btn-primary_validate_img:hover {
+    color: #AF5C63;
+    text-decoration: underline;
 }
 
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
@@ -779,5 +841,23 @@ textarea {
     background-color: #ea744e;
     border-radius: 3px;
     text-decoration: none;
+    font-family: 'arial';
+}
+
+/*-----------------------------------LOGIN FORMULAIRE-------------------------*/
+.form-horizontal {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.form-horizontal .form-control {
+    width: 250px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/*-----------------------------------SHARE LIST-------------------------*/
+.share_list {
+    text-align: center;
     font-family: 'arial';
 }
