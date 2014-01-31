@@ -9,24 +9,23 @@
         <div class="giftList">
         @foreach (var item in Model.Gifts)
         {
-            <div class="row">
-                <img id="miniImg" src="@item.ImageUrl" width="30" height="30"/>
-                <div class="col-md-1">
-                    @using (Ajax.BeginForm("DeletePartial", "Gift", new { id = item.GiftId },
-                        new AjaxOptions
-                        {
-                            HttpMethod = "Post",
-                            OnComplete = "CompleteDelete",
-                            Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
-                        }))
+            <div class="row_items">
+                @using (Ajax.BeginForm("DeletePartial", "Gift", new { id = item.GiftId },
+                    new AjaxOptions
                     {
-                        @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-default btn-xs">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    }
-                </div>
-                <div class="col-md-10">
+                        HttpMethod = "Post",
+                        OnComplete = "CompleteDelete",
+                        Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
+                    }))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-default btn-xs">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                }
+                <img id="miniImg" src="@item.ImageUrl" width="80" height="80"/>
+                
+                <div class="col-md-10_gift">
                     @Ajax.ActionLink(
                                 item.Name,
                                 "EditPartial",
@@ -60,7 +59,7 @@
                 @Html.HiddenFor(x => Model.ListId)
                 <div class="validate_list">
                     <p>
-                        <input type="submit" class="btn btn-primary" value="Je valide ma liste !" />
+                        <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
                     </p>
                 </div>
             }

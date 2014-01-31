@@ -6,6 +6,6 @@
 
 <h2>Partage de @Model.Name</h2>
 
-<p>Bravo ! Vous pouvez partager votre liste "@Model.Name" maintenant !</p>
+<p class="share_list">Bravo ! Vous pouvez partager votre liste "@Model.Name" maintenant !</p>
 
-<p>Donnez tout simplement cette adresse à vos proches : @Html.ActionLink(Url.Action("Consult", "List", new { id = Model.ListId }, Request.Url.Scheme), "Consult", new { id = Model.ListId })</p>
+<p class ="share_list">Donnez tout simplement cette adresse à vos proches : @Html.ActionLink(Url.Action("Consult", "List", new { id = Model.ListId }, Request.Url.Scheme), "Consult", new { id = Model.ListId })</pclass>
