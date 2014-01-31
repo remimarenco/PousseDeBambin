@@ -44,6 +44,7 @@ namespace PousseDeBambin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
@@ -73,6 +74,7 @@ namespace PousseDeBambin.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> LoginBar(LoginViewModel model, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
@@ -94,8 +96,9 @@ namespace PousseDeBambin.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -104,8 +107,9 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { 
@@ -133,7 +137,14 @@ namespace PousseDeBambin.Controllers
                     email.UrlHost = urlHost;
                     email.Send();
 
-                    return Redirect(Url.Action("ThanksRegister", "Account"));
+                    if (!String.IsNullOrWhiteSpace(returnUrl))
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        return Redirect(Url.Action("ThanksRegister", "Account"));
+                    }
                 }
                 else
                 {
