@@ -1017,3 +1017,8 @@ textarea {
 .buyButton:hover {
     color: #fff;
 }
+
+.text-beta {
+    text-align: center;
+    font-family: marketing_scriptregular;
+}
