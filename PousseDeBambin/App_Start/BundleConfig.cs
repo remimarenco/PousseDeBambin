@@ -30,7 +30,7 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
                         "~/Content/css/jquery.ui.core.css",
                         "~/Content/css/jquery.ui.resizable.css",
