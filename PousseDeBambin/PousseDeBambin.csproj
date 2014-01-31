@@ -412,6 +412,7 @@
     <Content Include="Views\Shared\_ConnexionBar.cshtml" />
     <Content Include="Views\Shared\_ConnectedMenu.cshtml" />
     <Content Include="Views\Shared\WhoAreWe.cshtml" />
+    <Content Include="Views\Shared\_MessageBeta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
