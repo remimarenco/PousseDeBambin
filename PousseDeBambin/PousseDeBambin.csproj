@@ -207,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.ui.accordion.css" />
     <Content Include="Content\css\jquery.ui.all.css" />
@@ -247,6 +246,7 @@
     <Content Include="Content\img\giftsList\bouton_modifier.png" />
     <Content Include="Content\img\giftsList\bouton_modif_over.png" />
     <Content Include="Content\img\giftsList\bouton_offrir.png" />
+    <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />
@@ -254,6 +254,7 @@
     <Content Include="Content\img\giftsList\fleche_connexion.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
     <Content Include="Content\img\giftsList\noeud_liste.png" />
+    <Content Include="Content\img\giftsList\panier_acheter.png" />
     <Content Include="Content\img\giftsList\picto_valider.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\home\baby.jpg" />
