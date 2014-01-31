@@ -43,7 +43,8 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.tabs.css",
                         "~/Content/css/jquery.ui.datepicker.css",
                         "~/Content/css/jquery.ui.progressbar.css",
-                        "~/Content/css/jquery.ui.theme.css"));
+                        "~/Content/css/jquery.ui.theme.css",
+                        "~/Content/css/bootstrap.css"));
         }
     }
 }
