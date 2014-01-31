@@ -19,7 +19,7 @@
         </a>
        
         <a href="#" id="btnStopEditSearchObject">
-            <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
+            <img id="editAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
             Arrêter la recherche
         </a>
         @Html.ValidationMessageFor(model => model.WebSite)
@@ -110,7 +110,7 @@
                     // Ajout de l'image
                     $("#displayImage").attr("src", data.products[0].media[0].link);
 
-                    $('#editAjaxLoading').hide();
+                    //$('#editAjaxLoading').hide();
 
                     SearchTerminate();
                 },
