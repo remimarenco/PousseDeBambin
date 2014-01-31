@@ -12,7 +12,8 @@
             {
                 UpdateTargetId = "connexionBar",
                 InsertionMode = InsertionMode.Replace,
-                HttpMethod = "POST"
+                HttpMethod = "POST",
+                OnBegin = "beginLogin"
             }))
         {
             @Html.AntiForgeryToken()
@@ -28,7 +29,9 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2">
-                    <input type="submit" value="Se connecter" class="btn btn-default" />
+                    ***REMOVED***<img id="searchAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" 
+                         style="display: none"/>-->
+                    <input type="submit" id="submitLogin" value="Se connecter" class="btn btn-default" />
                 </div>
             </div>
         }
@@ -41,6 +44,10 @@
 </div>
 
 <script type="text/javascript">
+    function beginLogin() {
+        $("#submitLogin").attr("value", "Connexion en cours...");
+    }
+
     $(document).ready(function () {
         $('.dropdown-menu').each(function () {
             var menu = $(this);

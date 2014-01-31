@@ -13,11 +13,11 @@
             if (ViewBag.GiftId != null)
             {
                 @:HideCreateAndDisplayEdit();
-                    }
+                            }
             else
             {
                 @:HideEditAndDisplayCreate();
-                    }
+                            }
         }
     });
 
@@ -123,7 +123,7 @@
                                     UpdateTargetId = "divCreateGift",
                                     HttpMethod = "Post",
                                     InsertionMode = InsertionMode.Replace,
-                                    OnSuccess = "CompleteCreate",
+                                    OnSuccess = "CompleteCreate"
                                 }))
                 {
                     <div id="divCreateGift">
@@ -137,12 +137,13 @@
                                     UpdateTargetId = "divCreateGift",
                                     HttpMethod = "Get",
                                     InsertionMode = InsertionMode.Replace,
-                                    OnSuccess = "CompleteAskCreate"
+                                    OnSuccess = "CompleteAskCreate",
+                                    LoadingElementId = ""
                                 }))
                 {
                     <div class="newCadeau">
                         <input type="submit" class="btn btn-primary_add" value="Nouveau cadeau !" />
-                    </div">
+                    </div>
                 }
             </div>
         </div>
