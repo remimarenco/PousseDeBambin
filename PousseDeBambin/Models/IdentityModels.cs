@@ -4,6 +4,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using PousseDeBambin.Migrations;
 
 namespace PousseDeBambin.Models
 {
@@ -26,7 +27,7 @@ namespace PousseDeBambin.Models
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
-            Database.SetInitializer<ApplicationDbContext>(null);
+            Database.SetInitializer<ApplicationDbContext>(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public DbSet<Prospect> Prospects { get; set; }
