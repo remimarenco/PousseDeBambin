@@ -182,7 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListAndGiftsController.cs" />
     <Compile Include="Controllers\ListController.cs" />
-    <Compile Include="Controllers\MiscellanousController.cs" />
+    <Compile Include="Controllers\MiscellaneousController.cs" />
     <Compile Include="Controllers\OldHomeController.cs" />
     <Compile Include="Controllers\ProspectController.cs" />
     <Compile Include="Controllers\UsersListsController.cs" />
@@ -414,6 +414,7 @@
     <Content Include="Views\Shared\_ConnectedMenu.cshtml" />
     <Content Include="Views\Shared\WhoAreWe.cshtml" />
     <Content Include="Views\Shared\_MessageBeta.cshtml" />
+    <Content Include="Views\Miscellaneous\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
