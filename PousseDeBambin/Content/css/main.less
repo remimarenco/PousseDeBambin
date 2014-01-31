@@ -58,9 +58,20 @@ h4 {
     margin: 0 auto;
     width: 1200px;
 }
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0px;
+}
+.field-validation-error{
+    font-family:'arial';
+}
 /*--------------------------CONNEXION BAR------------------*/
 .barre_connexion {
-    height: 33px;
+    height: 27px;
     background-color: #382a21;
     padding-left: 800px;
 }
@@ -96,6 +107,16 @@ h3 {
         display: inline-block;
     }
 }
+
+.validationConnexionBar {
+    color: #ea744e;
+    font-family: 'arial';
+    font-size: 12px;
+    position: absolute;
+    font-weight: bold;
+    z-index: 100;
+    margin-top: 20px;
+}
 /*-------------------fin message erreur connexion bar------------------*/
 
 
@@ -111,8 +132,9 @@ h3 {
 
     p {
         background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;
-        margin-top: 7px;
+        margin-top: 5px;
         font-family: 'arial';
+        font-size: 14px;
         color: #f0e79c;
         margin-bottom: 7px;
         padding-right: 25px;
@@ -234,7 +256,7 @@ header {
                 display: inline-block;
                 background-repeat: no-repeat;
                 background-position: 0% 10px;
-                margin-top: 90px;
+                margin-top: 74px;
                 vertical-align: top;
                 width: 150px;
                 /*
@@ -583,6 +605,7 @@ textarea {
         font-size: 40px;
         color: #382a21;
         text-align: center;
+        border-bottom: dotted 2px #aec383;
     }
 
     .name_surname_search {
@@ -788,23 +811,23 @@ textarea {
     .listBox {
         background: #fff;
         width: 400px;
-        height: 360px;
+        height: 393px;
         position: relative;
         border-radius: 3px;
         padding: 30px;
         padding-right: 15px;
-        margin-top: 85px;
+        margin-top: 20px;
         box-shadow: 0px 2px 30px #aec383;
         overflow: auto;
 
-        &:before {
+       /*:before {
             content: url('/Content/img/giftsList/noeud_liste.png');
             height: 64px;
             width: 211px;
             top: -60px;
             position: absolute;
             left: 110px;
-        }
+        }*/
 
         .giftList {
             overflow: auto;
@@ -815,7 +838,7 @@ textarea {
 }
 
 .row_items {
-    border-bottom: dashed 1px #aec383;
+    border-bottom: dotted 1px #aec383;
 }
 
 .col-md-10_gift {
@@ -853,7 +876,7 @@ textarea {
     display: inline-block;
     vertical-align: top;
     margin-bottom: 10px;
-    margin-left: 10px;
+    margin-left: 35px;
 }
 
 .btn-primary_validate_img {
@@ -956,7 +979,7 @@ textarea {
 
 .divObjectName {
     font-family: amaticbold;
-    border-bottom: dashed 1px #aec383;
+    border-bottom: dotted 1px #aec383;
     font-size: 30px;
     color: #ea744e;
     ;
@@ -984,9 +1007,38 @@ textarea {
     text-decoration: none;
     margin-left: 20px;
     color: #ea744e;
-    border-bottom: dashed 1px #AF5C63;
+    border-bottom: dotted 1px #AF5C63;
 }
 
+#btnStopCreateSearchObject {
+    border: none;
+    background: url('/Content/img/giftsList/stopper_recherche.png') no-repeat;
+    width: 200px;
+    height: 63px;
+    border: none;
+    display: inline-block;
+    font-family: bebas_neueregular;
+    font-size: 13px;
+    color: #F1EFCC;
+    cursor: pointer;
+    outline: none;
+    padding-left:40px;
+    margin-top: 4px;
+    padding-top: 34px;
+    text-decoration: underline;
+    text-decoration:none;
+}
+
+.ajaxLoadingGift {
+    height: 25px;
+width: 25px;
+margin-left: 120px;
+margin-top: -5px;
+position: absolute;
+}
+.field-validation-error{
+    display:inline-block;
+}
 #btnAccessConsult {
     border: none;
     background: url('/Content/img/giftsList/bouton_consulter.png') no-repeat;
@@ -1032,7 +1084,7 @@ textarea {
 }
 /*----------------------------BOOTSTRAP MODAL------------------------------*/
 .modal-title {
-    font-family:bebas_neueregular;
+    font-family: bebas_neueregular;
     font-size: 20px;
     font-weight: normal;
     text-align: center;
@@ -1044,8 +1096,8 @@ textarea {
     padding: 50px;
     font-family: 'arial';
     color: #808080;
-    text-align:center;
-    margin-right:0px;
+    text-align: center;
+    margin-right: 0px;
 }
 
 .btn-lg {
@@ -1072,12 +1124,13 @@ textarea {
     margin-right: 20px;
     cursor: pointer;
     outline: none;
-
 }
-#buttonNotBought:hover{
-        color:#f0e79c;
+
+    #buttonNotBought:hover {
+        color: #f0e79c;
     }
-#buttonBought{
+
+#buttonBought {
     border: none;
     background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
     width: 230px;
@@ -1093,13 +1146,15 @@ textarea {
     outline: none;
     margin-left: 20px;
 }
-#buttonBought:hover{
-        color:#f0e79c;
+
+    #buttonBought:hover {
+        color: #f0e79c;
     }
-#commentBuyObject{
-    #inputName{
-        display:block;
-        margin:0 auto;
-        margin-bottom:20px;
+
+#commentBuyObject {
+    #inputName {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
 }
