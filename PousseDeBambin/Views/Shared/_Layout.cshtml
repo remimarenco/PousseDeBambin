@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Styles/css")
     @Scripts.Render("~/bundles/modernizr")
     
     @Scripts.Render("~/bundles/jquery")
@@ -21,6 +21,11 @@
     <meta name="description" content="The description of my page" />
 </head>
 <body>
+    <div class="alert alert-success alert-dismissable text-beta">
+        Pousse De Bambin vient de naître...et, comme tout être, va se perfectionner petit à petit. Ainsi
+        <a href="mailto:remi@poussedebambin.com?subject=Retour Pousse De Bambin&cc=marion@poussedebambin.co&body=Bonjour," target="_blank" class="alert-link">contactez nous</a> pour faire votre retour ! Vous ferez des pousses heureuses !
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
     <span id="connexionBar">
         @Html.Partial("_ConnexionBar", null, new ViewDataDictionary<PousseDeBambin.Models.LoginViewModel>())
     </span>
