@@ -262,6 +262,7 @@
     <Content Include="Content\img\home\banderole.png" />
     <Content Include="Content\img\home\biberoncadeaux_footer.png" />
     <Content Include="Content\img\home\champignons_header.png" />
+    <Content Include="Content\img\home\favicon.jpg" />
     <Content Include="Content\img\home\fleur_footer.png" />
     <Content Include="Content\img\home\fleur_header.png" />
     <Content Include="Content\img\home\fond_illus.png" />
