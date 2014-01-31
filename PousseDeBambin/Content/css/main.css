@@ -50,6 +50,11 @@ h4 {
     font-family: 'arial';
 }
 
+#body .container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
 /*--------------------------CONNEXION BAR------------------*/
 .barre_connexion {
     height: 33px;
@@ -103,15 +108,17 @@ h3 {
 }
 
 .dropdown-menu p {
+    background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;
     margin-top: 7px;
     font-family: 'arial';
     color: #f0e79c;
     margin-bottom: 7px;
+    padding-right: 25px;
 }
 
 .dropdown-menu a {
     text-decoration: none;
-    color: #382a21;
+    color: #808080;
 }
 
 .dropdown-menu a:hover,
@@ -188,7 +195,7 @@ header {
 }
 
 header .header_bottom {
-    background: url(/Content/img/home/herbe_header.png) repeat-x;
+    background: url('/Content/img/home/herbe_header.png') repeat-x;
     height: 54px;
     position: relative;
     z-index: 10;
@@ -198,7 +205,7 @@ header .header_bottom {
 
 header:after {
     height: 177px;
-    content: url(/Content/img/home/champignons_header.png);
+    content: url('/Content/img/home/champignons_header.png');
     position: absolute;
     left: 50%;
     top: 3px;
@@ -207,7 +214,7 @@ header:after {
 
 header:before {
     height: 177px;
-    content: url(/Content/img/home/fleur_header.png);
+    content: url('/Content/img/home/fleur_header.png');
     left: 50%;
     position: absolute;
     top: 0px;
@@ -262,7 +269,7 @@ header .menu a.current {
 }
 
 header .menu a.logo {
-    background: url(/Content/img/home/logo.png) no-repeat;
+    background: url('/Content/img/home/logo.png') no-repeat;
     height: 210px;
     width: 210px;
     display: inline-block;
@@ -670,11 +677,26 @@ textarea {
     padding: 20px 0px 0 30px;
     outline: none;
     margin-left: 13px;
+    cursor: pointer;
 }
 
 #createNewObject .btn-primary_add:hover {
     background-image: url('/Content/img/giftsList/bouton_ajouter_hover.png');
     color: #f0e79c;
+    outline: none;
+}
+
+#btnEditSearchObject {
+    text-decoration: none;
+    background: url('/Content/img/giftsList/bouton_rechercher.png') no-repeat;
+    height: 63px;
+    width: 115px;
+    color: #fff;
+    font-family: 'bebas_neueregular';
+    display: inline-block;
+    position: relative;
+    line-height: 86px;
+    padding-left: 44px;
     outline: none;
 }
 
@@ -732,6 +754,21 @@ textarea {
 .btn-success_validate:hover {
     background-image: url('/Content/img/giftsList/bouton_valider_hover.png');
     color: #f0e79c;
+}
+
+.btn-warning_modif_over {
+    background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
+    width: 230px;
+    height: 55px;
+    border: none;
+    display: inline-block;
+    padding-top: 25px;
+    font-family: bebas_neueregular;
+    font-size: 15px;
+    color: #F1EFCC;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
 }
 
 #divGiftsList {
@@ -934,9 +971,27 @@ textarea {
     width: 150px;
     height: 63px;
     text-decoration: none;
-    margin: 20px;
+    margin-left: 20px;
     color: #ea744e;
     border-bottom: dashed 1px #AF5C63;
+}
+
+#btnAccessConsult {
+    background: url('/Content/img/giftsList/bouton_consulter.png') no-repeat;
+    width: 200px;
+    height: 63px;
+    border: none;
+    display: inline-block;
+    padding-top: 35px;
+    padding-left: 65px;
+    font-family: bebas_neueregular;
+    font-size: 15px;
+    color: #F1EFCC;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 #btnEditGift:hover {
@@ -956,6 +1011,7 @@ textarea {
     margin-right: 20px;
     cursor: pointer;
     outline: none;
+    margin-left: 20px;
 }
 
 .buyButton:hover {
