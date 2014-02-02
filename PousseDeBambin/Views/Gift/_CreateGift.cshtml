@@ -97,11 +97,14 @@
                 type: 'GET',
                 success: function (data) {
                     // Fill all divs with the return of the data
+                    
+                    // Normalisation du prix en FR
+                    var amountNormalizedFr = normalize(data.products[0].offerPriceDetails.amount);
 
                     // ImageUrl
                     $("#createPart #ImageUrl").val(data.products[0].media[0].link);
                     // Price
-                    $("#createPart #Price").val(data.products[0].offerPriceDetails.amount);
+                    $("#createPart #Price").val(amountNormalizedFr);
                     // Title / Name of the product
                     $("#createPart #Name").val(data.products[0].title);
                     // Description
@@ -134,6 +137,10 @@
             $('#btnCreateSearchObject').show();
             // On cache le bouton d'arret de recherche
             $('#btnStopCreateSearchObject').hide();
+        }
+
+        function normalize(amount) {
+            return amount.toString().replace(".", ",");
         }
     });
 </script>

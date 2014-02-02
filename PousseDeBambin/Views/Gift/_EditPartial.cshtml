@@ -99,10 +99,13 @@
                 success: function (data) {
                     // Fill all divs with the return of the data
 
+                    // Normalisation du prix en FR
+                    var amountNormalizedFr = normalize(data.products[0].offerPriceDetails.amount);
+
                     // ImageUrl
                     $("#editPart #ImageUrl").val(data.products[0].media[0].link);
                     // Price
-                    $("#editPart #Price").val(data.products[0].offerPriceDetails.amount);
+                    $("#editPart #Price").val(amountNormalizedFr);
                     // Title / Name of the product
                     $("#editPart #Name").val(data.products[0].title);
                     // Description
@@ -135,6 +138,10 @@
             $('#btnEditSearchObject').show();
             // On cache le bouton d'arret de recherche
             $('#btnStopEditSearchObject').hide();
+        }
+
+        function normalize(amount) {
+            return amount.toString().replace(".", ",");
         }
     });
 </script>
