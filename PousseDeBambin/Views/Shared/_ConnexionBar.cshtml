@@ -38,6 +38,7 @@
 <script type="text/javascript">
     function beginLogin() {
         $("#submitLogin").attr("value", "Connexion en cours...");
+        $("#submitLogin").prop('disabled', true);
     }
 
     $(document).ready(function () {
