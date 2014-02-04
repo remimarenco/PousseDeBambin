@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace PousseDeBambin.Controllers
 {
-    public class MiscellanousController : Controller
+    public class MiscellaneousController : Controller
     {
         //
         // GET: /Help/

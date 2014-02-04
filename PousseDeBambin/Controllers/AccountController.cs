@@ -67,6 +67,10 @@ namespace PousseDeBambin.Controllers
         public ActionResult LoginBar(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            if(User.Identity.IsAuthenticated)
+            {
+                return PartialView("_ConnectedMenu", UserManager.FindByName<ApplicationUser>(User.Identity.Name));
+            }
             return PartialView("_ConnexionBar");
         }
 
@@ -81,7 +85,8 @@ namespace PousseDeBambin.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+
+                    return PartialView("_ConnectedMenu", user);
                 }
                 else
                 {
@@ -385,13 +390,6 @@ namespace PousseDeBambin.Controllers
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
-        }
-
-        [ChildActionOnly]
-        public ActionResult ConnectedMenu()
-        {
-            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
-            return PartialView("_ConnectedMenu", user);
         }
 
         public ActionResult ThanksRegister()
