@@ -91,15 +91,12 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("La liste n'a pas été trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
 
-            if (!list.UserProfile.UserName.Equals("Anonyme"))
+            if (list.UserProfile == null || !UserIsAdminOfTheList(list))
             {
-                if (!UserIsAdminOfTheList(list))
-                {
-                    return HttpNotFound("La liste ne vous appartient pas");
-                }
+                return RedirectToAction("Unauthorized", "Error");
             }
 
 
@@ -303,6 +300,12 @@ namespace PousseDeBambin.Controllers
 
         private bool UserIsAdminOfTheList(List list)
         {
+            // Si l'utilisateur n'est pas connecté
+            if(list.UserProfile == null)
+            {
+                return false;
+            }
+            
             if (!list.UserProfile.UserName.Equals("Anonyme"))
             {
                 // If the user connected is not the same as the list's user
