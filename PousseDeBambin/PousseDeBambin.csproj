@@ -246,6 +246,7 @@
     <Content Include="Content\img\giftsList\bouton_consulter.png" />
     <Content Include="Content\img\giftsList\bouton_modifier.png" />
     <Content Include="Content\img\giftsList\bouton_modif_over.png" />
+    <Content Include="Content\img\giftsList\bouton_offert.png" />
     <Content Include="Content\img\giftsList\bouton_offrir.png" />
     <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
