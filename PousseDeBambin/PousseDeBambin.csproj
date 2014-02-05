@@ -177,6 +177,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\GiftAPIController.cs" />
     <Compile Include="Controllers\ComingSoonController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GiftController.cs" />
     <Compile Include="Controllers\GiftStateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -419,6 +420,9 @@
     <Content Include="Views\Shared\WhoAreWe.cshtml" />
     <Content Include="Views\Shared\_MessageBeta.cshtml" />
     <Content Include="Views\Miscellaneous\Error.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

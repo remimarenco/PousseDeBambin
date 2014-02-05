@@ -39,7 +39,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -91,15 +91,12 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("La liste n'a pas été trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
 
-            if (!list.UserProfile.UserName.Equals("Anonyme"))
+            if (list.UserProfile == null || !UserIsAdminOfTheList(list))
             {
-                if (!UserIsAdminOfTheList(list))
-                {
-                    return HttpNotFound("La liste ne vous appartient pas");
-                }
+                return RedirectToAction("Unauthorized", "Error");
             }
 
 
@@ -122,14 +119,14 @@ namespace PousseDeBambin.Controllers
         {
             if (id == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             else
             {
                 var list = db.Lists.Find(id);
                 if (list == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("NotFound", "Error");
                 }
                 else
                 {
@@ -153,7 +150,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -180,7 +177,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -205,7 +202,7 @@ namespace PousseDeBambin.Controllers
             if (list.UserProfile.Id != db.Users.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
                 && !list.UserProfile.Id.Equals(User.Identity.GetUserId()))
             {
-                return HttpNotFound("La liste ne vous appartient pas");
+                return RedirectToAction("NotFound", "Error");
             }
             // On associe l'utilisateur authentifié à la liste
             string UserName = User.Identity.GetUserName();
@@ -220,7 +217,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
 
             if (UserIsAdminOfTheList(list))
@@ -237,7 +234,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -247,7 +244,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("Liste non trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -258,7 +255,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("Liste non trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
             return PartialView("_DisplayListsGifts", list);
         }
@@ -303,6 +300,12 @@ namespace PousseDeBambin.Controllers
 
         private bool UserIsAdminOfTheList(List list)
         {
+            // Si l'utilisateur n'est pas connecté
+            if(list.UserProfile == null)
+            {
+                return false;
+            }
+            
             if (!list.UserProfile.UserName.Equals("Anonyme"))
             {
                 // If the user connected is not the same as the list's user
