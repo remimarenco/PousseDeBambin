@@ -32,7 +32,7 @@ namespace PousseDeBambin.Controllers
             }
             else if (id == 0)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
 
             if (giftState.State == State.NOT_BOUGHT)

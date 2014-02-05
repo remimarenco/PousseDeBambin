@@ -39,7 +39,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -119,14 +119,14 @@ namespace PousseDeBambin.Controllers
         {
             if (id == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             else
             {
                 var list = db.Lists.Find(id);
                 if (list == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("NotFound", "Error");
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -177,7 +177,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -202,7 +202,7 @@ namespace PousseDeBambin.Controllers
             if (list.UserProfile.Id != db.Users.FirstOrDefault(u => u.UserName.Equals("Anonyme")).Id
                 && !list.UserProfile.Id.Equals(User.Identity.GetUserId()))
             {
-                return HttpNotFound("La liste ne vous appartient pas");
+                return RedirectToAction("NotFound", "Error");
             }
             // On associe l'utilisateur authentifié à la liste
             string UserName = User.Identity.GetUserName();
@@ -217,7 +217,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
 
             if (UserIsAdminOfTheList(list))
@@ -234,7 +234,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -244,7 +244,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("Liste non trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
             return View(list);
         }
@@ -255,7 +255,7 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(id);
             if (list == null)
             {
-                return HttpNotFound("Liste non trouvée");
+                return RedirectToAction("NotFound", "Error");
             }
             return PartialView("_DisplayListsGifts", list);
         }
