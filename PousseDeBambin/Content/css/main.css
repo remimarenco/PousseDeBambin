@@ -68,13 +68,18 @@ ul {
     font-family: 'arial';
 }
 
+#mainSection {
+    text-align: center;
+}
+
 /*--------------------------CONNEXION BAR------------------*/
-.barre_connexion {
+.connexionBar {
     height: 27px;
     background-color: #382a21;
 }
 
-.barre_connexion form {
+.connexionBar .barre_connexion {
+    height: 27px;
     margin: 0 auto;
     text-align: right;
     width: 1005px;
@@ -128,6 +133,7 @@ h3 {
     display: inline-block;
     position: relative;
     z-index: 10;
+    margin: 0 auto;
 }
 
 * + html .dropdown-menu {
@@ -535,7 +541,6 @@ fieldset {
     display: inline-block;
     vertical-align: middle;
     width: 500px;
-    margin-left: 200px;
 }
 
 .img_create {
@@ -1166,4 +1171,8 @@ textarea {
 .text-beta {
     text-align: center;
     font-family: marketing_scriptregular;
+}
+
+.text-soon {
+    text-align: center;
 }

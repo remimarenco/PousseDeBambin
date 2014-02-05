@@ -71,12 +71,19 @@ ul {
 .field-validation-error {
     font-family: 'arial';
 }
+
+#mainSection {
+    text-align: center;
+}
 /*--------------------------CONNEXION BAR------------------*/
-.barre_connexion {
+
+
+.connexionBar {
     height: 27px;
     background-color: #382a21;
-
-    form {
+    
+    .barre_connexion {
+        height: 27px;
         margin: 0 auto;
         text-align: right;
         width: 1005px;
@@ -128,10 +135,14 @@ h3 {
 
 
 /*------------------dropdown menu connexion_bar------------*/
+
 .dropdown-menu {
     display: inline-block;
     position: relative;
     z-index: 10;
+    margin: 0 auto;
+    
+    
 
     * + html & {
         display: inline; /* pour IE7 */
@@ -213,6 +224,7 @@ h3 {
         }
     }
 }
+
 /*------------------fin dropdown menu connexion_bar------------*/
 /*--------------------------CONNEXION BAR------------------*/
 
@@ -544,7 +556,6 @@ fieldset {
     display: inline-block;
     vertical-align: middle;
     width: 500px;
-    margin-left: 200px;
 }
 
 .img_create {
@@ -584,8 +595,8 @@ textarea {
     height: 100px;
     border-radius: 3px;
     border-color: #aec383;
-    resize:none;
-    overflow:auto;
+    resize: none;
+    overflow: auto;
 }
 
 .text-box {
@@ -1100,7 +1111,6 @@ textarea {
     background: url('/Content/img/giftsList/bouton_offert.png') no-repeat;
     width: 180px;
     height: 78px;
-
 }
 /*----------------------------BOOTSTRAP MODAL------------------------------*/
 .modal-title {
@@ -1184,6 +1194,6 @@ textarea {
     font-family: marketing_scriptregular;
 }
 
-.text-soon{
+.text-soon {
     text-align: center;
 }
