@@ -261,6 +261,7 @@
     <Content Include="Content\img\giftsList\stopper_recherche.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\home\baby.jpg" />
+    <Content Include="Content\img\home\baby_infos.jpg" />
     <Content Include="Content\img\home\banderole.png" />
     <Content Include="Content\img\home\biberoncadeaux_footer.png" />
     <Content Include="Content\img\home\champignons_header.png" />

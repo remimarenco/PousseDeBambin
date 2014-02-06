@@ -68,10 +68,6 @@ ul {
     font-family: 'arial';
 }
 
-#mainSection {
-    text-align: center;
-}
-
 /*--------------------------CONNEXION BAR------------------*/
 .connexionBar {
     height: 27px;
@@ -511,6 +507,10 @@ footer .marche {
 
 /*-----------------------FIN FOOTER------------------------*/
 /*-----------------------page création de liste------------------------*/
+.mainContentCreateList {
+    text-align: center;
+}
+
 .create_list_title {
     background: url('/Content/img/create/pancarte.png') no-repeat;
     height: 170px;
@@ -519,6 +519,7 @@ footer .marche {
     margin-top: -20px;
     position: relative;
     z-index: 30;
+    margin-bottom: 45px;
 }
 
 #createPart {
@@ -534,6 +535,7 @@ footer .marche {
 
 fieldset {
     border: none;
+    text-align: left;
 }
 
 .form_create_list {
@@ -694,6 +696,10 @@ textarea {
 
 /*-----------------------------------fin WHO WE ARE-------------------------------*/
 /*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#displayImage {
+    width: 357px;
+}
+
 #createNewObject {
     margin-left: 150px;
     margin-bottom: 50px;
