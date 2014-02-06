@@ -31,7 +31,7 @@ namespace PousseDeBambin.Controllers
             Prospect prospect = db.Prospects.Find(id);
             if (prospect == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(prospect);
         }
@@ -74,7 +74,7 @@ namespace PousseDeBambin.Controllers
             Prospect prospect = db.Prospects.Find(id);
             if (prospect == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(prospect);
         }
@@ -103,7 +103,7 @@ namespace PousseDeBambin.Controllers
             Prospect prospect = db.Prospects.Find(id);
             if (prospect == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(prospect);
         }
