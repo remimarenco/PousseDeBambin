@@ -309,8 +309,6 @@
     <Content Include="Content\css\main.css.map">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
-    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -428,6 +426,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
