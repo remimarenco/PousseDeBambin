@@ -177,6 +177,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\GiftAPIController.cs" />
     <Compile Include="Controllers\ComingSoonController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GiftController.cs" />
     <Compile Include="Controllers\GiftStateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -245,6 +246,7 @@
     <Content Include="Content\img\giftsList\bouton_consulter.png" />
     <Content Include="Content\img\giftsList\bouton_modifier.png" />
     <Content Include="Content\img\giftsList\bouton_modif_over.png" />
+    <Content Include="Content\img\giftsList\bouton_offert.png" />
     <Content Include="Content\img\giftsList\bouton_offrir.png" />
     <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
@@ -259,6 +261,7 @@
     <Content Include="Content\img\giftsList\stopper_recherche.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\home\baby.jpg" />
+    <Content Include="Content\img\home\baby_infos.jpg" />
     <Content Include="Content\img\home\banderole.png" />
     <Content Include="Content\img\home\biberoncadeaux_footer.png" />
     <Content Include="Content\img\home\champignons_header.png" />
@@ -418,6 +421,9 @@
     <Content Include="Views\Shared\WhoAreWe.cshtml" />
     <Content Include="Views\Shared\_MessageBeta.cshtml" />
     <Content Include="Views\Miscellaneous\Error.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

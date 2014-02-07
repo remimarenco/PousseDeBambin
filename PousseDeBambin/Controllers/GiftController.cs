@@ -29,7 +29,7 @@ namespace PousseDeBambin.Controllers
             Gift gift = db.Gifts.Find(id);
             if (gift == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(gift);
         }
@@ -88,7 +88,7 @@ namespace PousseDeBambin.Controllers
             Gift gift = db.Gifts.Find(id);
             if (gift == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(gift);
         }
@@ -114,7 +114,7 @@ namespace PousseDeBambin.Controllers
             Gift gift = db.Gifts.Find(giftId);
             if (gift == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
 
             return PartialView("_EditPartial", gift);
@@ -143,7 +143,7 @@ namespace PousseDeBambin.Controllers
             Gift gift = db.Gifts.Find(id);
             if (gift == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             return View(gift);
         }

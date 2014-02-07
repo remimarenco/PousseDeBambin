@@ -1,36 +1,38 @@
 ﻿@model PousseDeBambin.Models.ApplicationUser
 
-<div class="barre_connexion">
-    ***REMOVED*** Single button -->
-    <div class="dropdown-menu">
-        <p>Bienvenue, @Model.UserName</p>
-        <ul role="menu">
-            ***REMOVED*** TODO: Récupérer le lien vers la liste si il n'y en a qu'une, sinon récupérer
-            tous les liens de la liste et construire un dropright
-          ***REMOVED***
-            @if (Model != null && Model.Lists != null && Model.Lists.Count != 0)
-            {
-                if (Model.Lists.Count == 1)
-                {
-                    <li><a href="@Url.Action("CreatePartTwo", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
-                }
-                else if (Model.Lists.Count > 1)
-                {
-                    <li class="dropdown-menu">
-                        <a href="#">Mes listes de naissance</a>
-                        <ul>
-                            @foreach (PousseDeBambin.Models.List liste in Model.Lists)
-                            {
-                                var url = Url.Action("CreatePartTwo", "List", new { id = liste.ListId });
-                                <li><a href=@url>@liste.Name</a></li>
-                            }
-                        </ul>
-                    </li>
-                }
-            }
+    <div class="barre_connexion">
+        ***REMOVED*** Single button -->
 
-            <li><a href="@Url.Action("Manage", "Account")">Mon compte</a></li>
-            <li><a href="@Url.Action("LogOffGet", "Account")">Déconnexion</a></li>
-        </ul>
-    </div>
+        <div class="dropdown-menu">
+            <p>Bienvenue, @Model.UserName</p>
+            <ul role="menu">
+                ***REMOVED*** TODO: Récupérer le lien vers la liste si il n'y en a qu'une, sinon récupérer
+                tous les liens de la liste et construire un dropright
+              ***REMOVED***
+                @if (Model != null && Model.Lists != null && Model.Lists.Count != 0)
+                {
+                    if (Model.Lists.Count == 1)
+                    {
+                        <li><a href="@Url.Action("CreatePartTwo", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
+                    }
+                    else if (Model.Lists.Count > 1)
+                    {
+                        <li class="dropdown-menu">
+                            <a href="#">Mes listes de naissance</a>
+                            <ul>
+                                @foreach (PousseDeBambin.Models.List liste in Model.Lists)
+                                {
+                                    var url = Url.Action("CreatePartTwo", "List", new { id = liste.ListId });
+                                    <li><a href=@url>@liste.Name</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                }
+
+                <li><a href="@Url.Action("Manage", "Account")">Mon compte</a></li>
+                <li><a href="@Url.Action("LogOffGet", "Account")">Déconnexion</a></li>
+            </ul>
+        </div>
+
 </div>

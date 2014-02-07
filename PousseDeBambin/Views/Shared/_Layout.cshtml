@@ -19,15 +19,16 @@
    
     @RenderSection("scripts", required: false)
     <link rel="image_src" href="~/Content/img/home/logo.png" />
-    <meta name="description" content="The description of my page" />
+    <meta name="description" content="@ViewBag.Description" />
 </head>
 <body>
     @Html.Partial("_MessageBeta")
-    <span id="connexionBar">
+    <div id="connexionBar" class="connexionBar">
         @Html.Action("LoginBar", "Account")
-    </span>
+    </div>
     <header>
         
+
         ***REMOVED*** @Html.Partial("_BaseLine") -->
                                
          @Html.Partial("_MainTabs")
