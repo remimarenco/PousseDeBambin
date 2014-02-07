@@ -1,0 +1,29 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Page non trouvée";
+}
+<div class="list-header clearfix">
+    <span>Page non trouvée</span>
+</div>
+<div class="list-sfs-holder">
+    <div class="alert alert-error">
+        La page demandée n'existe pas...nous sommes désolé :(. Veuillez contacter <a href="mailto:remi@poussedebambin.com" target="_blank">Rémi</a> (oui c'est de sa faute !).
+    </div>
+    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+    {
+        <div>
+            <p>
+                <b>Exception:</b> @Model.Exception.Message<br />
+                <b>Controller:</b> @Model.ControllerName<br />
+                <b>Action:</b> @Model.ActionName
+            </p>
+            <div style="overflow:scroll">
+                <pre>
+                    @Model.Exception.StackTrace
+                </pre>
+            </div>
+        </div>
+    }
+</div>
+

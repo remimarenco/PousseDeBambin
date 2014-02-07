@@ -57,11 +57,12 @@ ul {
   font-family: 'arial';
 }
 /*--------------------------CONNEXION BAR------------------*/
-.barre_connexion {
+.connexionBar {
   height: 27px;
   background-color: #382a21;
 }
-.barre_connexion form {
+.connexionBar .barre_connexion {
+  height: 27px;
   margin: 0 auto;
   text-align: right;
   width: 1005px;
@@ -107,6 +108,7 @@ h3 {
   display: inline-block;
   position: relative;
   z-index: 10;
+  margin: 0 auto;
 }
 * + html .dropdown-menu {
   display: inline;
@@ -334,6 +336,7 @@ footer .row {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
 footer .marche {
   background: url('/Content/img/home/banderole.png') no-repeat;
@@ -433,6 +436,9 @@ footer .marche {
 }
 /*-----------------------FIN FOOTER------------------------*/
 /*-----------------------page création de liste------------------------*/
+.mainContentCreateList {
+  text-align: center;
+}
 .create_list_title {
   background: url('/Content/img/create/pancarte.png') no-repeat;
   height: 170px;
@@ -441,6 +447,7 @@ footer .marche {
   margin-top: -20px;
   position: relative;
   z-index: 30;
+  margin-bottom: 45px;
 }
 #createPart {
   width: 430px;
@@ -453,13 +460,13 @@ footer .marche {
 }
 fieldset {
   border: none;
+  text-align: left;
 }
 .form_create_list {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   width: 500px;
-  margin-left: 200px;
 }
 .img_create {
   background: url('/Content/img/create/img_create.jpg') no-repeat;
@@ -493,6 +500,8 @@ textarea {
   height: 100px;
   border-radius: 3px;
   border-color: #aec383;
+  resize: none;
+  overflow: auto;
 }
 .text-box {
   border-radius: 3px;
@@ -504,6 +513,7 @@ textarea {
   border: none;
   outline: none;
   cursor: pointer;
+  margin-left: 80px;
 }
 .error_message {
   color: #ea744e;
@@ -579,6 +589,7 @@ textarea {
   background-image: url('/Content/img/whoweare/cadres_remi.png');
   height: 240px;
   width: 220px;
+  margin-bottom: 20px;
 }
 .photos .photomarion {
   background-image: url('/Content/img/whoweare/cadre_marion.png');
@@ -587,6 +598,9 @@ textarea {
 }
 /*-----------------------------------fin WHO WE ARE-------------------------------*/
 /*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#displayImage {
+  width: 357px;
+}
 #createNewObject {
   margin-left: 150px;
   margin-bottom: 50px;
@@ -834,6 +848,7 @@ textarea {
   border: solid 2px #829516;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 5px;
 }
 .divObjectDescription {
   font-family: 'arial';
@@ -920,10 +935,9 @@ textarea {
 .buyButton {
   background: url('/Content/img/giftsList/bouton_offrir.png') no-repeat;
   width: 180px;
-  height: 55px;
+  height: 78px;
   border: none;
   display: inline-block;
-  padding-top: 25px;
   font-family: bebas_neueregular;
   font-size: 15px;
   color: #F1EFCC;
@@ -934,6 +948,12 @@ textarea {
 }
 .buyButton:hover {
   color: #fff;
+}
+.buttonBoughtGift {
+  border: none;
+  background: url('/Content/img/giftsList/bouton_offert.png') no-repeat;
+  width: 180px;
+  height: 78px;
 }
 /*----------------------------BOOTSTRAP MODAL------------------------------*/
 .modal-title {

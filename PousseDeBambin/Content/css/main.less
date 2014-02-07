@@ -67,15 +67,19 @@ li {
 ul {
     padding: 0px;
 }
-.field-validation-error{
-    font-family:'arial';
+
+.field-validation-error {
+    font-family: 'arial';
 }
 /*--------------------------CONNEXION BAR------------------*/
-.barre_connexion {
+
+
+.connexionBar {
     height: 27px;
     background-color: #382a21;
-
-    form {
+    
+    .barre_connexion {
+        height: 27px;
         margin: 0 auto;
         text-align: right;
         width: 1005px;
@@ -127,10 +131,14 @@ h3 {
 
 
 /*------------------dropdown menu connexion_bar------------*/
+
 .dropdown-menu {
     display: inline-block;
     position: relative;
     z-index: 10;
+    margin: 0 auto;
+    
+    
 
     * + html & {
         display: inline; /* pour IE7 */
@@ -212,6 +220,7 @@ h3 {
         }
     }
 }
+
 /*------------------fin dropdown menu connexion_bar------------*/
 /*--------------------------CONNEXION BAR------------------*/
 
@@ -393,6 +402,7 @@ footer {
         position: fixed;
         bottom: 0;
         width: 100%;
+        z-index: 100;
     }
 
     .marche {
@@ -512,6 +522,9 @@ footer {
 /*-----------------------FIN FOOTER------------------------*/
 
 /*-----------------------page création de liste------------------------*/
+.mainContentCreateList{
+    text-align:center;
+}
 .create_list_title {
     background: url('/Content/img/create/pancarte.png') no-repeat;
     height: 170px;
@@ -520,8 +533,8 @@ footer {
     margin-top: -20px;
     position: relative;
     z-index: 30;
+    margin-bottom: 45px;
 }
-
 #createPart {
     width: 430px;
     margin-left: 150px;
@@ -535,6 +548,7 @@ footer {
 
 fieldset {
     border: none;
+    text-align:left;
 }
 
 .form_create_list {
@@ -542,7 +556,6 @@ fieldset {
     display: inline-block;
     vertical-align: middle;
     width: 500px;
-    margin-left: 200px;
 }
 
 .img_create {
@@ -582,6 +595,8 @@ textarea {
     height: 100px;
     border-radius: 3px;
     border-color: #aec383;
+    resize: none;
+    overflow: auto;
 }
 
 .text-box {
@@ -595,6 +610,7 @@ textarea {
     border: none;
     outline: none;
     cursor: pointer;
+    margin-left: 80px;
 }
 
 .error_message {
@@ -681,6 +697,7 @@ textarea {
         background-image: url('/Content/img/whoweare/cadres_remi.png');
         height: 240px;
         width: 220px;
+        margin-bottom: 20px;
     }
 
     .photomarion {
@@ -692,6 +709,9 @@ textarea {
 /*-----------------------------------fin WHO WE ARE-------------------------------*/
 
 /*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#displayImage{
+    width:357px;
+}
 #createNewObject {
     margin-left: 150px;
     margin-bottom: 50px;
@@ -825,8 +845,7 @@ textarea {
         margin-top: 20px;
         box-shadow: 0px 2px 30px #aec383;
         overflow: auto;
-
-       /*:before {
+        /*:before {
             content: url('/Content/img/giftsList/noeud_liste.png');
             height: 64px;
             width: 211px;
@@ -834,7 +853,6 @@ textarea {
             position: absolute;
             left: 110px;
         }*/
-
         .giftList {
             overflow: auto;
             width: 400px;
@@ -973,6 +991,7 @@ textarea {
     border: solid 2px #829516;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 5px;
 }
 
 .divObjectDescription {
@@ -1028,23 +1047,25 @@ textarea {
     color: #F1EFCC;
     cursor: pointer;
     outline: none;
-    padding-left:40px;
+    padding-left: 40px;
     margin-top: 4px;
     padding-top: 34px;
     text-decoration: underline;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .ajaxLoadingGift {
     height: 25px;
-width: 25px;
-margin-left: 120px;
-margin-top: -5px;
-position: absolute;
+    width: 25px;
+    margin-left: 120px;
+    margin-top: -5px;
+    position: absolute;
 }
-.field-validation-error{
-    display:inline-block;
+
+.field-validation-error {
+    display: inline-block;
 }
+
 #btnAccessConsult {
     border: none;
     background: url('/Content/img/giftsList/bouton_consulter.png') no-repeat;
@@ -1072,10 +1093,9 @@ position: absolute;
     border: none;
     background: url('/Content/img/giftsList/bouton_offrir.png') no-repeat;
     width: 180px;
-    height: 55px;
+    height: 78px;
     border: none;
     display: inline-block;
-    padding-top: 25px;
     font-family: bebas_neueregular;
     font-size: 15px;
     color: #F1EFCC;
@@ -1087,6 +1107,13 @@ position: absolute;
     &:hover {
         color: #fff;
     }
+}
+
+.buttonBoughtGift {
+    border: none;
+    background: url('/Content/img/giftsList/bouton_offert.png') no-repeat;
+    width: 180px;
+    height: 78px;
 }
 /*----------------------------BOOTSTRAP MODAL------------------------------*/
 .modal-title {
@@ -1165,11 +1192,11 @@ position: absolute;
     }
 }
 
-.text-beta{
+.text-beta {
     text-align: center;
     font-family: marketing_scriptregular;
 }
 
-.text-soon{
+.text-soon {
     text-align: center;
 }
