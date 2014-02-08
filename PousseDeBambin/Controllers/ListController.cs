@@ -94,7 +94,7 @@ namespace PousseDeBambin.Controllers
                 return RedirectToAction("NotFound", "Error");
             }
 
-            if (list.UserProfile == null || !UserIsAdminOfTheList(list))
+            if (!list.UserProfile.UserName.Equals("Anonyme") && !UserIsAdminOfTheList(list))
             {
                 return RedirectToAction("Unauthorized", "Error");
             }
@@ -301,11 +301,6 @@ namespace PousseDeBambin.Controllers
         private bool UserIsAdminOfTheList(List list)
         {
             // Si l'utilisateur n'est pas connecté
-            if(list.UserProfile == null)
-            {
-                return false;
-            }
-            
             if (!list.UserProfile.UserName.Equals("Anonyme"))
             {
                 // If the user connected is not the same as the list's user
