@@ -28,7 +28,7 @@
 <body>
     @Html.Partial("_MessageBeta")
     <div id="connexionBar" class="connexionBar">
-        @Html.Action("LoginBar", "Account")
+        @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
     </div>
     <header>
 
