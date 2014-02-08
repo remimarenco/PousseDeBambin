@@ -6,13 +6,7 @@
 
 <div class="barre_connexion">
     ***REMOVED*** Si l'utilisateur n'est pas identifié, on affiche un formulaire de login + register -->
-    @using (Ajax.BeginForm("LoginBar", "Account", new AjaxOptions
-            {
-                UpdateTargetId = "connexionBar",
-                InsertionMode = InsertionMode.Replace,
-                HttpMethod = "POST",
-                OnBegin = "beginLogin"
-            }))
+    @using (Html.BeginForm("LoginBar", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary("", new { @class = "validationConnexionBar" })
