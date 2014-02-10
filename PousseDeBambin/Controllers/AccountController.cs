@@ -86,7 +86,7 @@ namespace PousseDeBambin.Controllers
                 {
                     await SignInAsync(user, model.RememberMe);
 
-                    return PartialView("_ConnectedMenu", user);
+                    return RedirectToLocal(returnUrl);
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace PousseDeBambin.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return PartialView("_ConnexionBar", model);
+            return RedirectToLocal(returnUrl);
         }
 
         //

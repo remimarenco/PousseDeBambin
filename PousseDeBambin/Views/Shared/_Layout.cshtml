@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
-<html lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -10,29 +13,30 @@
     ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
     @Styles.Render("~/Styles/css")
     @Scripts.Render("~/bundles/modernizr")
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
 
     @Scripts.Render("~/bundles/bootstrap")
-   
+
     @RenderSection("scripts", required: false)
+    <link rel="image_src" href="~/Content/img/home/logo.png" />
+    <meta property="og:image" content="~/Content/img/home/logo.png" />
     <meta name="description" content="@ViewBag.Description" />
 </head>
 <body>
     @Html.Partial("_MessageBeta")
     <div id="connexionBar" class="connexionBar">
-        @Html.Action("LoginBar", "Account")
+        @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
     </div>
     <header>
-        
+
 
         ***REMOVED*** @Html.Partial("_BaseLine") -->
-                               
-         @Html.Partial("_MainTabs")
+        @Html.Partial("_MainTabs")
         <div class="header_bottom"></div>
-        
+
     </header>
     ***REMOVED***div class="alert alert-success">
         <p id="textBeta">
@@ -73,7 +77,7 @@
     <script type="text/javascript">
         var vglnk = {
             api_url: '//api.viglink.com/api',
-            key: 'b596a1035db9559938df9c389d05fd69'
+            key: 'e1280bc713785a94c14090e0302a9ab4'
         };
 
         (function (d, t) {

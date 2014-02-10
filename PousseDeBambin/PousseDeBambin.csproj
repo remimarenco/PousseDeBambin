@@ -309,10 +309,9 @@
     <Content Include="Content\css\main.css.map">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
-    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
