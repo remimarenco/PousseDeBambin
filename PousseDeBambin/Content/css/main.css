@@ -130,6 +130,7 @@ h3 {
     position: relative;
     z-index: 10;
     margin: 0 auto;
+    text-align: center;
 }
 
 * + html .dropdown-menu {
@@ -164,6 +165,8 @@ h3 {
     padding: 0 5px;
     /* a changer */
     background: #fff;
+    box-shadow: 2px 2px 5px #c1c1c1;
+    width: 170px;
 }
 
 .dropdown-menu ul li {
@@ -173,6 +176,7 @@ h3 {
     text-decoration: none;
     font-family: 'bebas_neueregular';
     font-size: 15px;
+    text-align: center;
 }
 
 .dropdown-menu ul li.divider {
@@ -186,7 +190,7 @@ h3 {
     transition: 0.5s max-height;
     text-decoration: none;
     /* a changer */
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 2px 2px;
     box-shadow: 2px 2px 5px #c1c1c1 inset,;
 }
 
@@ -204,7 +208,7 @@ h3 {
     -webkit-transition: 0.5s max-width;
     transition: 0.5s max-width;
     /* a changer */
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 2px 2px 0;
 }
 
 .dropdown-menu .dropdown-menu:hover > ul,
@@ -1051,6 +1055,12 @@ textarea {
 
 .field-validation-error {
     display: inline-block;
+}
+
+.validation-summary-errors {
+    font-family: 'arial';
+    font-size: 12px;
+    color: #ea744e;
 }
 
 #btnAccessConsult {
