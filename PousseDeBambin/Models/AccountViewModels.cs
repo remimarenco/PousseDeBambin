@@ -62,7 +62,7 @@ namespace PousseDeBambin.Models
         [Required]
         [StringLength(100, ErrorMessage = "Le {0} doit être long d'au moins {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Mot de passe")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
@@ -86,6 +86,7 @@ namespace PousseDeBambin.Models
         public string EmailAddress { get; set; }
 
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Numéro de téléphone")]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Le numéro et le nom de la rue est obligatoire")]
@@ -94,12 +95,15 @@ namespace PousseDeBambin.Models
 
         [Required(ErrorMessage = "Le code postal est obligatoire")]
         [DataType(DataType.PostalCode)]
+        [Display(Name = "Code postal")]
         public int Zipcode { get; set; }
 
         [Required(ErrorMessage = "La ville est obligatoire")]
+        [Display(Name = "Ville")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "Le pays est obligatoire")]
+        [Display(Name = "Pays")]
         public string Country { get; set; }
 
         public virtual ICollection<List> Lists { get; set; }
