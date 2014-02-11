@@ -1,0 +1,29 @@
+﻿/*-----------------------FOOTER------------------------*/
+#liensFooter .row {
+    background: #382a21;
+    height: 30px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#liensFooter .row .element {
+    display: inline;
+    margin: 40px;
+}
+
+#liensFooter .row a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'amatic_scregular';
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+
+#liensFooter a:hover,
+#liensFooter a:focus,
+#liensFooter a.current {
+    color: #af8c76;
+}
+
+/*-----------------------FIN FOOTER------------------------*/

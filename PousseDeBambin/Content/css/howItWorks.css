@@ -1,0 +1,94 @@
+﻿/*-----------------------HOW IT WORKS------------------------*/
+footer .row {
+    background: #f0e79c;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+footer .marche {
+    background: url('/Content/img/home/banderole.png') no-repeat;
+    height: 80px;
+    width: 424px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-family: 'marketing_scriptregular';
+    font-size: 32px;
+    text-indent: -20px;
+}
+
+.howItWorks_main {
+    background: url('/Content/img/home/herbe_footer.png') 0 100% repeat-x #f0e79c;
+    text-align: center;
+    padding-top: 30px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.howItWorks_main:before {
+    content: url(/Content/img/home/fleur_footer.png);
+    bottom: -15px;
+    left: 50%;
+    margin-left: -640px;
+    position: absolute;
+}
+
+.howItWorks_main:after {
+    content: url(/Content/img/home/biberoncadeaux_footer.png);
+    bottom: -20px;
+    left: 50%;
+    margin-left: 440px;
+    position: absolute;
+}
+
+.step {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+    color: #fff;
+    width: 280px;
+    height: 215px;
+}
+
+.step + .step {
+    margin-left: 20px;
+}
+
+.step.step1 {
+    background: url('/Content/img/home/img_etape1.jpg') no-repeat 0 100%;
+}
+
+.step.step2 {
+    background: url('/Content/img/home/img_etape2.jpg') no-repeat 0 100%;
+}
+
+.step.step3 {
+    background: url('/Content/img/home/img_etape3.jpg') no-repeat 0 100%;
+}
+
+.step .howItWorksText {
+    font-family: 'marketing_scriptregular';
+    text-align: center;
+    font-size: 20px;
+}
+
+.step .numberHowItWorks {
+    font-family: 'bebas_neueregular';
+    font-size: 30px;
+    color: #382a21;
+}
+
+.panel-body {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*-----------------------FIN HOW IT WORKS------------------------*/

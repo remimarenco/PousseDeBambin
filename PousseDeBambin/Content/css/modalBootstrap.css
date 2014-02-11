@@ -1,0 +1,72 @@
+﻿/*----------------------------BOOTSTRAP MODAL------------------------------*/
+.modal-title {
+    font-family: bebas_neueregular;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #ABBF3B;
+}
+
+.modal-body {
+    position: relative;
+    padding: 50px;
+    font-family: 'arial';
+    color: #808080;
+    text-align: center;
+    margin-right: 0px;
+}
+
+.btn-lg {
+    color: #AF5C63;
+    height: 18px;
+    width: 20px;
+    font-family: 'arial';
+    font-weight: bold;
+    padding-left: 30px;
+    background: url('/Content/img/giftsList/panier_acheter.png') no-repeat;
+}
+
+#buttonNotBought {
+    background: url('/Content/img/giftsList/bouton_pas_achete.png') no-repeat;
+    width: 230px;
+    height: 55px;
+    border: none;
+    display: inline-block;
+    padding-top: 25px;
+    font-family: bebas_neueregular;
+    font-size: 15px;
+    color: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+#buttonNotBought:hover {
+    color: #f0e79c;
+}
+
+#buttonBought {
+    background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
+    width: 230px;
+    height: 55px;
+    border: none;
+    display: inline-block;
+    padding-top: 25px;
+    font-family: bebas_neueregular;
+    font-size: 15px;
+    color: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
+    margin-left: 20px;
+}
+
+#buttonBought:hover {
+    color: #f0e79c;
+}
+
+#commentBuyObject #inputName {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
