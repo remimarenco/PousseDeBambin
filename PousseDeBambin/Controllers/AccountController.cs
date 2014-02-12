@@ -185,10 +185,10 @@ namespace PousseDeBambin.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.ChangePasswordSuccess ? "Votre mot de passe a été modifié."
+                : message == ManageMessageId.SetPasswordSuccess ? "Votre mot de passe a été enregistré."
+                : message == ManageMessageId.RemoveLoginSuccess ? "Le login externe a été supprimé."
+                : message == ManageMessageId.Error ? "Une erreur est apparue."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
