@@ -106,10 +106,10 @@
 }
 
 .btn-warning_modif_over {
+    border: none;
     background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
     width: 230px;
     height: 55px;
-    border: none;
     display: inline-block;
     padding-top: 25px;
     font-family: bebas_neueregular;
@@ -127,28 +127,19 @@
 
 #divGiftsList .listBox {
     background: #fff;
-    width: 400px;
-    height: 393px;
+    width: 260px;
+    height: 424px;
     position: relative;
     border-radius: 3px;
-    padding: 30px;
+    padding-top: 20px;
+    padding: 10px;
     padding-right: 15px;
     margin-top: 20px;
-    box-shadow: 0px 2px 30px #aec383;
-    overflow: auto;
-    /*:before {
-                        content: url('/Content/img/giftsList/noeud_liste.png');
-                        height: 64px;
-                        width: 211px;
-                        top: -60px;
-                        position: absolute;
-                        left: 110px;
-                }*/
+    border: solid 1px #aec383;
+    overflow-y: auto;
 }
 
 #divGiftsList .listBox .giftList {
-    overflow: auto;
-    width: 400px;
     height: 450px;
 }
 
@@ -157,13 +148,18 @@
 }
 
 .col-md-10_gift {
-    height: 50px;
-    width: 250px;
+    height: 26px;
+    width: 151px;
     position: relative;
     display: inline-block;
-    vertical-align: top;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: -37px;
 }
 
 .col-md-10_gift a {
@@ -171,26 +167,22 @@
     color: #808080;
     font-size: 14px;
     font-family: 'arial';
-    text-transform: uppercase;
 }
 
 .btn-xs {
     background: url('/Content/img/giftsList/suppr.jpg') no-repeat;
-    height: 25px;
+    height: 36px;
     width: 25px;
     border: none;
     box-shadow: 0px 2px 5px #aaa;
     margin-top: 10px;
     cursor: pointer;
     box-shadow: none;
+    outline: none;
 }
 
 #miniImg {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 10px;
-    margin-left: 35px;
+    margin-left: 10px;
 }
 
 .btn-primary_validate_img {
@@ -199,17 +191,16 @@
     height: 140px;
     border: none;
     outline: none;
-    padding-left: 100px;
+    padding-left: 55px;
     cursor: pointer;
-    font-family: 'marketing_scriptregular';
-    font-size: 25px;
-    color: #382a21;
+    font-family: 'amaticbold';
+    font-size: 35px;
+    color: #808080;
     text-align: center;
 }
 
 .btn-primary_validate_img:hover {
     color: #AF5C63;
-    text-decoration: underline;
 }
 
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
