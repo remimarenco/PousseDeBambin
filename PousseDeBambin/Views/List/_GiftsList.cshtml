@@ -16,14 +16,14 @@
                         HttpMethod = "Post",
                         OnComplete = "CompleteDelete",
                         Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
-                    }))
+                    }, new { @class = "deleteBtn" }))
                 {
                     @Html.AntiForgeryToken()
                     <button type="submit" class="btn btn-default btn-xs">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 }
-                <img id="miniImg" src="@item.ImageUrl" width="80" height="80"/>
+                <img id="miniImg" src="@item.ImageUrl" width="50" height="50"/>
                 
                 <div class="col-md-10_gift">
                     @Ajax.ActionLink(

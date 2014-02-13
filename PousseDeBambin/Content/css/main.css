@@ -39,8 +39,10 @@ body {
 }
 
 input {
-    border-radius: 3px;
+    border-radius: 2px;
     padding-left: 5px;
+    border: none;
+    border: solid 1px #aec383;
 }
 
 h2 {
@@ -129,4 +131,8 @@ ul {
     padding-left: 40px;
     font-family: 'arial';
     color: #808080;
+}
+
+.deleteBtn {
+    display: inline-block;
 }
