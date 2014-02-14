@@ -1,74 +1,64 @@
-﻿/*-----------------------CATEGORIES------------------------*/
+/*-----------------------CATEGORIES------------------------*/
 .img-responsive {
-    width: 100%;
-    margin: 0;
-    position: relative;
-    z-index: 40;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 40;
 }
-
 .container_categories {
-    background: #fff;
-    height: 364px;
-    text-align: center;
-    position: relative;
-    z-index: 80;
+  background: #fff;
+  height: 364px;
+  text-align: center;
+  position: relative;
+  z-index: 80;
 }
-
 .container_categories a {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
 .container_categories .cat:hover:after {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
-
 .container_categories .cat {
-    background: url('/Content/img/home/fond_illus.png') no-repeat;
-    height: 383px;
-    width: 500px;
-    font-family: 'bebas_neueregular';
-    color: #808080;
-    font-size: 30px;
-    padding-top: 106px;
-    font-weight: normal;
-    position: relative;
-    z-index: 50;
-    margin-top: -125px;
+  background: url('/Content/img/home/fond_illus.png') no-repeat;
+  height: 383px;
+  width: 500px;
+  font-family: 'bebas_neueregular';
+  color: #808080;
+  font-size: 30px;
+  padding-top: 106px;
+  font-weight: normal;
+  position: relative;
+  z-index: 50;
+  margin-top: -125px;
 }
-
 .container_categories .cat1 {
-    color: #296a52;
+  color: #296a52;
 }
-
 .container_categories .cat2 {
-    color: #ea744e;
+  color: #ea744e;
 }
-
 .container_categories .cat3 {
-    color: #691b35;
+  color: #691b35;
 }
-
 .container_categories .cat1:after {
-    content: url('/Content/img/home/illu_creer.jpg');
-    position: absolute;
-    bottom: 10px;
-    left: 116px;
-    transition: 0.5s;
+  content: url('/Content/img/home/illu_creer.jpg');
+  position: absolute;
+  bottom: 10px;
+  left: 116px;
+  transition: 0.5s;
 }
-
 .container_categories .cat2:after {
-    content: url('/Content/img/home/illu_offrir.jpg');
-    position: absolute;
-    bottom: 8px;
-    left: 116px;
-    transition: 0.5s;
+  content: url('/Content/img/home/illu_offrir.jpg');
+  position: absolute;
+  bottom: 8px;
+  left: 116px;
+  transition: 0.5s;
 }
-
 .container_categories a {
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
 }
-
 /*-----------------------FIN CATEGORIES------------------------*/
+/*# sourceMappingURL=categories.css.map */
