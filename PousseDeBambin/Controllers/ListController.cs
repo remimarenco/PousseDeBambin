@@ -239,20 +239,49 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
-        public ActionResult Consult(int id = 0)
+        public ActionResult Consult(string sortOrder, int id = 0)
         {
+            ViewBag.PriceSortParm = String.IsNullOrEmpty(sortOrder) ? "Price_desc" : "";
+            ViewBag.NameSortParm = sortOrder == "Name" ? "Name_desc" : "Name";
+
             List list = db.Lists.Find(id);
             if (list == null)
             {
                 return RedirectToAction("NotFound", "Error");
             }
+
+            var orderedGifts = list.Gifts;
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    orderedGifts = orderedGifts.OrderBy(g => g.Name).ToList();
+                    break;
+                case "Name_desc":
+                    orderedGifts = orderedGifts.OrderByDescending(g => g.Name).ToList();
+                    break;
+                case "Price":
+                    orderedGifts = orderedGifts.OrderBy(g => g.Price).ToList();
+                    break;
+                case "Price_desc":
+                    orderedGifts = orderedGifts.OrderByDescending(g => g.Price).ToList();
+                    break;
+                default:
+                    orderedGifts = orderedGifts.OrderBy(g => g.Price).ToList();
+                    break;
+            }
+
+            list.Gifts = orderedGifts;
+
             return View(list);
         }
 
         [ChildActionOnly]
-        public ActionResult DisplayListsGifts(int id = 0)
+        public ActionResult DisplayListsGifts(List list, string nameSortParm, string priceSortParm)
         {
-            List list = db.Lists.Find(id);
+            ViewBag.NameSortParm = nameSortParm;
+            ViewBag.PriceSortParm = priceSortParm;
+
             if (list == null)
             {
                 return RedirectToAction("NotFound", "Error");

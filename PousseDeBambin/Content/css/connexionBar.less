@@ -1,0 +1,154 @@
+﻿@import url("../mixin/mixins.less");
+
+.connexionBar {
+    height: 27px;
+    background-color: #382a21;
+    
+    .barre_connexion {
+        height: 27px;
+        margin: 0 auto;
+        text-align: right;
+        width: 1005px;
+    }
+}
+
+.form-group {
+    display: inline-block;
+    vertical-align: middle;
+
+    .form-control {
+        border-radius: 1px;
+        border: #fff;
+        width: 150px;
+    }
+}
+
+h2 {
+    font-family: 'bebas_neueregular';
+    color: #AF5C63;
+}
+
+h3 {
+    font-family: 'arial';
+    text-align: center;
+}
+
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+    display: inline-block;
+    vertical-align: middle;
+    height: 33px;
+
+    color: #ea744e;
+    font-family: 'arial';
+    font-size: 12px;
+    position: absolute;
+    font-weight: bold;
+    z-index: 100;
+    margin-top: 20px;
+
+    ul {
+        display: inline-block;
+    }
+}
+
+/*-------------------fin message erreur connexion bar------------------*/
+
+
+/*------------------dropdown menu connexion_bar------------*/
+
+.dropdown-menu {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+    text-align:center;
+    
+    
+
+    * + html & {
+        display: inline; /* pour IE7 */
+    }
+
+    p {
+        background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;
+        margin-top: 5px;
+        font-family: 'arial';
+        font-size: 14px;
+        color: #f0e79c;
+        margin-bottom: 7px;
+        padding-right: 25px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #808080;
+    }
+
+        a:hover, a:focus, a.current {
+            color: lighten(#382a21, 40%);
+        }
+
+    ul {
+        margin: 0;
+        overflow: hidden;
+        padding: 0 5px;
+        /* a changer */
+        background: #fff;
+        box-shadow: 2px 2px 5px #c1c1c1;
+        width: 170px;
+
+        li {
+            padding: 5px 5px 5px;
+            list-style: none;
+            white-space: nowrap;
+            text-decoration: none;
+            font-family: 'bebas_neueregular';
+            font-size: 15px;
+            text-align:center;
+
+
+            &.divider {
+                border-top: 2px solid #f0e79c;
+                padding-top: 5px;
+            }
+        }
+    }
+
+    > ul {
+        max-height: 0;
+        .transition(0.5s max-height);
+        text-decoration: none;
+        /* a changer */
+        border-radius: 0 0 2px 2px;
+        box-shadow: 2px 2px 5px #c1c1c1 inset,;
+    }
+
+    &:hover, &.dm-focus {
+        > ul {
+            max-height: 500px;
+            overflow: visible;
+        }
+    }
+
+    .dropdown-menu {
+        ul {
+            position: absolute;
+            max-width: 0;
+            left: 100%;
+            top: 0;
+            .transition(0.5s max-width);
+            /* a changer */
+            border-radius: 0 2px 2px 0;
+        }
+
+        &:hover, &.dm-focus {
+            > ul {
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+/*------------------fin dropdown menu connexion_bar------------*/
+/*--------------------------CONNEXION BAR------------------*/

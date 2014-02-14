@@ -32,6 +32,17 @@ namespace PousseDeBambin
 
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
+                        "~/Content/css/connexionBar.css",
+                        "~/Content/css/header.css",
+                        "~/Content/css/categories.css",
+                        "~/Content/css/howItWorks.css",
+                        "~/Content/css/footer.css",
+                        "~/Content/css/createList.css",
+                        "~/Content/css/searchList.css",
+                        "~/Content/css/whoWeAre.css",
+                        "~/Content/css/giftsList.css",
+                        "~/Content/css/consultList.css",
+                        "~/Content/css/modalBootstrap.css",
                         "~/Content/css/jquery.ui.core.css",
                         "~/Content/css/jquery.ui.resizable.css",
                         "~/Content/css/jquery.ui.selectable.css",

@@ -3,8 +3,8 @@
 <table id="ListsGifts" class="table">
     <tr>
         <th class="cat_list_cadeau">Image</th>
-        <th class ="cat_list_cadeau">Objet</thclass>
-        <th class="cat_list_cadeau">Prix</th>
+        <th class ="cat_list_cadeau">@Html.ActionLink("Objet", "Consult", "List", new { sortOrder = ViewBag.NameSortParm, id = Model.ListId }, new { @class = ViewBag.NameSortParm })</th>
+        <th class="cat_list_cadeau">@Html.ActionLink("Prix", "Consult", "List", new { sortOrder = ViewBag.PriceSortParm, id = Model.ListId }, new { @class = ViewBag.PriceSortParm })</th>
         <th class="cat_list_cadeau">Achat</th>
     </tr>
     @foreach (var gift in Model.Gifts)
@@ -33,7 +33,7 @@
                 <p>L'objet est : <span id="objectName"></span></p>
                 <p>L'adresse de livraison est : <span id="shippingAddress"></span></p>
 
-                <p id="pObjectUrl"><a id="objectUrl" class="btn btn-success btn-lg" role="button" target="_blank"></a></p>
+                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>
 
                 ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
                 <div id="commentBuyObject">
@@ -53,6 +53,10 @@
 ***REMOVED*** /.modal -->
 
 <script type="text/javascript">
+    // Lorsqu'on clique pour acheter un cadeau => Redirection viglink
+    $('#objectUrl').click(function () {
+        vglnk.open($(this).data("url"), "_blank");
+    });
     $('#buttonNotBought').click(
         );
     $('#buttonBought').click(function () {
@@ -92,14 +96,14 @@
                     $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
 
                     $("#objectUrl").empty();
-                    $("#objectUrl").attr("href", "http://redirect.viglink.com/?key=b596a1035db9559938df9c389d05fd69&out="+$(this).data("url"));
+                    $('#objectUrl').data("url", $(this).data("url"));
                     $("#objectUrl").text("J'achète " + $(this).data("objectname"));
 
                     //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
                     $('#buttonBought').data("giftid", $(this).data("id"));
                     $('#giftWebSite').modal('show');
 
-                    skimlinks();
+                    //skimlinks();
                 });
 </script>
 

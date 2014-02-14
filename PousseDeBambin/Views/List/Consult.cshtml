@@ -26,5 +26,5 @@
 
 <h3>@Model.Description</h3>
 
-@Html.Action("DisplayListsGifts", Model.ListId)
+@Html.Action("DisplayListsGifts", "List", new { nameSortParm = ViewBag.NameSortParm, priceSortParm = ViewBag.PriceSortParm, list = Model })
 
