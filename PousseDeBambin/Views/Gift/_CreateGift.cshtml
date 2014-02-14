@@ -23,7 +23,7 @@
         @Html.ValidationMessageFor(model => model.WebSite)
     </div>
 
-    <div id="giftInfos" style="display:none;">
+    <div id="giftInfosCreate" style="display:none;">
         <div class="editor-label">
             @Html.LabelFor(model => model.ImageUrl)
         </div>
@@ -98,29 +98,44 @@
                 data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
                 dataType: 'json',
                 type: 'GET',
+                timeout: 8000,
                 success: function (data) {
-                    // Fill all divs with the return of the data
-                    
-                    // Normalisation du prix en FR
-                    var amountNormalizedFr = normalize(data.products[0].offerPriceDetails.amount);
+                    try{
+                        // Fill all variables with returned values
+                        var amount = ('amount' in data.products[0].offerPriceDetails) ? data.products[0].offerPriceDetails.amount : '0';
+                        var link = ('link' in data.products[0].media[0]) ? data.products[0].media[0].link : '';
+                        var title = ('title' in data.products[0]) ? data.products[0].title : '';
+                        var description = ('description' in data.products[0]) ? data.products[0].description : '';
 
-                    // ImageUrl
-                    $("#createPart #ImageUrl").val(data.products[0].media[0].link);
-                    // Price
-                    $("#createPart #Price").val(amountNormalizedFr);
-                    // Title / Name of the product
-                    $("#createPart #Name").val(data.products[0].title);
-                    // Description
-                    $("#createPart #Description").val(data.products[0].description);
-                    // Ajout de l'image
-                    $("#displayImage").attr("src", data.products[0].media[0].link);
+                        // Fill all divs with the return of the data
+
+                        // Normalisation du prix en FR
+                        var amountNormalizedFr = normalize(amount);
+
+                        // ImageUrl
+                        $("#createPart #ImageUrl").val(link);
+                        // Price
+                        $("#createPart #Price").val(amountNormalizedFr);
+                        // Title / Name of the product
+                        $("#createPart #Name").val(title);
+                        // Description
+                        $("#createPart #Description").val(description);
+                        // Ajout de l'image
+                        $("#displayImage").attr("src", link);
+                    }
+                    catch(e)
+                    {
+                        alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                        console.log("Problème dans la récupération des données");
+                        //TODO : Logguer l'erreur
+                    }
 
                     SearchTerminate();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
                     alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
-                    
+                    console.log("Problème dans le retour diffbot");
                     SearchTerminate();
                 }
             });
@@ -132,7 +147,7 @@
             // On cache le bouton de recherche
             $('#btnCreateSearchObject').hide();
             // On affiche les champs remplis
-            $('#giftInfos').hide();
+            $('#giftInfosCreate').hide();
             // On affiche le bouton d'arret de recherche
             $('#btnStopCreateSearchObject').show();
         }
@@ -141,7 +156,7 @@
             // On affiche le bouton de recherche
             $('#btnCreateSearchObject').show();
             // On affiche les champs remplis
-            $('#giftInfos').show();
+            $('#giftInfosCreate').show();
             // On cache le bouton d'arret de recherche
             $('#btnStopCreateSearchObject').hide();
         }

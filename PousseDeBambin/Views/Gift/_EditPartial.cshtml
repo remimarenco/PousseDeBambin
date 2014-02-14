@@ -17,7 +17,7 @@
         <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
             Rechercher
         </a>
-       
+
         <a href="#" id="btnStopEditSearchObject">
             <img id="editAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
             Arrêter la recherche
@@ -25,7 +25,7 @@
         @Html.ValidationMessageFor(model => model.WebSite)
     </div>
 
-    <div id="giftInfos">
+    <div id="giftInfosEdit">
         <div class="editor-label">
             @Html.LabelFor(model => model.ImageUrl)
         </div>
@@ -71,7 +71,7 @@
     $(function () {
         var searchAjax = null;
         // On init les boutons de recherche
-        SearchTerminate();
+        InitSearch();
 
         // Lorsque l'on clique sur le bouton d'arret de la recherche
         $("#btnStopEditSearchObject").click(function () {
@@ -98,22 +98,36 @@
                 data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
                 dataType: 'json',
                 type: 'GET',
+                timeout: 8000,
                 success: function (data) {
-                    // Fill all divs with the return of the data
+                    try {
+                        // Fill all variables with returned values
+                        var amount = ('amount' in data.products[0].offerPriceDetails) ? data.products[0].offerPriceDetails.amount : '0';
+                        var link = ('link' in data.products[0].media[0]) ? data.products[0].media[0].link : '';
+                        var title = ('title' in data.products[0]) ? data.products[0].title : '';
+                        var description = ('description' in data.products[0]) ? data.products[0].description : '';
 
-                    // Normalisation du prix en FR
-                    var amountNormalizedFr = normalize(data.products[0].offerPriceDetails.amount);
+                        // Fill all divs with the return of the data
 
-                    // ImageUrl
-                    $("#editPart #ImageUrl").val(data.products[0].media[0].link);
-                    // Price
-                    $("#editPart #Price").val(amountNormalizedFr);
-                    // Title / Name of the product
-                    $("#editPart #Name").val(data.products[0].title);
-                    // Description
-                    $("#editPart #Description").val(data.products[0].description);
-                    // Ajout de l'image
-                    $("#displayImage").attr("src", data.products[0].media[0].link);
+                        // Normalisation du prix en FR
+                        var amountNormalizedFr = normalize(amount);
+
+                        // ImageUrl
+                        $("#editPart #ImageUrl").val(link);
+                        // Price
+                        $("#editPart #Price").val(amountNormalizedFr);
+                        // Title / Name of the product
+                        $("#editPart #Name").val(title);
+                        // Description
+                        $("#editPart #Description").val(description);
+                        // Ajout de l'image
+                        $("#displayImage").attr("src", link);
+                    }
+                    catch (e) {
+                        alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                        console.log("Problème dans la récupération des données");
+                        //TODO : Logguer l'erreur
+                    }
 
                     //$('#editAjaxLoading').hide();
 
@@ -121,6 +135,7 @@
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                    console.log("Problème dans le retour diffbot");
                     SearchTerminate();
                 }
             });
@@ -131,6 +146,8 @@
         function Search() {
             // On cache le bouton de recherche
             $('#btnEditSearchObject').hide();
+            // On affiche les champs remplis
+            $('#giftInfosEdit').hide();
             // On affiche le bouton d'arret de recherche
             $('#btnStopEditSearchObject').show();
         }
@@ -138,8 +155,17 @@
         function SearchTerminate() {
             // On affiche le bouton de recherche
             $('#btnEditSearchObject').show();
+            // On affiche les champs remplis
+            $('#giftInfosEdit').show();
             // On cache le bouton d'arret de recherche
             $('#btnStopEditSearchObject').hide();
+        }
+
+        function InitSearch() {
+            // On affiche le bouton de recherche
+            $('#btnCreateSearchObject').show();
+            // On cache le bouton d'arret de recherche
+            $('#btnStopCreateSearchObject').hide();
         }
 
         function normalize(amount) {

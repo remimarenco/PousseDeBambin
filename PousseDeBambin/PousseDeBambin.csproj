@@ -394,6 +394,39 @@
     <Content Include="Content\css\giftsList.less" />
     <Content Include="Content\css\consultList.less" />
     <Content Include="Content\css\modalBootstrap.less" />
+    <Content Include="Content\css\footer.css.map">
+      <DependentUpon>footer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\connexionBar.css.map">
+      <DependentUpon>connexionBar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\consultList.css.map">
+      <DependentUpon>consultList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\createList.css.map">
+      <DependentUpon>createList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\categories.css.map">
+      <DependentUpon>categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\searchList.css.map">
+      <DependentUpon>searchList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\giftsList.css.map">
+      <DependentUpon>giftsList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\howItWorks.css.map">
+      <DependentUpon>howItWorks.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modalBootstrap.css.map">
+      <DependentUpon>modalBootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\header.css.map">
+      <DependentUpon>header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\whoWeAre.css.map">
+      <DependentUpon>whoWeAre.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -506,7 +539,6 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
-    <Content Include="Views\Gift\_GiftResearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
