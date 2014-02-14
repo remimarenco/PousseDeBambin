@@ -207,6 +207,10 @@
     <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-PousseDeBambin-20140115024540.mdf" />
+    <Content Include="App_Data\aspnet-PousseDeBambin-20140115024540_log.ldf">
+      <DependentUpon>aspnet-PousseDeBambin-20140115024540.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\categories.css">
       <DependentUpon>categories.less</DependentUpon>
@@ -325,6 +329,7 @@
     <Content Include="Content\img\giftsList\noeud_liste.png" />
     <Content Include="Content\img\giftsList\panier_acheter.png" />
     <Content Include="Content\img\giftsList\picto_valider.png" />
+    <Content Include="Content\img\giftsList\reinitialiser.jpg" />
     <Content Include="Content\img\giftsList\stopper_recherche.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\home\baby.jpg" />
@@ -504,7 +509,6 @@
     <Content Include="Views\Gift\_GiftResearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>

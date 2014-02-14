@@ -20,6 +20,14 @@
 }
 
 .create_list_com {
+    font-family: 'marketing_scriptregular';
+    font-weight: normal;
+    text-align: center;
+    font-size: 18px;
+}
+
+.create_list_com2 {
+    margin: 0;
     font-family: 'arial';
     font-weight: normal;
     text-align: center;
@@ -35,6 +43,10 @@ fieldset {
     display: inline-block;
     vertical-align: middle;
     width: 500px;
+}
+
+#divCreateGift {
+    margin-top: 30px;
 }
 
 .img_create {

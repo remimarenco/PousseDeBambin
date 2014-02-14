@@ -1,4 +1,10 @@
 ﻿/*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#giftInfos > * {
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+}
+
 #displayImage {
     width: 357px;
 }
@@ -15,24 +21,24 @@
 }
 
 #createNewObject .btn-primary_add {
-    background: url('/Content/img/giftsList/bouton_ajouter.png');
-    height: 63px;
-    width: 150px;
+    background: url('/Content/img/giftsList/reinitialiser.jpg');
+    height: 40px;
+    width: 200px;
     font-family: 'arial';
     font-weight: normal;
     font-size: 13px;
     color: #fff;
     border: none;
-    padding: 20px 0px 0 30px;
+    padding: 0px 0px 0 30px;
     outline: none;
     margin-left: 13px;
     cursor: pointer;
 }
 
 #createNewObject .btn-primary_add:hover {
-    background-image: url('/Content/img/giftsList/bouton_ajouter_hover.png');
-    color: #f0e79c;
+    background-image: url('/Content/img/giftsList/reinitialiser.jpg');
     outline: none;
+    opacity: 0.9;
 }
 
 #btnEditSearchObject {
@@ -55,17 +61,18 @@
     height: 63px;
     width: 115px;
     color: #fff;
-    font-family: 'bebas_neueregular';
+    font-family: 'arial';
+    font-size: 12px;
     display: inline-block;
     position: relative;
     line-height: 86px;
     padding-left: 44px;
     outline: none;
+    margin-top: 10px;
 }
 
 #btnCreateSearchObject:hover {
     background-image: url('/Content/img/giftsList/bouton_rechercher_hover.png');
-    color: #f0e79c;
     outline: none;
 }
 

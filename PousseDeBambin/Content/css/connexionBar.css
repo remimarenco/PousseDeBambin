@@ -64,6 +64,10 @@ h3 {
     /* pour IE7 */
 }
 
+.dropdown-menu > *:first-child {
+    cursor: pointer;
+}
+
 .dropdown-menu p {
     background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;
     margin-top: 5px;
