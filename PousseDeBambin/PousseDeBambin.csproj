@@ -204,6 +204,7 @@
     <Compile Include="Models\Prospect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OnlyBirthListViewModel.cs" />
     <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -507,7 +508,7 @@
     <Content Include="Views\List\Index.cshtml" />
     <Content Include="Views\List\Search.cshtml" />
     <Content Include="Views\List\Share.cshtml" />
-    <Content Include="Views\List\_Create.cshtml" />
+    <Content Include="Views\List\_CreateOnlyBirth.cshtml" />
     <Content Include="Views\List\_DisplayListsGifts.cshtml" />
     <Content Include="Views\List\_GiftsList.cshtml" />
     <Content Include="Views\ListAndGifts\Create.cshtml" />
@@ -539,6 +540,8 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\List\Manage.cshtml" />
+    <Content Include="Views\List\_AddGifts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

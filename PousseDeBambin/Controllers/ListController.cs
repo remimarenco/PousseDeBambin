@@ -44,6 +44,14 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
+        public ActionResult Manage(int id = 0)
+        {
+            List list = db.Lists.Find(id);
+
+            return View(list);
+        }
+        
+
         //
         // GET: /List/Create
 
@@ -82,6 +90,46 @@ namespace PousseDeBambin.Controllers
             }
 
             return View(list);
+        }
+
+        // On récupère la page de création 
+        public ActionResult CreatePartialOnlyBirth()
+        {
+            return PartialView("_CreateOnlyBirth");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateOnlyBirth(OnlyBirthListViewModel model)
+        {
+            // On créé la liste temporaire puis on affiche la partial d'ajout de cadeaux
+            List list = new List();
+            try
+            {
+                list.UserProfile = db.Users.FirstOrDefault(u => u.UserName == "Anonyme");
+            }
+            catch (DataException dex)
+            {
+                ViewBag.Error = dex.Message;
+            }
+
+            list.Name = "Pas de nom";
+            list.Description = "Aucune description";
+
+            // On met la date du jour
+            list.BeginningDate = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                // On ajoute la date de naissance du model
+                list.BirthDate = model.BirthDate;
+
+                db.Lists.Add(list);
+                db.SaveChanges();
+                return PartialView("_AddGifts", list);
+            }
+
+            return PartialView("_CreateOnlyBirth");
         }
 
         // Get after the creation of the list
