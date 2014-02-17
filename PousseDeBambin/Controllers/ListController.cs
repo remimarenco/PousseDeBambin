@@ -104,6 +104,8 @@ namespace PousseDeBambin.Controllers
         {
             // On créé la liste temporaire puis on affiche la partial d'ajout de cadeaux
             List list = new List();
+            list.Gifts = new List<Gift>();
+
             try
             {
                 list.UserProfile = db.Users.FirstOrDefault(u => u.UserName == "Anonyme");

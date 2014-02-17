@@ -85,6 +85,7 @@ namespace PousseDeBambin.Controllers
 
         private void sendMail(GiftState giftState, String buyerName, String buyerText)
         {
+            //TODO: Modifier cet objet pour utiliser la librairire d'envoi de mail => Postal
             // We get first the informations about the owner of the list : EmailAddress, FirstName, listName, giftName
             string giftName = giftState.Gift.Name;
             string listName = giftState.Gift.List.Name;

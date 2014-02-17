@@ -5,16 +5,30 @@
 <div>Pour rentrer une nouvel objet, cliquez simplement sur "Ajouter une nouvel objet"</div>
 <div>Il ne vous reste plus qu'à cliquer sur "Valider ma liste", et la partager pour qu'elle soit visible par vos proches !</div>
 
-@using (Ajax.BeginForm("CreatePartial", "Gift", new AjaxOptions
-                                {
-                                    UpdateTargetId = "divCreateGift",
-                                    HttpMethod = "Post",
-                                    InsertionMode = InsertionMode.InsertAfter,
-                                    OnSuccess = "CompleteCreate"
-                                }))
-{
-    <div id="divCreateGift">
-        @Html.Action("CreatePartial", "Gift", new { listID = Model.ListId })
+<div id="ListsGifts" class="table">
+    <div>
+        <div class="cat_list_cadeau">Image</div>
+        <div class="cat_list_cadeau">Objet</div>
+        <div class="cat_list_cadeau">Prix</div>
+        <div class="cat_list_cadeau">Gestion</div>
     </div>
-}
+    ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
+    @foreach (var gift in Model.Gifts)
+    {
+        //@Html.Action("Manage", "Gift", gift)
+    }
 
+    @using (Ajax.BeginForm("CreatePartialTwo", "Gift", new AjaxOptions
+                                        {
+                                            UpdateTargetId = "createForm",
+                                            HttpMethod = "Post",
+                                            InsertionMode = InsertionMode.InsertBefore,
+                                            OnSuccess = "CompleteCreate"
+                                        }))
+    {
+        <div class="fond_cadeaux" id="createForm">
+            @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
+        </div>
+    }
+
+</div>

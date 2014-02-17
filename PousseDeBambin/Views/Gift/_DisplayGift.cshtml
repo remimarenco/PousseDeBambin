@@ -1,0 +1,21 @@
+﻿@model PousseDeBambin.Models.Gift
+
+<td class="divObjectImage">
+    <img src="@Model.ImageUrl" class="objectImage img-thumbnail" />
+</td>
+<td class="divObjectGift">
+    <div class="divObjectName">
+        @Html.DisplayFor(modelItem => Model.Name)
+    </div>
+    <div class="divObjectDescription">
+        @Html.DisplayFor(modelItem => Model.Description)
+    </div>
+</td>
+<td class="divObjectPrice">
+    <p class="textWithoutWrap">@Html.DisplayFor(modelItem => Model.Price)</p>
+</td>
+<td class="divObjectBuy">
+    <div>
+        <a id="btnEditGift" href="" class="btn btn-warning">Modifier l'objet</a>
+    </div>
+</td>

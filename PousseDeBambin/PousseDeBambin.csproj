@@ -542,6 +542,8 @@
     <Content Include="Views\Error\Unauthorized.cshtml" />
     <Content Include="Views\List\Manage.cshtml" />
     <Content Include="Views\List\_AddGifts.cshtml" />
+    <Content Include="Views\Gift\_CreateGiftTwo.cshtml" />
+    <Content Include="Views\Gift\_DisplayGift.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

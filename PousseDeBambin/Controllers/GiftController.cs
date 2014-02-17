@@ -80,6 +80,27 @@ namespace PousseDeBambin.Controllers
             return PartialView("_CreateGift", gift);
         }
 
+        public ActionResult CreatePartialTwo(int listID = 0)
+        {
+            Gift gift = new Gift { ListID = listID };
+            return PartialView("_CreateGiftTwo", gift);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePartialTwo(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Gifts.Add(gift);
+                db.SaveChanges();
+
+                ViewBag.Success = "L'objet a correctement été ajouté !";
+                return PartialView("_DisplayGift", gift);
+            }
+            return PartialView("_CreateGiftTwo", gift);
+        }
+
         //
         // GET: /Gift/Edit/5
 
