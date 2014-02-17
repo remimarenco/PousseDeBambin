@@ -96,7 +96,6 @@ namespace PousseDeBambin.Controllers
                 db.SaveChanges();
 
                 ViewBag.Success = "L'objet a correctement été ajouté !";
-                return PartialView("_DisplayGift", gift);
             }
             return PartialView("_CreateGiftTwo", gift);
         }
