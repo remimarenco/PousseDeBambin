@@ -50,6 +50,12 @@ namespace PousseDeBambin.Controllers
 
             return View(list);
         }
+
+        public JsonResult GetGifts(int listId)
+        {
+            var gifts = db.Lists.Find(listId).Gifts.ToList();
+            return Json(gifts, JsonRequestBehavior.AllowGet);
+        }
         
 
         //
@@ -393,6 +399,16 @@ namespace PousseDeBambin.Controllers
                 }
             }
             return false;
+        }
+
+        public ActionResult TestJQWidgets(int listId)
+        {
+            List list = db.Lists.Find(listId);
+            if(list == null)
+            {
+                return HttpNotFound("Fuck");
+            }
+            return View(list);
         }
 
         protected override void Dispose(bool disposing)
