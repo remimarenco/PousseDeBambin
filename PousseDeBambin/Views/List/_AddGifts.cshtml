@@ -13,17 +13,16 @@
         <div class="cat_list_cadeau">Gestion</div>
     </div>
     ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
-    @foreach (var gift in Model.Gifts)
-    {
-        //@Html.Action("Manage", "Gift", gift)
-    }
-
+    <div id="giftsList">
+            @Html.Action("GiftsListTwo", "List", new { listId = Model.ListId })
+    </div>
+    
     @using (Ajax.BeginForm("CreatePartialTwo", "Gift", new AjaxOptions
                                         {
                                             UpdateTargetId = "createForm",
                                             HttpMethod = "Post",
-                                            InsertionMode = InsertionMode.InsertBefore,
-                                            OnSuccess = "CompleteCreate"
+                                            InsertionMode = InsertionMode.Replace,
+                                            OnSuccess = "refreshGiftsList"
                                         }))
     {
         <div class="fond_cadeaux" id="createForm">
@@ -31,4 +30,24 @@
         </div>
     }
 
+    ***REMOVED*** On Success, on update en ajax la liste des gifts -->
 </div>
+
+<script>
+        function refreshGiftsList()
+        {
+            var urlRefresh = "@Url.Action("GiftsListTwo", "List", new { listId = Model.ListId })";
+            var request = $.ajax({
+                type: "GET",
+                url: urlRefresh,
+                dataType: "json",
+                complete: function (data, status) {
+                    // On rafraichit la liste des objets
+                    $("#giftsList").html(data.responseText);
+
+                    // On vide le contenu de l'objet précédent
+
+                }
+            });
+        }
+</script>

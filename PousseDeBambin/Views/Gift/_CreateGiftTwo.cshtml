@@ -1,6 +1,8 @@
 ﻿@model PousseDeBambin.Models.Gift
 
 ***REMOVED*** On fait un formulaire ajax de création d'objet. -->
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
 @Html.HiddenFor(model => model.ListID)
 
 <div class="divObjectImage">

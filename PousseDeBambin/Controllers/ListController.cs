@@ -134,7 +134,7 @@ namespace PousseDeBambin.Controllers
 
                 db.Lists.Add(list);
                 db.SaveChanges();
-                return PartialView("_AddGifts", list);
+                return RedirectToAction("Manage", new { id = list.ListId });
             }
 
             return PartialView("_CreateOnlyBirth");
@@ -198,6 +198,7 @@ namespace PousseDeBambin.Controllers
                 }
             }
         }
+        
 
         //
         // GET: /List/Edit/5
@@ -282,6 +283,13 @@ namespace PousseDeBambin.Controllers
             }
 
             return PartialView("_GiftsList", list);
+        }
+
+        public ActionResult GiftsListTwo(int listId = 0)
+        {
+            List list = db.Lists.Find(listId);
+
+            return PartialView("_GiftsListTwo", list);
         }
 
         [Authorize]
