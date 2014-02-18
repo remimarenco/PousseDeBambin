@@ -128,7 +128,7 @@ namespace PousseDeBambin.Controllers
 
                 db.Lists.Add(list);
                 db.SaveChanges();
-                return PartialView("_AddGifts", list);
+                return RedirectToAction("Manage", new { id = list.ListId });
             }
 
             return PartialView("_CreateOnlyBirth");

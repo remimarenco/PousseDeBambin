@@ -37,16 +37,17 @@
         function refreshGiftsList()
         {
             var urlRefresh = "@Url.Action("GiftsListTwo", "List", new { listId = Model.ListId })";
-            $.ajax({
+            var request = $.ajax({
                 type: "GET",
                 url: urlRefresh,
                 dataType: "json",
-                success: successReplaceGiftsList
-            });
-        }
+                complete: function (data, status) {
+                    // On rafraichit la liste des objets
+                    $("#giftsList").html(data.responseText);
 
-    function successReplaceGiftsList(data, status) {
-        alert("Bien joue !");
-            $("#giftsList").html(data);
+                    // On vide le contenu de l'objet précédent
+
+                }
+            });
         }
 </script>

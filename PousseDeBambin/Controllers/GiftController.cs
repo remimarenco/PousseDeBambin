@@ -96,6 +96,9 @@ namespace PousseDeBambin.Controllers
                 db.SaveChanges();
 
                 ViewBag.Success = "L'objet a correctement été ajouté !";
+                ModelState.Clear();
+                Gift newGift = new Gift { ListID = gift.ListID };
+                return PartialView("_CreateGiftTwo", newGift);
             }
             return PartialView("_CreateGiftTwo", gift);
         }

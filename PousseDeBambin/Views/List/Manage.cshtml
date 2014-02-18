@@ -23,13 +23,7 @@
 <div id="manageList">
     @if (Model == null)
     {
-        using (Ajax.BeginForm("CreateOnlyBirth", new AjaxOptions
-            {
-                HttpMethod = "Post",
-                UpdateTargetId = "manageList",
-                InsertionMode = InsertionMode.Replace
-            }
-        ))
+        using (Html.BeginForm("CreateOnlyBirth", "List"))
         {
             @Html.Action("CreatePartialOnlyBirth", "List")
         }
