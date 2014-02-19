@@ -51,13 +51,15 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
-        public JsonResult GetGifts(int listId)
+        public JsonResult GetGifts(int id)
         {
-            var dbResult = db.Lists.Find(listId).Gifts.ToList();
+            var dbResult = db.Lists.Find(id).Gifts.ToList();
 
             var gifts = (from gift in dbResult
                             select new
                             {
+                                gift.ListID,
+                                gift.GiftId,
                                 gift.Name,
                                 gift.Description,
                                 gift.Price,
@@ -421,9 +423,9 @@ namespace PousseDeBambin.Controllers
             return false;
         }
 
-        public ActionResult TestJQWidgets(int listId)
+        public ActionResult TestJQWidgets(int id)
         {
-            List list = db.Lists.Find(listId);
+            List list = db.Lists.Find(id);
             if(list == null)
             {
                 return HttpNotFound("Fuck");
