@@ -53,8 +53,20 @@ namespace PousseDeBambin.Controllers
 
         public JsonResult GetGifts(int listId)
         {
-            var gifts = db.Lists.Find(listId).Gifts.ToList();
-            return Json(gifts, JsonRequestBehavior.AllowGet);
+            var dbResult = db.Lists.Find(listId).Gifts.ToList();
+
+            var gifts = (from gift in dbResult
+                            select new
+                            {
+                                gift.Name,
+                                gift.Description,
+                                gift.Price,
+                                gift.ImageUrl,
+                                gift.WebSite
+                            });
+
+            var jsonResult = Json(gifts, JsonRequestBehavior.AllowGet);
+            return jsonResult;
         }
         
 
