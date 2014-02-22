@@ -33,6 +33,11 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+            "~/Scripts/kendo/kendo.all.min.js",
+                // "~/Scripts/kendo/kendo.timezones.min.js", // uncomment if using the Scheduler
+            "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
                         "~/Content/css/connexionBar.css",
@@ -60,6 +65,13 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.theme.css",
                         "~/Content/css/bootstrap.css",
                         "~/Content/css/carousel.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+           "~/Content/kendo/kendo.common-bootstrap.min.css",
+           "~/Content/kendo/kendo.bootstrap.min.css"));
+
+            bundles.IgnoreList.Clear();
         }
     }
 }

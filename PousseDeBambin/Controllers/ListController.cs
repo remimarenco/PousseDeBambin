@@ -10,6 +10,8 @@ using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PousseDeBambin.Controllers
 {
@@ -53,7 +55,7 @@ namespace PousseDeBambin.Controllers
 
         public JsonResult GetGifts(int listId)
         {
-            var dbResult = db.Lists.Find(listId).Gifts.ToList();
+            var dbResult = db.Lists.Find(listId).Gifts. ToList();
 
             var gifts = (from gift in dbResult
                             select new
@@ -429,6 +431,71 @@ namespace PousseDeBambin.Controllers
                 return HttpNotFound("Fuck");
             }
             return View(list);
+        }
+
+        public ActionResult TestKendoUI(int id)
+        {
+            List list = db.Lists.Find(id);
+            if (list == null)
+            {
+                return HttpNotFound("Fuck");
+            }
+            
+            return View(list);
+        }
+
+        public ActionResult Gifts_Read([DataSourceRequest] DataSourceRequest request, int listId)
+        {
+            var gifts = db.Lists.Find(listId).Gifts;
+            DataSourceResult result = gifts.ToDataSourceResult(request, g => new GiftViewModel(){
+                Name = g.Name,
+                Description = g.Description,
+                GiftId = g.GiftId,
+                ImageUrl = g.ImageUrl,
+                Price = g.Price,
+                WebSite = g.WebSite,
+                ListID = g.ListID
+            });
+            return Json(result);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Gifts_Create([DataSourceRequest] DataSourceRequest request, Gift gift, int listId)
+        {
+            var results = new List<Gift>();
+
+            if (gift != null && ModelState.IsValid)
+            {
+                db.Lists.Find(listId).Gifts.Add(gift);
+                results.Add(gift);
+            }
+
+            return Json(results.ToDataSourceResult(request, ModelState));
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Gifts_Update([DataSourceRequest] DataSourceRequest request, Gift gift)
+        {
+            // Revoir l'édition
+            if (gift != null && ModelState.IsValid)
+            {
+                db.Entry(gift).State = EntityState.Modified;
+            }
+
+            return Json(ModelState.ToDataSourceResult());
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Gifts_Destroy([DataSourceRequest] DataSourceRequest request, Gift gift)
+        {
+            Gift giftToDelete = db.Gifts.Find(gift.GiftId);
+            if (gift != null)
+            {
+                db.Gifts.Remove(giftToDelete);
+                db.SaveChanges();
+            }
+
+            return Json(ModelState.ToDataSourceResult());
         }
 
         protected override void Dispose(bool disposing)

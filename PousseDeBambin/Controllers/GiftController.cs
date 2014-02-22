@@ -203,6 +203,19 @@ namespace PousseDeBambin.Controllers
             ViewBag.Success = "L'objet a correctement été supprimé !";
         }
 
+        /* ------ JQuery Grid ------ */
+        [HttpPost]
+        public ActionResult UpdateGift(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(gift).State = EntityState.Modified;
+                db.SaveChanges();
+                return Json("true");
+            }
+            return Json("false");
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

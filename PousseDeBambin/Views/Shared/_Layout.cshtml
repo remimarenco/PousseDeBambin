@@ -12,12 +12,14 @@
 
     ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
     @Styles.Render("~/Styles/css")
+    @Styles.Render("~/Content/kendo/css")
     @Scripts.Render("~/bundles/modernizr")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/carousel")
+    @Scripts.Render("~/bundles/kendo")
 
     @Scripts.Render("~/bundles/bootstrap")
 
@@ -37,6 +39,13 @@
         ga('create', 'UA-47337807-1', 'poussedebambin.com');
         ga('send', 'pageview');
     </script>
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.dataviz.default.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.all.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.aspnetmvc.min.js")"></script>
 </head>
 <body>
     @Html.Partial("_MessageBeta")
