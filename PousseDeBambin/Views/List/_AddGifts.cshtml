@@ -34,7 +34,7 @@
             complete: function (data, status) {
                 // On rafraichit la liste des objets
                 $("#headerTableGifts").nextUntil("#createForm").replaceWith("");
-                $("#headerTableGifts").insertAfter(data.responseText);
+                $("#headerTableGifts").after(data.responseText);
             }
         });
     }
