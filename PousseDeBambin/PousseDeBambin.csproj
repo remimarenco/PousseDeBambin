@@ -617,8 +617,6 @@
     <Content Include="Views\List\_AddGifts.cshtml" />
     <Content Include="Views\Gift\_CreateGiftTwo.cshtml" />
     <Content Include="Views\Gift\_DisplayGift.cshtml" />
-    <Content Include="Views\List\TestJQWidgets.cshtml" />
-    <Content Include="Views\List\TestKendoUI.cshtml" />
     <Content Include="Views\GiftState\_DisplayGiftStateTwo.cshtml" />
     <Content Include="Views\List\_DisplayGifts.cshtml" />
   </ItemGroup>

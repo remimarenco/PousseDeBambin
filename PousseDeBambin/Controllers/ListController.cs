@@ -10,8 +10,6 @@ using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
-using Kendo.Mvc.UI;
-using Kendo.Mvc.Extensions;
 
 namespace PousseDeBambin.Controllers
 {
@@ -410,27 +408,6 @@ namespace PousseDeBambin.Controllers
                 }
             }
             return false;
-        }
-
-        public ActionResult TestJQWidgets(int listId)
-        {
-            List list = db.Lists.Find(listId);
-            if(list == null)
-            {
-                return HttpNotFound("Fuck");
-            }
-            return View(list);
-        }
-
-        public ActionResult TestKendoUI(int id)
-        {
-            List list = db.Lists.Find(id);
-            if (list == null)
-            {
-                return HttpNotFound("Fuck");
-            }
-            
-            return View(list);
         }
 
         protected override void Dispose(bool disposing)
