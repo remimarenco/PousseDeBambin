@@ -1,0 +1,40 @@
+/******************************/
+/*           DEFAULT            */
+/******************************/
+.carousel_elements {
+   height:             100%;
+   overflow:           hidden;
+   position:           relative;
+}
+
+/******************************/
+/*     HORIZONTAL SLIDING       */
+/******************************/
+.effect-horizontal-move {
+   white-space:        nowrap;
+}
+
+.effect-horizontal-move > * {
+   display:            inline-block;
+   vertical-align:     top;
+   white-space:        normal;
+}
+
+/* for IE7 */
+*+html .effect-horizontal-move > * {
+   display:            inline;
+}
+
+/******************************/
+/*            FADING            */
+/******************************/
+.effect-fade,
+.effect-fade-hover {
+   width:              100%;
+}
+
+.effect-fade > *,
+.effect-fade-hover > * {
+   height:             100%;
+   width:              100%;
+}
