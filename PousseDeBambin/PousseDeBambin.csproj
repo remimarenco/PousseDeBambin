@@ -213,6 +213,7 @@
       <DependentUpon>aspnet-PousseDeBambin-20140115024540.mdf</DependentUpon>
     </Content>
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\carousel.css" />
     <Content Include="Content\css\categories.css">
       <DependentUpon>categories.less</DependentUpon>
     </Content>
@@ -350,6 +351,8 @@
     <Content Include="Content\img\home\img_etape2.jpg" />
     <Content Include="Content\img\home\img_etape3.jpg" />
     <Content Include="Content\img\home\logo.png" />
+    <Content Include="Content\img\home\next_btn.png" />
+    <Content Include="Content\img\home\prev_btn.png" />
     <Content Include="Content\img\loading\ajax-loader.gif" />
     <Content Include="Content\img\search\bouton_rechercher.png" />
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
@@ -791,6 +794,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />

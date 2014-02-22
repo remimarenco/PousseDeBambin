@@ -1,7 +1,54 @@
-﻿<div id="carousel-example-generic" class="carousel">
-    <div class="carousel-inner">
-        <div class="item active">
-            <img class="img-responsive" src="~/Content/img/home/baby_infos.jpg" alt="First slide">
+﻿<div class="hook-homepage">
+    <img class="img-responsive" src="~/Content/img/home/baby.jpg" alt="First slide">
+
+    <div class="how-to-carousel">
+        <p class="carousel-title">Comment ça marche ?</p>
+        <div class="carousel">
+            <div class="element">
+                <h2>Étape 1 : Créez</h2>
+                <p>Créez votre liste de naissance</p>
+                <p>gratuitement et sans inscription.</p>
+                <a href="#"></a>
+            </div>
+            <div class="element">
+                <h2>Étape 2 : Ajoutez</h2>
+                <p>Ajoutez les cadeaux selon vos envies</p>
+                <p>quelles que soient les marques</p>
+                <p>et les enseignes.</p>
+                <a href="#"></a>
+            </div>
+            <div class="element">
+                <h2>Étape 3 : Partagez</h2>
+                <p>Partagez votre liste à vos proches</p>
+                <p>qui vous offrent ensuite</p>
+                <p>les cadeaux de leur choix !</p>
+                <a href="#"></a>
+            </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.how-to-carousel .carousel').each(function () {
+            var config = {
+                displayedElement: 1,
+                autorotation: true,
+                autostart: true,
+                effect: {
+                    type: 'slide',
+                    params: {
+                        pause: 9000,
+                        duration: 1000
+                    }
+                },
+                navigation: {
+                    type: 'closest',
+                }
+            };
+
+            $(this).setCarousel(config);
+        });
+
+
+    });
+</script>
