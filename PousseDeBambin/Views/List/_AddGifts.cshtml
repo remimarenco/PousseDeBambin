@@ -5,49 +5,37 @@
 <div>Pour rentrer une nouvel objet, cliquez simplement sur "Ajouter une nouvel objet"</div>
 <div>Il ne vous reste plus qu'à cliquer sur "Valider ma liste", et la partager pour qu'elle soit visible par vos proches !</div>
 
-<div id="ListsGifts" class="table">
-    <div>
-        <div class="cat_list_cadeau">Image</div>
-        <div class="cat_list_cadeau">Objet</div>
-        <div class="cat_list_cadeau">Prix</div>
-        <div class="cat_list_cadeau">Gestion</div>
-    </div>
+<table id="ListsGifts" class="table">
+    <tr id="headerTableGifts">
+        <th class="cat_list_cadeau">Image</th>
+        <th class="cat_list_cadeau">Objet</th>
+        <th class="cat_list_cadeau">Prix</th>
+        <th class="cat_list_cadeau">Gestion</th>
+    </tr>
     ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
-    <div id="giftsList">
-            @Html.Action("GiftsListTwo", "List", new { listId = Model.ListId })
-    </div>
-    
-    @using (Ajax.BeginForm("CreatePartialTwo", "Gift", new AjaxOptions
-                                        {
-                                            UpdateTargetId = "createForm",
-                                            HttpMethod = "Post",
-                                            InsertionMode = InsertionMode.Replace,
-                                            OnSuccess = "refreshGiftsList"
-                                        }))
-    {
-        <div class="fond_cadeaux" id="createForm">
-            @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
-        </div>
-    }
+    @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
+
+    <tr class="fond_cadeaux" id="createForm">
+        @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
+    </tr>
+
+
 
     ***REMOVED*** On Success, on update en ajax la liste des gifts -->
-</div>
+</table>
 
 <script>
-        function refreshGiftsList()
-        {
-            var urlRefresh = "@Url.Action("GiftsListTwo", "List", new { listId = Model.ListId })";
-            var request = $.ajax({
-                type: "GET",
-                url: urlRefresh,
-                dataType: "json",
-                complete: function (data, status) {
-                    // On rafraichit la liste des objets
-                    $("#giftsList").html(data.responseText);
-
-                    // On vide le contenu de l'objet précédent
-
-                }
-            });
-        }
+    function refreshGiftsList() {
+        var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
+        var request = $.ajax({
+            type: "GET",
+            url: urlRefresh,
+            dataType: "json",
+            complete: function (data, status) {
+                // On rafraichit la liste des objets
+                $("#headerTableGifts").nextUntil("#createForm").replaceWith("");
+                $("#headerTableGifts").insertAfter(data.responseText);
+            }
+        });
+    }
 </script>

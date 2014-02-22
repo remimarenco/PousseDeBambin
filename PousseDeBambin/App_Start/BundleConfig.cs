@@ -63,8 +63,10 @@ namespace PousseDeBambin
                         "~/Content/css/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
-            "~/Content/kendo/kendo.common-bootstrap.min.css",
-            "~/Content/kendo/kendo.bootstrap.min.css"));
+            "~/Content/kendo/kendo.common.min.css",
+            "~/Content/kendo/kendo.dataviz.min.css",
+            "~/Content/kendo/kendo.default.min.css",
+            "~/Content/kendo/kendo.dataviz.default.min.css"));
 
             bundles.IgnoreList.Clear();
         }

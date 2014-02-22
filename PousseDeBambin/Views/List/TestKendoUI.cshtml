@@ -5,14 +5,6 @@
 }
 
 @section scripts {
-    ***REMOVED*** Common Kendo UI Web CSS -->
-    <link href="~/Content/css/kendo/kendo.common.min.css" rel="stylesheet" />
-    ***REMOVED*** Default Kendo UI Web theme CSS -->
-    <link href="~/Content/css/kendo/kendo.default.min.css" rel="stylesheet" />
-    ***REMOVED*** jQuery JavaScript -->
-    ***REMOVED***<script src="~/Scripts/js-kendo/jquery.min.js"></script>-->
-    ***REMOVED*** Kendo UI Web combined JavaScript -->
-    <script src="~/Scripts/js-kendo/kendo.web.min.js"></script>
 }
 
 <h2>TestKendoUI</h2>
@@ -46,12 +38,18 @@
             .TagName("div")
             .ClientTemplateId("template")
             .DataSource(dataSource => dataSource
-                        .Model(model => model.Id("GiftId"))
+                        .Events(events => events.Error("listView_error"))
+                        .Model(model =>
+                        {
+                            model.Id(gift => gift.GiftId);
+                            model.Field(gift => gift.GiftId).Editable(false);
+                            model.Field(gift => gift.ListID).DefaultValue(Model.ListId).Editable(false);
+                        })
                         .PageSize(6)
-                        .Create(create => create.Action("Gifts_Create", "List", new { listId = Model.ListId }))
-                        .Read(read => read.Action("Gifts_Read", "List", new { listId = Model.ListId })) // Specify the action method and controller name
-                        .Update(update => update.Action("Gifts_Update", "List"))
-                        .Destroy(destroy => destroy.Action("Gifts_Destroy", "List"))
+                        .Create(create => create.Action("Gifts_Create", "Gift"))
+                        .Read(read => read.Action("Gifts_Read", "Gift", new { listId = Model.ListId })) // Specify the action method and controller name
+                        .Update(update => update.Action("Gifts_Update", "Gift"))
+                        .Destroy(destroy => destroy.Action("Gifts_Destroy", "Gift"))
             )
             .Pageable()
             .Editable()
@@ -60,13 +58,31 @@
 
 <script>
     $(function () {
-        var listView = $("#listView").data("kendoListView");
+        var listView = $("#ListView").data("kendoListView");
 
         $(".k-add-button").click(function (e) {
             listView.add();
             e.preventDefault();
         });
     });
+
+    function listView_error(e)
+    {
+        var message = "There are some errors:\n";
+        // Create a message containing all errors.
+        $.each(e.errors, function (key, value) {
+            if ('errors' in value) {
+                $.each(value.errors, function () {
+                    message += this + "\n";
+                });
+            }
+        });
+        // Display the message
+        alert(message);
+        // Cancel the changes
+        var grid = $("#ListView").data("kendoListView");
+        grid.cancelChanges();
+    }
 </script>
 
 <style scoped>

@@ -53,22 +53,11 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
-        public JsonResult GetGifts(int listId)
+        public ActionResult DisplayGifts(int id)
         {
-            var dbResult = db.Lists.Find(listId).Gifts. ToList();
+            var list = db.Lists.Find(id);
 
-            var gifts = (from gift in dbResult
-                            select new
-                            {
-                                gift.Name,
-                                gift.Description,
-                                gift.Price,
-                                gift.ImageUrl,
-                                gift.WebSite
-                            });
-
-            var jsonResult = Json(gifts, JsonRequestBehavior.AllowGet);
-            return jsonResult;
+            return PartialView("_DisplayGifts", list);
         }
         
 
@@ -303,7 +292,7 @@ namespace PousseDeBambin.Controllers
         {
             List list = db.Lists.Find(listId);
 
-            return PartialView("_GiftsListTwo", list);
+            return PartialView("_GiftsList", list);
         }
 
         [Authorize]
@@ -442,60 +431,6 @@ namespace PousseDeBambin.Controllers
             }
             
             return View(list);
-        }
-
-        public ActionResult Gifts_Read([DataSourceRequest] DataSourceRequest request, int listId)
-        {
-            var gifts = db.Lists.Find(listId).Gifts;
-            DataSourceResult result = gifts.ToDataSourceResult(request, g => new GiftViewModel(){
-                Name = g.Name,
-                Description = g.Description,
-                GiftId = g.GiftId,
-                ImageUrl = g.ImageUrl,
-                Price = g.Price,
-                WebSite = g.WebSite,
-                ListID = g.ListID
-            });
-            return Json(result);
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Gifts_Create([DataSourceRequest] DataSourceRequest request, Gift gift, int listId)
-        {
-            var results = new List<Gift>();
-
-            if (gift != null && ModelState.IsValid)
-            {
-                db.Lists.Find(listId).Gifts.Add(gift);
-                results.Add(gift);
-            }
-
-            return Json(results.ToDataSourceResult(request, ModelState));
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Gifts_Update([DataSourceRequest] DataSourceRequest request, Gift gift)
-        {
-            // Revoir l'édition
-            if (gift != null && ModelState.IsValid)
-            {
-                db.Entry(gift).State = EntityState.Modified;
-            }
-
-            return Json(ModelState.ToDataSourceResult());
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Gifts_Destroy([DataSourceRequest] DataSourceRequest request, Gift gift)
-        {
-            Gift giftToDelete = db.Gifts.Find(gift.GiftId);
-            if (gift != null)
-            {
-                db.Gifts.Remove(giftToDelete);
-                db.SaveChanges();
-            }
-
-            return Json(ModelState.ToDataSourceResult());
         }
 
         protected override void Dispose(bool disposing)

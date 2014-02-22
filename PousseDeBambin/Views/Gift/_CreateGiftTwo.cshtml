@@ -1,16 +1,17 @@
 ﻿@model PousseDeBambin.Models.Gift
 
 ***REMOVED*** On fait un formulaire ajax de création d'objet. -->
-@Html.AntiForgeryToken()
-@Html.ValidationSummary(true)
-@Html.HiddenFor(model => model.ListID)
+<td class="divObjectImage">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
-<div class="divObjectImage">
+    @Html.HiddenFor(model => model.ListID)
+
     @Html.LabelFor(model => model.ImageUrl)
     @Html.EditorFor(model => model.ImageUrl)
     <img src="@Model.ImageUrl" class="objectImage img-thumbnail" />
-</div>
-<div class="divObjectGift">
+</td>
+<td class="divObjectGift">
     <div class="divObjectWebsite">
         @Html.LabelFor(model => model.WebSite)
         @Html.EditorFor(modelItem => Model.WebSite)
@@ -23,16 +24,45 @@
         @Html.LabelFor(model => model.Description)
         @Html.EditorFor(modelItem => Model.Description)
     </div>
-</div>
-<div class="divObjectPrice">
+</td>
+<td class="divObjectPrice">
     @Html.LabelFor(model => model.Price)
     <p class="textWithoutWrap">@Html.EditorFor(modelItem => Model.Price)</p>
-</div>
-<div class="divObjectBuy">
-    <div>
-        <input id="btnCreateGift" type="submit" value="Valider l'objet" />
+</td>
+<td class="divAddObject">
+    <div id="giftInfos">
+        <div>
+            <input id="btnCreateGift" type="submit" value="Valider l'objet" />
+        </div>
     </div>
-</div>
+</td>
 
+<script>
+    $(document).ready(function () {
+        $("#btnCreateGift").click(function () {
+            submitAddGift();
+        });
 
+        function submitAddGift() {
 
+            $.ajax({
+                url: "@Url.Action("CreatePartialTwo", "Gift")",
+                data: {
+                    ListID: "@Model.ListID",
+                    ImageUrl: $("#ImageUrl").val(),
+                    WebSite: $("#WebSite").val(),
+                    Name: $("#Name").val(),
+                    Description: $("#Description").val(),
+                    Price: $("#Price").val()
+                },
+                type: "POST",
+                content: 'application/json; charset=utf-8',
+                datatype: 'json',
+                success: function (data) {
+                    $("#createForm").html(data);
+                    refreshGiftsList();
+                }
+            });
+        }
+    });
+</script>
