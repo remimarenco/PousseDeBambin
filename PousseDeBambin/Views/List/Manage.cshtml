@@ -23,10 +23,13 @@
 <div id="manageList">
     @if (Model == null)
     {
-        using (Html.BeginForm("CreateOnlyBirth", "List"))
+        <div class="form_create_list">
+        <h2 class="create_list_title"></h2>
+        @using (Html.BeginForm("CreateOnlyBirth", "List"))
         {
             @Html.Action("CreatePartialOnlyBirth", "List")
         }
+            </div>
     }
     else
     {
