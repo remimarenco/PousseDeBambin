@@ -38,4 +38,11 @@
             }
         });
     }
+
+    window.onbeforeunload = function () {
+        var NotValidated = '@Model.UserProfile.UserName.Equals("Anonyme")';
+        if (NotValidated != 'False') {
+            return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Valider la liste'";
+        }
+    };
 </script>
