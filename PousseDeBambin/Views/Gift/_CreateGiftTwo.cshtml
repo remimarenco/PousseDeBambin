@@ -8,12 +8,14 @@
     @Html.HiddenFor(model => model.ListID)
 
     @Html.LabelFor(model => model.ImageUrl)
-    @Html.EditorFor(model => model.ImageUrl)
+    @Html.TextBoxFor(model => model.ImageUrl, new { @class="createImageUrl" })
     <img src="@Model.ImageUrl" class="objectImage img-thumbnail" />
 </td>
 <td class="divObjectGift">
     <div class="divObjectWebsite">
-        @Html.LabelFor(model => model.WebSite)
+        <div>
+            @Html.LabelFor(model => model.WebSite)
+        </div>
         @Html.EditorFor(modelItem => Model.WebSite)
     </div>
     <div class="divObjectName">
