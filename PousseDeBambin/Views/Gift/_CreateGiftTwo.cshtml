@@ -16,20 +16,20 @@
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
-        @Html.EditorFor(modelItem => Model.WebSite)
+        @Html.TextBoxFor(modelItem => Model.WebSite)
     </div>
     <div class="divObjectName">
         @Html.LabelFor(model => model.Name)
-        @Html.EditorFor(modelItem => Model.Name)
+        @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription">
         @Html.LabelFor(model => model.Description)
-        @Html.EditorFor(modelItem => Model.Description)
+        @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
     @Html.LabelFor(model => model.Price)
-    <p class="textWithoutWrap">@Html.EditorFor(modelItem => Model.Price)</p>
+    <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
 </td>
 <td class="divAddObject">
     <div id="giftInfos">
@@ -46,7 +46,6 @@
         });
 
         function submitAddGift() {
-
             $.ajax({
                 url: "@Url.Action("CreatePartialTwo", "Gift")",
                 data: {
