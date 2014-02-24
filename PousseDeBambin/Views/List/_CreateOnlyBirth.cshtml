@@ -1,37 +1,41 @@
 ﻿@model PousseDeBambin.Models.List
 
-@Html.AntiForgeryToken()
-@Html.ValidationSummary(true)
+<div class="mainContentCreateList">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
-<fieldset>
-    <legend>Avant de pouvoir faire votre liste, une seule date nous importe...</legend>
+    <fieldset>
+        <legend>Avant de pouvoir faire votre liste, une seule date nous importe...</legend>
 
-    <div class="editor-label">
-        @Html.LabelFor(model => model.BirthDate)
-    </div>
-    <div class="editor-field">
-        @Html.TextBoxFor(model => model.BirthDate, new { @class = "picker" })
-    </div>
-    <div>
-        @Html.ValidationMessageFor(model => model.BirthDate, String.Empty, new { @class = "error_message" })
-    </div>
-    <div style="margin-top:2%;">
-        <p>
-            <input class="btn btn-success1" type="submit" value="" />
-        </p>
-    </div>
-</fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BirthDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.BirthDate, new { @class = "picker" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(model => model.BirthDate, String.Empty, new { @class = "error_message" })
+        </div>
+        <div style="margin-top:2%;">
+            <p>
+                <input class="btn btn-success1" type="submit" value="" />
+            </p>
+        </div>
+    </fieldset>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#datepicker").datepicker($.datepicker.regional["fr"]);
-        $('.picker').datepicker(
-            {
-                dateFormat: 'dd.mm.yy',
-                changeMonth: true,
-                changeYear: true,
-                selectOtherMonths: true
-            }
-        );
-    });
-</script>
+    <div class="img_create"></div>
+</div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#datepicker").datepicker($.datepicker.regional["fr"]);
+            $('.picker').datepicker(
+                {
+                    dateFormat: 'dd.mm.yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    selectOtherMonths: true
+                }
+            );
+        });
+    </script>
