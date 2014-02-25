@@ -136,7 +136,7 @@ namespace PousseDeBambin.Controllers
             email.ListName = listName;
             email.Message = buyerText;
             email.ListId = listId;
-            email.UrlList = Url.Action("Consult", "List", new { Id = listId }, Request.Url.Scheme);
+            email.UrlList = Url.Action("Manage", "List", new { Id = listId }, Request.Url.Scheme);
             Task.Run(() => { email.Send(); });
         }
 
