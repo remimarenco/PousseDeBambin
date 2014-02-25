@@ -621,6 +621,7 @@
     <Content Include="Views\Gift\_DisplayGift.cshtml" />
     <Content Include="Views\GiftState\_DisplayGiftStateTwo.cshtml" />
     <Content Include="Views\List\_DisplayGifts.cshtml" />
+    <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

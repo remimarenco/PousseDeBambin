@@ -15,16 +15,114 @@
     ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
     @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
-    <tr class="fond_cadeaux" id="createForm">
-        @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
-    </tr>
+    @if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
+    {
+        <tr class="fond_cadeaux" id="createForm">
+            @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
+        </tr>
+    }
 
 
 
     ***REMOVED*** On Success, on update en ajax la liste des gifts -->
 </table>
 
+<div class="modal fade" id="giftWebSite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="objectTitle">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ***REMOVED*** Indiquer qu'il faut revenir ici pour valider l'achat de l'objet -->
+                ***REMOVED*** Mettre nom de l'objet -->
+                ***REMOVED*** Mettre l'adresse de livraison -->
+                ***REMOVED*** Mettre l'url pour rediriger vers le site de l'url -->
+
+                <p>@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat ! N'oubliez pas de revenir sur cette page une fois l'objet acheté pour l'indiquer à @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
+
+                <p>L'objet est : <span id="objectName"></span></p>
+                <p>L'adresse de livraison est : <span id="shippingAddress"></span></p>
+
+                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>
+
+                ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
+                <div id="commentBuyObject">
+                    <input type="text" id="inputName" required placeholder="Votre prénom et nom :)" />
+                    <textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas acheté cet objet</button>
+                <button id="buttonBought" type="button" class="btn btn-primary" data-giftid="" data-dismiss="modal">J'ai acheté cet objet !</button>
+            </div>
+        </div>
+        ***REMOVED*** /.modal-content -->
+    </div>
+    ***REMOVED*** /.modal-dialog -->
+</div>
+***REMOVED*** /.modal -->
+
+<script type="text/javascript">
+    // Lorsqu'on clique pour acheter un cadeau => Redirection viglink
+    $('#objectUrl').click(function () {
+        vglnk.open($(this).data("url"), "_blank");
+    });
+    $('#buttonNotBought').click(
+        );
+    $('#buttonBought').click(function () {
+        // Put the giftState to State.Bought
+        $.ajax({
+            url: '@Url.Action("ObjectBought", "GiftState")',
+            dataType: 'html',
+            data: { 'id': $(this).data("giftid"), 'buyerName': $('#inputName').val(), 'buyerText': $('#inputMessage').val() },
+            type: 'POST',
+            success: function (myData) {
+                // Reload the span id = gift part
+                $.ajax({
+                    url: '@Url.Action("DisplayGiftState", "GiftState")',
+                    dataType: 'html',
+                    data: { 'id': myData },
+                    type: 'GET',
+                    success: function (data) {
+                        $("#gift" + myData).empty();
+                        $("#gift" + myData).append(data);
+                    }
+                });
+            }
+        });
+    });
+
+    $('.buyButton').click(function () {
+        //$('#objectTitle')
+        //$("#GiftWebSite").dialog("option", "title", "Objet : " + $(this).data("objectname") + ", Adresse de livraison : @Model.UserProfile.Street.ToString(), @Model.UserProfile.Zipcode.ToString() @Model.UserProfile.City.ToString()");
+
+        $('#objectTitle').empty();
+        $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
+
+        $("#objectName").empty();
+        $("#objectName").text($(this).data("objectname"));
+
+        $("#shippingAddress").empty();
+        $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
+
+        $("#objectUrl").empty();
+        $('#objectUrl').data("url", $(this).data("url"));
+        $("#objectUrl").text("J'achète " + $(this).data("objectname"));
+
+        //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
+        $('#buttonBought').data("giftid", $(this).data("id"));
+        $('#giftWebSite').modal('show');
+
+        //skimlinks();
+    });
+</script>
+
+
 <script>
+
+
     function refreshGiftsList() {
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({

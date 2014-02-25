@@ -156,6 +156,31 @@ namespace PousseDeBambin.Controllers
             return PartialView("_EditPartial", gift);
         }
 
+        public ActionResult EditPartialTwo(int id = 0)
+        {
+            Gift gift = db.Gifts.Find(id);
+            if (gift == null)
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            return PartialView("_EditGiftTwo", gift);
+        }
+
+        [HttpPost]
+        public ActionResult EditPartialTwo(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(gift).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("DisplayGiftStateTwo", "GiftState", new { id = gift.GiftId });
+            }
+
+            ViewBag.Success = "L'objet a correctement été modifié !";
+            return PartialView("_EditPartial", gift);
+        }
+
         //
         // GET: /Gift/Delete/5
 

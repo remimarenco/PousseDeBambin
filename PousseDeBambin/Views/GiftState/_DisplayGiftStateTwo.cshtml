@@ -1,6 +1,5 @@
 ﻿@model PousseDeBambin.Models.GiftState
 
-
 <td class="divObjectImage">
     <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" />
 </td>
@@ -19,6 +18,16 @@
     <div>
         @if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
         {
+            using (Ajax.BeginForm("EditPartialTwo", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
+            {
+                InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
+                UpdateTargetId = "gift"+Model.GiftID,
+                HttpMethod = "GET"
+            }))
+            {
+                <input type="submit" value="Modifier l'objet" />
+            }
+            
             <a id="btnEditGift" href="@Url.Action("CreatePartTwo", "List", new { id = Model.Gift.ListID, giftID = Model.GiftID })" class="btn btn-warning">Modifier l'objet</a>
         }
         <button type="button"
@@ -32,5 +41,23 @@
                 @(ViewBag.Bought == true ? ("Offert par " + Model.BuyerName) : "Je t'offre ce cadeau !")
             </span>
         </button>
+        @if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        {
+            using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
+            {
+                OnSuccess = "successDeleteGift",
+                HttpMethod = "Post"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Supprimer l'objet" />
+            }
+        }
     </div>
 </td>
+
+<script>
+    function successDeleteGift() {
+        refreshGiftsList();
+    }
+</script>
