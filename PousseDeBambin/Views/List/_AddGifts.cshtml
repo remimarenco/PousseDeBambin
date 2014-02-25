@@ -1,28 +1,31 @@
 ﻿@model PousseDeBambin.Models.List
 
-<div>Bienvenue dans la création de votre liste !</div>
-<div>Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur rechercher !</div>
-<div>Pour rentrer une nouvel objet, cliquez simplement sur "Ajouter une nouvel objet"</div>
-<div>Il ne vous reste plus qu'à cliquer sur "Valider ma liste", et la partager pour qu'elle soit visible par vos proches !</div>
+<div id="manageList">
+    <div class="mess_bienvenue_list">
+        <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
+        <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
+        <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+        <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'à cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
+    </div>
+    <table id="ListsGifts" class="table">
+        <tr id="headerTableGifts">
+            <th class="cat_list_cadeau">Image</th>
+            <th class="cat_list_cadeau">Objet</th>
+            <th class="cat_list_cadeau">Prix</th>
+            <th class="cat_list_cadeau">Gestion</th>
+        </tr>
+        ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
+        @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
-<table id="ListsGifts" class="table">
-    <tr id="headerTableGifts">
-        <th class="cat_list_cadeau">Image</th>
-        <th class="cat_list_cadeau">Objet</th>
-        <th class="cat_list_cadeau">Prix</th>
-        <th class="cat_list_cadeau">Gestion</th>
-    </tr>
-    ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
-    @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
-
-    <tr class="fond_cadeaux" id="createForm">
-        @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
-    </tr>
+        <tr class="fond_cadeaux" id="createForm">
+            @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
+        </tr>
 
 
 
-    ***REMOVED*** On Success, on update en ajax la liste des gifts -->
-</table>
+        ***REMOVED*** On Success, on update en ajax la liste des gifts -->
+    </table>
+</div>
 
 <script>
     function refreshGiftsList() {

@@ -13,19 +13,24 @@
 </td>
 <td class="divObjectGift">
     <div class="divObjectWebsite">
+        <p class="ajout_cadeau">Ajout d'un nouveau cadeau !</p>
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
         @Html.TextBoxFor(modelItem => Model.WebSite)
     </div>
     <div class="divObjectName">
-        @Html.LabelFor(model => model.Name)
+        <div>
+            @Html.LabelFor(model => model.Name)
+        </div>
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription">
-        @Html.LabelFor(model => model.Description)
-        @Html.TextAreaFor(modelItem => Model.Description)
-    </div>
+        <div>
+            @Html.LabelFor(model => model.Description)
+        </div>
+            @Html.TextAreaFor(modelItem => Model.Description)
+      </div>
 </td>
 <td class="divObjectPrice">
     @Html.LabelFor(model => model.Price)

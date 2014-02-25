@@ -138,6 +138,10 @@ header .menu a.logo {
     color: #000;
 }
 
+.hook-homepage .how-to-carousel .carousel .element p span {
+    font-weight: bold;
+}
+
 .hook-homepage .how-to-carousel .carousel .closest a {
     height: 30px;
     overflow: hidden;
