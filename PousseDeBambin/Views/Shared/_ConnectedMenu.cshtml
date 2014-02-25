@@ -13,7 +13,7 @@
             {
                 if (Model.Lists.Count == 1)
                 {
-                    <li><a href="@Url.Action("CreatePartTwo", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
+                    <li><a href="@Url.Action("Manage", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
                 }
                 else if (Model.Lists.Count > 1)
                 {
