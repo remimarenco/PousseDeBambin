@@ -12,11 +12,11 @@
             @{
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
+                    <a href="@Url.Action("Manage", "List")">Je crée ma liste</a>
                 }
                 else
                 {
-                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
+                    <a href="@Url.Action("Manage", "List")">Je crée ma liste</a>
                 }
             }
 
