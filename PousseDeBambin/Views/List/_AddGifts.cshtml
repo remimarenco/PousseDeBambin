@@ -1,9 +1,15 @@
 ﻿@model PousseDeBambin.Models.List
 
-<div>Bienvenue dans la création de votre liste !</div>
-<div>Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur rechercher !</div>
-<div>Pour rentrer une nouvel objet, cliquez simplement sur "Ajouter une nouvel objet"</div>
-<div>Il ne vous reste plus qu'à cliquer sur "Valider ma liste", et la partager pour qu'elle soit visible par vos proches !</div>
+@if (Model.Gifts.Count == 0)
+{
+    <div>Bienvenue dans la création de votre liste !</div>
+    <div>Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur rechercher !</div>
+    <div>Pour rentrer une nouvel objet, cliquez simplement sur "Ajouter une nouvel objet"</div>
+}
+@if(Model.UserProfile.UserName == "Anonyme")
+{
+    <div>Il ne vous reste plus qu'à cliquer sur "Valider ma liste", et la partager pour qu'elle soit visible par vos proches !</div>
+}
 
 <table id="ListsGifts" class="table">
     <tr id="headerTableGifts">
