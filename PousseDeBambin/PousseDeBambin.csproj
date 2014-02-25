@@ -503,6 +503,7 @@
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
+    <Content Include="Scripts\diffbotManagement.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
@@ -620,6 +621,7 @@
     <Content Include="Views\Gift\_DisplayGift.cshtml" />
     <Content Include="Views\GiftState\_DisplayGiftStateTwo.cshtml" />
     <Content Include="Views\List\_DisplayGifts.cshtml" />
+    <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

@@ -42,7 +42,7 @@
         <ul>
             @foreach (var list in Model)
             {
-                <li>@Html.ActionLink(list.Name, "Consult", "List", new { id = list.ListId }, null)</li>
+                <li>@Html.ActionLink(list.Name, "Manage", "List", new { id = list.ListId }, null)</li>
             }
         </ul>
     }

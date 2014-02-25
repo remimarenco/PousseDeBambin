@@ -47,6 +47,39 @@ namespace PousseDeBambin.Controllers
             return PartialView("_DisplayGiftState", giftState);
         }
 
+        public ActionResult DisplayGiftStateTwo(int id = 0)
+        {
+            GiftState giftState = db.GiftsStates.Find(id);
+            // If we do not find it, and it is not id 0, we add it in the giftState db
+            if (giftState == null && id != 0)
+            {
+                giftState = db.GiftsStates.Add(new GiftState
+                {
+                    GiftID = id,
+                    State = State.NOT_BOUGHT,
+                    BuyerName = "Anonyme",
+                });
+                giftState.Gift = db.Gifts.FirstOrDefault(g => g.GiftId == giftState.GiftID);
+                db.SaveChanges();
+            }
+            else if (id == 0)
+            {
+                // TODO: Dangereux, ne pas faire
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            if (giftState.State == State.NOT_BOUGHT)
+            {
+                ViewBag.Bought = false;
+            }
+            else
+            {
+                ViewBag.Bought = true;
+            }
+
+            return PartialView("_DisplayGiftStateTwo", giftState);
+        }
+
         [HttpPost]
         public int ObjectBought(string buyerName, string buyerText, int id = 0)
         {
@@ -103,7 +136,7 @@ namespace PousseDeBambin.Controllers
             email.ListName = listName;
             email.Message = buyerText;
             email.ListId = listId;
-            email.UrlList = Url.Action("Consult", "List", new { Id = listId }, Request.Url.Scheme);
+            email.UrlList = Url.Action("Manage", "List", new { Id = listId }, Request.Url.Scheme);
             Task.Run(() => { email.Send(); });
         }
 

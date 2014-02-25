@@ -12,21 +12,21 @@
             @{
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
+                    <a href="@Url.Action("Manage", "List")">Je crée ma liste</a>
                 }
                 else
                 {
-                    <a href="@Url.Action("Create", "List")">Je crée ma liste</a>
+                    <a href="@Url.Action("Manage", "List")">Je crée ma liste</a>
                 }
             }
 
         </li>
         <a class="logo" href="@Url.Action("Index", "Home")"></a>
 
-        <li class="@(("List".Equals(controller) && !"Search".Equals(action) && !"Consult".Equals(action)) ? "active" : "")">
+        <li class="@(("List".Equals(controller) && !"Search".Equals(action) && !"Manage".Equals(action)) ? "active" : "")">
             <a href="@Url.Action("Search", "List")">J'offre un cadeau</a>
         </li>
-        <li class="@(("List".Equals(controller) && ("Search".Equals(action) || "Consult".Equals(action)))? "active" : "" )">
+        <li class="@(("List".Equals(controller) && ("Search".Equals(action) || "Manage".Equals(action)))? "active" : "" )">
             <a href="@Url.Action("WhoAreWe", "Home")">Qui sommes-nous ?</a>
         </li>
     </ul>

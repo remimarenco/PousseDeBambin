@@ -7,7 +7,7 @@
         @foreach (var list in Model.Lists)
         {
             <li>
-                @Html.ActionLink(list.Name, "CreatePartTwo", new { controller = "List", id = list.ListId })
+                @Html.ActionLink(list.Name, "Manage", new { controller = "List", id = list.ListId })
             </li>
         }
     </ul>

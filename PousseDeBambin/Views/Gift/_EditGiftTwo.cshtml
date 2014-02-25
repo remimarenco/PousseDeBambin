@@ -7,79 +7,79 @@
 
     @Html.HiddenFor(model => model.ListID)
 
-    <div class="createObjectImage">
-    @Html.LabelFor(model => model.ImageUrl)
-        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
+    <div class="editObjectImage">
+        @Html.LabelFor(model => model.ImageUrl)
+        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "editImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
 </td>
-    
+
 <td class="divObjectGift">
-    <div class="divObjectWebsite createObjectGift">
-        <p class="ajout_cadeau">Ajout d'un nouveau cadeau !</p>
+    <div class="divObjectWebsite editObjectGift">
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
         @Html.TextBoxFor(modelItem => Model.WebSite)
-        <a href="#" id="btnCreateSearchObject" class="btn btn-primary btn-sm" role="button">
+        <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
             Rechercher
         </a>
-        <a href="#" id="btnStopCreateSearchObject">
-            <img id="createAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
+        <a href="#" id="btnStopEditSearchObject">
+            <img id="editAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading" />
             Arrêter la recherche
         </a>
         <p class="texte_fonction_recherche">Ce bouton vous permet de rechercher automatiquement les informations liées à l'objet.</p>
     </div>
-    <div class="divObjectName createObjectName">
-        <div>
-            @Html.LabelFor(model => model.Name)
-        </div>
+    <div class="divObjectName editObjectName">
+        @Html.LabelFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
-    <div class="divObjectDescription createObjectDescription">
-        <div>
-            @Html.LabelFor(model => model.Description)
-        </div>
+    <div class="divObjectDescription editObjectDescription">
+        @Html.LabelFor(model => model.Description)
         @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
-    <div class="createObjectPrice">
-    @Html.LabelFor(model => model.Price)
-    <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
+    <div class="editObjectPrice">
+        @Html.LabelFor(model => model.Price)
+        <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
 <td class="divAddObjec">
-    <div id="giftInfos" class="createAddObject">
+    <div id="giftInfos" class="editAddObject">
         <div>
-            <input id="btnCreateGift" type="submit" value="Valider l'objet" />
+            <input id="btnEditGift" type="submit" value="Valider l'édition" />
         </div>
     </div>
 </td>
 
 <script>
+    var nameIdGift = "#gift" + "@(Model.GiftId)";
     $(document).ready(function () {
-        $("#btnCreateGift").click(function () {
-            submitAddGift();
+
+        $(nameIdGift + " " + "#btnEditGift").click(function () {
+            submitEditGift();
         });
 
-        function submitAddGift() {
+        function submitEditGift() {
+            
             $.ajax({
-                url: "@Url.Action("CreatePartialTwo", "Gift")",
+                url: "@Url.Action("EditPartialTwo", "Gift")",
                 data: {
                     ListID: "@Model.ListID",
-                    ImageUrl: $("#ImageUrl").val(),
-                    WebSite: $("#WebSite").val(),
-                    Name: $("#Name").val(),
-                    Description: $("#Description").val(),
-                    Price: $("#Price").val()
+                    GiftId: "@Model.GiftId",
+                    ImageUrl: $(nameIdGift+" "+"#ImageUrl").val(),
+                    WebSite: $(nameIdGift+" "+"#WebSite").val(),
+                    Name: $(nameIdGift+" "+"#Name").val(),
+                    Description: $(nameIdGift+" "+"#Description").val(),
+                    Price: $(nameIdGift+" "+"#Price").val()
                 },
                 type: "POST",
                 content: 'application/json; charset=utf-8',
-                datatype: 'json',
+                datatype: 'html',
                 success: function (data) {
-                    $("#createForm").html(data);
-                    refreshGiftsList();
+                    //alert("Ché bon ! : "+ nameIdGift + " et le code de retour : "+data);
+                    $(nameIdGift).html(data);
+                    //refreshGiftsList();
                 }
             });
         }
@@ -109,7 +109,7 @@
         InitSearch();
 
         // Lorsque l'on clique sur le bouton d'arret de la recherche
-        $("#btnStopCreateSearchObject").click(function () {
+        $(nameIdGift + " " + "#btnStopEditSearchObject").click(function () {
             if (searchAjax) {
                 // On annule la requete de recherche
                 searchAjax.abort();
@@ -121,12 +121,12 @@
         });
 
         // Lorsque l'on clique sur le bouton de recherche de l'objet en création
-        $("#btnCreateSearchObject").click(function () {
+        $(nameIdGift + " " + "#btnEditSearchObject").click(function () {
             // On affiche le bouton pour stopper la recherche
             Search();
 
             // We get the website
-            var website = $('#WebSite').val();
+            var website = $(nameIdGift + " " + '#WebSite').val();
 
             // Loading
             searchAjax = $.ajax({
@@ -150,15 +150,15 @@
                         var amountNormalizedFr = normalize(amount);
 
                         // ImageUrl
-                        $("#ImageUrl").val(link);
+                        $(nameIdGift + " " + "#ImageUrl").val(link);
                         // Price
-                        $("#Price").val(amountNormalizedFr);
+                        $(nameIdGift + " " + "#Price").val(amountNormalizedFr);
                         // Title / Name of the product
-                        $("#Name").val(title);
+                        $(nameIdGift + " " + "#Name").val(title);
                         // Description
-                        $("#Description").val(description);
+                        $(nameIdGift + " " + "#Description").val(description);
                         // Ajout de l'image
-                        $("#displayImage").attr("src", link);
+                        $(nameIdGift + " " + "#displayImage").attr("src", link);
                     }
                     catch (e) {
                         alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
@@ -180,41 +180,41 @@
 
         function Search() {
             // On cache le bouton de recherche
-            $('#btnCreateSearchObject').hide();
+            $(nameIdGift + " " + '#btnEditSearchObject').hide();
             // On affiche les champs remplis
-            $('#giftInfosCreate').hide();
+            //$('#giftInfosCreate').hide();
             // On affiche le bouton d'arret de recherche
-            $('#btnStopCreateSearchObject').show();
+            $(nameIdGift + " " + '#btnStopEditSearchObject').show();
         }
 
         function SearchTerminate() {
             // On affiche le bouton de recherche
-            $('#btnCreateSearchObject').show();
+            $(nameIdGift + " " + '#btnEditSearchObject').show();
             // On affiche les champs remplis
-            $('#giftInfosCreate').show();
+            //$('#giftInfosCreate').show();
             // On cache le bouton d'arret de recherche
-            $('#btnStopCreateSearchObject').hide();
+            $(nameIdGift + " " + '#btnStopEditSearchObject').hide();
 
             // On affiche les champs remplis
-            $('.createObjectImage').css('visibility', 'visible');
-            $('.createObjectName').css('visibility', 'visible');
-            $('.createObjectDescription').css('visibility', 'visible');
-            $('.createObjectPrice').css('visibility', 'visible');
-            $('.createAddObject').css('visibility', 'visible');
+            //$('.createObjectImage').css('visibility', 'visible');
+            //$('.createObjectName').css('visibility', 'visible');
+            //$('.createObjectDescription').css('visibility', 'visible');
+            //$('.createObjectPrice').css('visibility', 'visible');
+            //$('.createAddObject').css('visibility', 'visible');
         }
 
         function InitSearch() {
             // On affiche le bouton de recherche
-            $('#btnCreateSearchObject').show();
+            $(nameIdGift + " " + '#btnEditSearchObject').show();
             // On cache le bouton d'arret de recherche
-            $('#btnStopCreateSearchObject').hide();
+            $(nameIdGift + " " + '#btnStopEditSearchObject').hide();
 
             // On cache également les champs non utile pour le moment
-            $('.createObjectImage').css('visibility', 'hidden');
-            $('.createObjectName').css('visibility', 'hidden');
-            $('.createObjectDescription').css('visibility', 'hidden');
-            $('.createObjectPrice').css('visibility', 'hidden');
-            $('.createAddObject').css('visibility', 'hidden');
+            //$('.createObjectImage').css('visibility', 'hidden');
+            //$('.createObjectName').css('visibility', 'hidden');
+            //$('.createObjectDescription').css('visibility', 'hidden');
+            //$('.createObjectPrice').css('visibility', 'hidden');
+            //$('.createAddObject').css('visibility', 'hidden');
         }
 
         function normalize(amount) {

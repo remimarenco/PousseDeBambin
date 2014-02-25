@@ -1,16 +1,8 @@
 ﻿/*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
-#giftInfos {
-    text-align: center;
-}
-
 #giftInfos > * {
     display: inline-block;
     position: relative;
     vertical-align: bottom;
-}
-
-#displayImage {
-    width: 357px;
 }
 
 #createNewObject {
