@@ -2,9 +2,29 @@
 
 /*-----------------------------------GIFT LIST consult (PROCHES)-------------------------*/
 .mess_bienvenue_list {
+    margin-bottom: 50px;
+}
+
+.intro_list_titre {
+    font-family: 'marketing_scriptregular';
+    font-size: 28px;
+    margin-top: 20px;
+    text-align: center;
+    color: #783551;
+}
+
+.intro_list {
     font-family: 'arial';
     text-align: center;
-    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #382a21;
+
+    span {
+        color: #829516;
+        font-size: 15px;
+        font-weight: bold;
+    }
 }
 
 #ListsGifts {
@@ -23,14 +43,56 @@
     font-weight: normal;
 }
 
-.divObjectImage img {
-    width: 150px;
-    height: 150px;
-    border-radius: 2px;
-    border: solid 2px #829516;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
+.ajout_cadeau {
+    background: url('/Content/img/giftsList/icone_cadeau.png') no-repeat;
+    padding-left:45px;
+    line-height:48px;
+    font-family: 'marketing_scriptregular';
+    font-size: 23px;
+    color: #783551;
+    font-weight: normal;
+    border-bottom: dotted 2px #808080;
+    margin-bottom:10px;
+    margin-top: 7px;
+}
+
+.divObjectImage {
+    text-align: center;
+    font-family: 'arial';
+    font-size: 12px;
+    font-weight: bold;
+    color: #ea744e;
+}
+
+    .divObjectImage img {
+        width: 150px;
+        height: 150px;
+        border-radius: 2px;
+        border: solid 2px #829516;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+td {
+    width: 180px;
+    margin-top: 10px;
+}
+
+#createForm {
+    background: #D8F08A;
+}
+
+.divObjectWebsite {
+    margin-left: 50px;
+    font-family: 'arial';
+    font-size: 12px;
+    font-weight: bold;
+    color: #382a21;
+
+    input {
+        width: 348px;
+    }
 }
 
 .divObjectDescription {
@@ -39,6 +101,12 @@
     margin-left: 50px;
     color: #382a21;
     margin-bottom: 20px;
+    font-size: 13px;
+
+    label {
+        font-weight: bold;
+        font-size: 12px;
+    }
 }
 
 .divObjectName {
@@ -46,17 +114,48 @@
     border-bottom: dotted 1px #aec383;
     font-size: 30px;
     color: #ea744e;
-    ;
     margin-left: 50px;
     margin-top: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding-bottom: 5px;
+
+    input{
+        width:200px;
+    }
+}
+
+.createImageUrl {
+    margin-bottom: 40px;
 }
 
 .divObjectPrice {
-    width: 90px;
+    width: 130px;
     text-align: center;
+    font-family: 'arial';
+    font-size: 12px;
+    font-weight: bold;
+
+    input {
+        width: 50px;
+        height: 30px;
+    }
 }
+
+#btnCreateGift {
+    background: url('/Content/img/giftsList/bouton_valider.png') no-repeat;
+    width: 120px;
+    height: 25px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-family: 'bebas_neueregular';
+    font-size: 15px;
+    color: #fff;
+    font-weight: normal;
+}
+
+    #btnCreateGift:hover {
+        opacity: 0.8;
+    }
 
 .textWithoutWrap {
     font-family: 'arial';
@@ -104,11 +203,13 @@
 .field-validation-error {
     display: inline-block;
 }
-.validation-summary-errors{
-    font-family:'arial';
-    font-size:12px;
-    color:#ea744e;
+
+.validation-summary-errors {
+    font-family: 'arial';
+    font-size: 12px;
+    color: #ea744e;
 }
+
 #btnAccessConsult {
     border: none;
     background: url('/Content/img/giftsList/bouton_consulter.png') no-repeat;

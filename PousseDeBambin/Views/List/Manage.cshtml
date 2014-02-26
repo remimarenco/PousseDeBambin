@@ -22,17 +22,24 @@
 
 <div id="manageList">
     @if (Model == null)
-    {
-        <div class="form_create_list">
+{
+    <div class="mainContentCreateList">
         <h2 class="create_list_title"></h2>
-        @using (Html.BeginForm("CreateOnlyBirth", "List"))
-        {
-            @Html.Action("CreatePartialOnlyBirth", "List")
-        }
-            </div>
-    }
-    else
-    {
+        <div class="form_create_list">
+
+            
+
+            @using (Html.BeginForm("CreateOnlyBirth", "List"))
+            {
+                @Html.Action("CreatePartialOnlyBirth", "List")
+            }
+        </div>
+        <div class="img_create"></div>
+    </div>
+}
+
+else
+{
         @Html.Partial("_AddGifts", Model)
     }
 </div>

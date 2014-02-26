@@ -8,7 +8,7 @@
     @Html.HiddenFor(model => model.ListID)
 
     <div class="createObjectImage">
-        @Html.LabelFor(model => model.ImageUrl)
+    @Html.LabelFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
@@ -16,6 +16,7 @@
     
 <td class="divObjectGift">
     <div class="divObjectWebsite createObjectGift">
+        <p class="ajout_cadeau">Ajout d'un nouveau cadeau !</p>
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
@@ -30,18 +31,22 @@
         <p class="texte_fonction_recherche">Ce bouton vous permet de rechercher automatiquement les informations liées à l'objet.</p>
     </div>
     <div class="divObjectName createObjectName">
-        @Html.LabelFor(model => model.Name)
+        <div>
+            @Html.LabelFor(model => model.Name)
+        </div>
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription createObjectDescription">
-        @Html.LabelFor(model => model.Description)
+        <div>
+            @Html.LabelFor(model => model.Description)
+        </div>
         @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
     <div class="createObjectPrice">
-        @Html.LabelFor(model => model.Price)
-        <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
+    @Html.LabelFor(model => model.Price)
+    <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
 <td class="divAddObjec">
@@ -216,4 +221,4 @@
             return amount.toString().replace(".", ",");
         }
     });
-</script> 
+</script>

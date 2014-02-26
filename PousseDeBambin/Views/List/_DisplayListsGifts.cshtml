@@ -3,7 +3,7 @@
 <table id="ListsGifts" class="table">
     <tr>
         <th class="cat_list_cadeau">Image</th>
-        <th class ="cat_list_cadeau">@Html.ActionLink("Objet", "Consult", "List", new { sortOrder = ViewBag.NameSortParm, id = Model.ListId }, new { @class = ViewBag.NameSortParm })</th>
+        <th class="cat_list_cadeau">@Html.ActionLink("Objet", "Consult", "List", new { sortOrder = ViewBag.NameSortParm, id = Model.ListId }, new { @class = ViewBag.NameSortParm })</th>
         <th class="cat_list_cadeau">@Html.ActionLink("Prix", "Consult", "List", new { sortOrder = ViewBag.PriceSortParm, id = Model.ListId }, new { @class = ViewBag.PriceSortParm })</th>
         <th class="cat_list_cadeau">Achat</th>
     </tr>
@@ -86,24 +86,24 @@
         //$('#objectTitle')
         //$("#GiftWebSite").dialog("option", "title", "Objet : " + $(this).data("objectname") + ", Adresse de livraison : @Model.UserProfile.Street.ToString(), @Model.UserProfile.Zipcode.ToString() @Model.UserProfile.City.ToString()");
 
-                    $('#objectTitle').empty();
-                    $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
+        $('#objectTitle').empty();
+        $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
 
-                    $("#objectName").empty();
-                    $("#objectName").text($(this).data("objectname"));
+        $("#objectName").empty();
+        $("#objectName").text($(this).data("objectname"));
 
-                    $("#shippingAddress").empty();
-                    $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
+        $("#shippingAddress").empty();
+        $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
 
-                    $("#objectUrl").empty();
-                    $('#objectUrl').data("url", $(this).data("url"));
-                    $("#objectUrl").text("J'achète " + $(this).data("objectname"));
+        $("#objectUrl").empty();
+        $('#objectUrl').data("url", $(this).data("url"));
+        $("#objectUrl").text("J'achète " + $(this).data("objectname"));
 
-                    //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
-                    $('#buttonBought').data("giftid", $(this).data("id"));
-                    $('#giftWebSite').modal('show');
+        //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
+        $('#buttonBought').data("giftid", $(this).data("id"));
+        $('#giftWebSite').modal('show');
 
-                    //skimlinks();
-                });
+        //skimlinks();
+    });
 </script>
 
