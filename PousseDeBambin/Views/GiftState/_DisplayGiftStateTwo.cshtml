@@ -27,8 +27,6 @@
             {
                 <input type="submit" value="Modifier l'objet" />
             }
-            
-            <a id="btnEditGift" href="@Url.Action("CreatePartTwo", "List", new { id = Model.Gift.ListID, giftID = Model.GiftID })" class="btn btn-warning">Modifier l'objet</a>
         }
         <button type="button"
                 class="btn @(ViewBag.Bought == true ? "buttonBoughtGift" : "buyButton")  spaceTop"
@@ -46,7 +44,8 @@
             using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {
                 OnSuccess = "successDeleteGift",
-                HttpMethod = "Post"
+                HttpMethod = "Post",
+                Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
             }))
             {
                 @Html.AntiForgeryToken()
