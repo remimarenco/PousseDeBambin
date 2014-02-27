@@ -1,6 +1,8 @@
 ﻿@model PousseDeBambin.Models.Gift
 
 ***REMOVED*** On fait un formulaire ajax de création d'objet. -->
+
+
 <td class="divObjectImage">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -17,6 +19,7 @@
 
 <td class="divObjectGift">
     <div class="divObjectWebsite editObjectGift">
+        <p class="modifier_cadeau">Modification de votre cadeau !</p>
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
@@ -49,7 +52,7 @@
         <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
-<td class="divAddObjec">
+<td class="divAddObject">
     <div id="giftInfos" class="editAddObject">
         <div>
             <input id="btnEditGift" type="submit" value="Valider l'édition" />
