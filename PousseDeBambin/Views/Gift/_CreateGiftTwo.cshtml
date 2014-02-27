@@ -11,7 +11,7 @@
         @Html.LabelFor(model => model.ImageUrl)
         @Html.ValidationMessageFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
-        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
+        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
     </div>
 </td>
 
