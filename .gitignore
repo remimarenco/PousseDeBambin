@@ -154,7 +154,7 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-/PousseDeBambin/App_Data
+/PousseDeBambin/App_Data/
 /PousseDeBambin/Content/css/bootstrap-theme.css
 /PousseDeBambin/Content/css/bootstrap-theme.min.css
 
