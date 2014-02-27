@@ -44,7 +44,12 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
-        public ActionResult Manage(int id = 0)
+        public ActionResult Creation()
+        {
+            return View("Manage");
+        }
+
+        public ActionResult Manage(int id)
         {
             List list = db.Lists.Find(id);
 
