@@ -21,11 +21,24 @@
             using (Ajax.BeginForm("EditPartialTwo", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {
                 InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
-                UpdateTargetId = "gift"+Model.GiftID,
+                UpdateTargetId = "gift" + Model.GiftID,
                 HttpMethod = "GET"
-            }))
+            }, new { @class = "inlineForm" }))
             {
-                <input class="modifier_input" type="submit" value="Modifier l'objet" />
+                <input class="modifier_input" type="submit" value="Modifier" />
+            }
+        }
+        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        {
+            using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
+            {
+                OnSuccess = "successDeleteGift",
+                HttpMethod = "Post",
+                Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
+            }, new { @class = "inlineForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <input class="supprimer_input" type="submit" value="Supprimer" />
             }
         }
         <button type="button"
@@ -39,19 +52,7 @@
                 @(ViewBag.Bought == true ? ("Offert par " + Model.BuyerName) : "Je t'offre ce cadeau !")
             </span>
         </button>
-        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
-        {
-            using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
-            {
-                OnSuccess = "successDeleteGift",
-                HttpMethod = "Post",
-                Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
-            }))
-            {
-                @Html.AntiForgeryToken()
-                <input class="supprimer_input" type="submit" value="Supprimer l'objet" />
-            }
-        }
+
     </div>
 </td>
 

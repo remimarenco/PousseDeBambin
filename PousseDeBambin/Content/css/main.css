@@ -143,3 +143,8 @@ ul {
 .deleteBtn {
     display: inline-block;
 }
+
+/*---------------------------------- Styles divers ---------------------------*/
+.inlineForm {
+    display: inline;
+}

@@ -55,7 +55,17 @@
     margin-bottom: 10px;
     margin-top: 7px;
 }
-
+.modifier_cadeau{
+     padding-left: 45px;
+    line-height: 48px;
+    font-family: 'marketing_scriptregular';
+    font-size: 23px;
+    color: #783551;
+    font-weight: normal;
+    border-bottom: dotted 2px #808080;
+    margin-bottom: 10px;
+    margin-top: 7px;
+}
 .divObjectImage {
     text-align: center;
     font-family: 'arial';
@@ -128,7 +138,7 @@ td {
     font-family: 'arial';
     font-size: 12px;
     font-weight: bold;
-    color:#382a21;
+    color: #382a21;
 }
 
 .createImageUrl {
@@ -170,8 +180,9 @@ td {
 
 .textWithoutWrap {
     font-family: 'arial';
-    font-weight: bold;
     color: #829516;
+    font-size:20px;
+
 }
 
 .divAddObject {
@@ -191,13 +202,14 @@ td {
 }
 
 .supprimer_input {
-    width: 145px;
+    width: 80px;
     height: 27px;
     cursor: pointer;
     color: #fff;
     border: 1px solid #382a21;
-    font-size: 12px;
+    font-size: 11px;
     background: url('/Content/img/giftsList/suppr.png') no-repeat #ea744e;
+    text-align: right;
 }
 
     .supprimer_input:hover {
@@ -205,13 +217,15 @@ td {
     }
 
 .modifier_input {
-    width: 180px;
-    height: 29px;
+    width: 80px;
+    height: 27px;
     cursor: pointer;
     color: #fff;
     border: 1px solid #382a21;
-    font-size: 15px;
-    background: url('/Content/img/giftsList/modifier.png') no-repeat #AF5C63;
+    font-size: 11px;
+    background: url('/Content/img/giftsList/modifier.png') no-repeat #af5c63;
+    text-align: right;
+    padding-right:14px;
 }
 
     .modifier_input:hover {
@@ -225,6 +239,7 @@ td {
     height: 63px;
     display: inline-block;
     font-family: bebas_neueregular;
+    font-weight: normal;
     font-size: 13px;
     color: #F1EFCC;
     cursor: pointer;
@@ -242,16 +257,6 @@ td {
     margin-left: 120px;
     margin-top: -5px;
     position: absolute;
-}
-
-.field-validation-error {
-    display: inline-block;
-}
-
-.validation-summary-errors {
-    font-family: 'arial';
-    font-size: 12px;
-    color: #ea744e;
 }
 
 #btnAccessConsult {
@@ -301,4 +306,17 @@ td {
     background: url('/Content/img/giftsList/bouton_offert.png') no-repeat;
     width: 180px;
     height: 78px;
+}
+/*----------------------------------messages erreur-------------------------------*/
+
+.field-validation-error {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.validation-summary-errors {
+    font-family: 'arial';
+    font-size: 12px;
+    color: #ea744e;
 }
