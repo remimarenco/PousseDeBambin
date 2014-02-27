@@ -9,7 +9,7 @@
 
     <div class="createObjectImage">
     @Html.LabelFor(model => model.ImageUrl)
-        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
+        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "manageImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
 </td>
@@ -32,7 +32,7 @@
     </div>
     <div class="divObjectName createObjectName">
         <div>
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.Name, new { @class = "objectNameLabel" })
         </div>
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>

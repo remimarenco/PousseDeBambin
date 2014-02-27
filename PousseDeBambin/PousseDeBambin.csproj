@@ -335,12 +335,14 @@
     <Content Include="Content\img\giftsList\fleur_picto.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
     <Content Include="Content\img\giftsList\img_non_trouvee.jpg" />
+    <Content Include="Content\img\giftsList\modifier.png" />
     <Content Include="Content\img\giftsList\noeud_liste.png" />
     <Content Include="Content\img\giftsList\panier_acheter.png" />
     <Content Include="Content\img\giftsList\picto_valider.png" />
     <Content Include="Content\img\giftsList\reinitialiser.jpg" />
     <Content Include="Content\img\giftsList\stopper_recherche.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
+    <Content Include="Content\img\giftsList\suppr.png" />
     <Content Include="Content\img\home\baby.jpg" />
     <Content Include="Content\img\home\baby_infos.jpg" />
     <Content Include="Content\img\home\banderole.png" />
