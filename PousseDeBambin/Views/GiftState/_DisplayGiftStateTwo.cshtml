@@ -1,7 +1,7 @@
 ﻿@model PousseDeBambin.Models.GiftState
 
 <td class="divObjectImage">
-    <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" />
+    <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
 </td>
 <td class="divObjectGift">
     <div class="divObjectName">

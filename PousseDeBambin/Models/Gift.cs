@@ -14,7 +14,7 @@ namespace PousseDeBambin.Models
         public int GiftId { get; set; }
 
         [Required(ErrorMessage = "Le nom de l'objet est obligatoire")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage="Le nom de l'objet ne doit pas dépasser 100 caractères")]
         [Display(Name = "Nom de l'objet")]
         public string Name {get; set;}
 

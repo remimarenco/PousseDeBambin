@@ -8,13 +8,13 @@
     @Html.HiddenFor(model => model.ListID)
 
     <div class="createObjectImage">
-    @Html.LabelFor(model => model.ImageUrl)
+        @Html.LabelFor(model => model.ImageUrl)
         @Html.ValidationMessageFor(model => model.ImageUrl)
-        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "manageImageUrl" })
-        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
+        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
+        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
     </div>
 </td>
-    
+
 <td class="divObjectGift">
     <div class="divObjectWebsite createObjectGift">
         <p class="ajout_cadeau">Ajout d'un nouveau cadeau !</p>
@@ -49,9 +49,9 @@
 </td>
 <td class="divObjectPrice">
     <div class="createObjectPrice">
-    @Html.LabelFor(model => model.Price)
+        @Html.LabelFor(model => model.Price)
         @Html.ValidationMessageFor(model => model.Price)
-    <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
+        <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
 <td class="divAddObjec">
@@ -257,13 +257,13 @@
             var isValid = '@(ViewData.ModelState.IsValid ? "true" : "false")';
             // Si c'est un retour avec erreur, ne pas cacher les champs
             if (isValid == "true") {
-            // On cache également les champs non utile pour le moment
-            $('.createObjectImage').css('visibility', 'hidden');
-            $('.createObjectName').css('visibility', 'hidden');
-            $('.createObjectDescription').css('visibility', 'hidden');
-            $('.createObjectPrice').css('visibility', 'hidden');
-            $('.createAddObject').css('visibility', 'hidden');
-        }
+                // On cache également les champs non utile pour le moment
+                $('.createObjectImage').css('visibility', 'hidden');
+                $('.createObjectName').css('visibility', 'hidden');
+                $('.createObjectDescription').css('visibility', 'hidden');
+                $('.createObjectPrice').css('visibility', 'hidden');
+                $('.createAddObject').css('visibility', 'hidden');
+            }
         }
 
         function normalize(amount) {
