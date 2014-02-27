@@ -157,6 +157,3 @@ $RECYCLE.BIN/
 /PousseDeBambin/App_Data/
 /PousseDeBambin/Content/css/bootstrap-theme.css
 /PousseDeBambin/Content/css/bootstrap-theme.min.css
-
-*.mdf
-*.ldf

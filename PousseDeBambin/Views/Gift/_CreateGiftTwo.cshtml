@@ -34,7 +34,7 @@
     </div>
     <div class="divObjectName createObjectName">
         <div>
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.Name, new { @class = "objectNameLabel" })
         </div>
         @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)

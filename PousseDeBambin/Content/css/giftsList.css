@@ -1,4 +1,8 @@
 ﻿/*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#giftInfos {
+    text-align: center;
+}
+
 #giftInfos > * {
     display: inline-block;
     position: relative;
@@ -55,16 +59,17 @@
     text-decoration: none;
     background: url('/Content/img/giftsList/bouton_rechercher.png') no-repeat;
     height: 63px;
-    width: 115px;
+    width: 125px;
     color: #fff;
     font-family: 'arial';
-    font-size: 12px;
+    font-size: 14px;
     display: inline-block;
     position: relative;
     line-height: 86px;
-    padding-left: 44px;
+    padding-left: 38px;
     outline: none;
     margin-top: 10px;
+    font-weight: normal;
 }
 
 #btnCreateSearchObject:hover {
