@@ -256,7 +256,7 @@
 
             var isValid = '@(ViewData.ModelState.IsValid ? "true" : "false")';
             // Si c'est un retour avec erreur, ne pas cacher les champs
-            if (isValid) {
+            if (isValid == "true") {
                 // On cache également les champs non utile pour le moment
                 $('.createObjectImage').css('visibility', 'hidden');
                 $('.createObjectName').css('visibility', 'hidden');
