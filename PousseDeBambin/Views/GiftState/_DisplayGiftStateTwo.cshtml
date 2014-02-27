@@ -16,7 +16,7 @@
 </td>
 <td class="divObjectBuy">
     <div>
-        @if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
         {
             using (Ajax.BeginForm("EditPartialTwo", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {
@@ -39,7 +39,7 @@
                 @(ViewBag.Bought == true ? ("Offert par " + Model.BuyerName) : "Je t'offre ce cadeau !")
             </span>
         </button>
-        @if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
         {
             using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {

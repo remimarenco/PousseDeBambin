@@ -9,6 +9,7 @@
 
     <div class="editObjectImage">
         @Html.LabelFor(model => model.ImageUrl)
+        @Html.ValidationMessageFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "manageImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
@@ -19,6 +20,7 @@
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
+        @Html.ValidationMessageFor(model => model.WebSite)
         @Html.TextBoxFor(modelItem => Model.WebSite)
         <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
             Rechercher
@@ -31,16 +33,19 @@
     </div>
     <div class="divObjectName editObjectName">
         @Html.LabelFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription editObjectDescription">
         @Html.LabelFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
         @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
     <div class="editObjectPrice">
         @Html.LabelFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
         <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
@@ -133,7 +138,8 @@
                 url: 'http://api.diffbot.com/v2/product',
                 crossDomain: true,
                 data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonpCallback: "localJsonpCallback",
                 type: 'GET',
                 timeout: 8000,
                 success: function (data) {
@@ -177,6 +183,46 @@
 
             return false;
         });
+
+        function localJsonpCallback(json) {
+            if (!json.Error) {
+                try {
+                    // Fill all variables with returned values
+                    var amount = ('amount' in data.products[0].offerPriceDetails) ? data.products[0].offerPriceDetails.amount : '0';
+                    var link = ('link' in data.products[0].media[0]) ? data.products[0].media[0].link : '';
+                    var title = ('title' in data.products[0]) ? data.products[0].title : '';
+                    var description = ('description' in data.products[0]) ? data.products[0].description : '';
+
+                    // Fill all divs with the return of the data
+
+                    // Normalisation du prix en FR
+                    var amountNormalizedFr = normalize(amount);
+
+                    // ImageUrl
+                    $("#ImageUrl").val(link);
+                    // Price
+                    $("#Price").val(amountNormalizedFr);
+                    // Title / Name of the product
+                    $("#Name").val(title);
+                    // Description
+                    $("#Description").val(description);
+                    // Ajout de l'image
+                    $("#displayImage").attr("src", link);
+                }
+                catch (e) {
+                    alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                    console.log("Problème dans la récupération des données");
+                    //TODO : Logguer l'erreur
+                }
+
+                SearchTerminate();
+            }
+            else {
+                alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
+                console.log("Problème dans le retour diffbot : " + json.Message);
+                SearchTerminate();
+            }
+        }
 
         function Search() {
             // On cache le bouton de recherche

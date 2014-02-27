@@ -23,7 +23,7 @@
 ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
 @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
-@if (User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
+@if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
 {
     <tr class="fond_cadeaux" id="createForm">
     @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
