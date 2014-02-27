@@ -9,6 +9,7 @@
 
     <div class="editObjectImage">
         @Html.LabelFor(model => model.ImageUrl)
+        @Html.ValidationMessageFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "editImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
@@ -19,6 +20,7 @@
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
+        @Html.ValidationMessageFor(model => model.WebSite)
         @Html.TextBoxFor(modelItem => Model.WebSite)
         <a href="#" id="btnEditSearchObject" class="btn btn-primary btn-sm" role="button">
             Rechercher
@@ -31,16 +33,19 @@
     </div>
     <div class="divObjectName editObjectName">
         @Html.LabelFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription editObjectDescription">
         @Html.LabelFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description)
         @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
     <div class="editObjectPrice">
         @Html.LabelFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
         <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>

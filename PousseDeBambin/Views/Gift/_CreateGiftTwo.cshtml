@@ -8,18 +8,20 @@
     @Html.HiddenFor(model => model.ListID)
 
     <div class="createObjectImage">
-    @Html.LabelFor(model => model.ImageUrl)
+        @Html.LabelFor(model => model.ImageUrl)
+        @Html.ValidationMessageFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
         <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" />
     </div>
 </td>
-    
+
 <td class="divObjectGift">
     <div class="divObjectWebsite createObjectGift">
         <p class="ajout_cadeau">Ajout d'un nouveau cadeau !</p>
         <div>
             @Html.LabelFor(model => model.WebSite)
         </div>
+        @Html.ValidationMessageFor(model => model.WebSite)
         @Html.TextBoxFor(modelItem => Model.WebSite)
         <a href="#" id="btnCreateSearchObject" class="btn btn-primary btn-sm" role="button">
             Rechercher
@@ -34,19 +36,22 @@
         <div>
             @Html.LabelFor(model => model.Name)
         </div>
+        @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
     <div class="divObjectDescription createObjectDescription">
         <div>
             @Html.LabelFor(model => model.Description)
         </div>
+        @Html.ValidationMessageFor(model => model.Description)
         @Html.TextAreaFor(modelItem => Model.Description)
     </div>
 </td>
 <td class="divObjectPrice">
     <div class="createObjectPrice">
-    @Html.LabelFor(model => model.Price)
-    <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
+        @Html.LabelFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+        <p class="textWithoutWrap">@Html.TextBoxFor(modelItem => Model.Price)</p>
     </div>
 </td>
 <td class="divAddObjec">
@@ -249,12 +254,16 @@
             // On cache le bouton d'arret de recherche
             $('#btnStopCreateSearchObject').hide();
 
-            // On cache également les champs non utile pour le moment
-            $('.createObjectImage').css('visibility', 'hidden');
-            $('.createObjectName').css('visibility', 'hidden');
-            $('.createObjectDescription').css('visibility', 'hidden');
-            $('.createObjectPrice').css('visibility', 'hidden');
-            $('.createAddObject').css('visibility', 'hidden');
+            var isValid = '@(ViewData.ModelState.IsValid ? "true" : "false")';
+            // Si c'est un retour avec erreur, ne pas cacher les champs
+            if (isValid) {
+                // On cache également les champs non utile pour le moment
+                $('.createObjectImage').css('visibility', 'hidden');
+                $('.createObjectName').css('visibility', 'hidden');
+                $('.createObjectDescription').css('visibility', 'hidden');
+                $('.createObjectPrice').css('visibility', 'hidden');
+                $('.createAddObject').css('visibility', 'hidden');
+            }
         }
 
         function normalize(amount) {
