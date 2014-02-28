@@ -46,7 +46,7 @@
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
         {
-            <tr class="fond_cadeaux" id="createForm">
+            <tr id="createForm">
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
         }
@@ -163,8 +163,6 @@
 
 
 <script>
-
-
     function refreshGiftsList() {
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
@@ -177,6 +175,32 @@
                 $("#headerTableGifts").after(data.responseText);
             }
         });
+    }
+
+    function refreshGiftsListAddEffect() {
+        var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
+        var request = $.ajax({
+            type: "GET",
+            url: urlRefresh,
+            dataType: "json",
+            complete: function (data, status) {
+                // On rafraichit la liste des objets
+                $("#headerTableGifts").nextUntil("#createForm").replaceWith("");
+                $("#headerTableGifts").after(data.responseText);
+                addGiftEffect();
+            }
+        });
+    }
+
+    function addGiftEffect()
+    {
+        // On prends la dernière row et on lui met un fadein
+        $(".fond_cadeaux").last().hide().fadeIn(1500);
+    }
+
+    function deleteGiftEffect() {
+        // On prends la dernière row et on lui met un fadein
+        $(".fond_cadeaux").last().fadeOut(500);
     }
 
     window.onbeforeunload = function () {
