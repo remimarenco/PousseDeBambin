@@ -57,7 +57,7 @@
 
 @if (Model.UserProfile.UserName == "Anonyme")
 {
-    using (Html.BeginForm("Validate", "List", new { id = Model.ListId }))
+    using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -206,7 +206,7 @@
     window.onbeforeunload = function () {
         var NotValidated = '@Model.UserProfile.UserName.Equals("Anonyme")';
         if (NotValidated != 'False') {
-            return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Valider la liste'";
+            return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Je valide ma liste'";
         }
     };
 </script>

@@ -397,6 +397,51 @@ namespace PousseDeBambin.Controllers
             return View(foundedLists);
         }
 
+        public ActionResult InfosListe(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            InfosListViewModel infosModel = new InfosListViewModel();
+            infosModel.ListId = id;
+            infosModel.Name = list.Name;
+            infosModel.Description = list.Description;
+
+            if (list == null)
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            return View(infosModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InfosListe(InfosListViewModel model)
+        {
+            // Un formulaire pour renseigner le nom et le prénom de la personne
+            if (ModelState.IsValid)
+            {
+                List list = db.Lists.Find(model.ListId);
+                if (list == null)
+                {
+                    return RedirectToAction("NotFound", "Error");
+                }
+
+                list.Name = model.Name;
+                list.Description = model.Description;
+
+                db.Entry(list).State = EntityState.Modified;
+                db.SaveChanges();
+
+                if (!Request.IsAuthenticated)
+                {
+                    FormsAuthentication.RedirectToLoginPage();
+                }
+                return RedirectToAction("Share", new { id = list.ListId });
+            }
+            return View(model);
+        }
+
         private bool UserIsAdminOfTheList(List list)
         {
             // Si l'utilisateur n'est pas connecté
