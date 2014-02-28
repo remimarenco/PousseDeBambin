@@ -43,7 +43,7 @@
     </div>
     <div class="divObjectDescription editObjectDescription">
         <div>
-            @Html.LabelFor(model => model.Description)
+        @Html.LabelFor(model => model.Description)
         </div>
         @Html.ValidationMessageFor(model => model.Description)
         @Html.TextAreaFor(modelItem => Model.Description)
@@ -73,7 +73,7 @@
         });
 
         function submitEditGift() {
-
+            
             $.ajax({
                 url: "@Url.Action("EditPartialTwo", "Gift")",
                 data: {
@@ -273,5 +273,15 @@
         function normalize(amount) {
             return amount.toString().replace(".", ",");
         }
+
+        // Gestion des divers évènements de la page
+        $(function () {
+            $(".divObjectImage").change(function () {
+                $(".editObjectImage #displayImage").error(function () {
+                    this.onerror = null;
+                    this.src = '@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")';
+                }).attr("src", $(".editImageUrl").val());
+            });
+        });
     });
 </script>

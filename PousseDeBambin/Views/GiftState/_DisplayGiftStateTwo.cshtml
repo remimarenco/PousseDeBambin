@@ -32,6 +32,7 @@
         {
             using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {
+                OnBegin = "beginDeleteGift",
                 OnSuccess = "successDeleteGift",
                 HttpMethod = "Post",
                 Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
@@ -59,5 +60,8 @@
 <script>
     function successDeleteGift() {
         refreshGiftsList();
+    }
+    function beginDeleteGift(){
+        deleteGiftEffect();
     }
 </script>
