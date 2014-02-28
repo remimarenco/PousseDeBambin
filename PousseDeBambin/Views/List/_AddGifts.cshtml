@@ -6,15 +6,15 @@
         {
             <span>
                 Bienvenue dans @Model.Name
-            , l'enfant de @Model.UserProfile.FirstName
-            @if (Model.BirthDate > DateTime.Now)
-            {
-                <span>va naître</span>
-            }
-            else
-            {
-                <span>est né</span>
-            }
+                , l'enfant de @Model.UserProfile.FirstName
+                @if (Model.BirthDate > DateTime.Now)
+                {
+                    <span>va naître</span>
+                }
+                else
+                {
+                    <span>est né</span>
+                }
                 le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
             </span>
             if (Model.BirthDate > DateTime.Now)
@@ -24,7 +24,7 @@
                 <span> : J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !</span>
             }
         }
-        
+
         @if (Model.Gifts.Count == 0)
         {
             <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
@@ -46,40 +46,35 @@
         ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
+        @if (Model.UserProfile.UserName == "Anonyme" && Model.Gifts.Count != 0)
+        {
+            <tr class="spacer"></tr>
+            <tr id="validationRow">
+                <td colspan="4">
+                    @using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        @Html.HiddenFor(x => Model.ListId)
+                        <div class="validate_list">
+                            <p>
+                                <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
+                            </p>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+        
+        <tr class="spacer"></tr>
+
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
         {
             <tr id="createForm">
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
         }
-
-            if (Model.UserProfile.UserName == "Anonyme" && Model.Gifts.Count != 0)
-{
-                <tr class="spacer"></tr>
-                <tr id="validationRow">
-                    <td colspan="4">
-    using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        @Html.HiddenFor(x => Model.ListId)
-        <div class="validate_list">
-            <p>
-                <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
-            </p>
-        </div>
-    }
-                    </td>
-                </tr>
-            }
-
-            <tr class="spacer"></tr>
-
-            <tr class="fond_cadeaux" id="createForm">
-                @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
-            </tr>
-}
 
         ***REMOVED*** On Success, on update en ajax la liste des gifts -->
     </table>
@@ -208,8 +203,7 @@
         });
     }
 
-    function addGiftEffect()
-    {
+    function addGiftEffect() {
         // On prends la dernière row et on lui met un fadein
         $(".fond_cadeaux").last().hide().fadeIn(1500);
     }

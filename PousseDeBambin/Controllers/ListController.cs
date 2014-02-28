@@ -433,11 +433,7 @@ namespace PousseDeBambin.Controllers
                 db.Entry(list).State = EntityState.Modified;
                 db.SaveChanges();
 
-                if (!Request.IsAuthenticated)
-                {
-                    FormsAuthentication.RedirectToLoginPage();
-                }
-                return RedirectToAction("Share", new { id = list.ListId });
+                return RedirectToAction("Validate", new { id = list.ListId });
             }
             return View(model);
         }
