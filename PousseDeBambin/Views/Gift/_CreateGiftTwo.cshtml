@@ -11,7 +11,7 @@
         @Html.LabelFor(model => model.ImageUrl)
         @Html.ValidationMessageFor(model => model.ImageUrl)
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "createImageUrl" })
-        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
+        <img id="displayImage" src="@Model.ImageUrl" class="divObjectImage" onerror="errorImage" />
     </div>
 </td>
 
@@ -269,5 +269,15 @@
         function normalize(amount) {
             return amount.toString().replace(".", ",");
         }
+
+        // Gestion des divers évènements de la page
+        $(function () {
+            $(".createObjectImage").change(function () {
+                $(".divObjectImage #displayImage").error(function () {
+                    this.onerror = null;
+                    this.src = '@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")';
+                }).attr("src", $(".createImageUrl").val());
+            });
+        });
     });
 </script>
