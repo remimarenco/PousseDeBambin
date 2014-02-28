@@ -59,7 +59,7 @@
                         @Html.HiddenFor(x => Model.ListId)
                         <div class="validate_list">
                             <p>
-                                <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
+                                <input id="submitListeCreate" type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
                             </p>
                         </div>
                     }
@@ -212,6 +212,12 @@
         // On prends la dernière row et on lui met un fadein
         $(".fond_cadeaux").last().fadeOut(500);
     }
+
+    $().ready(function () {
+        $('#submitListeCreate').click(function () {
+            window.onbeforeunload = null;
+        });
+    });
 
     window.onbeforeunload = function () {
         var NotValidated = '@Model.UserProfile.UserName.Equals("Anonyme")';
