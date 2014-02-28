@@ -222,10 +222,6 @@
     <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-PousseDeBambin-20140115024540.mdf" />
-    <Content Include="App_Data\aspnet-PousseDeBambin-20140115024540_log.ldf">
-      <DependentUpon>aspnet-PousseDeBambin-20140115024540.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\carousel.css" />
     <Content Include="Content\css\categories.css">
@@ -342,6 +338,7 @@
     <Content Include="Content\img\giftsList\fleche_connexion.png" />
     <Content Include="Content\img\giftsList\fleur_picto.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
+    <Content Include="Content\img\giftsList\icone_modifier.png" />
     <Content Include="Content\img\giftsList\img_non_trouvee.jpg" />
     <Content Include="Content\img\giftsList\modifier.png" />
     <Content Include="Content\img\giftsList\noeud_liste.png" />
@@ -635,6 +632,7 @@
     <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>

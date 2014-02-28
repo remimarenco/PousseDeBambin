@@ -2,19 +2,21 @@
 
 <div id="manageList">
     <div class="mess_bienvenue_list">
-        @if(!String.IsNullOrWhiteSpace(Model.Name))
+        @if (!String.IsNullOrWhiteSpace(Model.Name))
         {
-            <span>Bienvenue dans @Model.Name
-            , l'enfant de @Model.UserProfile.FirstName
-            @if (Model.BirthDate > DateTime.Now)
-            {
-                <span>va naître</span>
-            }
-            else
-            {
-                <span>est né</span>
-            }
-            le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year</span>
+            <span>
+                Bienvenue dans @Model.Name
+                , l'enfant de @Model.UserProfile.FirstName
+                @if (Model.BirthDate > DateTime.Now)
+                {
+                    <span>va naître</span>
+                }
+                else
+                {
+                    <span>est né</span>
+                }
+                le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
+            </span>
             if (Model.BirthDate > DateTime.Now)
             {
                 TimeSpan span = Model.BirthDate - DateTime.Now;
@@ -22,7 +24,7 @@
                 <span> : J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !</span>
             }
         }
-        
+
         @if (Model.Gifts.Count == 0)
         {
             <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
@@ -46,6 +48,30 @@
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
         {
+
+            if (Model.UserProfile.UserName == "Anonyme" && Model.Gifts.Count != 0)
+            {
+                <tr class="spacer"></tr>
+                <tr id="validationRow">
+                    <td colspan="4">
+                        @using (Html.BeginForm("Validate", "List", new { id = Model.ListId }))
+                        {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        @Html.HiddenFor(x => Model.ListId)
+                        <div class="validate_list">
+                            <p>
+                                <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
+                            </p>
+                        </div>
+                        }
+                    </td>
+                </tr>
+            }
+
+            <tr class="spacer"></tr>
+
             <tr class="fond_cadeaux" id="createForm">
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
@@ -53,23 +79,9 @@
 
         ***REMOVED*** On Success, on update en ajax la liste des gifts -->
     </table>
+
 </div>
 
-@if (Model.UserProfile.UserName == "Anonyme")
-{
-    using (Html.BeginForm("Validate", "List", new { id = Model.ListId }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        @Html.HiddenFor(x => Model.ListId)
-        <div class="validate_list">
-            <p>
-                <input type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
-            </p>
-        </div>
-    }
-}
 
 <div class="modal fade" id="giftWebSite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
