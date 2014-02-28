@@ -2,9 +2,10 @@
 
 <div id="manageList">
     <div class="mess_bienvenue_list">
-        @if(!String.IsNullOrWhiteSpace(Model.Name))
+        @if (!String.IsNullOrWhiteSpace(Model.Name))
         {
-            <span>Bienvenue dans @Model.Name
+            <span>
+                Bienvenue dans @Model.Name
             , l'enfant de @Model.UserProfile.FirstName
             @if (Model.BirthDate > DateTime.Now)
             {
@@ -14,7 +15,8 @@
             {
                 <span>est né</span>
             }
-            le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year</span>
+                le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
+            </span>
             if (Model.BirthDate > DateTime.Now)
             {
                 TimeSpan span = Model.BirthDate - DateTime.Now;
@@ -51,12 +53,11 @@
             </tr>
         }
 
-        ***REMOVED*** On Success, on update en ajax la liste des gifts -->
-    </table>
-</div>
-
-@if (Model.UserProfile.UserName == "Anonyme")
+            if (Model.UserProfile.UserName == "Anonyme" && Model.Gifts.Count != 0)
 {
+                <tr class="spacer"></tr>
+                <tr id="validationRow">
+                    <td colspan="4">
     using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
     {
         @Html.AntiForgeryToken()
@@ -69,7 +70,22 @@
             </p>
         </div>
     }
+                    </td>
+                </tr>
+            }
+
+            <tr class="spacer"></tr>
+
+            <tr class="fond_cadeaux" id="createForm">
+                @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
+            </tr>
 }
+
+        ***REMOVED*** On Success, on update en ajax la liste des gifts -->
+    </table>
+
+</div>
+
 
 <div class="modal fade" id="giftWebSite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

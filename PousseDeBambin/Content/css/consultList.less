@@ -2,7 +2,10 @@
 
 /*-----------------------------------GIFT LIST consult (PROCHES)-------------------------*/
 .mess_bienvenue_list {
+    margin-top:50px;
     margin-bottom: 50px;
+    font-family:'arial';
+    text-align:center;
 }
 
 .intro_list_titre {
@@ -56,7 +59,8 @@
     margin-top: 7px;
 }
 .modifier_cadeau{
-     padding-left: 45px;
+    background: url('/Content/img/giftsList/icone_modifier.png') no-repeat;
+    padding-left: 45px;
     line-height: 48px;
     font-family: 'marketing_scriptregular';
     font-size: 23px;
@@ -92,7 +96,12 @@ td {
 #createForm {
     background: #D8F08A;
 }
-
+.spacer{
+    height:30px;
+}
+.editCell{
+    background: #dfc5c7;
+}
 .divObjectWebsite {
     margin-left: 50px;
     font-family: 'arial';
@@ -130,7 +139,7 @@ td {
     padding-bottom: 5px;
 
     input {
-        width: 200px;
+        width: 350px;
     }
 }
 
@@ -157,7 +166,13 @@ td {
         height: 30px;
     }
 }
+.createObjectName{
+    font-size: 12px;
+}
 
+.editObjectName{
+    font-size: 12px;
+}
 .divObjectBuy {
     text-align: center;
 }
@@ -191,16 +206,20 @@ td {
 
 #btnEditGift {
     font-family: 'bebas_neueregular';
+    font-weight:normal;
     font-size: 15px;
     width: 150px;
-    height: 63px;
+    height: 50px;
     text-decoration: none;
-    margin-left: 20px;
-    color: #ea744e;
-    border-bottom: dotted 1px #AF5C63;
+    color: #fff;
+    border-bottom: dotted 1px #783551;
     cursor: pointer;
+    background-color:#AF5C63;
 }
 
+#btnEditGift:hover {
+    opacity:0.8;
+}
 .supprimer_input {
     width: 80px;
     height: 27px;
@@ -278,9 +297,6 @@ td {
     margin-top: 20px;
 }
 
-#btnEditGift:hover {
-    color: #AF5C63;
-}
 
 .buyButton {
     border: none;
@@ -307,6 +323,7 @@ td {
     width: 180px;
     height: 78px;
 }
+
 /*----------------------------------messages erreur-------------------------------*/
 
 .field-validation-error {
