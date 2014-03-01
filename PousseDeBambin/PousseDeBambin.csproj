@@ -241,25 +241,25 @@
       <DependentUpon>consultList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\consultList.min.css">
-      <DependentUpon>consultList.less</DependentUpon>
+      <DependentUpon>consultList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\createList.css">
       <DependentUpon>createList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\createList.min.css">
-      <DependentUpon>createList.less</DependentUpon>
+      <DependentUpon>createList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\footer.css">
       <DependentUpon>footer.less</DependentUpon>
     </Content>
     <Content Include="Content\css\footer.min.css">
-      <DependentUpon>footer.less</DependentUpon>
+      <DependentUpon>footer.css</DependentUpon>
     </Content>
     <Content Include="Content\css\giftsList.css">
       <DependentUpon>giftsList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\giftsList.min.css">
-      <DependentUpon>giftsList.less</DependentUpon>
+      <DependentUpon>giftsList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\header.css">
       <DependentUpon>header.less</DependentUpon>
@@ -308,12 +308,6 @@
     </Content>
     <Content Include="Content\css\searchList.min.css">
       <DependentUpon>searchList.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\whoWeAre.css">
-      <DependentUpon>whoWeAre.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\whoWeAre.min.css">
-      <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
@@ -505,9 +499,6 @@
     </Content>
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\whoWeAre.css.map">
-      <DependentUpon>whoWeAre.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
