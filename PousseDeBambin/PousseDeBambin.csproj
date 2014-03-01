@@ -309,6 +309,9 @@
     <Content Include="Content\css\searchList.min.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\whoWeAre.css">
+      <DependentUpon>whoWeAre.less</DependentUpon>
+    </Content>
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
