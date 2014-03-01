@@ -1,0 +1,27 @@
+﻿@model PousseDeBambin.Models.List
+
+<tr id="spacerValidation" class="spacer"></tr>
+<tr id="validationRow">
+    <td colspan="4">
+        @using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.HiddenFor(x => Model.ListId)
+            <div class="validate_list">
+                <p>
+                    <input id="submitListeCreate" type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
+                </p>
+            </div>
+        }
+    </td>
+</tr>
+
+<script>
+    $().ready(function () {
+        $('#submitListeCreate').click(function () {
+            window.onbeforeunload = null;
+        });
+    });
+</script>

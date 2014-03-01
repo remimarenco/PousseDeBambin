@@ -1,8 +1,18 @@
 ﻿@import url("../mixin/mixins.less");
 
 /*-----------------------------------PAGE GIFTS LIST (GESTION) -------------------------------*/
+#giftInfos {
+    text-align: center;
+}
+
+    #giftInfos > * {
+        display: inline-block;
+        position: relative;
+        vertical-align: bottom;
+    }
+
 #displayImage {
-    width: 357px;
+    //width: 357px;
 }
 
 #createNewObject {
@@ -16,24 +26,24 @@
     }
 
     .btn-primary_add {
-        background: url('/Content/img/giftsList/bouton_ajouter.png');
-        height: 63px;
-        width: 150px;
+        background: url('/Content/img/giftsList/reinitialiser.jpg');
+        height: 40px;
+        width: 200px;
         font-family: 'arial';
         font-weight: normal;
         font-size: 13px;
         color: #fff;
         border: none;
-        padding: 20px 0px 0 30px;
+        padding: 0px 0px 0 30px;
         outline: none;
         margin-left: 13px;
         cursor: pointer;
     }
 
         .btn-primary_add:hover {
-            background-image: url('/Content/img/giftsList/bouton_ajouter_hover.png');
-            color: #f0e79c;
+            background-image: url('/Content/img/giftsList/reinitialiser.jpg');
             outline: none;
+            opacity: 0.9;
         }
 }
 
@@ -43,11 +53,10 @@
     height: 63px;
     width: 115px;
     color: #fff;
-    font-family: 'bebas_neueregular';
     display: inline-block;
     position: relative;
     line-height: 86px;
-    padding-left: 44px;
+    padding-left: 41px;
     outline: none;
 }
 
@@ -55,24 +64,26 @@
     text-decoration: none;
     background: url('/Content/img/giftsList/bouton_rechercher.png') no-repeat;
     height: 63px;
-    width: 115px;
+    width: 125px;
     color: #fff;
-    font-family: 'bebas_neueregular';
+    font-family: 'arial';
+    font-size: 14px;
     display: inline-block;
     position: relative;
     line-height: 86px;
-    padding-left: 44px;
+    padding-left: 38px;
     outline: none;
+    margin-top: 10px;
+    font-weight: normal;
 }
 
     #btnCreateSearchObject:hover {
         background-image: url('/Content/img/giftsList/bouton_rechercher_hover.png');
-        color: #f0e79c;
         outline: none;
     }
 
 .single-line {
-    width: 350px;
+    //width: 350px;
 }
 
 .texte_fonction_recherche {
@@ -132,12 +143,12 @@
         height: 424px;
         position: relative;
         border-radius: 3px;
-        padding-top:20px;
+        padding-top: 20px;
         padding: 10px;
         padding-right: 15px;
         margin-top: 20px;
         border: solid 1px #aec383;
-        overflow-y:auto;
+        overflow-y: auto;
 
 
         .giftList {
@@ -162,14 +173,13 @@
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-top:-37px;
+    margin-top: -37px;
 
     a {
         font-family: 'arial';
         text-decoration: none;
         color: #808080;
         font-size: 14px;
-        font-family: 'arial';
     }
 }
 
@@ -186,24 +196,25 @@
 }
 
 #miniImg {
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 .btn-primary_validate_img {
-    background: url('/Content/img/giftsList/picto_valider.png')no-repeat;
-    width: 320px;
-    height: 140px;
+    background: url('/Content/img/giftsList/picto_valider.png')no-repeat #fff 5%;
+    width: 290px;
+    height:100px;
     border: none;
     outline: none;
-    padding-left: 55px;
+    padding-left:75px;
     cursor: pointer;
-    font-family:'amaticbold';
+    font-family: 'amaticbold';
     font-size: 35px;
-    color: #808080;
+    color: #442717;
     text-align: center;
+    border:solid 1px #808080;
 }
 
     .btn-primary_validate_img:hover {
-        color: #AF5C63;
+       color: #808080;
     }
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/

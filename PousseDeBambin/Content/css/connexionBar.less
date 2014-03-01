@@ -26,6 +26,7 @@
 h2 {
     font-family: 'bebas_neueregular';
     color: #AF5C63;
+    font-weight:normal;
 }
 
 h3 {
@@ -64,10 +65,13 @@ h3 {
     margin: 0 auto;
     text-align:center;
     
-    
 
     * + html & {
         display: inline; /* pour IE7 */
+    }
+
+    & > *:first-child {
+        cursor: pointer;
     }
 
     p {

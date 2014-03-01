@@ -1,0 +1,67 @@
+﻿@model PousseDeBambin.Models.GiftState
+
+<td class="divObjectImage">
+    <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
+</td>
+<td class="divObjectGift">
+    <div class="divObjectName">
+        @Html.DisplayFor(modelItem => Model.Gift.Name)
+    </div>
+    <div class="divObjectDescription">
+        @Html.DisplayFor(modelItem => Model.Gift.Description)
+    </div>
+</td>
+<td class="divObjectPrice">
+    <p class="textWithoutWrap">@Html.DisplayFor(modelItem => Model.Gift.Price)</p>
+</td>
+<td class="divObjectBuy">
+    <div>
+        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        {
+            using (Ajax.BeginForm("EditPartialTwo", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
+            {
+                InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
+                UpdateTargetId = "gift" + Model.GiftID,
+                HttpMethod = "GET"
+            }, new { @class = "inlineForm" }))
+            {
+                <input class="modifier_input" type="submit" value="Modifier" />
+            }
+        }
+        @if (Model.Gift.List.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.Gift.List.UserProfile.UserName))
+        {
+            using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
+            {
+                OnBegin = "beginDeleteGift",
+                OnSuccess = "successDeleteGift",
+                HttpMethod = "Post",
+                Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
+            }, new { @class = "inlineForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <input class="supprimer_input" type="submit" value="Supprimer" />
+            }
+        }
+        <button type="button"
+                class="btn @(ViewBag.Bought == true ? "buttonBoughtGift" : "buyButton")  spaceTop"
+                disabled="@(ViewBag.Bought == true ? "disabled" : null)"
+                data-url="@(Model.Gift.WebSite)"
+                data-objectname="@(Model.Gift.Name)"
+                data-id="@(Model.GiftID)"
+                data-toggle="modal" data-target="#giftWebSite">
+            <span class="glyphicon glyphicon-gift">
+                @(ViewBag.Bought == true ? ("Offert par " + Model.BuyerName) : "Je t'offre ce cadeau !")
+            </span>
+        </button>
+
+    </div>
+</td>
+
+<script>
+    function successDeleteGift() {
+        refreshGiftsList();
+    }
+    function beginDeleteGift(){
+        deleteGiftEffect();
+    }
+</script>

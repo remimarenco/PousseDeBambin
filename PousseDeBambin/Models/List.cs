@@ -31,7 +31,7 @@ namespace PousseDeBambin.Models
         
         /* TODO: La liste appartiendra à un ou l'utilisateur anonyme */
         public virtual ApplicationUser UserProfile {get; set;}
-
+        
         public virtual ICollection<Gift> Gifts {get; set;}
     }
 }

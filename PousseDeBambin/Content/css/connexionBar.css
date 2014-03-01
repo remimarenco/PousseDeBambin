@@ -20,6 +20,7 @@
 h2 {
   font-family: 'bebas_neueregular';
   color: #AF5C63;
+  font-weight: normal;
 }
 h3 {
   font-family: 'arial';
@@ -53,6 +54,9 @@ h3 {
 * + html .dropdown-menu {
   display: inline;
   /* pour IE7 */
+}
+.dropdown-menu > *:first-child {
+  cursor: pointer;
 }
 .dropdown-menu p {
   background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;

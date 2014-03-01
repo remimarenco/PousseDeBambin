@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
+using PousseDeBambin.ViewModels;
 
 namespace PousseDeBambin.Controllers
 {
@@ -80,6 +81,26 @@ namespace PousseDeBambin.Controllers
             return PartialView("_CreateGift", gift);
         }
 
+        public ActionResult CreatePartialTwo(int listID = 0)
+        {
+            Gift gift = new Gift { ListID = listID };
+            return PartialView("_CreateGiftTwo", gift);
+        }
+
+        [HttpPost]
+        public ActionResult CreatePartialTwo(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Gifts.Add(gift);
+                db.SaveChanges();
+
+                ViewBag.Success = "L'objet a correctement été ajouté !";
+                return RedirectToAction("CreatePartialTwo", new { listID = gift.ListID });
+            }
+            return PartialView("_CreateGiftTwo", gift);
+        }
+
         //
         // GET: /Gift/Edit/5
 
@@ -135,6 +156,31 @@ namespace PousseDeBambin.Controllers
             return PartialView("_EditPartial", gift);
         }
 
+        public ActionResult EditPartialTwo(int id = 0)
+        {
+            Gift gift = db.Gifts.Find(id);
+            if (gift == null)
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            return PartialView("_EditGiftTwo", gift);
+        }
+
+        [HttpPost]
+        public ActionResult EditPartialTwo(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(gift).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("DisplayGiftStateTwo", "GiftState", new { id = gift.GiftId });
+            }
+
+            ViewBag.Success = "L'objet a correctement été modifié !";
+            return PartialView("_EditPartial", gift);
+        }
+
         //
         // GET: /Gift/Delete/5
 
@@ -178,6 +224,19 @@ namespace PousseDeBambin.Controllers
             db.SaveChanges();
 
             ViewBag.Success = "L'objet a correctement été supprimé !";
+        }
+
+        /* ------ JQuery Grid ------ */
+        [HttpPost]
+        public ActionResult UpdateGift(Gift gift)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(gift).State = EntityState.Modified;
+                db.SaveChanges();
+                return Json("true");
+            }
+            return Json("false");
         }
 
         protected override void Dispose(bool disposing)

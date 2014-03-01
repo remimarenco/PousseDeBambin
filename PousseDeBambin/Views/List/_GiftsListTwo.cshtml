@@ -1,0 +1,28 @@
+﻿@model PousseDeBambin.Models.List
+
+@foreach (var Gift in Model.Gifts)
+{
+    <div class="divObjectImage">
+        <img src="@Gift.ImageUrl" class="objectImage img-thumbnail" />
+    </div>
+    <div class="divObjectGift">
+        <div class="divObjectName">
+            @Html.DisplayFor(modelItem => Gift.Name)
+        </div>
+        <div class="divObjectDescription">
+            @Html.DisplayFor(modelItem => Gift.Description)
+        </div>
+    </div>
+    <div class="divObjectPrice">
+        <p class="textWithoutWrap">@Html.DisplayFor(modelItem => Gift.Price)</p>
+    </div>
+    <div class="divObjectBuy">
+        <div>
+            @if (User.Identity.IsAuthenticated && (User.Identity.Name == Gift.List.UserProfile.UserName))
+            {
+                <a id="btnEditGift" href="@Url.Action("CreatePartTwo", "List", new { id = Gift.ListID, giftID = Gift.GiftId })" class="btn btn-warning">Modifier l'objet</a>
+            }
+        </div>
+    </div>
+}
+

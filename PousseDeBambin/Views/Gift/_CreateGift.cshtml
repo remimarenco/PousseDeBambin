@@ -89,7 +89,7 @@
             Search();
 
             // We get the website
-            var website = $('#createPart #WebSite').val();
+            var website = $('#WebSite').val();
 
             // Loading
             searchAjax = $.ajax({
@@ -113,13 +113,13 @@
                         var amountNormalizedFr = normalize(amount);
 
                         // ImageUrl
-                        $("#createPart #ImageUrl").val(link);
+                        $("#ImageUrl").val(link);
                         // Price
-                        $("#createPart #Price").val(amountNormalizedFr);
+                        $("#Price").val(amountNormalizedFr);
                         // Title / Name of the product
-                        $("#createPart #Name").val(title);
+                        $("#Name").val(title);
                         // Description
-                        $("#createPart #Description").val(description);
+                        $("#Description").val(description);
                         // Ajout de l'image
                         $("#displayImage").attr("src", link);
                     }

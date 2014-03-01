@@ -13,7 +13,7 @@
             {
                 if (Model.Lists.Count == 1)
                 {
-                    <li><a href="@Url.Action("CreatePartTwo", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
+                    <li><a href="@Url.Action("Manage", "List", new { id = Model.Lists.First().ListId })">Ma liste de naissance</a></li>
                 }
                 else if (Model.Lists.Count > 1)
                 {
@@ -22,7 +22,7 @@
                         <ul>
                             @foreach (PousseDeBambin.Models.List liste in Model.Lists)
                             {
-                                var url = Url.Action("CreatePartTwo", "List", new { id = liste.ListId });
+                                var url = Url.Action("Manage", "List", new { id = liste.ListId });
                                 <li><a href=@url>@liste.Name</a></li>
                             }
                         </ul>
