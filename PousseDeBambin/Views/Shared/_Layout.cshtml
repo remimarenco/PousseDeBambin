@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Pousse De Bambin !</title>
-    <link href="/Content/img/home/favicon.jpg" rel="shortcut icon" type="image/jpeg" />
+    <link href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/favicon.jpg")" rel="shortcut icon" type="image/jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
@@ -22,8 +22,8 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     @RenderSection("scripts", required: false)
-    <link rel="image_src" href="~/Content/img/home/logo.png" />
-    <meta property="og:image" content="~/Content/img/home/logo.png" />
+    <link rel="image_src" href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")" />
+    <meta property="og:image" content="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")" />
     <meta name="description" content="@ViewBag.Description" />
 
     <script>
