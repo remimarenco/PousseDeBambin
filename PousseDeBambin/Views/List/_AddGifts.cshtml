@@ -46,28 +46,9 @@
         ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
-        @if (Model.UserProfile.UserName == "Anonyme" && Model.Gifts.Count != 0)
-        {
-            <tr class="spacer"></tr>
-            <tr id="validationRow">
-                <td colspan="4">
-                    @using (Html.BeginForm("InfosListe", "List", new { id = Model.ListId }, FormMethod.Get))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-
-                        @Html.HiddenFor(x => Model.ListId)
-                        <div class="validate_list">
-                            <p>
-                                <input id="submitListeCreate" type="submit" class="btn btn-primary_validate_img" value="Je valide ma liste !" />
-                            </p>
-                        </div>
-                    }
-                </td>
-            </tr>
-        }
+        @Html.Action("ValidationModule", "List", new { id = Model.ListId })
         
-        <tr class="spacer"></tr>
+        <tr id="spacerBeforeCreateForm" class="spacer"></tr>
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
         {
@@ -182,13 +163,15 @@
             dataType: "json",
             complete: function (data, status) {
                 // On rafraichit la liste des objets
-                $("#headerTableGifts").nextUntil("#createForm").replaceWith("");
+                $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
                 $("#headerTableGifts").after(data.responseText);
+                manageValidation();
             }
         });
     }
 
     function refreshGiftsListAddEffect() {
+
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
             type: "GET",
@@ -196,9 +179,10 @@
             dataType: "json",
             complete: function (data, status) {
                 // On rafraichit la liste des objets
-                $("#headerTableGifts").nextUntil("#createForm").replaceWith("");
+                $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
                 $("#headerTableGifts").after(data.responseText);
                 addGiftEffect();
+                manageValidation();
             }
         });
     }
@@ -213,11 +197,33 @@
         $(".fond_cadeaux").last().fadeOut(500);
     }
 
-    $().ready(function () {
-        $('#submitListeCreate').click(function () {
-            window.onbeforeunload = null;
+    function manageValidation(){
+        //alert("Coucou validation");
+        var urlValidate = "@Url.Action("ValidationModule", "List", new { id = Model.ListId })";
+        var request = $.ajax({
+                type: "GET",
+                url: urlValidate,
+                dataType: "json",
+                complete: function (data, status) {
+                    // On affiche la validation
+                    if(data.responseText != "")
+                    {
+                        if(!$("#validationRow").length)
+                        {
+                            $("#spacerBeforeCreateForm").before(data.responseText);
+                        }
+                    } 
+                    else
+                    {
+                        if($("#validationRow").length)
+                        {
+                            $("#spacerValidation").remove();
+                            $("#validationRow").remove();
+                        }
+                    } 
+                }
         });
-    });
+    }
 
     window.onbeforeunload = function () {
         var NotValidated = '@Model.UserProfile.UserName.Equals("Anonyme")';

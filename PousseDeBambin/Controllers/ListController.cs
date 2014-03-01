@@ -438,6 +438,18 @@ namespace PousseDeBambin.Controllers
             return View(model);
         }
 
+        public ActionResult ValidationModule(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            if (list != null && list.UserProfile.UserName.Equals("Anonyme") && list.Gifts.Count != 0)
+            {
+                return PartialView("_ValidationModule", list);
+            }
+
+            return Content("");
+        }
+
         private bool UserIsAdminOfTheList(List list)
         {
             // Si l'utilisateur n'est pas connecté

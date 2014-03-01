@@ -138,9 +138,8 @@
                 url: 'http://api.diffbot.com/v2/product',
                 data: { 'token': '2d5a54f7471c7958ae0c4d3dcdcd5592', 'url': website },
                 dataType: 'jsonp',
-                jsonpCallback: "localJsonpCallback",
                 type: 'GET',
-                timeout: 8000,
+                timeout: 20000,
                 success: function (data) {
                     try {
                         // Fill all variables with returned values
@@ -182,46 +181,6 @@
 
             return false;
         });
-
-        function localJsonpCallback(json) {
-            if (!json.Error) {
-                try {
-                    // Fill all variables with returned values
-                    var amount = ('amount' in data.products[0].offerPriceDetails) ? data.products[0].offerPriceDetails.amount : '0';
-                    var link = ('link' in data.products[0].media[0]) ? data.products[0].media[0].link : '';
-                    var title = ('title' in data.products[0]) ? data.products[0].title : '';
-                    var description = ('description' in data.products[0]) ? data.products[0].description : '';
-
-                    // Fill all divs with the return of the data
-
-                    // Normalisation du prix en FR
-                    var amountNormalizedFr = normalize(amount);
-
-                    // ImageUrl
-                    $("#ImageUrl").val(link);
-                    // Price
-                    $("#Price").val(amountNormalizedFr);
-                    // Title / Name of the product
-                    $("#Name").val(title);
-                    // Description
-                    $("#Description").val(description);
-                    // Ajout de l'image
-                    $("#displayImage").attr("src", link);
-                }
-                catch (e) {
-                    alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
-                    console.log("Problème dans la récupération des données");
-                    //TODO : Logguer l'erreur
-                }
-
-                SearchTerminate();
-            }
-            else {
-                alert("Un problème est en cours avec la recherche automatique, veuillez réessayer plus tard :). En attendant, vous pouvez toujours entrer les informations à la main ;).");
-                console.log("Problème dans le retour diffbot : " + json.Message);
-                SearchTerminate();
-            }
-        }
 
         function Search() {
             // On cache le bouton de recherche
