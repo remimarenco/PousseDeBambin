@@ -1,0 +1,44 @@
+﻿@model PousseDeBambin.Models.List
+
+@{
+    if (Model != null)
+    {
+        ViewBag.Title = Model.Name;
+    }
+    else
+    {
+        ViewBag.Title = "Création anonyme";
+    }
+}
+
+@{
+    // Si l'utilisateur est admin ou la liste a été validée
+}
+
+@{
+    // On rentre la date de naissance si aucune liste n'est passée en paramètre
+    // Sinon on affiche la liste et on commence à l'éditer
+}
+
+<div id="manageList">
+    @if (Model == null)
+{
+    <div class="mainContentCreateList">
+        <h2 class="create_list_title"></h2>
+        <div class="form_create_list">
+
+            @using (Html.BeginForm("CreateOnlyBirth", "List"))
+            {
+                @Html.Action("CreatePartialOnlyBirth", "List")
+            }
+        </div>
+        <div class="img_create"></div>
+    </div>
+}
+
+else
+{
+        @Html.Partial("_AddGifts", Model)
+    }
+</div>
+

@@ -1,0 +1,41 @@
+﻿@model PousseDeBambin.Models.List
+
+<div class="mainContentCreateList">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Pour commencer, une seule date nous importe...</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BirthDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.BirthDate, new { @class = "picker" })
+        </div>
+        <div>
+            @Html.ValidationMessageFor(model => model.BirthDate, String.Empty, new { @class = "error_message" })
+        </div>
+        <div>
+            <p>
+                <input class="btn btn-success1" type="submit" value="" />
+            </p>
+        </div>
+    </fieldset>
+
+    
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#datepicker").datepicker($.datepicker.regional["fr"]);
+        $('.picker').datepicker(
+            {
+                dateFormat: 'dd.mm.yy',
+                changeMonth: true,
+                changeYear: true,
+                selectOtherMonths: true
+            }
+        );
+    });
+</script>

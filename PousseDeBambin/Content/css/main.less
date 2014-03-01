@@ -43,8 +43,10 @@ body {
 }
 
 input {
-    border-radius: 3px;
+    border-radius: 2px;
     padding-left: 5px;
+    border:none;
+    border: solid 1px #aec383;
 }
 
 h2 {
@@ -59,7 +61,11 @@ h4 {
     margin: 0 auto;
     width: 1200px;
 }
-
+#manageList{
+    max-width:1200px;
+    margin:0 auto;
+    width:100%;
+}
 li {
     list-style-type: none;
 }
@@ -112,7 +118,8 @@ ul {
 
 .text-beta {
     text-align: center;
-    font-family: marketing_scriptregular;
+    font-family: 'arial';
+    font-size:12px;
 }
 
 .text-soon {
@@ -131,4 +138,14 @@ ul {
     font-family:'arial';
     color:#808080;
 
+}
+.deleteBtn{
+    display:inline-block;
+}
+
+/*---------------------------------- Styles divers ---------------------------*/
+
+// Style formulaire inline
+.inlineForm{
+    display: inline;
 }

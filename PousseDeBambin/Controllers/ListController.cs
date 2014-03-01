@@ -44,6 +44,26 @@ namespace PousseDeBambin.Controllers
             return View(list);
         }
 
+        public ActionResult Creation()
+        {
+            return View("Manage");
+        }
+
+        public ActionResult Manage(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            return View(list);
+        }
+
+        public ActionResult DisplayGifts(int id)
+        {
+            var list = db.Lists.Find(id);
+
+            return PartialView("_DisplayGifts", list);
+        }
+        
+
         //
         // GET: /List/Create
 
@@ -82,6 +102,48 @@ namespace PousseDeBambin.Controllers
             }
 
             return View(list);
+        }
+
+        // On récupère la page de création 
+        public ActionResult CreatePartialOnlyBirth()
+        {
+            return PartialView("_CreateOnlyBirth");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateOnlyBirth(OnlyBirthListViewModel model)
+        {
+            // On créé la liste temporaire puis on affiche la partial d'ajout de cadeaux
+            List list = new List();
+            list.Gifts = new List<Gift>();
+
+            try
+            {
+                list.UserProfile = db.Users.FirstOrDefault(u => u.UserName == "Anonyme");
+            }
+            catch (DataException dex)
+            {
+                ViewBag.Error = dex.Message;
+            }
+
+            list.Name = "Pas de nom";
+            list.Description = "Aucune description";
+
+            // On met la date du jour
+            list.BeginningDate = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                // On ajoute la date de naissance du model
+                list.BirthDate = model.BirthDate;
+
+                db.Lists.Add(list);
+                db.SaveChanges();
+                return RedirectToAction("Manage", new { id = list.ListId });
+            }
+
+            return PartialView("_CreateOnlyBirth");
         }
 
         // Get after the creation of the list
@@ -142,6 +204,7 @@ namespace PousseDeBambin.Controllers
                 }
             }
         }
+        
 
         //
         // GET: /List/Edit/5
@@ -224,6 +287,13 @@ namespace PousseDeBambin.Controllers
             {
                 ViewBag.AdminConnected = true;
             }
+
+            return PartialView("_GiftsList", list);
+        }
+
+        public ActionResult GiftsListTwo(int listId = 0)
+        {
+            List list = db.Lists.Find(listId);
 
             return PartialView("_GiftsList", list);
         }
@@ -325,6 +395,59 @@ namespace PousseDeBambin.Controllers
             }
 
             return View(foundedLists);
+        }
+
+        public ActionResult InfosListe(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            InfosListViewModel infosModel = new InfosListViewModel();
+            infosModel.ListId = id;
+            infosModel.Name = list.Name;
+            infosModel.Description = list.Description;
+
+            if (list == null)
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            return View(infosModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InfosListe(InfosListViewModel model)
+        {
+            // Un formulaire pour renseigner le nom et le prénom de la personne
+            if (ModelState.IsValid)
+            {
+                List list = db.Lists.Find(model.ListId);
+                if (list == null)
+                {
+                    return RedirectToAction("NotFound", "Error");
+                }
+
+                list.Name = model.Name;
+                list.Description = model.Description;
+
+                db.Entry(list).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Validate", new { id = list.ListId });
+            }
+            return View(model);
+        }
+
+        public ActionResult ValidationModule(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            if (list != null && list.UserProfile.UserName.Equals("Anonyme") && list.Gifts.Count != 0)
+            {
+                return PartialView("_ValidationModule", list);
+            }
+
+            return Content("");
         }
 
         private bool UserIsAdminOfTheList(List list)
