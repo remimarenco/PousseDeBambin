@@ -200,11 +200,11 @@
             $('#btnStopCreateSearchObject').hide();
 
             // On affiche les champs remplis
-            $('.createObjectImage').css('visibility', 'visible');
-            $('.createObjectName').css('visibility', 'visible');
-            $('.createObjectDescription').css('visibility', 'visible');
-            $('.createObjectPrice').css('visibility', 'visible');
-            $('.createAddObject').css('visibility', 'visible');
+            $('.createObjectImage').show();
+            $('.createObjectName').show();
+            $('.createObjectDescription').show();
+            $('.createObjectPrice').show();
+            $('.createAddObject').show();
         }
 
         function InitSearch() {
@@ -217,11 +217,11 @@
             // Si c'est un retour avec erreur, ne pas cacher les champs
             if (isValid == "true") {
                 // On cache également les champs non utile pour le moment
-                $('.createObjectImage').css('visibility', 'hidden');
-                $('.createObjectName').css('visibility', 'hidden');
-                $('.createObjectDescription').css('visibility', 'hidden');
-                $('.createObjectPrice').css('visibility', 'hidden');
-                $('.createAddObject').css('visibility', 'hidden');
+                $('.createObjectImage').hide();
+                $('.createObjectName').hide();
+                $('.createObjectDescription').hide();
+                $('.createObjectPrice').hide();
+                $('.createAddObject').hide();
             }
         }
 
