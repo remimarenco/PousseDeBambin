@@ -1,49 +1,37 @@
-﻿@model List<PousseDeBambin.Models.List>
-
-@{
+﻿@{
+    // TODO: Remplacer par un applicationUser et le rechercher avec controleur etc...
     ViewBag.Title = "Recherche de liste !";
 }
 <div class="search_list_block">
     <h2 class="list_search_title">Recherche</h2>
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+    @using (Ajax.BeginForm("Search", "List", new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "resultatRecherche"
+    }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
-        
+
         <fieldset class="searchFieldSet">
             <legend class="name_surname_search">Nom et prénom de la personne qui a créé la liste</legend>
             <span class="field-validation-valid" data-valmsg-for="firstName" data-valmsg-replace="true"></span>
             <span class="field-validation-valid" data-valmsg-for="lastName" data-valmsg-replace="true"></span>
-            
-            
+
+
             <input data-val="true"
                    data-val-required="Le prénom est requis :)"
-                   type="text" id="firstName" name="firstName" placeholder="Prénom"/>
-            
+                   type="text" id="firstName" name="firstName" placeholder="Prénom" />
+
             <input data-val="true"
                    data-val-required="Le nom est requis :)"
-                   type="text" id="lastName" name="lastName" placeholder="Nom"/>
-            
+                   type="text" id="lastName" name="lastName" placeholder="Nom" />
+
             <input class="search_list_btn" type="submit" value="RECHERCHER !" />
         </fieldset>
     }
-    @if (Model == null)
-    {
-
-    }
-    else if (Model.Count() == 0)
-    {
-        <p>Aucune liste n'a été trouvée :(. Vérifiez le nom et prénom de la personne ou contactez la directement pour avoir le lien de sa liste ;).</p>
-    }
-    else
-    {
-        <h3>Voici les listes de @ViewBag.FirstName @ViewBag.LastName :</h3>
-        <ul>
-            @foreach (var list in Model)
-            {
-                <li>@Html.ActionLink(list.Name, "Manage", "List", new { id = list.ListId }, null)</li>
-            }
-        </ul>
-    }
+    <div id="resultatRecherche">
+    </div>
 </div>

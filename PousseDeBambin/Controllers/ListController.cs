@@ -10,6 +10,7 @@ using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
+using System.Collections;
 
 namespace PousseDeBambin.Controllers
 {
@@ -368,7 +369,7 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         public ActionResult Search(string firstName, string lastName)
         {
-            List<PousseDeBambin.Models.List> foundedLists = null;
+            IDictionary<string, List<PousseDeBambin.Models.List>> foundedLists = null;
 
             if (String.IsNullOrWhiteSpace(firstName))
             {
@@ -383,18 +384,18 @@ namespace PousseDeBambin.Controllers
                 ViewBag.FirstName = firstName;
                 ViewBag.LastName = lastName;
 
-                String firstNameUpInvariant = firstName.ToUpperInvariant();
-                String lastNameUpInvariant = lastName.ToUpperInvariant();
+                String firstNameUp = firstName.ToUpper();
+                String lastNameUp = lastName.ToUpper();
 
-                foundedLists = db.Lists.Where(l =>
-                    l.UserProfile.FirstName.ToUpper().Equals(firstNameUpInvariant)).Where(l =>
-                    l.UserProfile.LastName.ToUpper().Equals(lastNameUpInvariant)).ToList();
-
-                return View(foundedLists);
+                foundedLists = db.Users.Where(u => u.FirstName.ToUpper().Equals(firstNameUp))
+                    .Where(u => u.LastName.ToUpper().Equals(lastNameUp))
+                    .ToDictionary(u => u.Id, u => u.Lists.ToList());
+                
+                return PartialView("_SearchReturn", foundedLists);
 
             }
 
-            return View(foundedLists);
+            return View();
         }
 
         public ActionResult InfosListe(int id)

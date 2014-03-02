@@ -627,6 +627,7 @@
     <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
     <Content Include="Views\List\InfosListe.cshtml" />
     <Content Include="Views\List\_ValidationModule.cshtml" />
+    <Content Include="Views\List\_SearchReturn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
