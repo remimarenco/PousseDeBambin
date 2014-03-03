@@ -2,7 +2,7 @@
 
 <div id="manageList">
     <div class="mess_bienvenue_list">
-        @if (!String.IsNullOrWhiteSpace(Model.Name))
+        @if (!Model.UserProfile.UserName.Equals("Anonyme"))
         {
             <span>
                 Bienvenue dans @Model.Name
