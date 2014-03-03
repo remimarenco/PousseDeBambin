@@ -89,6 +89,8 @@ textarea {
     resize: none;
     overflow: auto;
     margin-top: 3px;
+    font-family: 'arial';
+    color: #382a21;
 }
 
 .text-box {
@@ -108,4 +110,8 @@ textarea {
 .error_message {
     color: #ea744e;
     font-family: Arial;
+}
+
+.validate_list {
+    text-align: right;
 }
