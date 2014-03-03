@@ -218,6 +218,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GiftViewModel.cs" />
+    <Compile Include="ViewModels\InfosListViewModel.cs" />
     <Compile Include="ViewModels\OnlyBirthListViewModel.cs" />
     <Compile Include="ViewModels\ListGifts.cs" />
   </ItemGroup>
@@ -240,25 +241,25 @@
       <DependentUpon>consultList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\consultList.min.css">
-      <DependentUpon>consultList.less</DependentUpon>
+      <DependentUpon>consultList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\createList.css">
       <DependentUpon>createList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\createList.min.css">
-      <DependentUpon>createList.less</DependentUpon>
+      <DependentUpon>createList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\footer.css">
       <DependentUpon>footer.less</DependentUpon>
     </Content>
     <Content Include="Content\css\footer.min.css">
-      <DependentUpon>footer.less</DependentUpon>
+      <DependentUpon>footer.css</DependentUpon>
     </Content>
     <Content Include="Content\css\giftsList.css">
       <DependentUpon>giftsList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\giftsList.min.css">
-      <DependentUpon>giftsList.less</DependentUpon>
+      <DependentUpon>giftsList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\header.css">
       <DependentUpon>header.less</DependentUpon>
@@ -309,9 +310,6 @@
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
     <Content Include="Content\css\whoWeAre.css">
-      <DependentUpon>whoWeAre.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\whoWeAre.min.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
@@ -505,9 +503,6 @@
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
     </Content>
-    <Content Include="Content\css\whoWeAre.css.map">
-      <DependentUpon>whoWeAre.css</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
@@ -630,6 +625,9 @@
     <Content Include="Views\GiftState\_DisplayGiftStateTwo.cshtml" />
     <Content Include="Views\List\_DisplayGifts.cshtml" />
     <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
+    <Content Include="Views\List\InfosListe.cshtml" />
+    <Content Include="Views\List\_ValidationModule.cshtml" />
+    <Content Include="Views\List\_SearchReturn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

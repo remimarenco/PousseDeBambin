@@ -10,6 +10,7 @@ using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
+using System.Collections;
 
 namespace PousseDeBambin.Controllers
 {
@@ -368,7 +369,7 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         public ActionResult Search(string firstName, string lastName)
         {
-            List<PousseDeBambin.Models.List> foundedLists = null;
+            IDictionary<string, List<PousseDeBambin.Models.List>> foundedLists = null;
 
             if (String.IsNullOrWhiteSpace(firstName))
             {
@@ -383,18 +384,71 @@ namespace PousseDeBambin.Controllers
                 ViewBag.FirstName = firstName;
                 ViewBag.LastName = lastName;
 
-                String firstNameUpInvariant = firstName.ToUpperInvariant();
-                String lastNameUpInvariant = lastName.ToUpperInvariant();
+                String firstNameUp = firstName.ToUpper();
+                String lastNameUp = lastName.ToUpper();
 
-                foundedLists = db.Lists.Where(l =>
-                    l.UserProfile.FirstName.ToUpper().Equals(firstNameUpInvariant)).Where(l =>
-                    l.UserProfile.LastName.ToUpper().Equals(lastNameUpInvariant)).ToList();
-
-                return View(foundedLists);
+                foundedLists = db.Users.Where(u => u.FirstName.ToUpper().Equals(firstNameUp))
+                    .Where(u => u.LastName.ToUpper().Equals(lastNameUp))
+                    .ToDictionary(u => u.Id, u => u.Lists.ToList());
+                
+                return PartialView("_SearchReturn", foundedLists);
 
             }
 
-            return View(foundedLists);
+            return View();
+        }
+
+        public ActionResult InfosListe(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            InfosListViewModel infosModel = new InfosListViewModel();
+            infosModel.ListId = id;
+            infosModel.Name = list.Name;
+            infosModel.Description = list.Description;
+
+            if (list == null)
+            {
+                return RedirectToAction("NotFound", "Error");
+            }
+
+            return View(infosModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InfosListe(InfosListViewModel model)
+        {
+            // Un formulaire pour renseigner le nom et le prénom de la personne
+            if (ModelState.IsValid)
+            {
+                List list = db.Lists.Find(model.ListId);
+                if (list == null)
+                {
+                    return RedirectToAction("NotFound", "Error");
+                }
+
+                list.Name = model.Name;
+                list.Description = model.Description;
+
+                db.Entry(list).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Validate", new { id = list.ListId });
+            }
+            return View(model);
+        }
+
+        public ActionResult ValidationModule(int id)
+        {
+            List list = db.Lists.Find(id);
+
+            if (list != null && list.UserProfile.UserName.Equals("Anonyme") && list.Gifts.Count != 0)
+            {
+                return PartialView("_ValidationModule", list);
+            }
+
+            return Content("");
         }
 
         private bool UserIsAdminOfTheList(List list)
