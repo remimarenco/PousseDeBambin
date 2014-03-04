@@ -2,7 +2,7 @@
 
 <div id="manageList">
     <div class="mess_bienvenue_list">
-        @if (!String.IsNullOrWhiteSpace(Model.Name))
+        @if (!Model.UserProfile.UserName.Equals("Anonyme"))
         {
             <span>
                 Bienvenue dans @Model.Name
@@ -37,7 +37,15 @@
         }
     </div>
     <table id="ListsGifts" class="table">
-        <tr id="headerTableGifts">
+        @{
+            string display = "";
+            if (Model.Gifts.Count == 0)
+            {
+                display = "none";
+            }
+        }
+
+        <tr id="headerTableGifts" style="display:@display;">
             <th class="cat_list_cadeau">Image</th>
             <th class="cat_list_cadeau">Objet</th>
             <th class="cat_list_cadeau">Prix</th>
@@ -47,7 +55,7 @@
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
         @Html.Action("ValidationModule", "List", new { id = Model.ListId })
-        
+
         <tr id="spacerBeforeCreateForm" class="spacer"></tr>
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
@@ -56,7 +64,6 @@
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
         }
-
         ***REMOVED*** On Success, on update en ajax la liste des gifts -->
     </table>
 
@@ -129,9 +136,6 @@
     });
 
     $('.buyButton').click(function () {
-        //$('#objectTitle')
-        //$("#GiftWebSite").dialog("option", "title", "Objet : " + $(this).data("objectname") + ", Adresse de livraison : @Model.UserProfile.Street.ToString(), @Model.UserProfile.Zipcode.ToString() @Model.UserProfile.City.ToString()");
-
         $('#objectTitle').empty();
         $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
 
@@ -145,11 +149,8 @@
         $('#objectUrl').data("url", $(this).data("url"));
         $("#objectUrl").text("J'achète " + $(this).data("objectname"));
 
-        //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
         $('#buttonBought').data("giftid", $(this).data("id"));
         $('#giftWebSite').modal('show');
-
-        //skimlinks();
     });
 </script>
 
@@ -166,12 +167,12 @@
                 $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
                 $("#headerTableGifts").after(data.responseText);
                 manageValidation();
+                checkIfTh();
             }
         });
     }
 
     function refreshGiftsListAddEffect() {
-
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
             type: "GET",
@@ -183,8 +184,21 @@
                 $("#headerTableGifts").after(data.responseText);
                 addGiftEffect();
                 manageValidation();
+                checkIfTh();
             }
         });
+    }
+
+    // Fonction qui n'affiche les th que si il existe au moins un cadeau
+    function checkIfTh() {
+        if($(".fond_cadeaux").length != 0)
+        {
+            $("#headerTableGifts").show();
+        }
+        else
+        {
+            $("#headerTableGifts").hide();
+        }
     }
 
     function addGiftEffect() {
@@ -198,7 +212,6 @@
     }
 
     function manageValidation(){
-        //alert("Coucou validation");
         var urlValidate = "@Url.Action("ValidationModule", "List", new { id = Model.ListId })";
         var request = $.ajax({
                 type: "GET",
