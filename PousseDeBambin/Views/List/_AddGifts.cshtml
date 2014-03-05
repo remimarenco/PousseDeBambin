@@ -24,18 +24,25 @@
                 <span> : J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !</span>
             }
         }
-
         @if (Model.Gifts.Count == 0)
         {
             <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
+        }
+        <div class="aide_list">
+            @if (Model.Gifts.Count == 0)
+            {
             <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
             <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+
         }
         @if (Model.UserProfile.UserName == "Anonyme")
         {
             <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'à cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
         }
     </div>
+            ***REMOVED*** url qui redirige vers "comment ça marche" youtube-->
+            <a href="#" id="img_video" title="comment ca marche?"></a>
+        </div>
     <table id="ListsGifts" class="table">
         @{
             string display = "";
@@ -55,7 +62,7 @@
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
         @Html.Action("ValidationModule", "List", new { id = Model.ListId })
-
+        
         <tr id="spacerBeforeCreateForm" class="spacer"></tr>
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
@@ -219,17 +226,13 @@
                 dataType: "json",
                 complete: function (data, status) {
                     // On affiche la validation
-                    if(data.responseText != "")
-                    {
-                        if(!$("#validationRow").length)
-                        {
+                if (data.responseText != "") {
+                    if (!$("#validationRow").length) {
                             $("#spacerBeforeCreateForm").before(data.responseText);
                         }
                     } 
-                    else
-                    {
-                        if($("#validationRow").length)
-                        {
+                else {
+                    if ($("#validationRow").length) {
                             $("#spacerValidation").remove();
                             $("#validationRow").remove();
                         }
