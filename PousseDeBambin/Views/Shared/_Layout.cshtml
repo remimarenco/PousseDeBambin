@@ -41,13 +41,10 @@
 </head>
 <body>
     @Html.Partial("_MessageBeta")
-    <div id="connexionBar" class="connexionBar">
-        @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
-    </div>
     <header>
-
-
-        ***REMOVED*** @Html.Partial("_BaseLine") -->
+        <div id="connexionBar" class="connexionBar">
+            @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
+        </div>
         @Html.Partial("_MainTabs")
         <div class="header_bottom"></div>
 

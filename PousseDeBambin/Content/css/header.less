@@ -1,15 +1,15 @@
 ﻿@import url("../mixin/mixins.less");
 /*-----------------------HEADER------------------------*/
 header {
+    @height: 207px;
     #gradient > .vertical-three-colors(#f4e98e, #f4e98e, 60%, #81aa8e);
     height: 183px;
     position: relative;
     z-index: 5;
 
-
-    .header_bottom {
-        background: url('/Content/img/home/herbe_header.png') repeat-x;
-        height: 54px;
+    .menu {
+        background: url('/Content/img/home/herbe_header.png') repeat-x 0 100%;
+        height: @height + 3;
         position: relative;
         z-index: 10;
         margin-top: 92px;
