@@ -3,7 +3,9 @@
 header {
     @height: 207px;
     #gradient > .vertical-three-colors(#f4e98e, #f4e98e, 60%, #81aa8e);
-    height: 183px;
+    border-bottom: solid 10px #382a21;
+    height: @height;
+    overflow-y: visible;
     position: relative;
     z-index: 5;
 
@@ -11,30 +13,8 @@ header {
         background: url('/Content/img/home/herbe_header.png') repeat-x 0 100%;
         height: @height + 3;
         position: relative;
-        z-index: 10;
-        margin-top: 92px;
-        border-bottom: solid 10px #382a21;
-    }
-
-    &:after {
-        height: 177px;
-        content: url('/Content/img/home/champignons_header.png');
-        position: absolute;
-        left: 50%;
-        top: 3px;
-        margin-left: 350px;
-    }
-
-    &:before {
-        height: 177px;
-        content: url('/Content/img/home/fleur_header.png');
-        left: 50%;
-        position: absolute;
-        top: 0px;
-        margin-left: -480px;
-    }
-
-    .menu {
+        top: -30px;
+        overflow: hidden;
 
         ul {
             height: 32px;
@@ -44,10 +24,7 @@ header {
 
             li {
                 display: inline-block;
-                background-repeat: no-repeat;
-                background-position: 0% 10px;
-                margin-top: 74px;
-                vertical-align: top;
+                vertical-align: middle;
                 width: 150px;
                 /*
                 &:first-child {
@@ -63,7 +40,6 @@ header {
 
         a {
             text-decoration: none;
-            line-height: 0;
             font-family: arial;
             font-family: 'amaticbold';
             font-size: 28px;
@@ -72,8 +48,6 @@ header {
             -o-transition: all 0.3s ease-out;
             -moz-transition: all 0.3s ease-out;
             position: relative;
-            z-index: 30;
-            margin-top: -30px;
 
             &:hover, &:focus, &.current {
                 color: lighten(#382a21, 40%);
@@ -86,7 +60,27 @@ header {
                 display: inline-block;
                 z-index: 20;
                 position: relative;
+                vertical-align: middle;
             }
+            }
+
+        &:before,
+        &:after {
+            height: 177px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        &:before {
+            content: url('/Content/img/home/fleur_header.png');
+            margin-left: -480px;
+        }
+
+        &:after {
+            content: url('/Content/img/home/champignons_header.png');
+            margin-left: 350px;
         }
     }
 }
