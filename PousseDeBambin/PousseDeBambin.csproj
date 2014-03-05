@@ -337,6 +337,7 @@
     <Content Include="Content\img\giftsList\fleur_picto.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
     <Content Include="Content\img\giftsList\icone_modifier.png" />
+    <Content Include="Content\img\giftsList\img_description.jpg" />
     <Content Include="Content\img\giftsList\img_non_trouvee.jpg" />
     <Content Include="Content\img\giftsList\modifier.png" />
     <Content Include="Content\img\giftsList\noeud_liste.png" />
