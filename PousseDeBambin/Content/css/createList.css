@@ -105,6 +105,18 @@ textarea {
   cursor: pointer;
   margin-left: 80px;
 }
+.btn-validation-liste {
+  background: url('/Content/img/create/bouton_creer_liste.png') no-repeat;
+  height: 109px;
+  width: 225px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 80px;
+  font-family: 'bebas_neueregular';
+  font-size: 17px;
+  color: #fff;
+}
 .error_message {
   color: #ea744e;
   font-family: Arial;
