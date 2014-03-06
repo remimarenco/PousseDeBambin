@@ -246,9 +246,6 @@
     <Content Include="Content\css\createList.css">
       <DependentUpon>createList.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\createList.min.css">
-      <DependentUpon>createList.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\footer.css">
       <DependentUpon>footer.less</DependentUpon>
     </Content>
@@ -484,9 +481,6 @@
     <Content Include="Content\css\consultList.css.map">
       <DependentUpon>consultList.css</DependentUpon>
     </Content>
-    <Content Include="Content\css\createList.css.map">
-      <DependentUpon>createList.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\categories.css.map">
       <DependentUpon>categories.css</DependentUpon>
     </Content>
@@ -508,6 +502,10 @@
     <Content Include="Content\css\whoWeAre.css.map">
       <DependentUpon>whoWeAre.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\createList.css.map">
+      <DependentUpon>createList.css</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\poussedebambin.pubxml" />
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
