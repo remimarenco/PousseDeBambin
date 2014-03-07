@@ -1,135 +1,128 @@
-﻿/*-----------------------page création de liste------------------------*/
+/*-----------------------page création de liste------------------------*/
 .mainContentCreateList {
-    text-align: center;
+  text-align: center;
 }
-
 .main_description {
-    margin-top: 40px;
+  margin-top: 40px;
 }
-
 .create_list_title {
-    background: url('/Content/img/create/pancarte.png') no-repeat;
-    height: 170px;
-    width: 457px;
-    margin: 0 auto;
-    margin-top: -20px;
-    position: relative;
-    z-index: 30;
-    margin-bottom: 45px;
+  background: url('/Content/img/create/pancarte.png') no-repeat;
+  height: 170px;
+  width: 457px;
+  margin: 0 auto;
+  margin-top: -20px;
+  position: relative;
+  z-index: 30;
+  margin-bottom: 45px;
 }
-
 #createPart {
-    width: 430px;
-    margin-left: 150px;
+  width: 430px;
+  margin-left: 150px;
 }
-
 .create_list_com {
-    font-family: 'marketing_scriptregular';
-    font-weight: normal;
-    text-align: center;
-    font-size: 18px;
+  font-family: 'marketing_scriptregular';
+  font-weight: normal;
+  text-align: center;
+  font-size: 18px;
 }
-
 .create_list_com2 {
-    margin: 0;
-    font-family: 'arial';
-    font-weight: normal;
-    text-align: center;
+  margin: 0;
+  font-family: 'arial';
+  font-weight: normal;
+  text-align: center;
 }
-
 fieldset {
-    border: none;
-    text-align: left;
+  border: none;
+  text-align: left;
 }
-
 .form_create_list {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 55px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 55px;
 }
-
 #divCreateGift {
-    margin-top: 30px;
+  margin-top: 30px;
 }
-
 .img_create {
-    background: url('/Content/img/create/img_create.jpg') no-repeat;
-    height: 301px;
-    width: 450px;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    border: solid 3px #ea744e;
-    margin-bottom: 50px;
+  background: url('/Content/img/create/img_create.jpg') no-repeat;
+  height: 301px;
+  width: 450px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: solid 3px #ea744e;
+  margin-bottom: 50px;
 }
-
 .img_description {
-    background: url('/Content/img/giftsList/img_description.jpg') no-repeat;
-    height: 301px;
-    width: 450px;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    border: solid 3px #ea744e;
-    margin-bottom: 50px;
+  background: url('/Content/img/giftsList/img_description.jpg') no-repeat;
+  height: 301px;
+  width: 450px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: solid 3px #ea744e;
+  margin-bottom: 50px;
 }
-
 legend {
-    font-family: 'amaticbold';
-    font-size: 30px;
-    color: #382a21;
-    margin-bottom: 20px;
+  font-family: 'amaticbold';
+  font-size: 30px;
+  color: #382a21;
+  margin-bottom: 20px;
 }
-
 .editor-label {
-    font-family: 'bebas_neueregular';
-    color: #829516;
-    margin-bottom: 5px;
+  font-family: 'bebas_neueregular';
+  color: #829516;
+  margin-bottom: 5px;
 }
-
 .editor-field {
-    border-radius: 4px;
+  border-radius: 4px;
 }
-
 .picker {
-    width: 350px;
-    border-radius: 4px;
+  width: 350px;
+  border-radius: 4px;
 }
-
 textarea {
-    width: 350px;
-    height: 100px;
-    border-radius: 3px;
-    border-color: #aec383;
-    resize: none;
-    overflow: auto;
-    margin-top: 3px;
-    font-family: 'arial';
-    color: #382a21;
+  width: 350px;
+  height: 100px;
+  border-radius: 3px;
+  border-color: #aec383;
+  resize: none;
+  overflow: auto;
+  margin-top: 3px;
+  font-family: 'arial';
+  color: #382a21;
 }
-
 .text-box {
-    border-radius: 3px;
+  border-radius: 3px;
 }
-
 .btn-success1 {
-    background: url('/Content/img/create/bouton_creer_liste.png') no-repeat;
-    height: 109px;
-    width: 277px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin-left: 80px;
+  background: url('/Content/img/create/bouton_creer_liste.png') no-repeat;
+  height: 109px;
+  width: 277px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 80px;
 }
-
+.btn-validation-liste {
+  background: url('/Content/img/create/bouton_creer_liste.png') no-repeat;
+  height: 109px;
+  width: 225px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 80px;
+  font-family: 'bebas_neueregular';
+  font-size: 17px;
+  color: #fff;
+}
 .error_message {
-    color: #ea744e;
-    font-family: Arial;
+  color: #ea744e;
+  font-family: Arial;
 }
-
 .validate_list {
-    text-align: right;
+  text-align: right;
 }
-
 /*-------------------------------infos liste----------------------------------*/
+/*# sourceMappingURL=createList.css.map */
