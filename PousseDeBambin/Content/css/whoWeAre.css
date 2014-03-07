@@ -1,0 +1,43 @@
+/*-----------------------------------WHO WE ARE-------------------------------*/
+.who_we_are {
+  text-align: center;
+}
+.who_we_are_text {
+  font-family: 'arial';
+  color: #808080;
+  text-align: left;
+  margin-left: 40px;
+  position: relative;
+  vertical-align: middle;
+  width: 400px;
+  display: inline-block;
+}
+.who_we_are_text a {
+  text-decoration: none;
+  color: #aec383;
+  font-weight: bold;
+}
+.who_we_are_title {
+  font-family: 'amatic_scregular';
+  font-size: 30px;
+  color: #829516;
+}
+.photos {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.photos .photoremi {
+  background-image: url('/Content/img/whoweare/cadres_remi.png');
+  height: 240px;
+  width: 220px;
+  margin-bottom: 20px;
+}
+.photos .photomarion {
+  background-image: url('/Content/img/whoweare/cadre_marion.png');
+  height: 240px;
+  width: 220px;
+}
+/*-----------------------------------fin WHO WE ARE-------------------------------*/
