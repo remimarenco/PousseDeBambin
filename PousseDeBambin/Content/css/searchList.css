@@ -1,0 +1,35 @@
+/*------------------- PAGE RECHERCHE LISTE - NOM/PRENOM ------------------*/
+.search_list_block {
+  text-align: center;
+}
+.search_list_block .list_search_title {
+  font-family: 'amatic_scregular';
+  font-size: 40px;
+  color: #382a21;
+  text-align: center;
+  border-bottom: dotted 2px #aec383;
+}
+.search_list_block .name_surname_search {
+  font-family: 'bebas_neueregular';
+  font-size: 20px;
+  color: #829516;
+}
+.search_list_block .search_list_btn {
+  background: url('/Content/img/search/bouton_rechercher.png') no-repeat;
+  height: 63px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 21px;
+  font-family: 'bebas_neueregular';
+  font-size: 17px;
+  color: #fff;
+  border: none;
+  padding-top: 23px;
+  cursor: pointer;
+  outline: none;
+}
+.search_list_block .search_list_btn:hover {
+  background-image: url('/Content/img/search/bouton_rechercher_hover.png');
+  color: #f0e79c;
+}

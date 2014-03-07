@@ -1,0 +1,134 @@
+.connexionBar {
+  height: 27px;
+  background-color: #382a21;
+}
+.connexionBar > * {
+  position: relative;
+  z-index: 10;
+}
+.connexionBar .barre_connexion {
+  height: 27px;
+  margin: 0 auto;
+  text-align: right;
+  width: 1005px;
+}
+.form-group {
+  display: inline-block;
+  vertical-align: middle;
+}
+.form-group .form-control {
+  border-radius: 1px;
+  border: #fff;
+  width: 150px;
+}
+h2 {
+  font-family: 'bebas_neueregular';
+  color: #AF5C63;
+  font-weight: normal;
+}
+h3 {
+  font-family: 'arial';
+  text-align: center;
+}
+/*-------------------message erreur connexion bar------------------*/
+.validationConnexionBar {
+  display: inline-block;
+  vertical-align: middle;
+  height: 33px;
+  color: #ea744e;
+  font-family: 'arial';
+  font-size: 12px;
+  position: absolute;
+  font-weight: bold;
+  z-index: 100;
+  margin-top: 20px;
+}
+.validationConnexionBar ul {
+  display: inline-block;
+}
+/*-------------------fin message erreur connexion bar------------------*/
+/*------------------dropdown menu connexion_bar------------*/
+.dropdown-menu {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  text-align: center;
+}
+* + html .dropdown-menu {
+  display: inline;
+  /* pour IE7 */
+}
+.dropdown-menu > *:first-child {
+  cursor: pointer;
+}
+.dropdown-menu p {
+  background: url('/Content/img/giftsList/fleche_connexion.png') no-repeat 100%;
+  margin-top: 5px;
+  font-family: 'arial';
+  font-size: 14px;
+  color: #f0e79c;
+  margin-bottom: 7px;
+  padding-right: 25px;
+}
+.dropdown-menu a {
+  text-decoration: none;
+  color: #808080;
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus,
+.dropdown-menu a.current {
+  color: #af8c76;
+}
+.dropdown-menu ul {
+  margin: 0;
+  overflow: hidden;
+  padding: 0 5px;
+  /* a changer */
+  background: #fff;
+  box-shadow: 2px 2px 5px #c1c1c1;
+  width: 170px;
+}
+.dropdown-menu ul li {
+  padding: 5px 5px 5px;
+  list-style: none;
+  white-space: nowrap;
+  text-decoration: none;
+  font-family: 'bebas_neueregular';
+  font-size: 15px;
+  text-align: center;
+}
+.dropdown-menu ul li.divider {
+  border-top: 2px solid #f0e79c;
+  padding-top: 5px;
+}
+.dropdown-menu > ul {
+  max-height: 0;
+  -webkit-transition: 0.5s max-height;
+  transition: 0.5s max-height;
+  text-decoration: none;
+  /* a changer */
+  border-radius: 0 0 2px 2px;
+  box-shadow: 2px 2px 5px #c1c1c1 inset,;
+}
+.dropdown-menu:hover > ul,
+.dropdown-menu.dm-focus > ul {
+  max-height: 500px;
+  overflow: visible;
+}
+.dropdown-menu .dropdown-menu ul {
+  position: absolute;
+  max-width: 0;
+  left: 100%;
+  top: 0;
+  -webkit-transition: 0.5s max-width;
+  transition: 0.5s max-width;
+  /* a changer */
+  border-radius: 0 2px 2px 0;
+}
+.dropdown-menu .dropdown-menu:hover > ul,
+.dropdown-menu .dropdown-menu.dm-focus > ul {
+  max-width: 200px;
+}
+/*------------------fin dropdown menu connexion_bar------------*/
+/*--------------------------CONNEXION BAR------------------*/
