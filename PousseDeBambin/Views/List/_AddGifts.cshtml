@@ -4,7 +4,7 @@
     <div class="mess_bienvenue_list">
         @if (!Model.UserProfile.UserName.Equals("Anonyme"))
         {
-            <span>
+            <span id="bienvenueText">
                 Bienvenue dans @Model.Name
                 , l'enfant de @Model.UserProfile.FirstName
                 @if (Model.BirthDate > DateTime.Now)
@@ -31,18 +31,21 @@
         <div class="aide_list">
             @if (Model.Gifts.Count == 0)
             {
-            <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
-            <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+                <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
+                <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
 
-        }
-        @if (Model.UserProfile.UserName == "Anonyme")
+            }
+            @if (Model.UserProfile.UserName == "Anonyme")
+            {
+                <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'à cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
+            }
+        </div>
+        @if (Model.Gifts.Count == 0)
         {
-            <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'à cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
+            ***REMOVED*** url qui redirige vers "comment ça marche" youtube-->
+            <a href="http://youtu.be/7a8mbMzDg0o" target="_blank" id="img_video" title="Comment ça marche?"></a>
         }
     </div>
-            ***REMOVED*** url qui redirige vers "comment ça marche" youtube-->
-            <a href="#" id="img_video" title="comment ca marche?"></a>
-        </div>
     <table id="ListsGifts" class="table">
         @{
             string display = "";
@@ -62,7 +65,7 @@
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
         @Html.Action("ValidationModule", "List", new { id = Model.ListId })
-        
+
         <tr id="spacerBeforeCreateForm" class="spacer"></tr>
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
@@ -174,7 +177,8 @@
                 $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
                 $("#headerTableGifts").after(data.responseText);
                 manageValidation();
-                checkIfTh();
+                checkIfGift();
+
             }
         });
     }
@@ -191,20 +195,21 @@
                 $("#headerTableGifts").after(data.responseText);
                 addGiftEffect();
                 manageValidation();
-                checkIfTh();
+                checkIfGift();
             }
         });
     }
 
+    // Fonction qui permet de répondre à de l'ajax sur la gestion de liste vide de cadeau ou non
     // Fonction qui n'affiche les th que si il existe au moins un cadeau
-    function checkIfTh() {
-        if($(".fond_cadeaux").length != 0)
-        {
+    function checkIfGift() {
+        if ($(".fond_cadeaux").length != 0) {
             $("#headerTableGifts").show();
+            $("#img_video").hide();
         }
-        else
-        {
+        else {
             $("#headerTableGifts").hide();
+            $("#img_video").show();
         }
     }
 
@@ -218,26 +223,26 @@
         $(".fond_cadeaux").last().fadeOut(500);
     }
 
-    function manageValidation(){
+    function manageValidation() {
         var urlValidate = "@Url.Action("ValidationModule", "List", new { id = Model.ListId })";
         var request = $.ajax({
-                type: "GET",
-                url: urlValidate,
-                dataType: "json",
-                complete: function (data, status) {
-                    // On affiche la validation
+            type: "GET",
+            url: urlValidate,
+            dataType: "json",
+            complete: function (data, status) {
+                // On affiche la validation
                 if (data.responseText != "") {
                     if (!$("#validationRow").length) {
-                            $("#spacerBeforeCreateForm").before(data.responseText);
-                        }
-                    } 
+                        $("#spacerBeforeCreateForm").before(data.responseText);
+                    }
+                }
                 else {
                     if ($("#validationRow").length) {
-                            $("#spacerValidation").remove();
-                            $("#validationRow").remove();
-                        }
-                    } 
+                        $("#spacerValidation").remove();
+                        $("#validationRow").remove();
+                    }
                 }
+            }
         });
     }
 

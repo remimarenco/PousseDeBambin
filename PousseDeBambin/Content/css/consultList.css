@@ -1,11 +1,10 @@
 ﻿/*-----------------------------------GIFT LIST consult (PROCHES)-------------------------*/
 .mess_bienvenue_list {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-left: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     font-family: 'arial';
     text-align: center;
-    width: 730px;
-    margin: 0 auto;
 }
 
 .intro_list_titre {
@@ -48,7 +47,6 @@
     vertical-align: top;
     margin-left: 30px;
     margin-top: 6px;
-    display: none;
 }
 
 #ListsGifts {
