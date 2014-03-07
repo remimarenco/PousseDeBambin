@@ -225,6 +225,12 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\carousel.css" />
+    <Content Include="Content\css\header.css">
+      <DependentUpon>header.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\header.min.css">
+      <DependentUpon>header.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.ui.accordion.css" />
     <Content Include="Content\css\jquery.ui.all.css" />
