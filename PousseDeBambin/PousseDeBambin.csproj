@@ -225,11 +225,32 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\carousel.css" />
+    <Content Include="Content\css\categories.css">
+      <DependentUpon>categories.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\connexionBar.css">
+      <DependentUpon>connexionBar.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\consultList.css">
+      <DependentUpon>consultList.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\createList.css">
+      <DependentUpon>createList.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\footer.css">
+      <DependentUpon>footer.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\giftsList.css">
+      <DependentUpon>giftsList.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\header.css">
       <DependentUpon>header.less</DependentUpon>
     </Content>
     <Content Include="Content\css\header.min.css">
       <DependentUpon>header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\howItWorks.css">
+      <DependentUpon>howItWorks.less</DependentUpon>
     </Content>
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.ui.accordion.css" />
@@ -249,6 +270,18 @@
     <Content Include="Content\css\jquery.ui.tabs.css" />
     <Content Include="Content\css\jquery.ui.theme.css" />
     <Content Include="Content\css\jquery.ui.tooltip.css" />
+    <Content Include="Content\css\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modalBootstrap.css">
+      <DependentUpon>modalBootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\searchList.css">
+      <DependentUpon>searchList.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\whoWeAre.css">
+      <DependentUpon>whoWeAre.less</DependentUpon>
+    </Content>
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
@@ -409,6 +442,42 @@
     <Content Include="Content\css\giftsList.less" />
     <Content Include="Content\css\consultList.less" />
     <Content Include="Content\css\modalBootstrap.less" />
+    <Content Include="Content\css\categories.css.map">
+      <DependentUpon>categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\consultList.css.map">
+      <DependentUpon>consultList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\createList.css.map">
+      <DependentUpon>createList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\footer.css.map">
+      <DependentUpon>footer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\howItWorks.css.map">
+      <DependentUpon>howItWorks.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\main.css.map">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\whoWeAre.css.map">
+      <DependentUpon>whoWeAre.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\searchList.css.map">
+      <DependentUpon>searchList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modalBootstrap.css.map">
+      <DependentUpon>modalBootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\connexionBar.css.map">
+      <DependentUpon>connexionBar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\giftsList.css.map">
+      <DependentUpon>giftsList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\header.css.map">
+      <DependentUpon>header.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
