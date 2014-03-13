@@ -24,6 +24,18 @@
                 <span> : J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !</span>
             }
         }
+
+        @{
+            // Gestion du texte de description
+            if (Model.UserProfile.UserName != "Anonyme")
+            {
+                <div id="texteDescription">@Model.Description</div>
+                <script>
+                    $("meta[name='description']").attr("content", "@Model.Description");
+                </script>    
+            }
+        }
+
         @if (Model.Gifts.Count == 0)
         {
             <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
