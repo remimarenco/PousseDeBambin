@@ -26,12 +26,13 @@
         }
 
         @{
-            // Gestion du texte de description
-            if (Model.UserProfile.UserName != "Anonyme")
-            {
-                <div id="texteDescription">@Model.Description</div>
-            }
-        }
+    // Gestion du texte de description
+    if (Model.UserProfile.UserName != "Anonyme")
+    {
+
+        <div data-toggle="tooltip" data-placement="bottom" title="@Model.Description" id="texteDescription">@Model.Description</div>
+    }
+}
 
         @if (Model.Gifts.Count == 0)
         {
@@ -125,6 +126,9 @@
 </div>
 ***REMOVED*** /.modal -->
 <script type="text/javascript">
+    $(function () {
+        $('#texteDescription').tooltip();
+    });
     // Lorsqu'on clique pour acheter un cadeau => Redirection viglink
     $('#objectUrl').click(function () {
         vglnk.open($(this).data("url"), "_blank");
