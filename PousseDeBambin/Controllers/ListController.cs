@@ -129,7 +129,7 @@ namespace PousseDeBambin.Controllers
             }
 
             list.Name = "Pas de nom";
-            list.Description = "Aucune description";
+            list.Description = "Important ! Ce texte indiquera à vos proches la raison de votre liste...pensez y ;)";
 
             // On met la date du jour
             list.BeginningDate = DateTime.Now;
