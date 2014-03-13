@@ -5,8 +5,8 @@
         @if (!Model.UserProfile.UserName.Equals("Anonyme"))
         {
             <span id="bienvenueText">
-                Bienvenue dans @Model.Name
-                , l'enfant de @Model.UserProfile.FirstName
+                Bienvenue dans @Model.Name, <br />
+                l'enfant de @Model.UserProfile.FirstName
                 @if (Model.BirthDate > DateTime.Now)
                 {
                     <span>va naître</span>
