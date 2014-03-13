@@ -30,9 +30,6 @@
             if (Model.UserProfile.UserName != "Anonyme")
             {
                 <div id="texteDescription">@Model.Description</div>
-                <script>
-                    $("meta[name='description']").attr("content", "@Model.Description");
-                </script>    
             }
         }
 

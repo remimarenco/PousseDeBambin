@@ -22,9 +22,9 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     @RenderSection("scripts", required: false)
-    <link rel="image_src" href="@Request.Url.Authority@Url.Content("~/Content/img/home/logo.png")" />
-    <meta property="og:image" content="@Request.Url.Authority@Url.Content("~/Content/img/home/logo.png")" />
-    <meta name="description" content="@ViewBag.Description" />
+    <link rel="image_src" href="@Url.Content("~/Content/img/home/logo.png")" />
+    <meta property="og:image" content="@Url.Content("~/Content/img/home/logo.png")" />
+    @RenderSection("metaDescription", required: false)
 
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -42,9 +42,9 @@
 <body>
     @Html.Partial("_MessageBeta")
     <header>
-    <div id="connexionBar" class="connexionBar">
-        @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
-    </div>
+        <div id="connexionBar" class="connexionBar">
+            @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
+        </div>
         ***REMOVED*** @Html.Partial("_BaseLine") -->
         @Html.Partial("_MainTabs")
     </header>
@@ -73,7 +73,7 @@
             </footer>
         </div>
     </div>
-    
+
     ***REMOVED*** Viglink -->
     <script type="text/javascript">
         var vglnk = {
