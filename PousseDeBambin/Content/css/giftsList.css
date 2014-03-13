@@ -208,9 +208,9 @@
 }
 
 #bienvenueText {
-    background: url('/Content/img/giftsList/fleur_picto.png') no-repeat;
+    /*background: url('/Content/img/giftsList/fleur_picto.png') no-repeat;*/
     height: 17px;
-    padding-left: 45px;
+    /*padding-left: 45px;*/
     padding-bottom: 7px;
     color: #DE6C1C;
     padding-top: 10px;
@@ -218,12 +218,133 @@
 }
 
 #texteDescription {
+    color: #808080;
     text-align: left;
-    width: 408px;
+    width: 300px;
     font-size: 14px;
-    left: 59%;
-    padding: 9px 36px;
+    padding: 7px 6px;
     position: relative;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
+/*-----------------------------------tooltip description----------------------------------------*/
+.tooltip {
+    position: absolute;
+    z-index: 200;
+    display: block;
+    visibility: visible;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.tooltip.in {
+    opacity: 0.7;
+    filter: alpha(opacity=90);
+}
+
+.tooltip.top {
+    margin-top: -3px;
+    padding: 10px 0;
+}
+
+.tooltip.right {
+    margin-left: 3px;
+    padding: 0 5px;
+}
+
+.tooltip.bottom {
+    margin-top: 3px;
+    padding: 5px 0;
+}
+
+.tooltip.left {
+    margin-left: -3px;
+    padding: 0 5px;
+}
+
+.tooltip-inner {
+    max-width: 300px;
+    padding: 15px 10px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    background-color: #81aa8e;
+    border-radius: 1px;
+    font-weight: bolder;
+}
+
+.tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
+}
+
+.tooltip.top-left .tooltip-arrow {
+    bottom: 0;
+    left: 5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
+}
+
+.tooltip.top-right .tooltip-arrow {
+    bottom: 0;
+    right: 5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
+}
+
+.tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #808080;
+}
+
+.tooltip.left .tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #808080;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
+}
+
+.tooltip.bottom-left .tooltip-arrow {
+    top: 0;
+    left: 5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
+}
+
+.tooltip.bottom-right .tooltip-arrow {
+    top: 0;
+    right: 5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
+}

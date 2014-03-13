@@ -16,23 +16,25 @@
                     <span>est né</span>
                 }
                 le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
-            </span>
-            if (Model.BirthDate > DateTime.Now)
-            {
+
+                @if (Model.BirthDate > DateTime.Now)
+                {
                 TimeSpan span = Model.BirthDate - DateTime.Now;
                 TimeSpan PartialDaysSpan = span.Add(new TimeSpan(1, 0, 0, 0));
-                <span> : J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !</span>
-            }
+                    @: :<br />
+                @:  J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !
+                }
+            </span>
         }
 
         @{
-    // Gestion du texte de description
-    if (Model.UserProfile.UserName != "Anonyme")
-    {
+            // Gestion du texte de description
+            if (Model.UserProfile.UserName != "Anonyme")
+            {
 
-        <div data-toggle="tooltip" data-placement="bottom" title="@Model.Description" id="texteDescription">@Model.Description</div>
-    }
-}
+                <div data-toggle="tooltip" data-placement="bottom" title="@Model.Description" id="texteDescription">@Model.Description</div>
+            }
+        }
 
         @if (Model.Gifts.Count == 0)
         {
