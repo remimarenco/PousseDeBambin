@@ -129,7 +129,10 @@
 ***REMOVED*** /.modal -->
 <script type="text/javascript">
     $(function () {
-        $('#texteDescription').tooltip();
+        if ($('#texteDescription').text().length >= 50)
+        {
+            $('#texteDescription').tooltip();
+        }
     });
     // Lorsqu'on clique pour acheter un cadeau => Redirection viglink
     $('#objectUrl').click(function () {
