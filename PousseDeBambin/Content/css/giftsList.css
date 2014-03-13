@@ -184,5 +184,14 @@
 .btn-primary_validate_img:hover {
   color: #808080;
 }
+#bienvenueText {
+  background: url('/Content/img/giftsList/fleur_picto.png') no-repeat;
+  height: 17px;
+  padding-left: 45px;
+  padding-bottom: 7px;
+  color: #DE6C1C;
+  padding-top: 10px;
+  font-style: italic;
+}
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
 /*# sourceMappingURL=giftsList.css.map */
