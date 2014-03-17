@@ -229,7 +229,7 @@
 }
 
 #texteDescription {
-    color:#808080;
+    color: #808080;
     text-align: left;
     width: 300px;
     font-size: 14px;
@@ -240,108 +240,156 @@
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
-    cursor:pointer;
-    
+    cursor: pointer;
 }
 /*-----------------------------------fin PAGE GIFTS LIST (GESTION) -----------------------------*/
 /*-----------------------------------tooltip description----------------------------------------*/
 
 .tooltip {
-  position: absolute;
-  z-index:200;
-  display: block;
-  visibility: visible;
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0;
-  filter: alpha(opacity=0);
+    position: absolute;
+    z-index: 200;
+    display: block;
+    visibility: visible;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
-.tooltip.in {
-  opacity: 0.7;
-  filter: alpha(opacity=90);
-}
-.tooltip.top {
-  margin-top: -3px;
-  padding: 10px 0;
-}
-.tooltip.right {
-  margin-left: 3px;
-  padding: 0 5px;
-}
-.tooltip.bottom {
-  margin-top: 3px;
-  padding: 5px 0;
-}
-.tooltip.left {
-  margin-left: -3px;
-  padding: 0 5px;
-}
+
+    .tooltip.in {
+        opacity: 0.7;
+        filter: alpha(opacity=90);
+    }
+
+    .tooltip.top {
+        margin-top: -3px;
+        padding: 10px 0;
+    }
+
+    .tooltip.right {
+        margin-left: 3px;
+        padding: 0 5px;
+    }
+
+    .tooltip.bottom {
+        margin-top: 3px;
+        padding: 5px 0;
+    }
+
+    .tooltip.left {
+        margin-left: -3px;
+        padding: 0 5px;
+    }
+
 .tooltip-inner {
-  max-width: 300px;
-  padding:15px 10px;
-  color: #fff;
-  text-align: left;
-  text-decoration: none;
-  background-color: #81aa8e;
-  border-radius: 1px;
-  font-weight:bolder;
+    max-width: 300px;
+    padding: 15px 10px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    background-color: #81aa8e;
+    border-radius: 1px;
+    font-weight: bolder;
 }
+
 .tooltip-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
 }
+
 .tooltip.top .tooltip-arrow {
-  bottom: 0;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px 5px 0;
-  border-top-color: #808080;
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
 }
+
 .tooltip.top-left .tooltip-arrow {
-  bottom: 0;
-  left: 5px;
-  border-width: 5px 5px 0;
-  border-top-color: #808080;
+    bottom: 0;
+    left: 5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
 }
+
 .tooltip.top-right .tooltip-arrow {
-  bottom: 0;
-  right: 5px;
-  border-width: 5px 5px 0;
-  border-top-color: #808080;
+    bottom: 0;
+    right: 5px;
+    border-width: 5px 5px 0;
+    border-top-color: #808080;
 }
+
 .tooltip.right .tooltip-arrow {
-  top: 50%;
-  left: 0;
-  margin-top: -5px;
-  border-width: 5px 5px 5px 0;
-  border-right-color: #808080;
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: #808080;
 }
+
 .tooltip.left .tooltip-arrow {
-  top: 50%;
-  right: 0;
-  margin-top: -5px;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #808080;
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #808080;
 }
+
 .tooltip.bottom .tooltip-arrow {
-  top: 0;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 0 5px 5px;
-  border-bottom-color: #808080;
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
 }
+
 .tooltip.bottom-left .tooltip-arrow {
-  top: 0;
-  left: 5px;
-  border-width: 0 5px 5px;
-  border-bottom-color: #808080;
+    top: 0;
+    left: 5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
 }
+
 .tooltip.bottom-right .tooltip-arrow {
-  top: 0;
-  right: 5px;
-  border-width: 0 5px 5px;
-  border-bottom-color: #808080;
+    top: 0;
+    right: 5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: #808080;
+}
+/*-------------------------------------alert erreur page--------------------*/
+.erreur_page {
+    padding-right: 275px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: relative;
+    left: 27%;
+    font-family: 'arial';
+    display: inline-block;
+    margin-right: 78px;
+    font-size:17px;
+    /*text-align:center;*/
+    color:#848E19;
+    top:40px;
+
+        span{
+            font-family: 'bebas_neueregular';
+            font-size:24px;
+            color:#442717;
+        }
+}
+.fond_erreur{
+    
+}
+#img_erreur {
+    background: url('/Content/img/giftsList/visu_erreur.png') no-repeat;
+    height: 337px;
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
+    margin-left: 50px;
 }

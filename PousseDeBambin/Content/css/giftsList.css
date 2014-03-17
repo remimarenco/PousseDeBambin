@@ -348,3 +348,36 @@
     border-width: 0 5px 5px;
     border-bottom-color: #808080;
 }
+
+/*-------------------------------------alert erreur page--------------------*/
+.erreur_page {
+    padding-right: 275px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: relative;
+    left: 27%;
+    font-family: 'arial';
+    display: inline-block;
+    margin-right: 78px;
+    font-size: 17px;
+    /*text-align:center;*/
+    color: #848E19;
+    top: 40px;
+}
+
+.erreur_page span {
+    font-family: 'bebas_neueregular';
+    font-size: 24px;
+    color: #442717;
+}
+
+#img_erreur {
+    background: url('/Content/img/giftsList/visu_erreur.png') no-repeat;
+    height: 337px;
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}

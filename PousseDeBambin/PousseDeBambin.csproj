@@ -279,6 +279,7 @@
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\visu_erreur.png" />
     <Content Include="Content\css\whoWeAre.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
@@ -303,6 +304,7 @@
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />
     <Content Include="Content\img\giftsList\bouton_valider_hover.png" />
+    <Content Include="Content\img\giftsList\bulle_erreur.png" />
     <Content Include="Content\img\giftsList\fleche_connexion.png" />
     <Content Include="Content\img\giftsList\fleur_picto.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
@@ -318,6 +320,7 @@
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\giftsList\suppr.png" />
     <Content Include="Content\img\giftsList\video.jpg" />
+    <Content Include="Content\img\giftsList\visu_erreur.png" />
     <Content Include="Content\img\home\baby.jpg" />
     <Content Include="Content\img\home\baby_infos.jpg" />
     <Content Include="Content\img\home\banderole.png" />
