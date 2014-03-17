@@ -16,6 +16,8 @@ namespace PousseDeBambin.Models
     public class GiftState
     {
         [Key]
+        public int GiftStateID { get; set; }
+
         [ForeignKey("Gift")]
         public int GiftID { get; set; }
         public virtual Gift Gift { get; set; }

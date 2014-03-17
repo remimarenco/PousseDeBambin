@@ -53,13 +53,15 @@ namespace PousseDeBambin.Controllers
             // If we do not find it, and it is not id 0, we add it in the giftState db
             if (giftState == null && id != 0)
             {
+                Gift gift = db.Gifts.FirstOrDefault(g => g.GiftId == id);
                 giftState = db.GiftsStates.Add(new GiftState
                 {
                     GiftID = id,
                     State = State.NOT_BOUGHT,
                     BuyerName = "Anonyme",
+                    Gift = gift 
                 });
-                giftState.Gift = db.Gifts.FirstOrDefault(g => g.GiftId == giftState.GiftID);
+                //giftState.Gift = db.Gifts.FirstOrDefault(g => g.GiftId == giftState.GiftID);
                 db.SaveChanges();
             }
             else if (id == 0)

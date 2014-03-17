@@ -38,7 +38,6 @@ namespace PousseDeBambin.Models
         [Display(Name = "Adresse de la page internet du cadeau (url)")]
         public string WebSite {get; set;}
 
-        [ForeignKey("List")]
         public int ListID { get; set; }
         public virtual List List { get; set; }
     }
