@@ -10,6 +10,7 @@ namespace PousseDeBambin.Models
     [Table("List")]
     public class List
     {
+        [Key]
         public int ListId { get; set; }
 
         [Required(ErrorMessage = "Le nom de la liste est obligatoire")]
