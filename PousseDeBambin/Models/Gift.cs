@@ -11,6 +11,7 @@ namespace PousseDeBambin.Models
     [Table("Gift")]
     public class Gift
     {
+        [Key]
         public int GiftId { get; set; }
 
         [Required(ErrorMessage = "Le nom de l'objet est obligatoire")]
