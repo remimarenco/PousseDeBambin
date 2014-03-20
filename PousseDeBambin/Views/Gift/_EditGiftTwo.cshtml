@@ -46,7 +46,8 @@
             @Html.LabelFor(model => model.Priorite, new { @class = "" })
         </div>
         @Html.ValidationMessageFor(model => model.Priorite)
-        @Html.TextBoxFor(modelItem => Model.Priorite)
+        @Html.HiddenFor(model => model.Priorite)
+        @Html.EditorFor(modelItem => Model.Priorite, "_PrioriteRating")
     </div>
     <div class="divObjectDescription editObjectDescription">
         <div>

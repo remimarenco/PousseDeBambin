@@ -278,6 +278,7 @@
     <Content Include="Content\css\whoWeAre.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
+    <Content Include="Content\delete.gif" />
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
@@ -347,6 +348,8 @@
     <Content Include="Content\mixin\mixins.min.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
+    <Content Include="Content\rateit.css" />
+    <Content Include="Content\star.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -480,6 +483,9 @@
     <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\diffbotManagement.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.rateit.js" />
+    <Content Include="Scripts\jquery.rateit.min.js" />
+    <Content Include="Scripts\jquery.rateit.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
@@ -600,12 +606,13 @@
     <Content Include="Views\List\InfosListe.cshtml" />
     <Content Include="Views\List\_ValidationModule.cshtml" />
     <Content Include="Views\List\_SearchReturn.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

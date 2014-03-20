@@ -1,0 +1,16 @@
+﻿@model PousseDeBambin.Models.Gift
+
+@Html.HiddenFor(model => model.Priorite)
+<span id="prioriteRating" class="rateit" data-rateit-value="@Model.Priorite" data-rateit-ispreset="true" data-rateit-resetable="false"></span>
+
+<script>
+    $(function(){
+        $("#prioriteRating").bind('rated', function () {
+            var ri = $(this);
+
+            //if the use pressed reset, it will get value: 0 (to be compatible with the HTML range control), we could check if e.type == 'reset', and then set the value to  null .
+            var value = ri.rateit('value');
+            $("#Priorite").val(value);
+        });
+    });
+</script>
