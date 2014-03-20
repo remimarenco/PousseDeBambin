@@ -41,6 +41,13 @@
         @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
+    <div class="divObjectPriority editObjectPriority">
+        <div>
+            @Html.LabelFor(model => model.Priorite, new { @class = "" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Priorite)
+        @Html.TextBoxFor(modelItem => Model.Priorite)
+    </div>
     <div class="divObjectDescription editObjectDescription">
         <div>
         @Html.LabelFor(model => model.Description)

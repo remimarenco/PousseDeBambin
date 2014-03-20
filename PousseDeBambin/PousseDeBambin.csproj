@@ -476,7 +476,6 @@
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\diffbotManagement.js" />
@@ -605,6 +604,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
