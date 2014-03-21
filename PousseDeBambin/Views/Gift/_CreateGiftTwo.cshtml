@@ -44,7 +44,6 @@
             @Html.LabelFor(model => model.Priorite, new { @class = "" })
         </div>
         @Html.ValidationMessageFor(model => model.Priorite)
-        @Html.HiddenFor(model => model.Priorite)
         @Html.EditorFor(modelItem => Model, "_PrioriteRating")
     </div>
     <div class="divObjectDescription createObjectDescription">
@@ -85,7 +84,8 @@
                     WebSite: $("#WebSite").val(),
                     Name: $("#Name").val(),
                     Description: $("#Description").val(),
-                    Price: $("#Price").val()
+                    Price: $("#Price").val(),
+                    Priorite: $("#Priorite").val()
                 },
                 type: "POST",
                 content: 'application/json; charset=utf-8',
