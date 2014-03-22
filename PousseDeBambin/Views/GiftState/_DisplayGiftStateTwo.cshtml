@@ -25,7 +25,8 @@
             {
                 InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
                 UpdateTargetId = "gift" + Model.GiftID,
-                HttpMethod = "GET"
+                HttpMethod = "GET",
+                OnComplete = "rebindRateIt"
             }, new { @class = "inlineForm" }))
             {
                 <input class="modifier_input" type="submit" value="Modifier" />

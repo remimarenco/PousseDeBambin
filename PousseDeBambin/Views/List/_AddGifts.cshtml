@@ -196,9 +196,13 @@
                 $("#headerTableGifts").after(data.responseText);
                 manageValidation();
                 checkIfGift();
-
+                rebindRateIt();
             }
         });
+    }
+
+    function rebindRateIt(){
+        $('#manageList').find('.rateit').rateit();
     }
 
     function refreshGiftsListAddEffect() {
@@ -214,6 +218,7 @@
                 addGiftEffect();
                 manageValidation();
                 checkIfGift();
+                rebindRateIt();
             }
         });
     }
