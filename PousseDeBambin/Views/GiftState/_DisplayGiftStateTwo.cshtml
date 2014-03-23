@@ -5,10 +5,10 @@
 </td>
 <td class="divObjectGift">
     <div class="divObjectName">
-        @Html.DisplayFor(modelItem => Model.Gift.Name)
         <div class="divObjectPriority">
             @Html.DisplayFor(modelItem => Model.Gift.Priorite, "_PrioriteRating")
         </div>
+        @Html.DisplayFor(modelItem => Model.Gift.Name)
     </div>
     <div class="divObjectDescription">
         @Html.DisplayFor(modelItem => Model.Gift.Description)

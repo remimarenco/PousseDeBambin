@@ -128,7 +128,14 @@ textarea {
 /*------------------------------ Gestion de la priorité ----------------------*/
 .divObjectPriority {
   display: inline;
-  margin-left: 15px;
+}
+.editObjectPriority {
+  display: block;
+  margin-left: 50px;
+}
+.createObjectPriority {
+  display: block;
+  margin-left: 50px;
 }
 .rateitDisplay {
   margin-bottom: 3px;
