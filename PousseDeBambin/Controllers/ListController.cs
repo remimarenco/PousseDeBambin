@@ -61,6 +61,12 @@ namespace PousseDeBambin.Controllers
         {
             var list = db.Lists.Find(id);
 
+            var orderedGifts = list.Gifts;
+
+            orderedGifts = orderedGifts.OrderByDescending(g => g.Priorite).ToList();
+
+            list.Gifts = orderedGifts;
+
             return PartialView("_DisplayGifts", list);
         }
         

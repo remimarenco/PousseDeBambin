@@ -6,6 +6,9 @@
 <td class="divObjectGift">
     <div class="divObjectName">
         @Html.DisplayFor(modelItem => Model.Gift.Name)
+        <div class="divObjectPriority">
+            @Html.DisplayFor(modelItem => Model.Gift.Priorite, "_PrioriteRating")
+        </div>
     </div>
     <div class="divObjectDescription">
         @Html.DisplayFor(modelItem => Model.Gift.Description)
@@ -22,7 +25,8 @@
             {
                 InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
                 UpdateTargetId = "gift" + Model.GiftID,
-                HttpMethod = "GET"
+                HttpMethod = "GET",
+                OnComplete = "rebindRateIt"
             }, new { @class = "inlineForm" }))
             {
                 <input class="modifier_input" type="submit" value="Modifier" />
@@ -62,6 +66,6 @@
         refreshGiftsList();
     }
     function beginDeleteGift(){
-        deleteGiftEffect();
+        deleteGiftEffect(@Model.GiftID);
     }
 </script>

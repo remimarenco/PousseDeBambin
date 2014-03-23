@@ -39,11 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kendo.Mvc, Version=2013.3.1324.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\KENDOUIMVC\2013.3.1324.340\Kendo.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Postal">
       <HintPath>..\packages\postal.0.9.1\lib\net40\Postal.dll</HintPath>
@@ -283,12 +278,14 @@
     <Content Include="Content\css\whoWeAre.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
+    <Content Include="Content\delete.gif" />
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
     <Content Include="Content\fonts\bebasneue-webfont.svg" />
     <Content Include="Content\fonts\generator_config.txt" />
     <Content Include="Content\fonts\marketingscript-webfont.svg" />
+    <Content Include="Content\heart.gif" />
     <Content Include="Content\img\create\bouton_creer_liste.png" />
     <Content Include="Content\img\create\img_create.jpg" />
     <Content Include="Content\img\create\pancarte.png" />
@@ -352,6 +349,8 @@
     <Content Include="Content\mixin\mixins.min.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
+    <Content Include="Content\rateit.css" />
+    <Content Include="Content\star.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -481,11 +480,13 @@
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\diffbotManagement.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.rateit.js" />
+    <Content Include="Scripts\jquery.rateit.min.js" />
+    <Content Include="Scripts\jquery.rateit.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
@@ -606,11 +607,13 @@
     <Content Include="Views\List\InfosListe.cshtml" />
     <Content Include="Views\List\_ValidationModule.cshtml" />
     <Content Include="Views\List\_SearchReturn.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
