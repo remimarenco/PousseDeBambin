@@ -49,7 +49,7 @@ namespace PousseDeBambin.Controllers
 
         public ActionResult DisplayGiftStateTwo(int id = 0)
         {
-            GiftState giftState = db.GiftsStates.Find(id);
+            GiftState giftState = db.GiftsStates.FirstOrDefault(g => g.GiftID == id);
             // If we do not find it, and it is not id 0, we add it in the giftState db
             if (giftState == null && id != 0)
             {
