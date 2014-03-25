@@ -69,6 +69,24 @@ namespace PousseDeBambin.Controllers
 
             return PartialView("_DisplayGifts", list);
         }
+
+        /// <summary>
+        /// Fonction permettant de récupérer le dernier élément ajouté à la liste
+        /// </summary>
+        /// <param name="listId">Id de la liste</param>
+        /// <returns></returns>
+        public ActionResult GetLastGift(int listId)
+        {
+            Gift lastGift = null;
+            List list = db.Lists.Find(listId);
+            if (list != null)
+            {
+                lastGift = list.Gifts.ElementAt(list.Gifts.Count - 1);
+                return RedirectToAction("DisplayGiftStateTwo", "GiftState", new { id = lastGift.GiftId });
+            }
+            // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
+            return Json("");
+        }
         
 
         //

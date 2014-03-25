@@ -239,6 +239,17 @@ namespace PousseDeBambin.Controllers
             return Json("false");
         }
 
+        public ActionResult DisplayGift(int giftId)
+        {
+            Gift gift = db.Gifts.First(g => g.GiftId == giftId);
+            if(gift != null)
+            {
+                return PartialView("_DisplayGift", gift);
+            }
+            //TODO : Attention à gérer correctement le retour dans ce cas là
+            return null;
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

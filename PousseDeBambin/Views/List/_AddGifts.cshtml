@@ -215,15 +215,15 @@
     }
 
     function refreshGiftsListAddEffect() {
-        var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
+        var urlRefresh = "@Url.Action("GetLastGift", "List", new { listId = Model.ListId })";
         var request = $.ajax({
             type: "GET",
             url: urlRefresh,
             dataType: "json",
             complete: function (data, status) {
                 // On rafraichit la liste des objets
-                $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
-                $("#headerTableGifts").after(data.responseText);
+                // $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
+                $(".fond_cadeaux").last().after(data.responseText);
                 addGiftEffect();
                 manageValidation();
                 checkIfGift();
