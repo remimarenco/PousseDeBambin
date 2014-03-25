@@ -248,9 +248,9 @@
         $(".fond_cadeaux").last().hide().fadeIn(1500);
     }
 
-    function deleteGiftEffect() {
+    function deleteGiftEffect(giftId) {
         // On prends la dernière row et on lui met un fadein
-        $(".fond_cadeaux").last().fadeOut(500);
+        $("#gift"+giftId).fadeOut(500);
     }
 
     function manageValidation() {
