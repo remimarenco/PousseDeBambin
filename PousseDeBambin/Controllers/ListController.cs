@@ -82,7 +82,7 @@ namespace PousseDeBambin.Controllers
             if (list != null)
             {
                 lastGift = list.Gifts.ElementAt(list.Gifts.Count - 1);
-                return RedirectToAction("DisplayGiftStateTwo", "GiftState", new { id = lastGift.GiftId });
+                return RedirectToAction("DisplayGift", "Gift", new { giftId = lastGift.GiftId });
             }
             // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
             return Json("");

@@ -2,5 +2,5 @@
 
 @foreach (var gift in Model.Gifts)
 {
-    Html.Action("DisplayGift", "Gift", new { giftId = gift.GiftId });
+    @Html.Action("DisplayGift", "Gift", new { giftId = gift.GiftId });
 }
