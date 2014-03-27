@@ -160,6 +160,8 @@
                     success: function (data) {
                         $("#gift" + myData).empty();
                         $("#gift" + myData).append(data);
+                        // On remet le rateIt
+                        rebindRateIt();
                     }
                 });
             }
