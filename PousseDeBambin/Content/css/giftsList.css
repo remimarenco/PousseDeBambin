@@ -196,9 +196,9 @@
 #texteDescription {
   color: #808080;
   text-align: left;
-  width: 300px;
+  width: 700px;
   font-size: 14px;
-  padding: 7px 6px;
+  padding: 15px 6px;
   position: relative;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
