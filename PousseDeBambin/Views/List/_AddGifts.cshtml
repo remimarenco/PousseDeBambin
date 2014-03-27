@@ -223,7 +223,17 @@
             complete: function (data, status) {
                 // On rafraichit la liste des objets
                 // $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
-                $(".fond_cadeaux").last().after(data.responseText);
+
+                // Si il n'y a pas encore de cadeaux, on ajoute le cadeau après le header, sinon on l'ajoute
+                // après le dernier cadeau
+                if($(".fond_cadeaux").length == 0)
+                {
+                    $("#headerTableGifts").after(data.responseText);
+                }
+                else
+                {
+                    $(".fond_cadeaux").last().after(data.responseText);    
+                }
                 addGiftEffect();
                 manageValidation();
                 checkIfGift();

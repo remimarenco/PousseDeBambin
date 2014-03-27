@@ -81,8 +81,13 @@ namespace PousseDeBambin.Controllers
             List list = db.Lists.Find(listId);
             if (list != null)
             {
-                lastGift = list.Gifts.ElementAt(list.Gifts.Count - 1);
-                return RedirectToAction("DisplayGift", "Gift", new { giftId = lastGift.GiftId });
+                // Si il existe au moins un objet dans la liste on l'affiche, sinon on retourne vide
+                int nbGifts = list.Gifts.Count;
+                if(nbGifts > 0)
+                {
+                    lastGift = list.Gifts.ElementAt(nbGifts - 1);
+                    return RedirectToAction("DisplayGift", "Gift", new { giftId = lastGift.GiftId });
+                }
             }
             // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
             return Json("");
