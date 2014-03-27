@@ -153,7 +153,7 @@
             success: function (myData) {
                 // Reload the span id = gift part
                 $.ajax({
-                    url: '@Url.Action("DisplayGiftState", "GiftState")',
+                    url: '@Url.Action("DisplayGiftStateTwo", "GiftState")',
                     dataType: 'html',
                     data: { 'id': myData },
                     type: 'GET',
