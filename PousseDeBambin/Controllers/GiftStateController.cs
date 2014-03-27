@@ -85,14 +85,16 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         public int ObjectBought(string buyerName, string buyerText, int id = 0)
         {
-            GiftState giftState = db.GiftsStates.Find(id);
+            Gift gift = db.Gifts.Find(id);
+            GiftState giftState = db.GiftsStates.First(g => g.GiftID == gift.GiftId);
 
             if (buyerName.Equals(String.Empty))
             {
                 buyerName = "Anonyme";
             }
 
-            if (giftState == null && id != 0)
+            // Si le giftState n'existe pas, on l'ajoute
+            if (gift == null)
             {
                 giftState = db.GiftsStates.Add(new GiftState
                 {
