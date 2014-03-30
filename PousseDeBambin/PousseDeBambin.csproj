@@ -235,6 +235,9 @@
     <Content Include="Content\css\footer.css">
       <DependentUpon>footer.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\footer.min.css">
+      <DependentUpon>footer.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\giftsList.css">
       <DependentUpon>giftsList.less</DependentUpon>
     </Content>
@@ -277,6 +280,12 @@
     <Content Include="Content\css\visu_erreur.png" />
     <Content Include="Content\css\whoWeAre.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\zopim.css">
+      <DependentUpon>zopim.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\zopim.min.css">
+      <DependentUpon>zopim.css</DependentUpon>
     </Content>
     <Content Include="Content\delete.gif" />
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
@@ -480,6 +489,7 @@
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\zopim.less" />
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
