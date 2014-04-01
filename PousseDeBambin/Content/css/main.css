@@ -123,4 +123,8 @@ ul {
 .inlineForm {
   display: inline;
 }
+.input_pdb {
+  border-radius: 3px;
+  border: solid 1px #aec383;
+}
 /*# sourceMappingURL=main.css.map */
