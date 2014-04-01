@@ -490,6 +490,9 @@
       <DependentUpon>header.css</DependentUpon>
     </Content>
     <Content Include="Content\css\zopim.less" />
+    <Content Include="Content\css\zopim.css.map">
+      <DependentUpon>zopim.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
