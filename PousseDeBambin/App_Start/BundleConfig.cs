@@ -64,7 +64,8 @@ namespace PousseDeBambin
                         "~/Content/css/bootstrap.css",
                         "~/Content/css/carousel.css",
                         "~/Content/rateit.css",
-                        "~/Content/zopim.css"));
+                        "~/Content/zopim.css",
+                        "~/Content/css/modale.css"));
 
             bundles.IgnoreList.Clear();
         }
