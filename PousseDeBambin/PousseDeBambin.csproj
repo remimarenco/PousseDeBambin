@@ -356,6 +356,8 @@
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
+    <Content Include="Content\img\whoweare\cadre_marjorie.png" />
+    <Content Include="Content\img\whoweare\separation.png" />
     <Content Include="Content\mixin\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
