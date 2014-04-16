@@ -274,9 +274,6 @@
     <Content Include="Content\css\modalBootstrap.css">
       <DependentUpon>modalBootstrap.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\modale.css">
-      <DependentUpon>modale.less</DependentUpon>
-    </Content>
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
@@ -311,7 +308,6 @@
     <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
-    <Content Include="Content\img\giftsList\bouton_validation.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />
     <Content Include="Content\img\giftsList\bouton_valider_hover.png" />
     <Content Include="Content\img\giftsList\bulle_erreur.png" />
@@ -515,10 +511,6 @@
     <Content Include="Content\css\zopim.less" />
     <Content Include="Content\css\zopim.css.map">
       <DependentUpon>zopim.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\modale.less" />
-    <Content Include="Content\css\modale.css.map">
-      <DependentUpon>modale.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
