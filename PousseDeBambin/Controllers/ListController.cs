@@ -23,13 +23,14 @@ namespace PousseDeBambin.Controllers
 
         public ActionResult Index(string searchString)
         {
-            var lists = from s in db.Lists
+            /*var lists = from s in db.Lists
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 lists = lists.Where(s => s.UserProfile.UserName.ToUpper().Contains(searchString.ToUpper()));
             }
-            return View(lists.ToList());
+             * */
+            return RedirectToAction("Index", "Home");
         }
 
         //
