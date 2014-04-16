@@ -39,23 +39,9 @@
         ga('create', 'UA-47337807-1', 'poussedebambin.com');
         ga('send', 'pageview');
     </script>
-
-    ***REMOVED***Start of Zopim Live Chat Script-->
-    <script type="text/javascript">
-        window.$zopim || (function (d, s) {
-            var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
-            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
-                z.set.
-                _.push(o)
-            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
-            $.src = '//v2.zopim.com/?20Uq0MlI5gaqTXNATK08VGITdjo9IAHa'; z.t = +new Date; $.
-            type = 'text/javascript'; e.parentNode.insertBefore($, e)
-        })(document, 'script');
-    </script>
-    ***REMOVED***End of Zopim Live Chat Script-->
 </head>
 <body>
-    @Html.Partial("_MessageBeta")
+    @*@Html.Partial("_MessageBeta")*@
     <header>
         <div id="connexionBar" class="connexionBar">
             @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
@@ -124,5 +110,18 @@
     </script>
     ***REMOVED*** Fin Social script -->
     ***REMOVED***<script type="text/javascript" src="http://s.skimresources.com/js/59995X1382328.skimlinks.js"></script>-->
+    ***REMOVED***Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
+            $.src = '//v2.zopim.com/?20Uq0MlI5gaqTXNATK08VGITdjo9IAHa'; z.t = +new Date; $.
+            type = 'text/javascript'; e.parentNode.insertBefore($, e)
+        })(document, 'script');
+    </script>
+    ***REMOVED***End of Zopim Live Chat Script-->
 </body>
 </html>

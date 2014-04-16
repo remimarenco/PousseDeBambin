@@ -113,7 +113,7 @@
 
                 ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
                 <div id="commentBuyObject">
-                    <input type="text" id="inputName" required placeholder="Votre prénom et nom :)" />
+                    <input type="text" id="inputName" class="input_pdb" required placeholder="Votre prénom et nom :)" />
                     <textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>
                 </div>
             </div>
@@ -172,8 +172,8 @@
         registerBuyButton();
     });
 
-    function registerBuyButton(){
-        $('.buyButton').click(function(){
+    function registerBuyButton() {
+        $('.buyButton').click(function () {
             $('#objectTitle').empty();
             $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
 
@@ -240,6 +240,8 @@
                 manageValidation();
                 checkIfGift();
                 rebindRateIt();
+                // TODO: Faire une fonction plus précise de raccrochage du click seulement sur cet élément
+                registerBuyButton();
             }
         });
     }

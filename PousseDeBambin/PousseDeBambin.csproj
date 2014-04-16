@@ -274,6 +274,9 @@
     <Content Include="Content\css\modalBootstrap.css">
       <DependentUpon>modalBootstrap.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\modale.css">
+      <DependentUpon>modale.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
@@ -308,6 +311,7 @@
     <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
+    <Content Include="Content\img\giftsList\bouton_validation.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />
     <Content Include="Content\img\giftsList\bouton_valider_hover.png" />
     <Content Include="Content\img\giftsList\bulle_erreur.png" />
@@ -352,12 +356,31 @@
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
+    <Content Include="Content\img\whoweare\cadre_marjorie.png" />
+    <Content Include="Content\img\whoweare\separation.png" />
     <Content Include="Content\mixin\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
     <Content Include="Content\mixin\mixins.min.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_01.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_02.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_03.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_04.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_05.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_06.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_07.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_09.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_10.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_11.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_13.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_14.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_15.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_17.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_18.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_20.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_21.png" />
     <Content Include="Content\rateit.css" />
     <Content Include="Content\star.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -490,6 +513,13 @@
       <DependentUpon>header.css</DependentUpon>
     </Content>
     <Content Include="Content\css\zopim.less" />
+    <Content Include="Content\css\zopim.css.map">
+      <DependentUpon>zopim.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modale.less" />
+    <Content Include="Content\css\modale.css.map">
+      <DependentUpon>modale.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
@@ -514,6 +544,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Miscellaneous\Newsletter\newsletter.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
