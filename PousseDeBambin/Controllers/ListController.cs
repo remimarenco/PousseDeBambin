@@ -91,7 +91,7 @@ namespace PousseDeBambin.Controllers
                 }
             }
             // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
-            return Json("");
+            return Json(null, JsonRequestBehavior.AllowGet);
         }
         
 
