@@ -91,8 +91,11 @@
                 content: 'application/json; charset=utf-8',
                 datatype: 'json',
                 success: function (data) {
-                    $("#createForm").html(data);
-                    refreshGiftsListAddEffect();
+                    $("#createForm").html(data.redirectTo);
+                    if (data.isValid)
+                    {
+                        refreshGiftsListAddEffect();
+                    }
                 }
             });
         }
