@@ -10,21 +10,24 @@
 
 <p class ="share_list">Donnez tout simplement cette adresse à vos proches : @Html.ActionLink(Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme), "Manage", new { id = Model.ListId })</p>
 
-***REMOVED*** Google Code for Page cr&eacute;ation de liste Conversion Page -->
-<script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 967658191;
-    var google_conversion_language = "en";
-    var google_conversion_format = "2";
-    var google_conversion_color = "ffffff";
-    var google_conversion_label = "xB32CMGs6AgQz5W1zQM";
-    var google_remarketing_only = false;
-    /* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-    <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/967658191/?label=xB32CMGs6AgQz5W1zQM&amp;guid=ON&amp;script=0" />
-    </div>
-</noscript>
+@section OtherScripts
+{
+    ***REMOVED*** Google Code for Page cr&eacute;ation de liste Conversion Page -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 967658191;
+        var google_conversion_language = "en";
+        var google_conversion_format = "2";
+        var google_conversion_color = "ffffff";
+        var google_conversion_label = "xB32CMGs6AgQz5W1zQM";
+        var google_remarketing_only = false;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/967658191/?label=xB32CMGs6AgQz5W1zQM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+}

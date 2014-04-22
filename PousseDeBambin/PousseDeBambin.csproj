@@ -643,6 +643,7 @@
     <Content Include="Views\List\_SearchReturn.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
+    <Content Include="Views\Emails\Admin_CreateListCompleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
