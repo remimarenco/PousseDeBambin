@@ -357,6 +357,7 @@
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
     <Content Include="Content\img\whoweare\cadre_marjorie.png" />
+    <Content Include="Content\img\whoweare\cadre_michael.png" />
     <Content Include="Content\img\whoweare\separation.png" />
     <Content Include="Content\mixin\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
@@ -520,6 +521,7 @@
     <Content Include="Content\css\modale.css.map">
       <DependentUpon>modale.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\LegalMentions.less" />
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
