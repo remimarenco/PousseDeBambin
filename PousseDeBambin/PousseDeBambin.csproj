@@ -297,6 +297,7 @@
     <Content Include="Content\heart.gif" />
     <Content Include="Content\img\create\bouton_creer_liste.png" />
     <Content Include="Content\img\create\img_create.jpg" />
+    <Content Include="Content\img\create\login_separation.png" />
     <Content Include="Content\img\create\pancarte.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter_hover.png" />

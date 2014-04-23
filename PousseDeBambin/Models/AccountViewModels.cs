@@ -56,54 +56,54 @@ namespace PousseDeBambin.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Nom d'utilisateur")]
+        [Display(Name = "Nom d'utilisateur : ")]
         public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Le {0} doit être long d'au moins {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "Mot de passe : ")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmation du nouveau mot de passe")]
-        [Compare("Password", ErrorMessage = "Le nouveau mot de passe et le mot de passe de confirmation ne sont pas identiques.")]
+        [Display(Name = "Confirmer le mot de passe : ")]
+        [Compare("Password", ErrorMessage = "Les mots de passe doivent être identiques")]
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Votre prénom est obligatoire")]
         [DataType(DataType.Text)]
-        [Display(Name = "Prénom")]
+        [Display(Name = "Prénom : ")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Votre nom est obligatoire")]
         [DataType(DataType.Text)]
-        [Display(Name = "Nom")]
+        [Display(Name = "Nom : ")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "L'adresse mail est obligatoire")]
         [EmailAddress]
-        [Display(Name = "Votre Adresse Mail")]
+        [Display(Name = "Adresse Mail : ")]
         public string EmailAddress { get; set; }
 
         [DataType(DataType.PhoneNumber)]
-        [Display(Name = "Numéro de téléphone")]
+        [Display(Name = "N° de téléphone : ")]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Le numéro et le nom de la rue est obligatoire")]
-        [Display(Name = "Numéro et nom de la rue")]
+        [Required(ErrorMessage = "L'adresse est obligatoire")]
+        [Display(Name = "Adresse : ")]
         public string Street { get; set; }
 
         [Required(ErrorMessage = "Le code postal est obligatoire")]
         [DataType(DataType.PostalCode)]
-        [Display(Name = "Code postal")]
+        [Display(Name = "Code postal : ")]
         public int Zipcode { get; set; }
 
         [Required(ErrorMessage = "La ville est obligatoire")]
-        [Display(Name = "Ville")]
+        [Display(Name = "Ville : ")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "Le pays est obligatoire")]
-        [Display(Name = "Pays")]
+        [Display(Name = "Pays : ")]
         public string Country { get; set; }
 
         public virtual ICollection<List> Lists { get; set; }
