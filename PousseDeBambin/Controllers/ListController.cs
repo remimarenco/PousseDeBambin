@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
 using System.Collections;
+using Postal;
 
 namespace PousseDeBambin.Controllers
 {
@@ -23,13 +24,14 @@ namespace PousseDeBambin.Controllers
 
         public ActionResult Index(string searchString)
         {
-            var lists = from s in db.Lists
+            /*var lists = from s in db.Lists
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 lists = lists.Where(s => s.UserProfile.UserName.ToUpper().Contains(searchString.ToUpper()));
             }
-            return View(lists.ToList());
+             * */
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -90,7 +92,7 @@ namespace PousseDeBambin.Controllers
                 }
             }
             // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
-            return Json("");
+            return Json(null, JsonRequestBehavior.AllowGet);
         }
         
 
@@ -228,11 +230,31 @@ namespace PousseDeBambin.Controllers
                         {
                             FormsAuthentication.RedirectToLoginPage();
                         }
+                        
+                        //On envoi un mail aux admin pour les prévenir de la création d'une liste réussie totalement
+                        sendEmailNewList(list);
+
                         return RedirectToAction("Share", new { id = list.ListId });
                     }
                     return RedirectToAction("CreatePartTwo", id);
                 }
             }
+        }
+
+        private void sendEmailNewList(List list)
+        {
+            string urlHost = Request.Url.Host;
+
+            dynamic email = new Email("Admin_CreateListCompleted");
+            
+            email.To = "info@poussedebambin.com";
+            email.Subject = "[Pousse De Bambin] Création d'une liste !";
+            email.UserMail = list.UserProfile.EmailAddress;
+            email.UrlList = Url.Action("Manage", "List", new { Id = list.ListId }, Request.Url.Scheme);
+            email.UserName = list.UserProfile.UserName;
+            email.FullName = list.UserProfile.FirstName + " " + list.UserProfile.LastName;
+
+            email.Send();
         }
         
 
@@ -299,9 +321,14 @@ namespace PousseDeBambin.Controllers
             }
             // On associe l'utilisateur authentifié à la liste
             string UserName = User.Identity.GetUserName();
+            // TODO: Erreur grave ici, si un utilisateur a déjà un username et que la personne le réutilise => pb
             list.UserProfile = db.Users.FirstOrDefault(u => u.UserName.Equals(UserName));
             //list.UserProfile.Id = User.Identity.GetUserId();
             db.SaveChanges();
+
+            //On envoi un mail aux admin pour les prévenir de la création d'une liste réussie totalement
+            sendEmailNewList(list);
+
             return RedirectToAction("Share", new { id = list.ListId });
         }
 

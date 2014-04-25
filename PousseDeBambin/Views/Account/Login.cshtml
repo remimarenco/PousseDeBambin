@@ -1,60 +1,61 @@
 ﻿@model PousseDeBambin.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "Connexion";
+    ViewBag.Title = "Mon compte";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Veuillez entrer vos identifiants pour vous connecter (si vous avez déjà un compte).</h4>
-                <hr />
-                @Html.ValidationSummary(true)
+<div class="login_title"><h2>@ViewBag.Title</h2></div>    
+        
+            <section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-account", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="compte_cree">
+            <span class="padding-title"><h4>J'ai déjà un compte : </h4></span>
+            @Html.ValidationSummary(true)
+            <div id="login">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
+                    @Html.LabelFor(m => m.UserName, new { @class = "label" }) :
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName)
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
+                    @Html.LabelFor(m => m.Password, new { @class = "label" }) :
+                    <span class="margin-form">@Html.PasswordFor(m => m.Password, new { @class = "form-control" })</span>
+                    @Html.ValidationMessageFor(m => m.Password)
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
+            </div>
+            <div class="login_button">
+                <input type="submit" value="Connexion" id="login_connexion" class="btn btn-default" />
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Se connecter" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("S'enregistrer", "Register", new { ReturnUrl = ViewBag.ReturnUrl }) si vous n'avez pas de compte.
-                </p>
-            }
-        </section>
-    </div>
-    ***REMOVED***
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-      ***REMOVED***
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            </div>
+        </div>
+
+
+        <div class="login_separation"></div>
+
+        <div class="first_list">
+            <h4>Première liste : </h4>
+            <p>
+                @Html.ActionLink("Créer mon compte", "Register", new { ReturnUrl = ViewBag.ReturnUrl }, new { @class = "login_create" })
+            </p>
+        </div>
+    }
+</section>
+
+
+        
+        ***REMOVED***
+        <div class="col-md-4">
+            <section id="socialLoginForm">
+                @*@Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })*@
+            </section>
+        </div>
+          ***REMOVED***
+    
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
