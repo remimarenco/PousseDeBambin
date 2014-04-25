@@ -271,11 +271,12 @@
     <Content Include="Content\css\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\modalBootsrap.css" />
     <Content Include="Content\css\modalBootstrap.css">
       <DependentUpon>modalBootstrap.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\modale.css" />
+    <Content Include="Content\css\modale.css">
+      <DependentUpon>modale.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
@@ -496,11 +497,7 @@
     <Content Include="Content\css\zopim.css.map">
       <DependentUpon>zopim.css</DependentUpon>
     </Content>
-    <Content Include="Content\css\modalBootsrap.less" />
     <Content Include="Content\css\modale.less" />
-    <Content Include="Content\css\modalBootsrap.css.map">
-      <DependentUpon>modalBootsrap.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\modale.css.map">
       <DependentUpon>modale.css</DependentUpon>
     </Content>
