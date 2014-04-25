@@ -498,6 +498,12 @@
     </Content>
     <Content Include="Content\css\modalBootsrap.less" />
     <Content Include="Content\css\modale.less" />
+    <Content Include="Content\css\modalBootsrap.css.map">
+      <DependentUpon>modalBootsrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modale.css.map">
+      <DependentUpon>modale.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />

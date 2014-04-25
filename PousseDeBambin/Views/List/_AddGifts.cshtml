@@ -206,6 +206,13 @@
             $('#buttonBought').data("giftid", $(this).data("id"));
             $('#giftWebSite').modal('show');
         });
+
+        // Récupération de l'ouverture de la modale
+        $('#giftWebSite').on('show.bs.modal', function (e) {
+            // On désactive les boutons
+            $('#buttonNotBought').css("visibility", "hidden").delay(1000).css("visibility", "");;
+            $('#buttonBought').css("visibility", "hidden").delay(5000).css("visibility", "");
+        });
     }
     </script>
 
