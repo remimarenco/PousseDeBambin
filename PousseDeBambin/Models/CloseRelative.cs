@@ -13,7 +13,6 @@ namespace PousseDeBambin.Models
         [Key]
         public int CloseRelativeId { get; set; }
 
-        [EmailAddress]
         public string EmailAddress { get; set; }
 
         public string Address { get; set; }
@@ -22,7 +21,6 @@ namespace PousseDeBambin.Models
 
         public string Town { get; set; }
 
-        [DataType(DataType.PostalCode)]
         public string Country { get; set; }
 
         [DataType(DataType.Date)]

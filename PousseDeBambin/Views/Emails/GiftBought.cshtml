@@ -15,8 +15,8 @@ From: Remi - Pousse De Bambin <remi@poussedebambin.com>
         </blockquote>
 }
 
-    @if (!(String.IsNullOrWhiteSpace((string) ViewBag.RelativeMail) || String.IsNullOrWhiteSpace((string) ViewBag.Address) || String.IsNullOrWhiteSpace((string) ViewBag.AddressPlus) ||
-                                  String.IsNullOrWhiteSpace((string) ViewBag.Town) || String.IsNullOrWhiteSpace((string) ViewBag.Country)))
+    @if (!(String.IsNullOrWhiteSpace((string) ViewBag.RelativeMail) && String.IsNullOrWhiteSpace((string) ViewBag.Address) && String.IsNullOrWhiteSpace((string) ViewBag.AddressPlus) &&
+                                  String.IsNullOrWhiteSpace((string) ViewBag.Town) && String.IsNullOrWhiteSpace((string) ViewBag.Country)))
     {
         <p>Voici quelques informations pour pouvoir le recontacter :</p>
         <ul>
