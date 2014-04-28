@@ -201,6 +201,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\CloseRelative.cs" />
     <Compile Include="Models\Diffbot\Media.cs" />
     <Compile Include="Models\Diffbot\OfferPriceDetails.cs" />
     <Compile Include="Models\Diffbot\Product.cs" />

@@ -40,7 +40,7 @@
 #buttonNotBought:hover {
   color: #f0e79c;
 }
-#buttonBought {
+.buttonBought {
   background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
   width: 230px;
   height: 55px;
@@ -55,7 +55,7 @@
   outline: none;
   margin-left: 20px;
 }
-#buttonBought:hover {
+.buttonBought:hover {
   color: #f0e79c;
 }
 #commentBuyObject #inputName {
