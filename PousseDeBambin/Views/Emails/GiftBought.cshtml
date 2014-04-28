@@ -1,18 +1,46 @@
 ﻿To: @ViewBag.To
 From: Remi - Pousse De Bambin <remi@poussedebambin.com>
-Subject: @Html.Raw(ViewBag.Subject)
+    Subject: @Html.Raw(ViewBag.Subject)
 
-<p>Bonjour @ViewBag.FirstName !</p>
-<p>Bonne nouvelle, <strong>@ViewBag.BuyerName</strong> vient d'acheter votre cadeau <strong>@ViewBag.GiftName</strong> sur la liste <strong>@ViewBag.ListName</strong> ;).</p>
+    <p>Bonjour @ViewBag.FirstName !</p>
+    <p>Bonne nouvelle, <strong>@ViewBag.BuyerName</strong> vient d'acheter votre cadeau <strong>@ViewBag.GiftName</strong> sur la liste <strong>@ViewBag.ListName</strong> ;).</p>
 
-@if(ViewBag.Message != String.Empty)
+    @if(ViewBag.Message != String.Empty)
 {
-    <p>Il vous a également laissé un message :</p>
-    <blockquote>
-        <i>
-            @ViewBag.Message
-        </i>
-    </blockquote>
+        <p>Il vous a également laissé un message :</p>
+        <blockquote>
+            <i>
+                @ViewBag.Message
+            </i>
+        </blockquote>
 }
 
-<p>Pour voir votre liste, suivez ce lien : <a href='@ViewBag.UrlList'>Ma Liste @ViewBag.ListName</a></p>
+    @if (!(String.IsNullOrWhiteSpace((string) ViewBag.RelativeMail) || String.IsNullOrWhiteSpace((string) ViewBag.Address) || String.IsNullOrWhiteSpace((string) ViewBag.AddressPlus) ||
+                                  String.IsNullOrWhiteSpace((string) ViewBag.Town) || String.IsNullOrWhiteSpace((string) ViewBag.Country)))
+    {
+        <p>Voici quelques informations pour pouvoir le recontacter :</p>
+        <ul>
+            @if (!String.IsNullOrWhiteSpace((string)ViewBag.RelativeMail))
+            {
+                <li>Son adresse mail : <a href="mailto:@ViewBag.RelativeMail">@ViewBag.RelativeMail</a></li>
+            }
+            @if (!String.IsNullOrWhiteSpace((string)ViewBag.Address))
+            {
+                <li>Son adresse : @ViewBag.Address</li>
+            }
+            @if (!String.IsNullOrWhiteSpace((string)ViewBag.AddressPlus))
+            {
+                <li>Son complément d'adresse : @ViewBag.AddressPlus</li>
+            }
+            @if (!String.IsNullOrWhiteSpace((string)ViewBag.Town))
+            {
+                <li>Sa ville : @ViewBag.Town</li>
+            }
+            @if (!String.IsNullOrWhiteSpace((string)ViewBag.Country))
+            {
+                <li>Son pays : @ViewBag.Country</li>
+            }
+        </ul>
+    }
+
+    <p>Pour voir votre liste, suivez ce lien : <a href='@ViewBag.UrlList'>Ma Liste @ViewBag.ListName</a></p>

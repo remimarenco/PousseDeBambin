@@ -104,7 +104,9 @@
                 ***REMOVED*** Mettre nom de l'objet -->
                 ***REMOVED*** Mettre l'adresse de livraison -->
                 ***REMOVED*** Mettre l'url pour rediriger vers le site de l'url -->
-                <div class="modal-picture"></div>
+                <div class="modal-picture">
+                    <img id="img_modale_picture" src="~/Content/img/giftsList/img_non_trouvee.jpg"/>
+                </div>
                 <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">Confirmer ma commande</a>
                 <p class="texte_intro">@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat !</p>
                 <p> <span class="green_text">N'oubliez pas de revenir sur cette page</span> une fois l'objet acheté pour l'indiquer à @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
@@ -114,7 +116,7 @@
                 ***REMOVED***<p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>-->
                 ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
                 <div id="left_side_comment">
-                    <p><span class="title_sides">Personnaliser votre cadeau en ajoutant un petit mot :</span></p>
+                    <p><span class="title_sides">Personnalisez votre cadeau en ajoutant un petit mot :</span></p>
                     <div id="commentBuyObject">
                         <input type="text" id="inputName" class="input_pdb" required placeholder="Votre prénom et nom :)" />
                         <textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>
@@ -122,13 +124,14 @@
                 </div>
                 <div id="separation"></div>
                 <div id="right_side_comment">
-                    <p><span class="title_sides">Laisser vos coordonnées pour l'heureuse Maman : </span></p>
+                    <p><span class="title_sides">Laissez vos coordonnées pour l'heureuse Maman : </span></p>
                     <div id="commentBuyObject" class="adress">
-                        <div class="mail"><p><label for="mail">E-mail : </label><input type="text" id="inputAdress" class="input_pdb" required placeholder="Votre adresse mail" /></p></div>
-                        <div class="adresse"><p><label for="adresse">Adresse</label><input type="text" id="inputAdress" class="input_pdb" required placeholder="ex : rue Saint-Michel" /></p></div>
-                        <div class="adresse_plus"><input type="text" id="inputAdress" class="input_pdb" required placeholder="Complément d'adresse" /></div>
-                        <div class="code_postal"><p><label for="code_postal">Code postal : </label><input type="text" id="inputAdress" class="input_pdb" required placeholder="ex : 69000" /></p></div>
-                        <div class="ville"><p><label for="ville">Ville : </label><input type="text" id="inputAdress" class="input_pdb" required placeholder="ex : Lyon" /></p></div>
+                        <div class="mail"><p><label for="inputMail">E-mail : </label><input type="text" id="inputMail" class="input_pdb" required placeholder="Votre adresse mail" /></p></div>
+                        <div class="adresse"><p><label for="inputAdress">Adresse</label><input type="text" id="inputAdresse" class="input_pdb" required placeholder="ex : rue Saint-Michel" /></p></div>
+                        <div class="adresse_plus"><input type="text" id="inputAdresse_plus" class="input_pdb" required placeholder="Complément d'adresse" /></div>
+                        <div class="code_postal"><p><label for="code_postal">Code postal : </label><input type="text" id="inputCode_postal" class="input_pdb" required placeholder="ex : 69000" /></p></div>
+                        <div class="ville"><p><label for="ville">Ville : </label><input type="text" id="inputVille" class="input_pdb" required placeholder="ex : Lyon" /></p></div>
+                        <div class="pays"><p><label for="pays">Pays : </label><input type="text" id="inputPays" class="input_pdb" required placeholder="ex : France" /></p></div>
 
                         ***REMOVED***<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->
                     </div>
@@ -141,7 +144,7 @@
                 <button id="buttonBoughtDisabled" type="button" class="btn btn-primary buttonBought"
                         data-toggle="tooltip"
                         data-placement="top"
-                        title="Etes vous sûr d'avoir DEJA acheté l'objet ?'">
+                        title="Etes vous sûr d'avoir DEJA acheté l'objet ?">
                     J'ai acheté cet objet !
                 </button>
             </div>
@@ -150,6 +153,7 @@
         </div>
         ***REMOVED*** /.modal-dialog -->
     </div>
+</div>
     ***REMOVED*** /.modal -->
     <script type="text/javascript">
     $(function () {
@@ -172,7 +176,10 @@
         $.ajax({
             url: '@Url.Action("ObjectBought", "GiftState")',
             dataType: 'html',
-            data: { 'id': $(this).data("giftid"), 'buyerName': $('#inputName').val(), 'buyerText': $('#inputMessage').val() },
+            data: {
+                'id': $(this).data("giftid"), 'buyerName': $('#inputName').val(), 'buyerText': $('#inputMessage').val(),
+                'emailAddress': $('#inputMail').val(), 'address': $('#inputAdresse').val(), 'address_plus': $('#inputAdresse_plus').val(), 'town': $('#inputVille').val(), 'country': $('#inputPays').val()
+            },
             type: 'POST',
             success: function (myData) {
                 // Reload the span id = gift part
@@ -212,6 +219,13 @@
             //$("#objectUrl").text("J'achète " + $(this).data("objectname"));
 
             $('#buttonBought').data("giftid", $(this).data("id"));
+
+            // Ajout de l'image
+            // On réinitialise l'image
+            $("#img_modale_picture").attr("src", "~/Content/img/giftsList/img_non_trouvee.jpg");
+            // On remplace par l'image réelle de l'objet
+            $("#img_modale_picture").attr("src", $(this).data("imgsrc"));
+
             $('#giftWebSite').modal('show');
         });
 

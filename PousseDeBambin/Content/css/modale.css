@@ -80,11 +80,18 @@
 .ville input {
   margin-left: 50px;
 }
+.pays input {
+  margin-left: 45px;
+}
 .modal-footer {
   margin-top: 300px;
   padding: 19px 20px 20px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
+}
+#img_modale_picture {
+  width: inherit;
+  height: inherit;
 }
 /*# sourceMappingURL=modale.css.map */
 /*# sourceMappingURL=modale.css.map */
