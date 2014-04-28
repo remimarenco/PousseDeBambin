@@ -135,7 +135,14 @@
             </div>
             <div class="modal-footer">
                 <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas acheté cet objet</button>
-                <button id="buttonBought" type="button" class="btn btn-primary" data-giftid="" data-dismiss="modal">J'ai acheté cet objet !</button>
+                <button id="buttonBought" type="button" class="btn btn-primary buttonBought" data-giftid="" data-dismiss="modal">J'ai acheté cet objet !</button>
+
+                <button id="buttonBoughtDisabled" type="button" class="btn btn-primary buttonBought"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Etes vous sûr d'avoir DEJA acheté l'objet ?'">
+                    J'ai acheté cet objet !
+                </button>
             </div>
 
             ***REMOVED*** /.modal-content -->
@@ -205,6 +212,20 @@
 
             $('#buttonBought').data("giftid", $(this).data("id"));
             $('#giftWebSite').modal('show');
+        });
+
+        // Récupération de l'ouverture de la modale
+        $('#giftWebSite').on('show.bs.modal', function (e) {
+            // On désactive les boutons d'achats
+            $('#buttonBought').hide()
+            setTimeout(function () {
+                $('#buttonBought').show();
+            }, 10000);
+
+            $('#buttonBoughtDisabled').show().tooltip();
+            setTimeout(function () {
+                $('#buttonBoughtDisabled').hide();
+            }, 10000);
         });
     }
     </script>
