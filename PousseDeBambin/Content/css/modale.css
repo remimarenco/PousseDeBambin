@@ -1,4 +1,90 @@
 ﻿#buttonBoughtDisabled {
   opacity: 0.65;
 }
+.buttonOrder {
+  background: url('/Content/img/giftsList/bouton_validation.png') no-repeat;
+  width: 230px;
+  height: 33px;
+  padding: 10px 60px 20px 60px;
+  font-family: bebas_neueregular;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+}
+.buttonOrder:hover {
+  color: #f0e79c;
+}
+.modal-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 2px;
+  border: solid 2px #829516;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.texte_intro {
+  margin-top: 40px;
+}
+.red_text {
+  color: #eb754f;
+}
+.green_text {
+  color: #abbe41;
+}
+.title_sides {
+  font-family: Arial;
+  font-style: italic;
+  font-size: 0.9em;
+  color: #342b24;
+}
+#left_side_comment {
+  float: left;
+  width: 255px;
+  margin-right: 28px;
+}
+#right_side_comment {
+  float: left;
+  width: 255px;
+  margin-left: 15px;
+}
+#separation {
+  width: 1px;
+  height: 250px;
+  float: left;
+  background-color: #342b24;
+  margin-top: 20px;
+}
+#commentBuyObject {
+  float: left;
+  font-size: 0.8em;
+  text-align: left;
+}
+#commentBuyObject #inputName {
+  margin-top: 14px;
+}
+.mail input {
+  margin-left: 35px;
+}
+.adresse input {
+  margin-left: 35px;
+}
+.adresse_plus input {
+  margin-left: 85px;
+}
+.code_postal input {
+  margin-left: 5px;
+}
+.ville input {
+  margin-left: 50px;
+}
+.modal-footer {
+  margin-top: 300px;
+  padding: 19px 20px 20px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/*# sourceMappingURL=modale.css.map */
 /*# sourceMappingURL=modale.css.map */
