@@ -87,8 +87,8 @@
                     GiftId: "@Model.GiftId",
                     ImageUrl: $(nameIdGift + " " + "#ImageUrl").val(),
                     WebSite: $(nameIdGift + " " + "#WebSite").val(),
-                    Name: $(nameIdGift + " " + "#Name").val(),
-                    Description: $(nameIdGift + " " + "#Description").val(),
+                    Name: $(nameIdGift + " " + "#Name").val().substring(0,99),
+                    Description: $(nameIdGift + " " + "#Description").val().substring(0,999),
                     Price: $(nameIdGift + " " + "#Price").val(),
                     Priorite: $(nameIdGift + " " + "#Priorite").val()
                 },

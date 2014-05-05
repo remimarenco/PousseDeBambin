@@ -82,8 +82,8 @@
                     ListID: "@Model.ListID",
                     ImageUrl: $("#ImageUrl").val(),
                     WebSite: $("#WebSite").val(),
-                    Name: $("#Name").val(),
-                    Description: $("#Description").val(),
+                    Name: $("#Name").val().substring(0,99),
+                    Description: $("#Description").val().substring(0,999),
                     Price: $("#Price").val(),
                     Priorite: $("#Priorite").val()
                 },
