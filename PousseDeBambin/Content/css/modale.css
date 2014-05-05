@@ -1,7 +1,4 @@
-﻿#buttonBoughtDisabled {
-  opacity: 0.65;
-}
-.buttonOrder {
+﻿.buttonOrder {
   background: url('/Content/img/giftsList/bouton_validation.png') no-repeat;
   width: 230px;
   height: 33px;
@@ -12,11 +9,18 @@
   cursor: pointer;
   outline: none;
   text-align: center;
-  margin-left: 20px;
   text-decoration: none;
 }
 .buttonOrder:hover {
   color: #f0e79c;
+}
+.modal-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 2px;
+  border: solid 2px #829516;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 .texte_intro {
   margin-top: 40px;
@@ -73,11 +77,37 @@
 .ville input {
   margin-left: 50px;
 }
+.pays input {
+  margin-left: 45px;
+}
 .modal-footer {
   margin-top: 300px;
   padding: 19px 20px 20px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
+}
+#buttonBoughtDisabled {
+  opacity: 0.65;
+  background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
+  width: 230px;
+  height: 55px;
+  border: none;
+  display: inline-block;
+  padding-top: 25px;
+  font-family: bebas_neueregular;
+  font-size: 15px;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 20px;
+}
+#buttonBoughtDisabled:hover {
+  color: #f0e79c;
+}
+#img_modale_picture {
+  width: inherit;
+  height: inherit;
 }
 /*# sourceMappingURL=modale.css.map */
 /*# sourceMappingURL=modale.css.map */
