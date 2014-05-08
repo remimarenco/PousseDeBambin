@@ -25,5 +25,11 @@
 .fb-like {
   display: inline;
 }
+.twitter-follow-button {
+  vertical-align: bottom;
+}
+.googleplus {
+  vertical-align: bottom;
+}
 /*-----------------------FIN FOOTER------------------------*/
 /*# sourceMappingURL=footer.css.map */
