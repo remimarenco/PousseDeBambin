@@ -36,6 +36,10 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/preview").Include(
+                "~/Scripts/preview.js"
+                ));
+
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
                         "~/Content/css/connexionBar.css",
