@@ -1,0 +1,99 @@
+﻿#news p {
+  float: left;
+  text-align: left;
+  font-style: italic;
+  font-size: 0.9em;
+}
+.warning_news button {
+  color: #fff;
+  background-color: #829517;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  text-align: center;
+  float: left;
+  vertical-align: central;
+  cursor: pointer;
+}
+.modal-dialog_news {
+  width: 550px;
+  margin: 30px auto;
+}
+.modal-dialog_news .modal-footer {
+  margin-top: 15px;
+}
+.news_body {
+  margin-top: 25px;
+}
+.modale_subtitle {
+  font-family: 'bebas_neueregular';
+  color: #AF5C63;
+  text-align: left;
+  margin-left: 30px;
+  font-size: 1.2em;
+}
+.modal_news_title {
+  margin: 0;
+  line-height: 1.428571429;
+  font-family: 'amatic_scregular';
+  color: #829517;
+  font-size: 1.8em;
+}
+.now_available {
+  text-align: left;
+  margin-left: 60px;
+  font-size: 0.9em;
+}
+.now_available li {
+  list-style: disc;
+}
+.incoming {
+  text-align: left;
+  margin-left: 60px;
+  font-size: 0.9em;
+  list-style: disc;
+}
+.incoming li {
+  list-style: disc;
+}
+.discover_news {
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 0.7em;
+  font-style: italic;
+  color: #829517;
+}
+.news_suggestion {
+  width: 250px;
+  margin: 0 auto;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 40px;
+}
+.news_comment {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.send_comment {
+  background: url('/Content/img/giftsList/bouton_pas_achete.png');
+  width: 230px;
+  height: 55px;
+  padding-top: 25px;
+  color: #fff;
+  font-family: 'bebas_neueregular';
+  font-size: 1em;
+  border: none;
+  margin-right: 135px;
+}
+.send_comment:hover {
+  color: #f0e79c;
+  cursor: pointer;
+}
+.modal-footer_news {
+  padding: 5px 20px 10px 25px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/*# sourceMappingURL=news.css.map */
