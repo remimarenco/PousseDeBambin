@@ -281,6 +281,9 @@
     <Content Include="Content\css\modale.css">
       <DependentUpon>modale.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\news.css">
+      <DependentUpon>news.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
@@ -530,6 +533,10 @@
     <Content Include="Content\css\LegalMentions.css.map">
       <DependentUpon>LegalMentions.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\news.less" />
+    <Content Include="Content\css\news.css.map">
+      <DependentUpon>news.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
@@ -662,6 +669,7 @@
     <Content Include="Views\List\_SearchReturn.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
+    <Content Include="Views\List\_News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

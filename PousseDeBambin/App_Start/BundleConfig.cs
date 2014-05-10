@@ -70,6 +70,7 @@ namespace PousseDeBambin
                         "~/Content/css/LegalMentions.css",
                         "~/Content/rateit.css",
                         "~/Content/zopim.css",
+                        "~/Content/css/news.css",
                         "~/Content/css/modale.css"));
 
             bundles.IgnoreList.Clear();
