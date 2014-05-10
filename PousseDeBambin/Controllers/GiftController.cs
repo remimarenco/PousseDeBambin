@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using PousseDeBambin.Models;
 using PousseDeBambin.ViewModels;
+using System.IO;
 
 namespace PousseDeBambin.Controllers
 {
@@ -96,9 +97,11 @@ namespace PousseDeBambin.Controllers
                 db.SaveChanges();
 
                 ViewBag.Success = "L'objet a correctement été ajouté !";
-                return RedirectToAction("CreatePartialTwo", new { listID = gift.ListID });
+                string redirectToResultTrue = RenderRazorViewToString("_CreateGiftTwo", new Gift { ListID = gift.ListID });
+                return Json(new { isValid = true, redirectTo = redirectToResultTrue }, JsonRequestBehavior.AllowGet);
             }
-            return PartialView("_CreateGiftTwo", gift);
+            string redirectToResultFalse = RenderRazorViewToString("_CreateGiftTwo", gift);
+            return Json(new { isValid = false, redirectTo = redirectToResultFalse }, JsonRequestBehavior.AllowGet);
         }
 
         //
@@ -237,6 +240,31 @@ namespace PousseDeBambin.Controllers
                 return Json("true");
             }
             return Json("false");
+        }
+
+        public ActionResult DisplayGift(int giftId)
+        {
+            Gift gift = db.Gifts.First(g => g.GiftId == giftId);
+            if(gift != null)
+            {
+                return PartialView("_DisplayGift", gift);
+            }
+            //TODO : Attention à gérer correctement le retour dans ce cas là
+            return null;
+        }
+
+        // Sert à transformer une vue razor en string html
+        public string RenderRazorViewToString(string viewName, object model)
+        {
+            ViewData.Model = model;
+            using (var sw = new StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+                viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+                return sw.GetStringBuilder().ToString();
+            }
         }
 
         protected override void Dispose(bool disposing)

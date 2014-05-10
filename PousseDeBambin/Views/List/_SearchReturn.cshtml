@@ -1,0 +1,31 @@
+﻿@model IDictionary<string, List<PousseDeBambin.Models.List>>
+
+@if (Model != null && Model.Count() != 0)
+{
+    <h3>Voici les résultats trouvés pour @ViewBag.FirstName @ViewBag.LastName :</h3>
+    <ul>
+        @foreach (var key in Model.Keys)
+        {
+            var listeList = new System.Collections.Generic.List<PousseDeBambin.Models.List>();
+            Model.TryGetValue(key, out listeList);
+            if (listeList.Count != 0)
+            {
+                <li>
+                    <h4>Nom d'utilisateur @listeList.First().UserProfile.UserName</h4>
+                    @foreach (var liste in listeList)
+                    {
+                        <ul>
+                            <li>@Html.ActionLink(liste.Name, "Manage", "List", new { id = liste.ListId }, null)</li>
+                        </ul>
+                    }
+                </li>
+            }
+
+        }
+    </ul>
+}
+else
+{
+    <p>Aucune liste n'a été trouvée :(. Vérifiez le nom et prénom de la personne ou contactez la directement pour avoir le lien de sa liste ;).</p>
+}
+

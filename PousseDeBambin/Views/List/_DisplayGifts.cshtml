@@ -2,7 +2,5 @@
 
 @foreach (var gift in Model.Gifts)
 {
-    <tr class="fond_cadeaux" id="gift@(gift.GiftId)">
-        @Html.Action("DisplayGiftStateTwo", "GiftState", new { id = gift.GiftId })
-    </tr>
+    @Html.Action("DisplayGift", "Gift", new { giftId = gift.GiftId });
 }

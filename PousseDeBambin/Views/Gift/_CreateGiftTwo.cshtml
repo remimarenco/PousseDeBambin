@@ -39,6 +39,13 @@
         @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
+    <div class="divObjectPriority createObjectPriority">
+        <div>
+            @Html.LabelFor(model => model.Priorite, new { @class = "" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Priorite)
+        @Html.EditorFor(modelItem => Model, "_PrioriteRating")
+    </div>
     <div class="divObjectDescription createObjectDescription">
         <div>
             @Html.LabelFor(model => model.Description)
@@ -75,16 +82,20 @@
                     ListID: "@Model.ListID",
                     ImageUrl: $("#ImageUrl").val(),
                     WebSite: $("#WebSite").val(),
-                    Name: $("#Name").val(),
-                    Description: $("#Description").val(),
-                    Price: $("#Price").val()
+                    Name: $("#Name").val().substring(0,99),
+                    Description: $("#Description").val().substring(0,999),
+                    Price: $("#Price").val(),
+                    Priorite: $("#Priorite").val()
                 },
                 type: "POST",
                 content: 'application/json; charset=utf-8',
                 datatype: 'json',
                 success: function (data) {
-                    $("#createForm").html(data);
-                    refreshGiftsListAddEffect();
+                    $("#createForm").html(data.redirectTo);
+                    if (data.isValid)
+                    {
+                        refreshGiftsListAddEffect();
+                    }
                 }
             });
         }
@@ -202,6 +213,7 @@
             // On affiche les champs remplis
             $('.createObjectImage').show();
             $('.createObjectName').show();
+            $('.createObjectPriority').show();
             $('.createObjectDescription').show();
             $('.createObjectPrice').show();
             $('.createAddObject').show();
@@ -219,6 +231,7 @@
                 // On cache également les champs non utile pour le moment
                 $('.createObjectImage').hide();
                 $('.createObjectName').hide();
+                $('.createObjectPriority').hide();
                 $('.createObjectDescription').hide();
                 $('.createObjectPrice').hide();
                 $('.createAddObject').hide();

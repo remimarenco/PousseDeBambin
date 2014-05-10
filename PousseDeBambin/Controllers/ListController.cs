@@ -10,6 +10,8 @@ using PousseDeBambin.ViewModels;
 using System.Web.Security;
 using System.Net;
 using Microsoft.AspNet.Identity;
+using System.Collections;
+using Postal;
 
 namespace PousseDeBambin.Controllers
 {
@@ -22,13 +24,14 @@ namespace PousseDeBambin.Controllers
 
         public ActionResult Index(string searchString)
         {
-            var lists = from s in db.Lists
+            /*var lists = from s in db.Lists
                         select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 lists = lists.Where(s => s.UserProfile.UserName.ToUpper().Contains(searchString.ToUpper()));
             }
-            return View(lists.ToList());
+             * */
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -60,7 +63,36 @@ namespace PousseDeBambin.Controllers
         {
             var list = db.Lists.Find(id);
 
+            var orderedGifts = list.Gifts;
+
+            orderedGifts = orderedGifts.OrderByDescending(g => g.Priorite).ToList();
+
+            list.Gifts = orderedGifts;
+
             return PartialView("_DisplayGifts", list);
+        }
+
+        /// <summary>
+        /// Fonction permettant de récupérer le dernier élément ajouté à la liste
+        /// </summary>
+        /// <param name="listId">Id de la liste</param>
+        /// <returns></returns>
+        public ActionResult GetLastGift(int listId)
+        {
+            Gift lastGift = null;
+            List list = db.Lists.Find(listId);
+            if (list != null)
+            {
+                // Si il existe au moins un objet dans la liste on l'affiche, sinon on retourne vide
+                int nbGifts = list.Gifts.Count;
+                if(nbGifts > 0)
+                {
+                    lastGift = list.Gifts.ElementAt(nbGifts - 1);
+                    return RedirectToAction("DisplayGift", "Gift", new { giftId = lastGift.GiftId });
+                }
+            }
+            // TODO: Trouver un moyen de renvoyer quelque chose de plus propre
+            return Json(null, JsonRequestBehavior.AllowGet);
         }
         
 
@@ -128,7 +160,7 @@ namespace PousseDeBambin.Controllers
             }
 
             list.Name = "Pas de nom";
-            list.Description = "Aucune description";
+            list.Description = "Important ! Ce texte indiquera à vos proches la raison de votre liste...pensez y ;)";
 
             // On met la date du jour
             list.BeginningDate = DateTime.Now;
@@ -198,11 +230,31 @@ namespace PousseDeBambin.Controllers
                         {
                             FormsAuthentication.RedirectToLoginPage();
                         }
+                        
+                        //On envoi un mail aux admin pour les prévenir de la création d'une liste réussie totalement
+                        sendEmailNewList(list);
+
                         return RedirectToAction("Share", new { id = list.ListId });
                     }
                     return RedirectToAction("CreatePartTwo", id);
                 }
             }
+        }
+
+        private void sendEmailNewList(List list)
+        {
+            string urlHost = Request.Url.Host;
+
+            dynamic email = new Email("Admin_CreateListCompleted");
+            
+            email.To = "info@poussedebambin.com";
+            email.Subject = "[Pousse De Bambin] Création d'une liste !";
+            email.UserMail = list.UserProfile.EmailAddress;
+            email.UrlList = Url.Action("Manage", "List", new { Id = list.ListId }, Request.Url.Scheme);
+            email.UserName = list.UserProfile.UserName;
+            email.FullName = list.UserProfile.FirstName + " " + list.UserProfile.LastName;
+
+            email.Send();
         }
         
 
@@ -269,9 +321,14 @@ namespace PousseDeBambin.Controllers
             }
             // On associe l'utilisateur authentifié à la liste
             string UserName = User.Identity.GetUserName();
+            // TODO: Erreur grave ici, si un utilisateur a déjà un username et que la personne le réutilise => pb
             list.UserProfile = db.Users.FirstOrDefault(u => u.UserName.Equals(UserName));
             //list.UserProfile.Id = User.Identity.GetUserId();
             db.SaveChanges();
+
+            //On envoi un mail aux admin pour les prévenir de la création d'une liste réussie totalement
+            sendEmailNewList(list);
+
             return RedirectToAction("Share", new { id = list.ListId });
         }
 
@@ -368,7 +425,7 @@ namespace PousseDeBambin.Controllers
         [HttpPost]
         public ActionResult Search(string firstName, string lastName)
         {
-            List<PousseDeBambin.Models.List> foundedLists = null;
+            IDictionary<string, List<PousseDeBambin.Models.List>> foundedLists = null;
 
             if (String.IsNullOrWhiteSpace(firstName))
             {
@@ -383,18 +440,18 @@ namespace PousseDeBambin.Controllers
                 ViewBag.FirstName = firstName;
                 ViewBag.LastName = lastName;
 
-                String firstNameUpInvariant = firstName.ToUpperInvariant();
-                String lastNameUpInvariant = lastName.ToUpperInvariant();
+                String firstNameUp = firstName.ToUpper();
+                String lastNameUp = lastName.ToUpper();
 
-                foundedLists = db.Lists.Where(l =>
-                    l.UserProfile.FirstName.ToUpper().Equals(firstNameUpInvariant)).Where(l =>
-                    l.UserProfile.LastName.ToUpper().Equals(lastNameUpInvariant)).ToList();
-
-                return View(foundedLists);
+                foundedLists = db.Users.Where(u => u.FirstName.ToUpper().Equals(firstNameUp))
+                    .Where(u => u.LastName.ToUpper().Equals(lastNameUp))
+                    .ToDictionary(u => u.Id, u => u.Lists.ToList());
+                
+                return PartialView("_SearchReturn", foundedLists);
 
             }
 
-            return View(foundedLists);
+            return View();
         }
 
         public ActionResult InfosListe(int id)

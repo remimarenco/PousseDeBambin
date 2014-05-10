@@ -4,6 +4,14 @@
     if (Model != null)
     {
         ViewBag.Title = Model.Name;
+        
+        //Gestion de la balise meta
+        if (Model.UserProfile.UserName != "Anonyme")
+        {
+            @section metaDescription{
+                <meta name="description" content="@Model.Description" />
+            }
+        }
     }
     else
     {

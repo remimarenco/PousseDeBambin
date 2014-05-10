@@ -49,17 +49,19 @@ namespace PousseDeBambin.Controllers
 
         public ActionResult DisplayGiftStateTwo(int id = 0)
         {
-            GiftState giftState = db.GiftsStates.Find(id);
+            GiftState giftState = db.GiftsStates.FirstOrDefault(g => g.GiftID == id);
             // If we do not find it, and it is not id 0, we add it in the giftState db
             if (giftState == null && id != 0)
             {
+                Gift gift = db.Gifts.FirstOrDefault(g => g.GiftId == id);
                 giftState = db.GiftsStates.Add(new GiftState
                 {
                     GiftID = id,
                     State = State.NOT_BOUGHT,
                     BuyerName = "Anonyme",
+                    Gift = gift 
                 });
-                giftState.Gift = db.Gifts.FirstOrDefault(g => g.GiftId == giftState.GiftID);
+                //giftState.Gift = db.Gifts.FirstOrDefault(g => g.GiftId == giftState.GiftID);
                 db.SaveChanges();
             }
             else if (id == 0)
@@ -81,16 +83,20 @@ namespace PousseDeBambin.Controllers
         }
 
         [HttpPost]
-        public int ObjectBought(string buyerName, string buyerText, int id = 0)
+        public int ObjectBought(string buyerName, string buyerText, string emailAddress, string address, string address_plus, string town, string country, int id = 0)
         {
-            GiftState giftState = db.GiftsStates.Find(id);
+            // TODO: Changer en enregistrement classique par le framework, car risque de string corrompu
+
+            Gift gift = db.Gifts.Find(id);
+            GiftState giftState = db.GiftsStates.First(g => g.GiftID == gift.GiftId);
 
             if (buyerName.Equals(String.Empty))
             {
                 buyerName = "Anonyme";
             }
 
-            if (giftState == null && id != 0)
+            // Si le giftState n'existe pas, on l'ajoute
+            if (gift == null)
             {
                 giftState = db.GiftsStates.Add(new GiftState
                 {
@@ -109,14 +115,27 @@ namespace PousseDeBambin.Controllers
                 db.SaveChanges();
             }
 
+            // On récupère le gift et on l'ajoute au CloseRelative en même temps que ses informations
+            CloseRelative closeRelative = db.CloseRelatives.Add(new CloseRelative
+                {
+                    EmailAddress = emailAddress,
+                    Address = address,
+                    Address_plus = address_plus,
+                    Town = town,
+                    Country = country,
+                    Gift = gift,
+                    RegistredDate = DateTime.Now
+                });
+            db.SaveChanges();
+
             //// Send email to list's owner
-            sendMail(giftState, buyerName, buyerText);
+            sendMail(giftState, buyerName, buyerText, emailAddress, address, address_plus, town, country);
 
 
             return giftState.GiftID;
         }
 
-        private void sendMail(GiftState giftState, String buyerName, String buyerText)
+        private void sendMail(GiftState giftState, String buyerName, String buyerText, string emailAddress, string address, string address_plus, string town, string country)
         {
             //TODO: Modifier cet objet pour utiliser la librairire d'envoi de mail => Postal
             // We get first the informations about the owner of the list : EmailAddress, FirstName, listName, giftName
@@ -124,17 +143,24 @@ namespace PousseDeBambin.Controllers
             string listName = giftState.Gift.List.Name;
             int listId = giftState.Gift.List.ListId;
             string firstName = giftState.Gift.List.UserProfile.FirstName;
-            string emailAddress = giftState.Gift.List.UserProfile.EmailAddress;
+            string emailAddressParents = giftState.Gift.List.UserProfile.EmailAddress;
 
             // Then we send him the email
             dynamic email = new Email("GiftBought");
-            email.To = emailAddress;
+            email.To = emailAddressParents;
             email.Subject = "[Pousse De Bambin] " + buyerName + " vient d'acheter un objet !";
             email.BuyerName = buyerName;
             email.FirstName = firstName;
             email.GiftName = giftName;
             email.ListName = listName;
             email.Message = buyerText;
+
+            email.RelativeMail = emailAddress;
+            email.Address = address;
+            email.AddressPlus = address_plus;
+            email.Town = town;
+            email.Country = country;
+
             email.ListId = listId;
             email.UrlList = Url.Action("Manage", "List", new { Id = listId }, Request.Url.Scheme);
             Task.Run(() => { email.Send(); });

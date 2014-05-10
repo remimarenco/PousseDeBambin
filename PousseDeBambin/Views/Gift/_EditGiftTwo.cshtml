@@ -41,6 +41,13 @@
         @Html.ValidationMessageFor(model => model.Name)
         @Html.TextBoxFor(modelItem => Model.Name)
     </div>
+    <div class="divObjectPriority editObjectPriority">
+        <div>
+            @Html.LabelFor(model => model.Priorite, new { @class = "" })
+        </div>
+        @Html.ValidationMessageFor(model => model.Priorite)
+        @Html.EditorFor(modelItem => Model, "_PrioriteRating")
+    </div>
     <div class="divObjectDescription editObjectDescription">
         <div>
         @Html.LabelFor(model => model.Description)
@@ -73,7 +80,6 @@
         });
 
         function submitEditGift() {
-            
             $.ajax({
                 url: "@Url.Action("EditPartialTwo", "Gift")",
                 data: {
@@ -81,9 +87,10 @@
                     GiftId: "@Model.GiftId",
                     ImageUrl: $(nameIdGift + " " + "#ImageUrl").val(),
                     WebSite: $(nameIdGift + " " + "#WebSite").val(),
-                    Name: $(nameIdGift + " " + "#Name").val(),
-                    Description: $(nameIdGift + " " + "#Description").val(),
-                    Price: $(nameIdGift + " " + "#Price").val()
+                    Name: $(nameIdGift + " " + "#Name").val().substring(0,99),
+                    Description: $(nameIdGift + " " + "#Description").val().substring(0,999),
+                    Price: $(nameIdGift + " " + "#Price").val(),
+                    Priorite: $(nameIdGift + " " + "#Priorite").val()
                 },
                 type: "POST",
                 content: 'application/json; charset=utf-8',
@@ -91,6 +98,8 @@
                 success: function (data) {
                     //alert("Ché bon ! : "+ nameIdGift + " et le code de retour : "+data);
                     $(nameIdGift).html(data);
+                    rebindRateIt();
+                    registerBuyButton();
                     //refreshGiftsList();
                 }
             });

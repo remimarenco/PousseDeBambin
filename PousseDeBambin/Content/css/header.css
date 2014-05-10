@@ -1,36 +1,21 @@
-/*-----------------------HEADER------------------------*/
+﻿/*-----------------------HEADER------------------------*/
 header {
-  background-image: -webkit-linear-gradient(#f4e98e, #f4e98e 60%, #81aa8e);
-  background-image: linear-gradient(#f4e98e, #f4e98e 60%, #81aa8e);
+  background-image: -webkit-linear-gradient(#f3ea9b, #f3ea9b 60%, #81aa8e);
+  background-image: linear-gradient(#f3ea9b, #f3ea9b 60%, #81aa8e);
   background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4e98e', endColorstr='#ff81aa8e', GradientType=0);
-  height: 183px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff3ea9b', endColorstr='#ff81aa8e', GradientType=0);
+  border-bottom: solid 4px #382a21;
+  height: 207px;
+  overflow-y: visible;
   position: relative;
   z-index: 5;
 }
-header .header_bottom {
-  background: url('/Content/img/home/herbe_header.png') repeat-x;
-  height: 54px;
+header .menu {
+  background: url('/Content/img/home/herbe_header.png') repeat-x 0 100%;
+  height: 210px;
   position: relative;
-  z-index: 10;
-  margin-top: 92px;
-  border-bottom: solid 10px #382a21;
-}
-header:after {
-  height: 177px;
-  content: url('/Content/img/home/champignons_header.png');
-  position: absolute;
-  left: 50%;
-  top: 3px;
-  margin-left: 350px;
-}
-header:before {
-  height: 177px;
-  content: url('/Content/img/home/fleur_header.png');
-  left: 50%;
-  position: absolute;
-  top: 0px;
-  margin-left: -480px;
+  top: -30px;
+  overflow: hidden;
 }
 header .menu ul {
   height: 32px;
@@ -40,10 +25,7 @@ header .menu ul {
 }
 header .menu ul li {
   display: inline-block;
-  background-repeat: no-repeat;
-  background-position: 0% 10px;
-  margin-top: 74px;
-  vertical-align: top;
+  vertical-align: middle;
   width: 150px;
   /*
                 &:first-child {
@@ -57,7 +39,6 @@ header .menu ul li:last-child {
 }
 header .menu a {
   text-decoration: none;
-  line-height: 0;
   font-family: arial;
   font-family: 'amaticbold';
   font-size: 28px;
@@ -66,8 +47,6 @@ header .menu a {
   -o-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   position: relative;
-  z-index: 30;
-  margin-top: -30px;
 }
 header .menu a:hover,
 header .menu a:focus,
@@ -81,6 +60,23 @@ header .menu a.logo {
   display: inline-block;
   z-index: 20;
   position: relative;
+  vertical-align: middle;
+}
+header .menu:before,
+header .menu:after {
+  height: 177px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: -1;
+}
+header .menu:before {
+  content: url('/Content/img/home/fleur_header.png');
+  margin-left: -480px;
+}
+header .menu:after {
+  content: url('/Content/img/home/champignons_header.png');
+  margin-left: 350px;
 }
 /*-----------------------FIN HEADER------------------------*/
 .hook-homepage {
@@ -140,3 +136,4 @@ header .menu a.logo {
   right: 5px;
   background: url('/Content/img/home/next_btn.png');
 }
+/*# sourceMappingURL=header.css.map */

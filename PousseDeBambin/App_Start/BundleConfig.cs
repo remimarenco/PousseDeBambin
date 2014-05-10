@@ -24,6 +24,9 @@ namespace PousseDeBambin
             bundles.Add(new ScriptBundle("~/bundles/carousel").Include(
                         "~/Scripts/carousel.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/star").Include(
+                        "~/Scripts/jquery.rateit.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -32,6 +35,10 @@ namespace PousseDeBambin
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/preview").Include(
+                "~/Scripts/preview.js"
+                ));
 
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
@@ -59,7 +66,11 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.progressbar.css",
                         "~/Content/css/jquery.ui.theme.css",
                         "~/Content/css/bootstrap.css",
-                        "~/Content/css/carousel.css"));
+                        "~/Content/css/carousel.css",
+                        "~/Content/css/LegalMentions.css",
+                        "~/Content/rateit.css",
+                        "~/Content/zopim.css",
+                        "~/Content/css/modale.css"));
 
             bundles.IgnoreList.Clear();
         }

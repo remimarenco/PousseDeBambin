@@ -3,13 +3,11 @@
 @{
     ViewBag.Title = "Page non trouvée";
 }
-<div class="list-header clearfix">
-    <span>Page non trouvée</span>
-</div>
 <div class="list-sfs-holder">
-    <div class="alert alert-error">
-        La page demandée n'existe pas...nous sommes désolés :(. Veuillez contacter <a href="mailto:remi@poussedebambin.com" target="_blank">Rémi</a> (oui c'est de sa faute !).
+    <div class="alert alert-error erreur_page">
+        <span>La page demandée<br />n'existe pas...</span><br /><br /><div class="fond_erreur">Nous sommes désolés :(<br />Veuillez contacter <a href="mailto:remi@poussedebambin.com" target="_blank">Rémi</a> <br /><br />(oui c'est de sa faute !).</div>
     </div>
+    <div id="img_erreur"></div>
     @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
     {
         <div>

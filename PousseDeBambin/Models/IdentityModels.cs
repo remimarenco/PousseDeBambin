@@ -35,5 +35,7 @@ namespace PousseDeBambin.Models
         public DbSet<GiftState> GiftsStates { get; set; }
         public DbSet<List> Lists { get; set; }
         public DbSet<Address> Addresses { get; set; }
+
+        public DbSet<CloseRelative> CloseRelatives { get; set; }
     }
 }

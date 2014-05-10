@@ -1,4 +1,4 @@
-/*-----------------------FOOTER------------------------*/
+﻿/*-----------------------FOOTER------------------------*/
 #liensFooter .row {
   background: #382a21;
   height: 30px;
@@ -25,4 +25,11 @@
 .fb-like {
   display: inline;
 }
+.twitter-follow-button {
+  vertical-align: bottom;
+}
+.googleplus {
+  vertical-align: bottom;
+}
 /*-----------------------FIN FOOTER------------------------*/
+/*# sourceMappingURL=footer.css.map */

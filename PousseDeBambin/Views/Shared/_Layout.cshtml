@@ -21,6 +21,8 @@
 
     @Scripts.Render("~/bundles/bootstrap")
 
+    @Scripts.Render("~/bundles/star")
+
     @RenderSection("scripts", required: false)
     <link rel="image_src" href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")" />
 
@@ -30,6 +32,8 @@
     <meta name="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
     <meta name="fb:app_id" content="708244749188733" />
     <meta name="site_name" content="Pousse De Bambin" />
+    <link rel="image_src" href="@Url.Content("~/Content/img/home/logo.png")" />
+    @RenderSection("metaDescription", required: false)
 
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -42,20 +46,15 @@
         ga('create', 'UA-47337807-1', 'poussedebambin.com');
         ga('send', 'pageview');
     </script>
-
 </head>
 <body>
-    @Html.Partial("_MessageBeta")
+    @*@Html.Partial("_MessageBeta")*@
+    <header>
     <div id="connexionBar" class="connexionBar">
         @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
     </div>
-    <header>
-
-
         ***REMOVED*** @Html.Partial("_BaseLine") -->
         @Html.Partial("_MainTabs")
-        <div class="header_bottom"></div>
-
     </header>
     ***REMOVED***div class="alert alert-success">
         <p id="textBeta">
@@ -82,7 +81,7 @@
             </footer>
         </div>
     </div>
-
+    
     ***REMOVED*** Viglink -->
     <script type="text/javascript">
         var vglnk = {
@@ -118,5 +117,39 @@
     </script>
     ***REMOVED*** Fin Social script -->
     ***REMOVED***<script type="text/javascript" src="http://s.skimresources.com/js/59995X1382328.skimlinks.js"></script>-->
+    ***REMOVED***Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
+            $.src = '//v2.zopim.com/?20Uq0MlI5gaqTXNATK08VGITdjo9IAHa'; z.t = +new Date; $.
+            type = 'text/javascript'; e.parentNode.insertBefore($, e)
+        })(document, 'script');
+    </script>
+
+    ***REMOVED*** Code Google de la balise de remarketing -->
+    ***REMOVED***------------------------------------------------
+    Les balises de remarketing ne peuvent pas être associées aux informations personnelles ou placées sur des pages liées aux catégories à caractère sensible. Pour comprendre et savoir comment configurer la balise, rendez-vous sur la page http://google.com/ads/remarketingsetup.
+    --------------------------------------------------->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 967658191;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/967658191/?value=0&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+    ***REMOVED***End of Zopim Live Chat Script-->
+    @RenderSection("OtherScripts", false)
 </body>
 </html>

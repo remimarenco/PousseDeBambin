@@ -11,6 +11,7 @@ namespace PousseDeBambin.Models
     [Table("Gift")]
     public class Gift
     {
+        [Key]
         public int GiftId { get; set; }
 
         [Required(ErrorMessage = "Le nom de l'objet est obligatoire")]
@@ -38,7 +39,9 @@ namespace PousseDeBambin.Models
         [Display(Name = "Adresse de la page internet du cadeau (url)")]
         public string WebSite {get; set;}
 
-        [ForeignKey("List")]
+        [Display(Name = "Priorité")]
+        public double Priorite { get; set; }
+
         public int ListID { get; set; }
         public virtual List List { get; set; }
     }

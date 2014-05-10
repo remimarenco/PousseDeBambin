@@ -1,10 +1,15 @@
 ﻿@model PousseDeBambin.Models.GiftState
 
 <td class="divObjectImage">
-    <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
+    <a href="@Model.Gift.ImageUrl" class="preview">
+        <img src="@Model.Gift.ImageUrl" class="objectImage img-thumbnail" onerror="this.onerror=null;this.src='@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")'" />
+    </a>
 </td>
 <td class="divObjectGift">
     <div class="divObjectName">
+        <div class="divObjectPriority">
+            @Html.DisplayFor(modelItem => Model.Gift.Priorite, "_PrioriteRating")
+        </div>
         @Html.DisplayFor(modelItem => Model.Gift.Name)
     </div>
     <div class="divObjectDescription">
@@ -22,7 +27,8 @@
             {
                 InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
                 UpdateTargetId = "gift" + Model.GiftID,
-                HttpMethod = "GET"
+                HttpMethod = "GET",
+                OnComplete = "rebindRateIt"
             }, new { @class = "inlineForm" }))
             {
                 <input class="modifier_input" type="submit" value="Modifier" />
@@ -32,7 +38,7 @@
         {
             using (Ajax.BeginForm("DeletePartial", "Gift", new { id = @Model.GiftID }, new AjaxOptions()
             {
-                OnBegin = "beginDeleteGift",
+                OnBegin = "(function(){beginDeleteGift('" + @Model.GiftID + "');})();",
                 OnSuccess = "successDeleteGift",
                 HttpMethod = "Post",
                 Confirm = "Etes vous sûr de vouloir supprimer cet objet de la liste ?"
@@ -47,6 +53,7 @@
                 disabled="@(ViewBag.Bought == true ? "disabled" : null)"
                 data-url="@(Model.Gift.WebSite)"
                 data-objectname="@(Model.Gift.Name)"
+                data-imgsrc="@(Model.Gift.ImageUrl)"
                 data-id="@(Model.GiftID)"
                 data-toggle="modal" data-target="#giftWebSite">
             <span class="glyphicon glyphicon-gift">
@@ -61,7 +68,57 @@
     function successDeleteGift() {
         refreshGiftsList();
     }
-    function beginDeleteGift(){
-        deleteGiftEffect();
+
+    function beginDeleteGift(giftId) {
+        deleteGiftEffect(giftId);
     }
+
+    // Preview
+
+    /*
+ * Image preview script
+ * powered by jQuery (http://www.jquery.com)
+ *
+ * written by Alen Grakalic (http://cssglobe.com)
+ *
+ * for more info visit http://cssglobe.com/post/1695/easiest-tooltip-and-image-preview-using-jquery
+ *
+ */
+
+    this.imagePreview = function(){
+        /* CONFIG */
+
+        xOffset = 10;
+        yOffset = 30;
+
+        // these 2 variable determine popup's distance from the cursor
+        // you might want to adjust to get the right result
+
+        /* END CONFIG */
+        $("a.preview").hover(function(e){
+            this.t = this.title;
+            this.title = "";
+            var c = (this.t != "") ? "<br/>" + this.t : "";
+            $("body").append("<p id='preview'><img src='"+ this.href +"' alt='Image preview' />"+ c +"</p>");
+            $("#preview")
+                .css("top",(e.pageY - xOffset) + "px")
+                .css("left",(e.pageX + yOffset) + "px")
+                .fadeIn("fast");
+        },
+        function(){
+            this.title = this.t;
+            $("#preview").remove();
+        });
+        $("a.preview").mousemove(function(e){
+            $("#preview")
+                .css("top",(e.pageY - xOffset) + "px")
+                .css("left",(e.pageX + yOffset) + "px");
+        });
+    };
+
+
+    // starting the script on page load
+    $(document).ready(function(){
+        imagePreview();
+    });
 </script>

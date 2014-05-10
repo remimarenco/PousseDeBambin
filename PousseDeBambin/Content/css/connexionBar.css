@@ -1,12 +1,147 @@
+﻿.login_title h2 {
+  font-family: 'amatic_scregular';
+  color: #829517;
+  font-weight: bold;
+  font-size: 2em;
+}
+#loginForm h4 {
+  font-family: 'bebas_neueregular';
+  color: #AF5C63;
+  font-weight: normal;
+  font-size: 1.2em;
+  display: inline;
+  margin: 0;
+  float: left;
+}
+.padding-title h4 {
+  padding-top: 40px;
+}
+.form-account {
+  margin: 0 auto;
+  width: 800px;
+}
+#login_connexion {
+  background: url('/Content/img/giftsList/bouton_offrir.png');
+  width: 180px;
+  height: 55px;
+  font-family: 'bebas_neueregular';
+  font-size: 1.2em;
+  padding-top: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.login_create {
+  background: url('/Content/img/giftsList/bouton_pas_achete.png');
+  padding: 28px 58px 4px 58px;
+  font-family: 'bebas_neueregular';
+  font-size: 1.2em;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 185px;
+}
+.login_button {
+  margin-left: 45px;
+  display: inline-block;
+}
+#login {
+  width: 315px;
+  display: inline-block;
+  margin-left: 130px;
+}
+#login .form-group {
+  margin-bottom: 20px;
+}
+.margin-form {
+  margin-left: 19px;
+}
+.form-horizontal .form-control {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+.label {
+  font-family: Arial;
+  font-size: 0.9em;
+  color: #382922;
+}
+.login_separation {
+  background: url('/Content/img/create/login_separation.png') repeat-x;
+  width: 800px;
+  height: 2px;
+  margin: 30px 0 80px 0;
+}
+.first_list {
+  width: 800px;
+}
+#register_title h2 {
+  font-family: 'amatic_scregular';
+  color: #829517;
+  font-weight: bold;
+  font-size: 2em;
+}
+#register_subtitle h4 {
+  font-family: 'bebas_neueregular';
+  color: #AF5C63;
+  font-weight: normal;
+  font-size: 1.2em;
+  margin-left: 40px;
+}
+.subtitle_register h3 {
+  font-family: 'bebas_neueregular';
+  color: #AF5C63;
+  font-weight: normal;
+  font-size: 1.2em;
+  text-align: left;
+  margin: 13px 0 13px 0;
+}
+#register_left_column {
+  width: 300px;
+  float: left;
+  margin-left: 180px;
+  font-family: Arial;
+  font-size: 0.9em;
+  color: #382922;
+}
+#register_right_column {
+  width: 300px;
+  float: left;
+  font-family: Arial;
+  font-size: 0.9em;
+  color: #382922;
+}
+.btn_inscription {
+  background: url('/Content/img/giftsList/bouton_offrir.png') no-repeat;
+  width: 180px;
+  height: 55px;
+  font-family: 'bebas_neueregular';
+  font-size: 1.2em;
+  padding-top: 24px;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px 0 20px 310px;
+}
+.form-group .register .userName {
+  float: left;
+}
 .connexionBar {
   height: 27px;
-  background-color: #382a21;
+  background-color: #4a3c33;
+}
+.connexionBar > * {
+  position: relative;
+  z-index: 10;
 }
 .connexionBar .barre_connexion {
   height: 27px;
   margin: 0 auto;
   text-align: right;
   width: 1005px;
+}
+#submitLogin {
+  background: none;
+  color: #c1c1c1;
+  cursor: pointer;
 }
 .form-group {
   display: inline-block;
@@ -128,3 +263,4 @@ h3 {
 }
 /*------------------fin dropdown menu connexion_bar------------*/
 /*--------------------------CONNEXION BAR------------------*/
+/*# sourceMappingURL=connexionBar.css.map */

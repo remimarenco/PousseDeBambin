@@ -10,6 +10,7 @@ namespace PousseDeBambin.Models
     [Table("List")]
     public class List
     {
+        [Key]
         public int ListId { get; set; }
 
         [Required(ErrorMessage = "Le nom de la liste est obligatoire")]
@@ -30,6 +31,7 @@ namespace PousseDeBambin.Models
         public DateTime BirthDate { get; set; }
         
         /* TODO: La liste appartiendra à un ou l'utilisateur anonyme */
+        public string ApplicationUserID { get; set; }
         public virtual ApplicationUser UserProfile {get; set;}
         
         public virtual ICollection<Gift> Gifts {get; set;}

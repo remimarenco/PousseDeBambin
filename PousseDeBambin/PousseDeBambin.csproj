@@ -39,11 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kendo.Mvc, Version=2013.3.1324.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\KENDOUIMVC\2013.3.1324.340\Kendo.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Postal">
       <HintPath>..\packages\postal.0.9.1\lib\net40\Postal.dll</HintPath>
@@ -206,6 +201,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\CloseRelative.cs" />
     <Compile Include="Models\Diffbot\Media.cs" />
     <Compile Include="Models\Diffbot\OfferPriceDetails.cs" />
     <Compile Include="Models\Diffbot\Product.cs" />
@@ -228,26 +224,14 @@
     <Content Include="Content\css\categories.css">
       <DependentUpon>categories.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\categories.min.css">
-      <DependentUpon>categories.less</DependentUpon>
-    </Content>
     <Content Include="Content\css\connexionBar.css">
-      <DependentUpon>connexionBar.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\connexionBar.min.css">
       <DependentUpon>connexionBar.less</DependentUpon>
     </Content>
     <Content Include="Content\css\consultList.css">
       <DependentUpon>consultList.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\consultList.min.css">
-      <DependentUpon>consultList.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\createList.css">
       <DependentUpon>createList.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\createList.min.css">
-      <DependentUpon>createList.css</DependentUpon>
     </Content>
     <Content Include="Content\css\footer.css">
       <DependentUpon>footer.less</DependentUpon>
@@ -258,19 +242,13 @@
     <Content Include="Content\css\giftsList.css">
       <DependentUpon>giftsList.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\giftsList.min.css">
-      <DependentUpon>giftsList.css</DependentUpon>
-    </Content>
     <Content Include="Content\css\header.css">
       <DependentUpon>header.less</DependentUpon>
     </Content>
     <Content Include="Content\css\header.min.css">
-      <DependentUpon>header.less</DependentUpon>
+      <DependentUpon>header.css</DependentUpon>
     </Content>
     <Content Include="Content\css\howItWorks.css">
-      <DependentUpon>howItWorks.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\howItWorks.min.css">
       <DependentUpon>howItWorks.less</DependentUpon>
     </Content>
     <Content Include="Content\css\jquery-ui.css" />
@@ -291,33 +269,39 @@
     <Content Include="Content\css\jquery.ui.tabs.css" />
     <Content Include="Content\css\jquery.ui.theme.css" />
     <Content Include="Content\css\jquery.ui.tooltip.css" />
-    <Content Include="Content\css\main.css">
-      <DependentUpon>main.less</DependentUpon>
+    <Content Include="Content\css\LegalMentions.css">
+      <DependentUpon>LegalMentions.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\main.min.css">
+    <Content Include="Content\css\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
     <Content Include="Content\css\modalBootstrap.css">
       <DependentUpon>modalBootstrap.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\modalBootstrap.min.css">
-      <DependentUpon>modalBootstrap.less</DependentUpon>
+    <Content Include="Content\css\modale.css">
+      <DependentUpon>modale.less</DependentUpon>
     </Content>
     <Content Include="Content\css\searchList.css">
       <DependentUpon>searchList.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\searchList.min.css">
-      <DependentUpon>searchList.less</DependentUpon>
-    </Content>
+    <Content Include="Content\css\visu_erreur.png" />
     <Content Include="Content\css\whoWeAre.css">
       <DependentUpon>whoWeAre.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\zopim.css">
+      <DependentUpon>zopim.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\zopim.min.css">
+      <DependentUpon>zopim.css</DependentUpon>
+    </Content>
+    <Content Include="Content\delete.gif" />
     <Content Include="Content\fonts\amatic-bold-webfont.svg" />
     <Content Include="Content\fonts\amaticsc-regular-webfont.svg" />
     <Content Include="Content\fonts\bebasneue-demo.html" />
     <Content Include="Content\fonts\bebasneue-webfont.svg" />
     <Content Include="Content\fonts\generator_config.txt" />
     <Content Include="Content\fonts\marketingscript-webfont.svg" />
+    <Content Include="Content\heart.gif" />
     <Content Include="Content\img\create\bouton_creer_liste.png" />
     <Content Include="Content\img\create\img_create.jpg" />
     <Content Include="Content\img\create\pancarte.png" />
@@ -331,12 +315,15 @@
     <Content Include="Content\img\giftsList\bouton_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher.png" />
     <Content Include="Content\img\giftsList\bouton_rechercher_hover.png" />
+    <Content Include="Content\img\giftsList\bouton_validation.png" />
     <Content Include="Content\img\giftsList\bouton_valider.png" />
     <Content Include="Content\img\giftsList\bouton_valider_hover.png" />
+    <Content Include="Content\img\giftsList\bulle_erreur.png" />
     <Content Include="Content\img\giftsList\fleche_connexion.png" />
     <Content Include="Content\img\giftsList\fleur_picto.png" />
     <Content Include="Content\img\giftsList\icone_cadeau.png" />
     <Content Include="Content\img\giftsList\icone_modifier.png" />
+    <Content Include="Content\img\giftsList\img_description.jpg" />
     <Content Include="Content\img\giftsList\img_non_trouvee.jpg" />
     <Content Include="Content\img\giftsList\modifier.png" />
     <Content Include="Content\img\giftsList\noeud_liste.png" />
@@ -346,6 +333,8 @@
     <Content Include="Content\img\giftsList\stopper_recherche.png" />
     <Content Include="Content\img\giftsList\suppr.jpg" />
     <Content Include="Content\img\giftsList\suppr.png" />
+    <Content Include="Content\img\giftsList\video.jpg" />
+    <Content Include="Content\img\giftsList\visu_erreur.png" />
     <Content Include="Content\img\home\baby.jpg" />
     <Content Include="Content\img\home\baby_infos.jpg" />
     <Content Include="Content\img\home\banderole.png" />
@@ -371,12 +360,35 @@
     <Content Include="Content\img\search\bouton_rechercher_hover.png" />
     <Content Include="Content\img\whoweare\cadres_remi.png" />
     <Content Include="Content\img\whoweare\cadre_marion.png" />
+    <Content Include="Content\img\whoweare\cadre_marjorie.png" />
+    <Content Include="Content\img\whoweare\cadre_michael.png" />
+    <Content Include="Content\img\whoweare\separation.png" />
     <Content Include="Content\mixin\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
     <Content Include="Content\mixin\mixins.min.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_01.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_02.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_03.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_04.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_05.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_06.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_07.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_09.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_10.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_11.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_13.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_14.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_15.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_17.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_18.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_20.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_21.png" />
+    <Content Include="Content\newsletter\img\pitch\maquette_newsletter_22.png" />
+    <Content Include="Content\rateit.css" />
+    <Content Include="Content\star.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -457,9 +469,6 @@
     <Content Include="Content\fonts\marketingscript-webfont.woff" />
     <Content Include="Content\fonts\specimen_files" />
     <Content Include="Content\css\main.less" />
-    <Content Include="Content\css\main.css.map">
-      <DependentUpon>main.css</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\css\connexionBar.less" />
@@ -473,11 +482,8 @@
     <Content Include="Content\css\giftsList.less" />
     <Content Include="Content\css\consultList.less" />
     <Content Include="Content\css\modalBootstrap.less" />
-    <Content Include="Content\css\footer.css.map">
-      <DependentUpon>footer.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\connexionBar.css.map">
-      <DependentUpon>connexionBar.css</DependentUpon>
+    <Content Include="Content\css\categories.css.map">
+      <DependentUpon>categories.css</DependentUpon>
     </Content>
     <Content Include="Content\css\consultList.css.map">
       <DependentUpon>consultList.css</DependentUpon>
@@ -485,29 +491,53 @@
     <Content Include="Content\css\createList.css.map">
       <DependentUpon>createList.css</DependentUpon>
     </Content>
-    <Content Include="Content\css\categories.css.map">
-      <DependentUpon>categories.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\searchList.css.map">
-      <DependentUpon>searchList.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\giftsList.css.map">
-      <DependentUpon>giftsList.css</DependentUpon>
+    <Content Include="Content\css\footer.css.map">
+      <DependentUpon>footer.css</DependentUpon>
     </Content>
     <Content Include="Content\css\howItWorks.css.map">
       <DependentUpon>howItWorks.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\main.css.map">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\whoWeAre.css.map">
+      <DependentUpon>whoWeAre.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\searchList.css.map">
+      <DependentUpon>searchList.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\modalBootstrap.css.map">
       <DependentUpon>modalBootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Content\css\connexionBar.css.map">
+      <DependentUpon>connexionBar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\giftsList.css.map">
+      <DependentUpon>giftsList.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\header.css.map">
       <DependentUpon>header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\zopim.less" />
+    <Content Include="Content\css\zopim.css.map">
+      <DependentUpon>zopim.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\modale.less" />
+    <Content Include="Content\css\modale.css.map">
+      <DependentUpon>modale.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\LegalMentions.less" />
+    <Content Include="Content\css\LegalMentions.css.map">
+      <DependentUpon>LegalMentions.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\poussedebambin__staging.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel.js" />
     <Content Include="Scripts\diffbotManagement.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.rateit.js" />
+    <Content Include="Scripts\jquery.rateit.min.js" />
+    <Content Include="Scripts\jquery.rateit.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
@@ -521,9 +551,11 @@
     <Content Include="Scripts\localization\messages_fr.js" />
     <Content Include="Scripts\localization\methods_fr.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\preview.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Miscellaneous\Newsletter\newsletter.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -627,11 +659,13 @@
     <Content Include="Views\Gift\_EditGiftTwo.cshtml" />
     <Content Include="Views\List\InfosListe.cshtml" />
     <Content Include="Views\List\_ValidationModule.cshtml" />
+    <Content Include="Views\List\_SearchReturn.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

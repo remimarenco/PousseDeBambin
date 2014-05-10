@@ -1,39 +1,61 @@
-ï»¿@model PousseDeBambin.Models.List
+@model PousseDeBambin.Models.List
 
 <div id="manageList">
     <div class="mess_bienvenue_list">
-        @if (!String.IsNullOrWhiteSpace(Model.Name))
+        @if (!Model.UserProfile.UserName.Equals("Anonyme"))
         {
-            <span>
-                Bienvenue dans @Model.Name
-                , l'enfant de @Model.UserProfile.FirstName
+            <span id="bienvenueText">
+                Bienvenue dans @Model.Name, <br />
+                l'enfant de @Model.UserProfile.FirstName
                 @if (Model.BirthDate > DateTime.Now)
                 {
-                    <span>va naÃ®tre</span>
+                    <span>va naître</span>
                 }
                 else
                 {
-                    <span>est nÃ©</span>
+                    <span>est né</span>
                 }
                 le @Model.BirthDate.Day/@Model.BirthDate.Month/@Model.BirthDate.Year
+
+                @if (Model.BirthDate > DateTime.Now)
+                {
+                    TimeSpan span = Model.BirthDate - DateTime.Now;
+                    TimeSpan PartialDaysSpan = span.Add(new TimeSpan(1, 0, 0, 0));
+                    @: :<br />
+                    @:  J-@PartialDaysSpan.Days avant l'arrivée de la petite pousse !
+                }
             </span>
-            if (Model.BirthDate > DateTime.Now)
+        }
+
+        @{
+            // Gestion du texte de description
+            if (Model.UserProfile.UserName != "Anonyme")
             {
-                TimeSpan span = Model.BirthDate - DateTime.Now;
-                TimeSpan PartialDaysSpan = span.Add(new TimeSpan(1, 0, 0, 0));
-                <span> : J-@PartialDaysSpan.Days avant l'arrivÃ©e de la petite pousse !</span>
+
+                <div data-toggle="tooltip" data-placement="bottom" title="@Model.Description" id="texteDescription">@Model.Description</div>
             }
         }
 
         @if (Model.Gifts.Count == 0)
         {
-            <div class="intro_list_titre">Bienvenue dans la crÃ©ation de votre liste !</div>
-            <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
-            <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+            <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
         }
-        @if (Model.UserProfile.UserName == "Anonyme")
+        <div class="aide_list">
+            @if (Model.Gifts.Count == 0)
+            {
+                <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
+                <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+
+            }
+            @if (Model.UserProfile.UserName == "Anonyme")
+            {
+                <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'à cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
+            }
+        </div>
+        @if (Model.Gifts.Count == 0)
         {
-            <div class="intro_list"><span>3</span> - Il ne vous reste plus qu'Ã  cliquer sur <span>"Valider ma liste"</span>, et la partager pour qu'elle soit visible par vos proches !</div>
+            ***REMOVED*** url qui redirige vers "comment ça marche" youtube-->
+            <a href="http://youtu.be/7a8mbMzDg0o" target="_blank" id="img_video" title="Comment ça marche?"></a>
         }
     </div>
 
@@ -41,17 +63,25 @@
     <div class="fb-share-button" data-href="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)" data-type="button_count" data-width="200"></div>
 
     <table id="ListsGifts" class="table">
-        <tr id="headerTableGifts">
+        @{
+            string display = "";
+            if (Model.Gifts.Count == 0)
+            {
+                display = "none";
+            }
+        }
+
+        <tr id="headerTableGifts" style="display:@display;">
             <th class="cat_list_cadeau">Image</th>
             <th class="cat_list_cadeau">Objet</th>
             <th class="cat_list_cadeau">Prix</th>
             <th class="cat_list_cadeau">Gestion</th>
         </tr>
-        ***REMOVED*** On affiche tous les cadeaux dÃ©jÃ  entrÃ©s -->
+        ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
         @Html.Action("ValidationModule", "List", new { id = Model.ListId })
-        
+
         <tr id="spacerBeforeCreateForm" class="spacer"></tr>
 
         @if (Model.UserProfile.UserName == "Anonyme" || User.Identity.IsAuthenticated && (User.Identity.Name == Model.UserProfile.UserName))
@@ -60,7 +90,6 @@
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
         }
-
         ***REMOVED*** On Success, on update en ajax la liste des gifts -->
     </table>
 
@@ -79,86 +108,149 @@
                 ***REMOVED*** Mettre nom de l'objet -->
                 ***REMOVED*** Mettre l'adresse de livraison -->
                 ***REMOVED*** Mettre l'url pour rediriger vers le site de l'url -->
-                <p>@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat ! N'oubliez pas de revenir sur cette page une fois l'objet achetÃ© pour l'indiquer Ã  @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
+                <div class="modal-picture">
+                    <img id="img_modale_picture" src="~/Content/img/giftsList/img_non_trouvee.jpg"/>
+                </div>
+                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">Confirmer ma commande</a>
+                <p class="texte_intro">@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat !</p>
+                <p> <span class="green_text">N'oubliez pas de revenir sur cette page</span> une fois l'objet acheté pour l'indiquer à @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
 
-                <p>L'objet est : <span id="objectName"></span></p>
-                <p>L'adresse de livraison est : <span id="shippingAddress"></span></p>
+                <p>L'adresse de livraison est : <span class="red_text"><span id="shippingAddress"></span></span></p>
 
-                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>
-
+                ***REMOVED***<p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>-->
                 ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
-                <div id="commentBuyObject">
-                    <input type="text" id="inputName" required placeholder="Votre prÃ©nom et nom :)" />
-                    <textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>
+                <div id="left_side_comment">
+                    <p><span class="title_sides">Personnalisez votre cadeau en ajoutant un petit mot :</span></p>
+                    <div id="commentBuyObject">
+                        <input type="text" id="inputName" class="input_pdb" required placeholder="Votre prénom et nom :)" />
+                        <textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>
+                    </div>
+                </div>
+                <div id="separation"></div>
+                <div id="right_side_comment">
+                    <p><span class="title_sides">Laissez vos coordonnées pour l'heureuse Maman : </span></p>
+                    <div id="commentBuyObject" class="adress">
+                        <div class="mail"><p><label for="inputMail">E-mail : </label><input type="text" id="inputMail" class="input_pdb" required placeholder="Votre adresse mail" /></p></div>
+                        <div class="adresse"><p><label for="inputAdress">Adresse</label><input type="text" id="inputAdresse" class="input_pdb" required placeholder="ex : rue Saint-Michel" /></p></div>
+                        <div class="adresse_plus"><input type="text" id="inputAdresse_plus" class="input_pdb" required placeholder="Complément d'adresse" /></div>
+                        <div class="code_postal"><p><label for="code_postal">Code postal : </label><input type="text" id="inputCode_postal" class="input_pdb" required placeholder="ex : 69000" /></p></div>
+                        <div class="ville"><p><label for="ville">Ville : </label><input type="text" id="inputVille" class="input_pdb" required placeholder="ex : Lyon" /></p></div>
+                        <div class="pays"><p><label for="pays">Pays : </label><input type="text" id="inputPays" class="input_pdb" required placeholder="ex : France" /></p></div>
+
+                        ***REMOVED***<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas achetÃ© cet objet</button>
-                <button id="buttonBought" type="button" class="btn btn-primary" data-giftid="" data-dismiss="modal">J'ai achetÃ© cet objet !</button>
+                <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas acheté cet objet</button>
+                <button id="buttonBought" type="button" class="btn btn-primary buttonBought" data-giftid="" data-dismiss="modal">J'ai acheté cet objet !</button>
+
+                <button id="buttonBoughtDisabled" type="button" class="btn btn-primary buttonBought"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Etes vous sûr d'avoir DEJA acheté l'objet ?">
+                    J'ai acheté cet objet !
+                </button>
             </div>
+
+            ***REMOVED*** /.modal-content -->
         </div>
-        ***REMOVED*** /.modal-content -->
+        ***REMOVED*** /.modal-dialog -->
     </div>
-    ***REMOVED*** /.modal-dialog -->
 </div>
-***REMOVED*** /.modal -->
-<script type="text/javascript">
+    ***REMOVED*** /.modal -->
+    <script type="text/javascript">
+    $(function () {
+        if ($('#texteDescription').text().length >= 50)
+        {
+            $('#texteDescription').tooltip();
+        }
+    });
+
     // Lorsqu'on clique pour acheter un cadeau => Redirection viglink
     $('#objectUrl').click(function () {
         vglnk.open($(this).data("url"), "_blank");
     });
+
     $('#buttonNotBought').click(
     );
+
     $('#buttonBought').click(function () {
         // Put the giftState to State.Bought
         $.ajax({
             url: '@Url.Action("ObjectBought", "GiftState")',
             dataType: 'html',
-            data: { 'id': $(this).data("giftid"), 'buyerName': $('#inputName').val(), 'buyerText': $('#inputMessage').val() },
+            data: {
+                'id': $(this).data("giftid"), 'buyerName': $('#inputName').val(), 'buyerText': $('#inputMessage').val(),
+                'emailAddress': $('#inputMail').val(), 'address': $('#inputAdresse').val(), 'address_plus': $('#inputAdresse_plus').val(), 'town': $('#inputVille').val(), 'country': $('#inputPays').val()
+            },
             type: 'POST',
             success: function (myData) {
                 // Reload the span id = gift part
                 $.ajax({
-                    url: '@Url.Action("DisplayGiftState", "GiftState")',
+                    url: '@Url.Action("DisplayGiftStateTwo", "GiftState")',
                     dataType: 'html',
                     data: { 'id': myData },
                     type: 'GET',
                     success: function (data) {
                         $("#gift" + myData).empty();
                         $("#gift" + myData).append(data);
+                        // On remet le rateIt
+                        rebindRateIt();
                     }
                 });
             }
         });
     });
 
-    $('.buyButton').click(function () {
-        //$('#objectTitle')
-        //$("#GiftWebSite").dialog("option", "title", "Objet : " + $(this).data("objectname") + ", Adresse de livraison : @Model.UserProfile.Street.ToString(), @Model.UserProfile.Zipcode.ToString() @Model.UserProfile.City.ToString()");
-
-        $('#objectTitle').empty();
-        $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
-
-        $("#objectName").empty();
-        $("#objectName").text($(this).data("objectname"));
-
-        $("#shippingAddress").empty();
-        $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
-
-        $("#objectUrl").empty();
-        $('#objectUrl').data("url", $(this).data("url"));
-        $("#objectUrl").text("J'achÃ¨te " + $(this).data("objectname"));
-
-        //$('#GiftWebSite').data("id", $(this).data("id")).dialog('open');
-        $('#buttonBought').data("giftid", $(this).data("id"));
-        $('#giftWebSite').modal('show');
-
-        //skimlinks();
+    $(function(){
+        registerBuyButton();
     });
-</script>
+
+    function registerBuyButton() {
+        $('.buyButton').click(function () {
+            $('#objectTitle').empty();
+            $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
+
+            $("#objectName").empty();
+            $("#objectName").text($(this).data("objectname"));
+
+            $("#shippingAddress").empty();
+            $("#shippingAddress").text("@(Model.UserProfile.Street.ToString()), @(Model.UserProfile.Zipcode.ToString()) @(Model.UserProfile.City.ToString())");
+
+            //$("#objectUrl").empty();
+            $('#objectUrl').data("url", $(this).data("url"));
+            //$("#objectUrl").text("J'achète " + $(this).data("objectname"));
+
+            $('#buttonBought').data("giftid", $(this).data("id"));
+
+            // Ajout de l'image
+            // On réinitialise l'image
+            $("#img_modale_picture").attr("src", "~/Content/img/giftsList/img_non_trouvee.jpg");
+            // On remplace par l'image réelle de l'objet
+            $("#img_modale_picture").attr("src", $(this).data("imgsrc"));
+
+            $('#giftWebSite').modal('show');
+        });
+
+        // Récupération de l'ouverture de la modale
+        $('#giftWebSite').on('show.bs.modal', function (e) {
+            // On désactive les boutons d'achats
+            $('#buttonBought').hide()
+            setTimeout(function () {
+                $('#buttonBought').show();
+            }, 10000);
+
+            $('#buttonBoughtDisabled').show().tooltip();
+            setTimeout(function () {
+                $('#buttonBoughtDisabled').hide();
+            }, 10000);
+        });
+    }
+    </script>
 
 
-<script>
+    <script>
     function refreshGiftsList() {
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
@@ -170,69 +262,94 @@
                 $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
                 $("#headerTableGifts").after(data.responseText);
                 manageValidation();
+                checkIfGift();
+                rebindRateIt();
             }
         });
     }
 
-    function refreshGiftsListAddEffect() {
+    function rebindRateIt(){
+        $('#manageList').find('.rateit').rateit();
+    }
 
-        var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
+    function refreshGiftsListAddEffect() {
+        var urlRefresh = "@Url.Action("GetLastGift", "List", new { listId = Model.ListId })";
         var request = $.ajax({
             type: "GET",
             url: urlRefresh,
             dataType: "json",
             complete: function (data, status) {
                 // On rafraichit la liste des objets
-                $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
-                $("#headerTableGifts").after(data.responseText);
+                // $("#headerTableGifts").nextUntil("#spacerBeforeCreateForm").replaceWith("");
+
+                // Si il n'y a pas encore de cadeaux, on ajoute le cadeau après le header, sinon on l'ajoute
+                // après le dernier cadeau
+                if($(".fond_cadeaux").length == 0)
+                {
+                    $("#headerTableGifts").after(data.responseText);
+                }
+                else
+                {
+                    $(".fond_cadeaux").last().after(data.responseText);
+                }
                 addGiftEffect();
                 manageValidation();
+                checkIfGift();
+                rebindRateIt();
+                // TODO: Faire une fonction plus précise de raccrochage du click seulement sur cet élément
+                registerBuyButton();
             }
         });
     }
 
+    // Fonction qui permet de répondre à de l'ajax sur la gestion de liste vide de cadeau ou non
+    // Fonction qui n'affiche les th que si il existe au moins un cadeau
+    function checkIfGift() {
+        if ($(".fond_cadeaux").length != 0) {
+            $("#headerTableGifts").show();
+        }
+        else {
+            $("#headerTableGifts").hide();
+        }
+    }
+
     function addGiftEffect() {
-        // On prends la derniÃ¨re row et on lui met un fadein
+        // On prends la dernière row et on lui met un fadein
         $(".fond_cadeaux").last().hide().fadeIn(1500);
     }
 
-    function deleteGiftEffect() {
-        // On prends la derniÃ¨re row et on lui met un fadein
-        $(".fond_cadeaux").last().fadeOut(500);
+    function deleteGiftEffect(giftId) {
+        // On prends la dernière row et on lui met un fadein
+        $("#gift"+giftId).fadeOut(500);
     }
 
-    function manageValidation(){
-        //alert("Coucou validation");
+    function manageValidation() {
         var urlValidate = "@Url.Action("ValidationModule", "List", new { id = Model.ListId })";
         var request = $.ajax({
-                type: "GET",
-                url: urlValidate,
-                dataType: "json",
-                complete: function (data, status) {
-                    // On affiche la validation
-                    if(data.responseText != "")
-                    {
-                        if(!$("#validationRow").length)
-                        {
-                            $("#spacerBeforeCreateForm").before(data.responseText);
-                        }
-                    } 
-                    else
-                    {
-                        if($("#validationRow").length)
-                        {
-                            $("#spacerValidation").remove();
-                            $("#validationRow").remove();
-                        }
-                    } 
+            type: "GET",
+            url: urlValidate,
+            dataType: "json",
+            complete: function (data, status) {
+                // On affiche la validation
+                if (data.responseText != "") {
+                    if (!$("#validationRow").length) {
+                        $("#spacerBeforeCreateForm").before(data.responseText);
+                    }
                 }
+                else {
+                    if ($("#validationRow").length) {
+                        $("#spacerValidation").remove();
+                        $("#validationRow").remove();
+                    }
+                }
+            }
         });
     }
 
     window.onbeforeunload = function () {
         var NotValidated = '@Model.UserProfile.UserName.Equals("Anonyme")';
         if (NotValidated != 'False') {
-            return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour Ã©viter cela, il vous suffit de cliquer sur le bouton 'Je valide ma liste'";
+            return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Je valide ma liste'";
         }
     };
-</script>
+    </script>
