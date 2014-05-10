@@ -52,8 +52,10 @@
         {
             <div class="intro_list_titre">Bienvenue dans la création de votre liste !</div>
         }
-        
-        @Html.Partial("_News")
+
+        @*
+          @Html.Partial("_News")
+        *@
 
         <div class="aide_list">
             @if (Model.Gifts.Count == 0)
@@ -158,7 +160,7 @@
                         <div class="ville"><p><label for="ville">Ville : </label><input type="text" id="inputVille" class="input_pdb" required placeholder="ex : Lyon" /></p></div>
                         <div class="pays"><p><label for="pays">Pays : </label><input type="text" id="inputPays" class="input_pdb" required placeholder="ex : France" /></p></div>
 
-                        ***REMOVED***<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->
+                        ***REMOVED***<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->            </div>
                     </div>
                 </div>
             </div>
