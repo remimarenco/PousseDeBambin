@@ -1,5 +1,17 @@
 @model PousseDeBambin.Models.List
 
+@section metaDescription
+{
+    ***REMOVED*** Google plus infos -->
+    ***REMOVED*** Mettez la balise html à jour pour inclure les attributs itemscope et itemtype. -->
+    <html itemscope itemtype="http://schema.org/Product">
+
+    ***REMOVED*** Ajoutez les trois balises suivantes dans l'en-tête. -->
+    <meta itemprop="name" content="@Model.Name">
+    <meta itemprop="description" content="@Model.Description">
+    <meta itemprop="image" content="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")">
+}
+
 <div id="manageList">
     <div class="mess_bienvenue_list">
         @if (!Model.UserProfile.UserName.Equals("Anonyme"))
@@ -60,7 +72,13 @@
     </div>
 
     ***REMOVED*** Div Partage -->
-    <div class="fb-share-button" data-href="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)" data-type="button_count" data-width="200"></div>
+    <div class="share_list">
+        <div class="fb-share-button" data-href="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)" data-type="button_count"></div>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=PousseDeBambin&text=Voici%20la%20liste%20de%20naissance%20pour%20mon%20enfant%20!%20Inspirez%20vous%20en%20%3B)" class="twitter-hashtag-button" data-lang="fr" data-related="PousseDeBambin" data-url="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)">Tweet #PousseDeBambin</a>
+        ***REMOVED*** Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
+        <div class="g-plus" data-action="share" data-annotation="none"></div>
+    </div>
+
 
     <table id="ListsGifts" class="table">
         @{
@@ -109,7 +127,7 @@
                 ***REMOVED*** Mettre l'adresse de livraison -->
                 ***REMOVED*** Mettre l'url pour rediriger vers le site de l'url -->
                 <div class="modal-picture">
-                    <img id="img_modale_picture" src="~/Content/img/giftsList/img_non_trouvee.jpg"/>
+                    <img id="img_modale_picture" src="~/Content/img/giftsList/img_non_trouvee.jpg" />
                 </div>
                 <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">Confirmer ma commande</a>
                 <p class="texte_intro">@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat !</p>
@@ -158,11 +176,10 @@
         ***REMOVED*** /.modal-dialog -->
     </div>
 </div>
-    ***REMOVED*** /.modal -->
-    <script type="text/javascript">
+***REMOVED*** /.modal -->
+<script type="text/javascript">
     $(function () {
-        if ($('#texteDescription').text().length >= 50)
-        {
+        if ($('#texteDescription').text().length >= 50) {
             $('#texteDescription').tooltip();
         }
     });
@@ -203,7 +220,7 @@
         });
     });
 
-    $(function(){
+    $(function () {
         registerBuyButton();
     });
 
@@ -247,10 +264,10 @@
             }, 10000);
         });
     }
-    </script>
+</script>
 
 
-    <script>
+<script>
     function refreshGiftsList() {
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
@@ -268,7 +285,7 @@
         });
     }
 
-    function rebindRateIt(){
+    function rebindRateIt() {
         $('#manageList').find('.rateit').rateit();
     }
 
@@ -284,12 +301,10 @@
 
                 // Si il n'y a pas encore de cadeaux, on ajoute le cadeau après le header, sinon on l'ajoute
                 // après le dernier cadeau
-                if($(".fond_cadeaux").length == 0)
-                {
+                if ($(".fond_cadeaux").length == 0) {
                     $("#headerTableGifts").after(data.responseText);
                 }
-                else
-                {
+                else {
                     $(".fond_cadeaux").last().after(data.responseText);
                 }
                 addGiftEffect();
@@ -320,7 +335,7 @@
 
     function deleteGiftEffect(giftId) {
         // On prends la dernière row et on lui met un fadein
-        $("#gift"+giftId).fadeOut(500);
+        $("#gift" + giftId).fadeOut(500);
     }
 
     function manageValidation() {
@@ -352,4 +367,4 @@
             return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Je valide ma liste'";
         }
     };
-    </script>
+</script>
