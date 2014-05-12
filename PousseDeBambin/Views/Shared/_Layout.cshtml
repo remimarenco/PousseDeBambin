@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml"
-      lang="fr">
+      lang="fr"
+      itemscope itemtype="http://schema.org/Product">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -50,11 +51,13 @@
 <body>
     @*@Html.Partial("_MessageBeta")*@
     <header>
-    <div id="connexionBar" class="connexionBar">
-        @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
-    </div>
+        <div id="connexionBar" class="connexionBar">
+            @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
+        </div>
         ***REMOVED*** @Html.Partial("_BaseLine") -->
         @Html.Partial("_MainTabs")
+    </header>
+    ***REMOVED***d
     </header>
     ***REMOVED***div class="alert alert-success">
         <p id="textBeta">
@@ -81,7 +84,7 @@
             </footer>
         </div>
     </div>
-    
+
     ***REMOVED*** Viglink -->
     <script type="text/javascript">
         var vglnk = {
