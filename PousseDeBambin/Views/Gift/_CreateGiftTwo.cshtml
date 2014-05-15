@@ -72,8 +72,73 @@
 <script>
     $(document).ready(function () {
         $("#btnCreateGift").click(function () {
+            checkPriorite();
             submitAddGift();
         });
+
+        function checkPriorite()
+        {
+            var priorite = parseFloat($("#Priorite").val());
+            console.log(priorite);
+            if (!isNaN(priorite) && priorite == 0)
+            {
+                var price = parseFloat($("#Price").val());
+                console.log(price);
+                if (!isNaN(price))
+                {
+                    // Selon la fourchette de prix, la priorité change
+                    if(price > 0)
+                    {
+                        if(price < 4.99)
+                        {
+                            console.log("Le prix est inférieur à 4,99 !");
+                            $("#Priorite").val("0,5");
+                        }
+                        else if(price < 9.99)
+                        {
+                            $("#Priorite").val("1");
+                        }
+                        else if(price < 14.99)
+                        {
+                            $("#Priorite").val("1,5");
+                        }
+                        else if(price < 19.99)
+                        {
+                            $("#Priorite").val("2");
+                        }
+                        else if(price < 24.99)
+                        {
+                            $("#Priorite").val("2,5");
+                        }
+                        else if(price < 39.99)
+                        {
+                            console.log("Le prix est superieur a 24,99 et inférieur a 39,99");
+                            $("#Priorite").val("3");
+                        }
+                        else if(price < 74.99)
+                        {
+                            $("#Priorite").val("3,5");
+                        }
+                        else if(price < 149.99)
+                        {
+                            $("#Priorite").val("4");
+                        }
+                        else if(price < 249.99)
+                        {
+                            $("#Priorite").val("4,5");
+                        }
+                        else
+                        {
+                            $("#Priorite").val("5");
+                        }
+                    }
+                }
+                else
+                {
+                    // Si le prix n'est pas un nombre, on ne fait rien
+                }
+            }
+        }
 
         function submitAddGift() {
             $.ajax({
