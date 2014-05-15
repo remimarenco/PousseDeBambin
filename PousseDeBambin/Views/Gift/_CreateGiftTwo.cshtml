@@ -72,73 +72,9 @@
 <script>
     $(document).ready(function () {
         $("#btnCreateGift").click(function () {
-            checkPriorite();
+            checkPriorite(parseFloat($("#Price").val()));
             submitAddGift();
         });
-
-        function checkPriorite()
-        {
-            var priorite = parseFloat($("#Priorite").val());
-            console.log(priorite);
-            if (!isNaN(priorite) && priorite == 0)
-            {
-                var price = parseFloat($("#Price").val());
-                console.log(price);
-                if (!isNaN(price))
-                {
-                    // Selon la fourchette de prix, la priorité change
-                    if(price > 0)
-                    {
-                        if(price < 4.99)
-                        {
-                            console.log("Le prix est inférieur à 4,99 !");
-                            $("#Priorite").val("0,5");
-                        }
-                        else if(price < 9.99)
-                        {
-                            $("#Priorite").val("1");
-                        }
-                        else if(price < 14.99)
-                        {
-                            $("#Priorite").val("1,5");
-                        }
-                        else if(price < 19.99)
-                        {
-                            $("#Priorite").val("2");
-                        }
-                        else if(price < 24.99)
-                        {
-                            $("#Priorite").val("2,5");
-                        }
-                        else if(price < 39.99)
-                        {
-                            console.log("Le prix est superieur a 24,99 et inférieur a 39,99");
-                            $("#Priorite").val("3");
-                        }
-                        else if(price < 74.99)
-                        {
-                            $("#Priorite").val("3,5");
-                        }
-                        else if(price < 149.99)
-                        {
-                            $("#Priorite").val("4");
-                        }
-                        else if(price < 249.99)
-                        {
-                            $("#Priorite").val("4,5");
-                        }
-                        else
-                        {
-                            $("#Priorite").val("5");
-                        }
-                    }
-                }
-                else
-                {
-                    // Si le prix n'est pas un nombre, on ne fait rien
-                }
-            }
-        }
 
         function submitAddGift() {
             $.ajax({
@@ -147,8 +83,8 @@
                     ListID: "@Model.ListID",
                     ImageUrl: $("#ImageUrl").val(),
                     WebSite: $("#WebSite").val(),
-                    Name: $("#Name").val().substring(0,99),
-                    Description: $("#Description").val().substring(0,999),
+                    Name: $("#Name").val().substring(0, 99),
+                    Description: $("#Description").val().substring(0, 999),
                     Price: $("#Price").val(),
                     Priorite: $("#Priorite").val()
                 },
@@ -157,34 +93,31 @@
                 datatype: 'json',
                 success: function (data) {
                     $("#createForm").html(data.redirectTo);
-                    if (data.isValid)
-                    {
+                    if (data.isValid) {
                         refreshGiftsListAddEffect();
                     }
                 }
             });
         }
-    });
 
-    ////--------------- Gestion Diffbot --------////
+        ////--------------- Gestion Diffbot --------////
 
-    //Gestion de la visibility
-    jQuery.fn.visible = function () {
-        return this.css('visibility', 'visible');
-    };
+        //Gestion de la visibility
+        jQuery.fn.visible = function () {
+            return this.css('visibility', 'visible');
+        };
 
-    jQuery.fn.invisible = function () {
-        return this.css('visibility', 'hidden');
-    };
+        jQuery.fn.invisible = function () {
+            return this.css('visibility', 'hidden');
+        };
 
-    jQuery.fn.visibilityToggle = function () {
-        return this.css('visibility', function (i, visibility) {
-            return (visibility == 'visible') ? 'hidden' : 'visible';
-        });
-    };
+        jQuery.fn.visibilityToggle = function () {
+            return this.css('visibility', function (i, visibility) {
+                return (visibility == 'visible') ? 'hidden' : 'visible';
+            });
+        };
 
-    // Gestion diffbot
-    $(function () {
+        // Gestion diffbot
         var searchAjax = null;
         // On init les boutons de recherche
         InitSearch();
@@ -228,6 +161,10 @@
 
                         // Normalisation du prix en FR
                         var amountNormalizedFr = normalize(amount);
+
+                        // On utilise le prix pour créer la priorité associée
+                        $("#Priorite").rateit();
+                        checkPriorite(amount);
 
                         // ImageUrl
                         $("#ImageUrl").val(link);
@@ -308,13 +245,59 @@
         }
 
         // Gestion des divers évènements de la page
-        $(function () {
-            $(".createObjectImage").change(function () {
-                $(".divObjectImage #displayImage").error(function () {
-                    this.onerror = null;
-                    this.src = '@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")';
-                }).attr("src", $(".createImageUrl").val());
-            });
+        $(".createObjectImage").change(function () {
+            $(".divObjectImage #displayImage").error(function () {
+                this.onerror = null;
+                this.src = '@Url.Content("~/Content/img/giftsList/img_non_trouvee.jpg")';
+            }).attr("src", $(".createImageUrl").val());
         });
+
+        function checkPriorite(price) {
+            // On active rateit
+            $("#prioriteRating0").rateit();
+
+            console.log(price);
+            if (!isNaN(price)) {
+                // Selon la fourchette de prix, la priorité change
+                if (price > 0) {
+                    if (price < 4.99) {
+                        console.log("Le prix est inférieur à 4,99 !");
+                        $("#prioriteRating0").rateit('value', '0,5');
+                    }
+                    else if (price < 9.99) {
+                        $("#prioriteRating0").rateit('value', '1');
+                    }
+                    else if (price < 14.99) {
+                        $("#prioriteRating0").rateit('value', '1,5');
+                    }
+                    else if (price < 19.99) {
+                        $("#prioriteRating0").rateit('value', '2');
+                    }
+                    else if (price < 24.99) {
+                        $("#prioriteRating0").rateit('value', '2.5');
+                    }
+                    else if (price < 39.99) {
+                        console.log("Le prix est inférieur à 39,99 et supérieur à 24,99 !")
+                        $("#prioriteRating0").rateit('value', '3');
+                    }
+                    else if (price < 74.99) {
+                        $("#prioriteRating0").rateit('value', '3.5');
+                    }
+                    else if (price < 149.99) {
+                        $("#prioriteRating0").rateit('value', '4');
+                    }
+                    else if (price < 249.99) {
+                        $("#prioriteRating0").rateit('value', '4.5');
+                    }
+                    else {
+                        $("#prioriteRating0").rateit('value', '5');
+                    }
+                    // On reporte également la valeur en mode fr dans l'input Priorite
+                    var valueDotted = $("#prioriteRating0").rateit('value');
+                    var valueComma = valueDotted.toString().replace(".", ",");
+                    $("#prioriteRating@(Model.GiftId)").prev("#Priorite").val(valueComma);
+                }
+            }
+        }
     });
 </script>
