@@ -72,7 +72,10 @@
 <script>
     $(document).ready(function () {
         $("#btnCreateGift").click(function () {
-            checkPriorite(parseFloat($("#Price").val()));
+            if ($("#prioriteRating0").rateit('value') == 0)
+            {
+                checkPriorite(parseFloat($("#Price").val()));
+            }
             submitAddGift();
         });
 
