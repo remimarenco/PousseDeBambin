@@ -58,8 +58,8 @@
         <div class="aide_list">
             @if (Model.Gifts.Count == 0)
             {
-                <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier objet, puis cliquez sur <span>"Rechercher"</span>!</div>
-                <div class="intro_list"><span>2</span> - Pour ajouter un nouvel objet, cliquez simplement sur <span>"Ajouter un nouvel objet"</span></div>
+                <div class="intro_list"><span>1</span> - Commencez par entrer l'adresse url de votre premier cadeau, puis cliquez sur <span>"Rechercher"</span>!</div>
+                <div class="intro_list"><span>2</span> - Pour ajouter un nouveau cadeau, cliquez simplement sur <span>"Ajouter un nouveau cadeau"</span></div>
 
             }
             @if (Model.UserProfile.UserName == "Anonyme")
@@ -94,7 +94,7 @@
 
         <tr id="headerTableGifts" style="display:@display;">
             <th class="cat_list_cadeau">Image</th>
-            <th class="cat_list_cadeau">Objet</th>
+            <th class="cat_list_cadeau">Cadeau</th>
             <th class="cat_list_cadeau">Prix</th>
             <th class="cat_list_cadeau">Gestion</th>
         </tr>
@@ -132,9 +132,9 @@
                 <div class="modal-picture">
                     <img id="img_modale_picture" src="~/Content/img/giftsList/img_non_trouvee.jpg" />
                 </div>
-                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">Confirmer ma commande</a>
+                <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">J'achète ce cadeau</a>
                 <p class="texte_intro">@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat !</p>
-                <p> <span class="green_text">N'oubliez pas de revenir sur cette page</span> une fois l'objet acheté pour l'indiquer à @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
+                <p> <span class="green_text">N'oubliez pas de revenir sur cette page</span> une fois le cadeau acheté pour l'indiquer à @Model.UserProfile.FirstName et aux autres potentiels acheteurs !</p>
 
                 <p>L'adresse de livraison est : <span class="red_text"><span id="shippingAddress"></span></span></p>
 
@@ -163,14 +163,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas acheté cet objet</button>
-                <button id="buttonBought" type="button" class="btn btn-primary buttonBought" data-giftid="" data-dismiss="modal">J'ai acheté cet objet !</button>
+                <button id="buttonNotBought" type="button" class="btn btn-danger" data-dismiss="modal">Je n'ai pas acheté ce cadeau</button>
+                <button id="buttonBought" type="button" class="btn btn-primary buttonBought" data-giftid="" data-dismiss="modal">J'ai acheté ce cadeau !</button>
 
                 <button id="buttonBoughtDisabled" type="button" class="btn btn-primary buttonBought"
                         data-toggle="tooltip"
                         data-placement="top"
-                        title="Etes vous sûr d'avoir DEJA acheté l'objet ?">
-                    J'ai acheté cet objet !
+                        title="Etes vous sûr d'avoir DEJA acheté ce cadeau ?">
+                    J'ai acheté ce cadeau !
                 </button>
             </div>
 
@@ -230,7 +230,7 @@
     function registerBuyButton() {
         $('.buyButton').click(function () {
             $('#objectTitle').empty();
-            $('#objectTitle').text("Achat de l'objet : " + $(this).data("objectname"));
+            $('#objectTitle').text("Achat du cadeau : " + $(this).data("objectname"));
 
             $("#objectName").empty();
             $("#objectName").text($(this).data("objectname"));
