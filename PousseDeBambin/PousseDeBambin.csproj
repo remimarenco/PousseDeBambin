@@ -340,6 +340,7 @@
     <Content Include="Content\img\giftsList\visu_erreur.png" />
     <Content Include="Content\img\home\baby.jpg" />
     <Content Include="Content\img\home\baby_infos.jpg" />
+    <Content Include="Content\img\home\bandeau.png" />
     <Content Include="Content\img\home\banderole.png" />
     <Content Include="Content\img\home\biberoncadeaux_footer.png" />
     <Content Include="Content\img\home\cadre_slider.png" />
@@ -357,6 +358,7 @@
     <Content Include="Content\img\home\img_etape3.jpg" />
     <Content Include="Content\img\home\logo.png" />
     <Content Include="Content\img\home\next_btn.png" />
+    <Content Include="Content\img\home\plume.png" />
     <Content Include="Content\img\home\prev_btn.png" />
     <Content Include="Content\img\loading\ajax-loader.gif" />
     <Content Include="Content\img\search\bouton_rechercher.png" />

@@ -1,7 +1,47 @@
 ﻿<div class="howItWorks_main">
     <div class="panel-heading">
 
-        <p class="marche">Comment ça marche ?</p>
+        ***REMOVED***<p class="marche">Comment ça marche ?</p>-->
+        <div id="content_scrolling_text">
+
+            <ul class="scrolling_text">
+                <li class="item1">
+                    <a href="#" style="text-decoration:none;"><p class="marche">Comment ça marche ?</p></a>
+                    <ul>
+                        <div class="text_intro">
+                            <p>
+                                <h3 class="title_text_intro">1- Pourquoi créer une liste de naissance sur internet ?</h3>                                  <br />
+                                    Vous  attendez un heureux événement, vos proches commencent à vous solliciter pour des idées de cadeaux, la grossesse ne vous donne pas la force de courir dans les magasins… alors créer votre liste de naissance sur le web ! Un moyen simple de vous faire gagner du temps, en évitant les doublons et surtout en vous permettant de recevoir les cadeaux que vous désirez et qui vous seront utiles. Sur internet vous avez accès à des milliers d’idées de cadeaux à des prix attractifs, vos proches vont ainsi pouvoir vous gâter sans se ruiner.
+                                    L’intérêt ? Arriver au jour de l’accouchement pleine d’énergie et accueillir votre bébé sereinement !
+
+                            </p>
+                            <p>
+                                <h3 class="title_text_intro">2-  Pourquoi créer votre liste de naissance avec Pousse de Bambin ?</h3> 
+                                    Pousse de Bambin met tous les éléments à votre disposition pour créer votre liste de naissance simplement et gratuitement ! Nous vous proposons un univers unique pour un événement unique. Pousse de Bambin vous permet, en quelques clics, de créer votre liste et de la partager instantanément  avec vos proches. Vous avez remarqué des éléments pour une chambre bébé, une poussette ou simplement un biberon sur différents sites marchands tels que Autour de bébé, Aubert… ? Pas de problème ! Sélectionnez, ajoutez et partagez, c’est aussi simple que cela chez Pousse de Bambin !
+                            </p>
+                            <p>
+                                <h3 class="title_text_intro">3-  Quand créer sa liste de naissance ?</h3> 
+                                    Généralement les futurs parents le font pendant la grossesse et attendent la deuxième échographie pour connaitre le sexe de bébé. Cela vous permettra de choisir entre une poussette bleue, une chambre bébé rose ou un biberon vert… Néanmoins vous êtes libre de créer votre liste quand bon vous semble, le faire en début de grossesse peut aussi vous permettre d’aiguiller rapidement vos proches vers les idées cadeaux que vous aimez…
+                            </p>
+                            <p>
+                                <h3 class="title_text_intro">4- Comment créer sa liste de naissance ?</h3> 
+                                    C’est très simple ! Rendez-vous sur la page d’accueil de <a href="www.poussedebambin.com" class="link_scrolling_text">Pousse de Bambin</a> et allez directement sur «<a href="http://www.poussedebambin.com/List/Creation" class="link_scrolling_text"> je crée ma liste </a>» puis allez sélectionner les idées cadeaux préalablement vues sur les  sites marchands (Autour de bébé, Bébé 9, Aubert…), venez les ajouter à votre liste et une fois que celle-ci sera complète, n’oubliez surtout pas de la valider ! Une fois validée, il ne vous reste plus qu’à la partager avec vos proches.
+</p>
+                            <p>
+                                <h3 class="title_text_intro">5- Que puis-je mettre dans ma liste de naissance ?</h3> 
+                                    De la chambre de bébé, à la poussette en passant par le hochet, Pousse de Bambin vous permet de constituer une liste complète répondant à tous vos besoins de futurs parents. Tout pour préparer sereinement la venue de bébé, du premier jour de grossesse à l’accouchement.
+                            </p>
+                            <p>
+                                <h3 class="title_text_intro">6- Comment communiquer ma liste de naissance ?</h3> 
+                                    Mieux que le traditionnel faire-part de naissance, prévenez votre famille et vos amis en un clic sur les réseaux sociaux ! Un message leur sera envoyé directement pour les prévenir que votre liste est disponible sur Pousse de Bambin. Tout est centralisé sur Pousse de Bambin pour leur simplifier la vie et leur faire gagnr du temps !
+                            </p>
+                            <div class="sign">L'équipe Pousse de Bambin...<img src="/Content/img/home/plume.png" width="31" height="56"></div>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
         ***REMOVED***<div id="enSavoirPlusFooter" class="col-md-6">
             @Html.ActionLink("En savoir plus...", "Help", "Miscellanous", null, null)
         </div>-->
@@ -46,3 +86,31 @@
         </div>
     </div>
 </div>
+
+
+
+
+***REMOVED***------------------------Script texte déroulant----------------------->
+<script type="text/javascript">
+	$(function() {
+	    var scrolling_text_ul = $('.scrolling_text > li > ul'),
+	           scrolling_text_a = $('.scrolling_text > li > a');
+
+	    scrolling_text_ul.hide();
+
+	    scrolling_text_a.click(function (e) {
+	        e.preventDefault();
+	        if(!$(this).hasClass('active')) {
+	            scrolling_text_a.removeClass('active');
+	            scrolling_text_ul.filter(':visible').slideUp('normal');
+	            // $(".text_intro").css({'margin-top':'-50px'});
+
+	            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+	        } else {
+	            $(this).removeClass('active');
+	            $(this).next().stop(true,true).slideUp('normal');
+	        }
+	    });
+
+	});
+</script>
