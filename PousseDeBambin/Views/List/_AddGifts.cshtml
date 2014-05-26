@@ -3,7 +3,6 @@
 @section metaDescription
 {
     ***REMOVED*** Google plus infos -->
-
     ***REMOVED*** Ajoutez les trois balises suivantes dans l'en-tête. -->
     <meta itemprop="name" content="@Model.Name">
     <meta itemprop="description" content="@Model.Description">
@@ -141,7 +140,7 @@
                         <p>L'adresse de livraison est :<br /><span class="pink_text"><span id="shippingAddress"></span></span></p>
                         <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">J'achète ce cadeau !</a>
                     </div>
-                 </div>
+                </div>
                 ***REMOVED***<p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>-->
                 ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
                 <div id="left_side_comment">
@@ -183,9 +182,8 @@
         ***REMOVED*** /.modal-dialog -->
     </div>
 </div>
-    ***REMOVED*** /.modal -->
-</div>
-    <script type="text/javascript">
+
+<script type="text/javascript">
     $(function () {
         if ($('#texteDescription').text().length >= 50) {
             $('#texteDescription').tooltip();
@@ -272,10 +270,10 @@
             }, 10000);
         });
     }
-    </script>
+</script>
 
 
-    <script>
+<script>
     function refreshGiftsList() {
         var urlRefresh = "@Url.Action("DisplayGifts", "List", new { id = Model.ListId })";
         var request = $.ajax({
@@ -375,4 +373,4 @@
             return "Attention ! Votre liste sera perdue si vous quittez la page maintenant...pour éviter cela, il vous suffit de cliquer sur le bouton 'Je valide ma liste'";
         }
     };
-    </script>
+</script>
