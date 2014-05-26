@@ -1,18 +1,6 @@
 ﻿#buttonBoughtDisabled {
   opacity: 0.65;
 }
-.left_part {
-  height: 200px;
-  float: left;
-  width: 50%;
-}
-.right_part {
-  height: 200px;
-  float: left;
-  width: 50%;
-  text-align: left;
-  font-size: 0.9em;
-}
 .buttonOrder {
   background: url('/Content/img/giftsList/bouton_jachete.png') no-repeat;
   width: 204px;
@@ -32,7 +20,16 @@
   color: #f0e79c;
 }
 .modal_achat_body {
-  height: 240px;
+  height: 290px;
+}
+.left_part {
+  width: 50%;
+  float: left;
+}
+.right_part {
+  width: 50%;
+  float: left;
+  text-align: left;
 }
 .modal-picture {
   width: 150px;
@@ -54,6 +51,7 @@
 }
 .right_part_text {
   margin-bottom: 80px;
+  font-size: 0.9em;
 }
 .red_text {
   color: #eb754f;
@@ -83,7 +81,7 @@
 }
 #separation {
   width: 1px;
-  height: 250px;
+  height: 270px;
   float: left;
   background-color: #342b24;
   margin-top: 20px;
@@ -111,11 +109,37 @@
 .ville input {
   margin-left: 50px;
 }
+.pays input {
+  margin-left: 45px;
+}
 .modal-footer {
   margin-top: 300px;
   padding: 0 19px 20px 20px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
+}
+#buttonBoughtDisabled {
+  opacity: 0.65;
+  background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
+  width: 230px;
+  height: 55px;
+  border: none;
+  display: inline-block;
+  padding-top: 25px;
+  font-family: bebas_neueregular;
+  font-size: 15px;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 20px;
+}
+#buttonBoughtDisabled:hover {
+  color: #f0e79c;
+}
+#img_modale_picture {
+  width: inherit;
+  height: inherit;
 }
 /*# sourceMappingURL=modale.css.map */
 /*# sourceMappingURL=modale.css.map */
