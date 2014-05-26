@@ -24,36 +24,37 @@
   background: url('/Content/img/giftsList/panier_acheter.png') no-repeat;
 }
 #buttonNotBought {
-  background: url('/Content/img/giftsList/bouton_pas_achete.png') no-repeat;
+  background: url('/Content/img/giftsList/bouton_cadeau_pas_achete.png') no-repeat;
   width: 230px;
   height: 55px;
   border: none;
   display: inline-block;
-  padding-top: 25px;
   font-family: bebas_neueregular;
-  font-size: 15px;
+  font-size: 16px;
   color: #fff;
   margin-right: 20px;
   cursor: pointer;
   outline: none;
+  padding-left: 40px;
 }
 #buttonNotBought:hover {
   color: #f0e79c;
 }
 .buttonBought {
-  background: url('/Content/img/giftsList/bouton_modif_over.png') no-repeat;
+  background: url('/Content/img/giftsList/bouton_cadeau_achete.png') no-repeat;
   width: 230px;
   height: 55px;
   border: none;
   display: inline-block;
-  padding-top: 25px;
   font-family: bebas_neueregular;
-  font-size: 15px;
+  font-size: 16px;
   color: #fff;
   margin-right: 20px;
   cursor: pointer;
   outline: none;
   margin-left: 20px;
+  margin-top: 20px;
+  padding-left: 40px;
 }
 .buttonBought:hover {
   color: #f0e79c;

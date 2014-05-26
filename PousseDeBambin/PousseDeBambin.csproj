@@ -303,7 +303,10 @@
     <Content Include="Content\img\create\pancarte.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter.png" />
     <Content Include="Content\img\giftsList\bouton_ajouter_hover.png" />
+    <Content Include="Content\img\giftsList\bouton_cadeau_achete.png" />
+    <Content Include="Content\img\giftsList\bouton_cadeau_pas_achete.png" />
     <Content Include="Content\img\giftsList\bouton_consulter.png" />
+    <Content Include="Content\img\giftsList\bouton_jachete.png" />
     <Content Include="Content\img\giftsList\bouton_modifier.png" />
     <Content Include="Content\img\giftsList\bouton_modif_over.png" />
     <Content Include="Content\img\giftsList\bouton_offert.png" />
