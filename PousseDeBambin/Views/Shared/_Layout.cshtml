@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml"
-      lang="fr">
-<head>
+      lang="fr"
+      itemscope itemtype="http://schema.org/Product">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Pousse De Bambin !</title>
-    <link href="/Content/img/home/favicon.jpg" rel="shortcut icon" type="image/jpeg" />
+    <link href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/favicon.jpg")" rel="shortcut icon" type="image/jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
@@ -24,8 +25,15 @@
     @Scripts.Render("~/bundles/star")
 
     @RenderSection("scripts", required: false)
-    <link rel="image_src" href="@Url.Content("~/Content/img/home/logo.png")" />
-    <meta property="og:image" content="@Url.Content("~/Content/img/home/logo.png")" />
+    <link rel="image_src" href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")" />
+
+    <meta name="og:title" content="@ViewBag.Title - Pousse De Bambin !" />
+    <meta property="og:image" content="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")" />
+    <meta name="og:description" content="@ViewBag.Description" />
+    <meta name="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
+    <meta name="fb:app_id" content="708244749188733" />
+    <meta name="site_name" content="Pousse De Bambin" />
+
     @RenderSection("metaDescription", required: false)
 
     <script>
@@ -37,6 +45,7 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-47337807-1', 'poussedebambin.com');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
 </head>
@@ -48,6 +57,8 @@
         </div>
         ***REMOVED*** @Html.Partial("_BaseLine") -->
         @Html.Partial("_MainTabs")
+    </header>
+    ***REMOVED***d
     </header>
     ***REMOVED***div class="alert alert-success">
         <p id="textBeta">
@@ -122,6 +133,27 @@
             type = 'text/javascript'; e.parentNode.insertBefore($, e)
         })(document, 'script');
     </script>
+
+    ***REMOVED*** Code Google de la balise de remarketing -->
+    ***REMOVED***------------------------------------------------
+    Les balises de remarketing ne peuvent pas être associées aux informations personnelles ou placées sur des pages liées aux catégories à caractère sensible. Pour comprendre et savoir comment configurer la balise, rendez-vous sur la page http://google.com/ads/remarketingsetup.
+    --------------------------------------------------->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 967658191;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/967658191/?value=0&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
     ***REMOVED***End of Zopim Live Chat Script-->
+    @RenderSection("OtherScripts", false)
 </body>
 </html>

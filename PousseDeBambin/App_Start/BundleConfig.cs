@@ -36,6 +36,10 @@ namespace PousseDeBambin
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/preview").Include(
+                "~/Scripts/preview.js"
+                ));
+
             bundles.Add(new StyleBundle("~/Styles/css").Include(
                         "~/Content/css/main.css",
                         "~/Content/css/connexionBar.css",
@@ -63,8 +67,10 @@ namespace PousseDeBambin
                         "~/Content/css/jquery.ui.theme.css",
                         "~/Content/css/bootstrap.css",
                         "~/Content/css/carousel.css",
+                        "~/Content/css/LegalMentions.css",
                         "~/Content/rateit.css",
                         "~/Content/zopim.css",
+                        "~/Content/css/news.css",
                         "~/Content/css/modale.css"));
 
             bundles.IgnoreList.Clear();

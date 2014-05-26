@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
   font-family: 'amatic_scregular';
   src: url('/Content/fonts/amaticsc-regular-webfont.eot');
   src: url('/Content/fonts/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/amaticsc-regular-webfont.ttf') format('truetype'), url('/Content/fonts/amaticsc-regular-webfont.svg#amatic_scregular') format('svg');
@@ -101,7 +101,7 @@ ul {
   font-family: 'arial';
   font-size: 12px;
 }
-.text-soon {
+.legal_mentions_text {
   text-align: center;
 }
 .searchFieldSet {
@@ -126,5 +126,8 @@ ul {
 .input_pdb {
   border-radius: 3px;
   border: solid 1px #aec383;
+}
+iframe[name="google_conversion_frame"] {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
