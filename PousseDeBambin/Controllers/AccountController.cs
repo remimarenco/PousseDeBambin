@@ -19,6 +19,8 @@ namespace PousseDeBambin.Controllers
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+            var userValidator = UserManager.UserValidator as UserValidator<ApplicationUser>;
+            userValidator.AllowOnlyAlphanumericUserNames = false;
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
@@ -47,10 +49,10 @@ namespace PousseDeBambin.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindAsync(model.UserName_Login, model.Password_Login);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
+                    await SignInAsync(user, model.RememberMe_Login);
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -81,21 +83,22 @@ namespace PousseDeBambin.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindAsync(model.UserName_Login, model.Password_Login);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
+                    await SignInAsync(user, model.RememberMe_Login);
 
                     return RedirectToLocal(returnUrl);
                 }
                 else
                 {
                     ModelState.AddModelError("", "Le nom d'utilisateur ou mot de passe fourni est incorrect.");
+                    return RedirectToLocal(returnUrl);
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return RedirectToLocal(returnUrl);
+            return PartialView("_ConnexionBar");
         }
 
         //
@@ -158,7 +161,7 @@ namespace PousseDeBambin.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("Register", model);
         }
 
         //
