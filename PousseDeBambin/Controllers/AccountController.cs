@@ -49,10 +49,10 @@ namespace PousseDeBambin.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName_Login, model.Password_Login);
+                var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe_Login);
+                    await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -83,10 +83,10 @@ namespace PousseDeBambin.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName_Login, model.Password_Login);
+                var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe_Login);
+                    await SignInAsync(user, model.RememberMe);
 
                     return RedirectToLocal(returnUrl);
                 }
