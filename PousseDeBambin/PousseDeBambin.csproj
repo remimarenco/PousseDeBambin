@@ -400,6 +400,11 @@
     <Content Include="Content\newsletter\img\pitch\newsletter_21.png" />
     <Content Include="Content\newsletter\img\pitch\newsletter_22.png" />
     <Content Include="Content\newsletter\img\pitch\newsletter_23.png" />
+    <Content Include="Content\newsletter\img\pitch\newsletter_24.png" />
+    <Content Include="Content\newsletter\img\pitch\newsletter_25.png" />
+    <Content Include="Content\newsletter\img\pitch\newsletter_26.png" />
+    <Content Include="Content\newsletter\img\pitch\newsletter_27.png" />
+    <Content Include="Content\newsletter\img\pitch\newsletter_28.png" />
     <Content Include="Content\rateit.css" />
     <Content Include="Content\star.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
