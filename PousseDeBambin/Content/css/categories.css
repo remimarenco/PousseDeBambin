@@ -47,7 +47,7 @@
   transition: 0.5s;
 }
 .container_categories .cat2:after {
-  content: url('/Content/img/home/illu_offrir.jpg');
+  content: url('/Content/img/home/illu3.jpg');
   position: absolute;
   bottom: 8px;
   left: 116px;
