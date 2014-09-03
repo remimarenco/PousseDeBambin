@@ -5,7 +5,7 @@
 }
 
 <div class="barre_connexion">
-    ***REMOVED*** Si l'utilisateur n'est pas identifié, on affiche un formulaire de login + register -->
+    <!-- Si l'utilisateur n'est pas identifié, on affiche un formulaire de login + register -->
     @using (Html.BeginForm("LoginBar", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2">
-                ***REMOVED***<img id="searchAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading"
+                <!--<img id="searchAjaxLoading" class="ajaxLoadingGift" src="/Content/img/loading/ajax-loader.gif" alt="Loading"
                      style="display: none"/>-->
                 <input type="submit" id="submitLogin" value="Se connecter" class="btn btn-default" />
             </div>

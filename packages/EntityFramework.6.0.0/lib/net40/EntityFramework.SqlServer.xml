@@ -104,7 +104,7 @@
             A string like "Store-generated keys are only supported for identity columns. Key column '{0}' has type '{1}', which is not a valid type for an identity column."
             </summary>
         </member>
-        ***REMOVED*** Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Strings.Update_SqlEntitySetWithoutDmlFunctions(System.Object,System.Object,System.Object)" -->
+        <!-- Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Strings.Update_SqlEntitySetWithoutDmlFunctions(System.Object,System.Object,System.Object)" -->
         <member name="M:System.Data.Entity.SqlServer.Resources.Strings.Cqt_General_UnsupportedExpression(System.Object)">
             <summary>
             A string like "The expression '{0}' is of an unsupported type. "
@@ -150,7 +150,7 @@
             A string like "The specified provider value is not compatible with this spatial services implementation. A value is required of type '{0}'."
             </summary>
         </member>
-        ***REMOVED*** Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Strings.InvalidDatabaseName(System.Object)" -->
+        <!-- Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Strings.InvalidDatabaseName(System.Object)" -->
         <member name="M:System.Data.Entity.SqlServer.Resources.Strings.SqlServerMigrationSqlGenerator_UnknownOperation(System.Object,System.Object)">
             <summary>
             A string like "The current migration SQL generator ({0}) is unable to generate SQL for operations of type '{1}'. Call SetSqlGenerator on your migrations configuration class to use a different SQL generator. To create a custom SQL generator that can handle this type of operation, add a new class that derives from {0} and override Generate(MigrationOperation)."
@@ -281,7 +281,7 @@
             Strongly-typed and parameterized exception factory.
             </summary>
         </member>
-        ***REMOVED*** Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Error.InvalidDatabaseName(System.Object)" -->
+        <!-- Badly formed XML comment ignored for member "M:System.Data.Entity.SqlServer.Resources.Error.InvalidDatabaseName(System.Object)" -->
         <member name="M:System.Data.Entity.SqlServer.Resources.Error.SqlServerMigrationSqlGenerator_UnknownOperation(System.Object,System.Object)">
             <summary>
             InvalidOperationException with message like "The current migration SQL generator ({0}) is unable to generate SQL for operations of type '{1}'. Call SetSqlGenerator on your migrations configuration class to use a different SQL generator. To create a custom SQL generator that can handle this type of operation, add a new class that derives from {0} and override Generate(MigrationOperation)."

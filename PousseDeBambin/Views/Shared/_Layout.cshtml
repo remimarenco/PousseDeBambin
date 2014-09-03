@@ -11,7 +11,7 @@
     <link href="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/favicon.jpg")" rel="shortcut icon" type="image/jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    ***REMOVED***<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
     @Styles.Render("~/Styles/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -55,12 +55,12 @@
         <div id="connexionBar" class="connexionBar">
             @Html.Action("LoginBar", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })
         </div>
-        ***REMOVED*** @Html.Partial("_BaseLine") -->
+        <!-- @Html.Partial("_BaseLine") -->
         @Html.Partial("_MainTabs")
     </header>
-    ***REMOVED***d
+    <!--d
     </header>
-    ***REMOVED***div class="alert alert-success">
+    <!--div class="alert alert-success">
         <p id="textBeta">
             Pousse De Bambin vient de naître...et, comme tout être, va se perfectionner petit à petit. Ainsi
             <a href="mailto:remi@poussedebambin.com?subject=Retour Pousse De Bambin&cc=marion@poussedebambin.com&body=Bonjour," target="_blank" class="alert-link">contactez nous</a> pour faire votre retour ! Vous ferez une pousse heureux !
@@ -73,7 +73,7 @@
                 @RenderSection("breadCrumbs", required: false)
                 @RenderSection("featured", required: false)
                 <section id="mainSection">
-                    ***REMOVED*** Messages d'alerte divers-->
+                    <!-- Messages d'alerte divers-->
                     @Html.Partial("_AlertMessages")
                     @RenderBody()
                 </section>
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    ***REMOVED*** Viglink -->
+    <!-- Viglink -->
     <script type="text/javascript">
         var vglnk = {
             api_url: '//api.viglink.com/api',
@@ -100,7 +100,7 @@
             var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
         }(document, 'script'));
     </script>
-    ***REMOVED*** Social script -->
+    <!-- Social script -->
     <div id="fb-root"></div>
     <script>
         (function (d, s, id) {
@@ -119,9 +119,9 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
         })();
     </script>
-    ***REMOVED*** Fin Social script -->
-    ***REMOVED***<script type="text/javascript" src="http://s.skimresources.com/js/59995X1382328.skimlinks.js"></script>-->
-    ***REMOVED***Start of Zopim Live Chat Script-->
+    <!-- Fin Social script -->
+    <!--<script type="text/javascript" src="http://s.skimresources.com/js/59995X1382328.skimlinks.js"></script>-->
+    <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
         window.$zopim || (function (d, s) {
             var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
@@ -134,8 +134,8 @@
         })(document, 'script');
     </script>
 
-    ***REMOVED*** Code Google de la balise de remarketing -->
-    ***REMOVED***------------------------------------------------
+    <!-- Code Google de la balise de remarketing -->
+    <!--------------------------------------------------
     Les balises de remarketing ne peuvent pas être associées aux informations personnelles ou placées sur des pages liées aux catégories à caractère sensible. Pour comprendre et savoir comment configurer la balise, rendez-vous sur la page http://google.com/ads/remarketingsetup.
     --------------------------------------------------->
     <script type="text/javascript">
@@ -153,7 +153,7 @@
         </div>
     </noscript>
 
-    ***REMOVED***End of Zopim Live Chat Script-->
+    <!--End of Zopim Live Chat Script-->
     @RenderSection("OtherScripts", false)
 </body>
 </html>

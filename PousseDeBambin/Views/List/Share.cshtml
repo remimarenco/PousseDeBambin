@@ -2,11 +2,11 @@
 
 @section metaDescription
 {
-    ***REMOVED*** Google plus infos -->
-    ***REMOVED*** Mettez la balise html à jour pour inclure les attributs itemscope et itemtype. -->
+    <!-- Google plus infos -->
+    <!-- Mettez la balise html à jour pour inclure les attributs itemscope et itemtype. -->
     <html itemscope itemtype="http://schema.org/Product">
 
-    ***REMOVED*** Ajoutez les trois balises suivantes dans l'en-tête. -->
+    <!-- Ajoutez les trois balises suivantes dans l'en-tête. -->
     <meta itemprop="name" content="@Model.Name">
     <meta itemprop="description" content="@Model.Description">
     <meta itemprop="image" content="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")">
@@ -23,7 +23,7 @@
 <div class="share_list">
     <div class="fb-share-button" data-href="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)" data-type="button_count"></div>
     <a href="https://twitter.com/intent/tweet?button_hashtag=PousseDeBambin&text=Voici%20la%20liste%20de%20naissance%20pour%20mon%20enfant%20!%20Inspirez%20vous%20en%20%3B)" class="twitter-hashtag-button" data-lang="fr" data-related="PousseDeBambin" data-url="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)">Tweet #PousseDeBambin</a>
-    ***REMOVED*** Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
+    <!-- Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
     <div class="g-plus" data-action="share" data-annotation="none"></div>
 </div>
 
@@ -31,7 +31,7 @@
 
 @section OtherScripts
 {
-    ***REMOVED*** Google Code for Page cr&eacute;ation de liste Conversion Page -->
+    <!-- Google Code for Page cr&eacute;ation de liste Conversion Page -->
     <script type="text/javascript">
         /* <![CDATA[ */
         var google_conversion_id = 967658191;

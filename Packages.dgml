@@ -1,4 +1,4 @@
-***REMOVED***
+﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
     <Node Id="PousseDeBambin.Tests" Label="PousseDeBambin.Tests" Category="Projet" />

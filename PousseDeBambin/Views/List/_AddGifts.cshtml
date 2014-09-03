@@ -2,8 +2,8 @@
 
 @section metaDescription
 {
-    ***REMOVED*** Google plus infos -->
-    ***REMOVED*** Ajoutez les trois balises suivantes dans l'en-tête. -->
+    <!-- Google plus infos -->
+    <!-- Ajoutez les trois balises suivantes dans l'en-tête. -->
     <meta itemprop="name" content="@Model.Name">
     <meta itemprop="description" content="@Model.Description">
     <meta itemprop="image" content="@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/Content/img/home/logo.png")">
@@ -68,16 +68,16 @@
         </div>
         @if (Model.Gifts.Count == 0)
         {
-            ***REMOVED*** url qui redirige vers "comment ça marche" youtube-->
+            <!-- url qui redirige vers "comment ça marche" youtube-->
             <a href="http://youtu.be/7a8mbMzDg0o" target="_blank" id="img_video" title="Comment ça marche?"></a>
         }
     </div>
 
-    ***REMOVED*** Div Partage -->
+    <!-- Div Partage -->
     <div class="share_list">
         <div class="fb-share-button" data-href="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)" data-type="button_count"></div>
         <a href="https://twitter.com/intent/tweet?button_hashtag=PousseDeBambin&text=Voici%20la%20liste%20de%20naissance%20pour%20mon%20enfant%20!%20Inspirez%20vous%20en%20%3B)" class="twitter-hashtag-button" data-lang="fr" data-related="PousseDeBambin" data-url="@Url.Action("Manage", "List", new { id = Model.ListId }, Request.Url.Scheme)">Tweet #PousseDeBambin</a>
-        ***REMOVED*** Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
+        <!-- Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
         <div class="g-plus" data-action="share" data-annotation="none"></div>
     </div>
 
@@ -97,7 +97,7 @@
             <th class="cat_list_cadeau">Prix</th>
             <th class="cat_list_cadeau">Gestion</th>
         </tr>
-        ***REMOVED*** On affiche tous les cadeaux déjà entrés -->
+        <!-- On affiche tous les cadeaux déjà entrés -->
         @Html.Action("DisplayGifts", "List", new { id = Model.ListId })
 
         @Html.Action("ValidationModule", "List", new { id = Model.ListId })
@@ -110,7 +110,7 @@
                 @Html.Action("CreatePartialTwo", "Gift", new { listID = Model.ListId })
             </tr>
         }
-        ***REMOVED*** On Success, on update en ajax la liste des gifts -->
+        <!-- On Success, on update en ajax la liste des gifts -->
     </table>
 
 </div>
@@ -124,10 +124,10 @@
                 <h4 id="objectTitle" class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body modal_achat_body">
-                ***REMOVED*** Indiquer qu'il faut revenir ici pour valider l'achat de l'objet -->
-                ***REMOVED*** Mettre nom de l'objet -->
-                ***REMOVED*** Mettre l'adresse de livraison -->
-                ***REMOVED*** Mettre l'url pour rediriger vers le site de l'url -->
+                <!-- Indiquer qu'il faut revenir ici pour valider l'achat de l'objet -->
+                <!-- Mettre nom de l'objet -->
+                <!-- Mettre l'adresse de livraison -->
+                <!-- Mettre l'url pour rediriger vers le site de l'url -->
                 <p class="texte_intro">@Model.UserProfile.FirstName vous remercie pour votre souhait d'achat !</p>
                 <div class="left_part">
                     <div class="modal-picture">
@@ -141,8 +141,8 @@
                         <p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="buttonOrder btn" type="button">J'achète ce cadeau !</a>
                     </div>
                 </div>
-                ***REMOVED***<p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>-->
-                ***REMOVED*** Mettre un formulaire pour entrer le nom de la personne et son message -->
+                <!--<p id="pObjectUrl"><a id="objectUrl" href="#" data-url="" class="btn btn-success btn-lg" type="button"></a></p>-->
+                <!-- Mettre un formulaire pour entrer le nom de la personne et son message -->
                 <div id="left_side_comment">
                     <p><span class="title_sides">Personnalisez votre cadeau en ajoutant un petit mot :</span></p>
                     <div id="commentBuyObject">
@@ -161,7 +161,7 @@
                         <div class="ville"><p><label for="ville">Ville : </label><input type="text" id="inputVille" class="input_pdb" required placeholder="ex : Lyon" /></p></div>
                         <div class="pays"><p><label for="pays">Pays : </label><input type="text" id="inputPays" class="input_pdb" required placeholder="ex : France" /></p></div>
 
-                        ***REMOVED***<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->
+                        <!--<textarea id="inputMessage" placeholder="Un message pour @(Model.UserProfile.FirstName) :)"></textarea>-->
                     </div>
                 </div>
             </div>
@@ -177,9 +177,9 @@
                 </button>
             </div>
 
-            ***REMOVED*** /.modal-content -->
+            <!-- /.modal-content -->
         </div>
-        ***REMOVED*** /.modal-dialog -->
+        <!-- /.modal-dialog -->
     </div>
 </div>
 

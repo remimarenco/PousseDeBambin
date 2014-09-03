@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-***REMOVED***
+<configuration>
   <system.web.webPages.razor>
     <pages>
       <namespaces>
@@ -7,4 +7,4 @@
       </namespaces>
     </pages>
   </system.web.webPages.razor>
-***REMOVED***
+</configuration>

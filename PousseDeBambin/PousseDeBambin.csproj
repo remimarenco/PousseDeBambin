@@ -1,4 +1,4 @@
-***REMOVED***
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -686,6 +686,13 @@
     <Content Include="Views\Shared\DisplayTemplates\_PrioriteRating.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_PrioriteRating.cshtml" />
     <Content Include="Views\List\_News.cshtml" />
+    <None Include="Web.config.example" />
+    <None Include="Web.config.Debug.example">
+      <DependentUpon>Web.config.example</DependentUpon>
+    </None>
+    <None Include="Web.config.Release.example">
+      <DependentUpon>Web.config.example</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -727,7 +734,7 @@
       <UserProperties UseCdnSupport="False" />
     </VisualStudio>
   </ProjectExtensions>
-  ***REMOVED*** To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
